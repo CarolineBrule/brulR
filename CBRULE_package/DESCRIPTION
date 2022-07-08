@@ -1,0 +1,5 @@
+Package: CBRULE
+Type: Package
+Title: Personnal functions developped to make my life easy
+Version: 0.0.1.0
+RoxygenNote: 7.2.0
