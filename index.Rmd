@@ -5,5 +5,12 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+# Préface {-}
 
+Bienvenue dans facileR, un guide qui vise à rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus facile. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C’est là que ce guide intervient.
+
+facileR n’est pas seulement un recueil de bonnes pratiques, c’est un effort collectif pour créer un langage commun à travers le Tidyverse, qui simplifie nos échanges et améliore la qualité de nos analyses. Que vous soyez un habitué du R ou que vous commenciez tout juste à explorer ses possibilités, ce guide est là pour vous accompagner.
+
+L’objectif est simple : uniformiser notre syntaxe et renforcer notre cohésion en tant qu’équipe. Grâce à des exemples concrets et des conseils pratiques, facileR vous aidera à écrire du code propre, efficace et facilement compréhensible par tous. Ensemble, faisons en sorte que coder en R devienne une expérience encore plus fluide et agréable.
+
+Merci de faire partie de cette aventure collective, où chacun de nous contribue à rendre le R plus "facileR" pour tous.
