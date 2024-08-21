@@ -1,2 +1,11 @@
-# Tidyverse et compagnie
+# Introduction
 
+## pourquoi on fait ca
+
+## What is tidyverse
+
+## creer une fonction
+
+## creer un package 
+
+## work flow

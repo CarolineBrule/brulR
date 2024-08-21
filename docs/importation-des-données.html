@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Importation des données | facileR comme bonjour : Le guide pour un code qui circule bien</title>
+  <meta name="description" content="Chapitre 2 Importation des données | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Importation des données | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Importation des données | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  
+  
+  
+
+<meta name="author" content="Caroline Brûlé" />
+
+
+<meta name="date" content="2024-08-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="formattage-des-données.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">facileR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-on-fait-ca"><i class="fa fa-check"></i><b>1.1</b> pourquoi on fait ca</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-is-tidyverse"><i class="fa fa-check"></i><b>1.2</b> What is tidyverse</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#creer-une-fonction"><i class="fa fa-check"></i><b>1.3</b> creer une fonction</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#creer-un-package"><i class="fa fa-check"></i><b>1.4</b> creer un package</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#work-flow"><i class="fa fa-check"></i><b>1.5</b> work flow</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>2</b> Importation des données</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>2.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>2.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>2.1.2</b> Exemple avec un fichier CSV</a></li>
+<li class="chapter" data-level="2.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Exemple avec un fichier XLSX</a></li>
+<li class="chapter" data-level="2.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion"><i class="fa fa-check"></i><b>2.1.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>2.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>2.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>2.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="2.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>2.2.3</b> Lire plusieurs feuilles</a></li>
+<li class="chapter" data-level="2.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>2.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="2.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>2.2.5</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>3</b> Formattage des données</a></li>
+<li class="chapter" data-level="4" data-path="validation-des-données.html"><a href="validation-des-données.html"><i class="fa fa-check"></i><b>4</b> Validation des données</a></li>
+<li class="chapter" data-level="5" data-path="tableaux.html"><a href="tableaux.html"><i class="fa fa-check"></i><b>5</b> Tableaux</a></li>
+<li class="chapter" data-level="6" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>6</b> Figures</a></li>
+<li class="chapter" data-level="7" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>7</b> Cartes interactives</a></li>
+<li class="chapter" data-level="8" data-path="création-dun-rapport-paramétrique.html"><a href="création-dun-rapport-paramétrique.html"><i class="fa fa-check"></i><b>8</b> Création d’un rapport paramétrique</a></li>
+<li class="chapter" data-level="9" data-path="dashboard.html"><a href="dashboard.html"><i class="fa fa-check"></i><b>9</b> Dashboard</a></li>
+<li class="chapter" data-level="10" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>10</b> Application</a></li>
+<li class="chapter" data-level="11" data-path="maintenance-et-reproductibilité.html"><a href="maintenance-et-reproductibilité.html"><i class="fa fa-check"></i><b>11</b> Maintenance et reproductibilité</a></li>
+<li class="chapter" data-level="12" data-path="reprex.html"><a href="reprex.html"><i class="fa fa-check"></i><b>12</b> Reprex</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">facileR comme bonjour : Le guide pour un code qui circule bien</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importation-des-données" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapitre 2</span> Importation des données<a href="importation-des-données.html#importation-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lorsqu’on travaille avec des fichiers sur différents systèmes d’exploitation ou dans des environnements partagés (comme un gros serveur), il est essentiel de gérer les chemins de fichiers de manière à éviter les erreurs dues à des séparateurs de dossiers incorrects ou à des chemins absolus spécifiques à un système.</p>
+<div id="pourquoi-utiliser-file.path" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Pourquoi utiliser <code>file.path()</code> ?<a href="importation-des-données.html#pourquoi-utiliser-file.path" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La fonction <code>file.path()</code> est particulièrement utile pour construire des chemins de fichiers de manière sûre et portable. Voici quelques raisons pour lesquelles vous devriez utiliser <code>file.path()</code> :</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Séparateurs automatiques</strong> : <code>file.path()</code> insère automatiquement les bons séparateurs de dossiers (<code>/</code> pour Linux et macOS, <code>\</code> pour Windows), évitant ainsi les erreurs.</p></li>
+<li><p><strong>Portabilité</strong> : Votre code fonctionnera de manière identique quel que soit le système d’exploitation utilisé.</p></li>
+<li><p><strong>Clarté</strong> : Le code devient plus lisible, en séparant clairement les différents composants du chemin de fichier.</p></li>
+</ol>
+</div>
+<div id="exemple-avec-un-fichier-csv" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Exemple avec un fichier CSV<a href="importation-des-données.html#exemple-avec-un-fichier-csv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supposons que vous avez un fichier CSV appelé <code>mon_fichier.csv</code> situé dans un dossier <code>data</code>, lui-même dans un dossier parent <code>projet</code>.</p>
+<p>Voici comment vous pouvez construire le chemin de ce fichier et le lire dans R :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="importation-des-données.html#cb1-1" tabindex="-1"></a><span class="co"># Charger les packages nécessaires</span></span>
+<span id="cb1-2"><a href="importation-des-données.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="importation-des-données.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="importation-des-données.html#cb1-4" tabindex="-1"></a><span class="co"># Construire le chemin complet du fichier CSV</span></span>
+<span id="cb1-5"><a href="importation-des-données.html#cb1-5" tabindex="-1"></a>chemin_csv <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;projet&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;mon_fichier.csv&quot;</span>) </span>
+<span id="cb1-6"><a href="importation-des-données.html#cb1-6" tabindex="-1"></a><span class="co">#on évite &quot;chemin/vers/votre_fichier.csv&quot;</span></span>
+<span id="cb1-7"><a href="importation-des-données.html#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="importation-des-données.html#cb1-8" tabindex="-1"></a><span class="co"># Lire le fichier CSV dans un dataframe</span></span>
+<span id="cb1-9"><a href="importation-des-données.html#cb1-9" tabindex="-1"></a>mon_dataframe <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(chemin_csv)</span>
+<span id="cb1-10"><a href="importation-des-données.html#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="importation-des-données.html#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="importation-des-données.html#cb1-12" tabindex="-1"></a><span class="co"># Lire le fichier CSV dans un dataframe</span></span>
+<span id="cb1-13"><a href="importation-des-données.html#cb1-13" tabindex="-1"></a>mon_dataframe <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(chemin_local)</span></code></pre></div>
+<p>Dans cet exemple, <code>file.path("projet", "data", "mon_fichier.csv")</code> crée un chemin correct en fonction du système d’exploitation, que ce soit sur votre machine locale ou sur un serveur.</p>
+</div>
+<div id="exemple-avec-un-fichier-xlsx" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Exemple avec un fichier XLSX<a href="importation-des-données.html#exemple-avec-un-fichier-xlsx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le même principe s’applique si vous travaillez avec des fichiers Excel (<code>.xlsx</code>). Par exemple, si vous avez un fichier <code>mon_tableau.xlsx</code> dans le même dossier <code>data</code>, vous pouvez le lire ainsi :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="importation-des-données.html#cb2-1" tabindex="-1"></a><span class="co"># Charger le package readxl pour lire les fichiers XLSX</span></span>
+<span id="cb2-2"><a href="importation-des-données.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-3"><a href="importation-des-données.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="importation-des-données.html#cb2-4" tabindex="-1"></a><span class="co"># Construire le chemin complet du fichier XLSX</span></span>
+<span id="cb2-5"><a href="importation-des-données.html#cb2-5" tabindex="-1"></a>chemin_xlsx <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;projet&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;mon_tableau.xlsx&quot;</span>)</span>
+<span id="cb2-6"><a href="importation-des-données.html#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="importation-des-données.html#cb2-7" tabindex="-1"></a><span class="co"># Lire la première feuille du fichier XLSX dans un dataframe</span></span>
+<span id="cb2-8"><a href="importation-des-données.html#cb2-8" tabindex="-1"></a>mon_tableau <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(chemin_xlsx)</span></code></pre></div>
+<p>Ici, <code>file.path("projet", "data", "mon_tableau.xlsx")</code> s’assure que le chemin du fichier est correctement formaté, évitant ainsi les erreurs dues à des séparateurs de dossiers incorrects.</p>
+</div>
+<div id="conclusion" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Conclusion<a href="importation-des-données.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En utilisant <code>file.path()</code>, vous vous assurez que les chemins de fichiers dans votre code R sont toujours construits de manière robuste, quelle que soit la plateforme sur laquelle vous travaillez. C’est une pratique simple mais essentielle pour écrire du code portable et fiable.</p>
+</div>
+</div>
+<div id="télécharger-des-feuilles-spécifiques-dun-fichier-xlsx" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Télécharger des feuilles spécifiques d’un fichier XLSX<a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans certains cas, vous pouvez avoir besoin de lire seulement une ou plusieurs feuilles spécifiques d’un fichier Excel (<code>.xlsx</code>). Le package <code>readxl</code> en R vous permet de le faire de manière simple et efficace.</p>
+<div id="pourquoi-lire-des-feuilles-spécifiques" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Pourquoi lire des feuilles spécifiques ?<a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les fichiers Excel peuvent contenir plusieurs feuilles, chacune pouvant représenter un ensemble de données distinct. Il est souvent inutile de charger l’ensemble du fichier si vous avez besoin d’une seule feuille. Lire uniquement les feuilles spécifiques réduit l’utilisation de la mémoire et accélère le processus de chargement des données.</p>
+</div>
+<div id="charger-une-feuille-spécifique" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Charger une feuille spécifique<a href="importation-des-données.html#charger-une-feuille-spécifique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supposons que vous avez un fichier Excel appelé <code>mon_fichier.xlsx</code> avec plusieurs feuilles, et que vous souhaitez charger uniquement la feuille intitulée <code>"Feuille1"</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="importation-des-données.html#cb3-1" tabindex="-1"></a><span class="co"># Charger le package readxl</span></span>
+<span id="cb3-2"><a href="importation-des-données.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-3"><a href="importation-des-données.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="importation-des-données.html#cb3-4" tabindex="-1"></a><span class="co"># Construire le chemin du fichier XLSX</span></span>
+<span id="cb3-5"><a href="importation-des-données.html#cb3-5" tabindex="-1"></a>chemin_xlsx <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;projet&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;mon_fichier.xlsx&quot;</span>)</span>
+<span id="cb3-6"><a href="importation-des-données.html#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="importation-des-données.html#cb3-7" tabindex="-1"></a><span class="co"># Lire la feuille spécifique &quot;Feuille1&quot; dans un dataframe</span></span>
+<span id="cb3-8"><a href="importation-des-données.html#cb3-8" tabindex="-1"></a>feuille1_dataframe <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(chemin_xlsx, <span class="at">sheet =</span> <span class="st">&quot;Feuille1&quot;</span>)</span></code></pre></div>
+<p>Dans cet exemple, <code>read_excel()</code> avec l’argument <code>sheet</code> spécifie la feuille à lire. Le chemin complet du fichier est construit à l’aide de <code>file.path()</code> pour assurer la portabilité du code.</p>
+</div>
+<div id="lire-plusieurs-feuilles" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Lire plusieurs feuilles<a href="importation-des-données.html#lire-plusieurs-feuilles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si vous avez besoin de lire plusieurs feuilles, vous pouvez procéder de la manière suivante :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="importation-des-données.html#cb4-1" tabindex="-1"></a><span class="co"># Lire plusieurs feuilles spécifiques en une seule fois</span></span>
+<span id="cb4-2"><a href="importation-des-données.html#cb4-2" tabindex="-1"></a>feuilles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Feuille1&quot;</span>, <span class="st">&quot;Feuille2&quot;</span>)</span>
+<span id="cb4-3"><a href="importation-des-données.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="importation-des-données.html#cb4-4" tabindex="-1"></a><span class="co"># Utiliser lapply pour lire chaque feuille dans une liste de dataframes</span></span>
+<span id="cb4-5"><a href="importation-des-données.html#cb4-5" tabindex="-1"></a>liste_dataframes <span class="ot">&lt;-</span> <span class="fu">lapply</span>(feuilles, <span class="cf">function</span>(feuille) {</span>
+<span id="cb4-6"><a href="importation-des-données.html#cb4-6" tabindex="-1"></a>  <span class="fu">read_excel</span>(chemin_xlsx, <span class="at">sheet =</span> feuille)</span>
+<span id="cb4-7"><a href="importation-des-données.html#cb4-7" tabindex="-1"></a>})</span>
+<span id="cb4-8"><a href="importation-des-données.html#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="importation-des-données.html#cb4-9" tabindex="-1"></a><span class="co"># Afficher les premières lignes de chaque dataframe</span></span>
+<span id="cb4-10"><a href="importation-des-données.html#cb4-10" tabindex="-1"></a><span class="fu">lapply</span>(liste_dataframes, head)</span></code></pre></div>
+<p>Dans cet exemple, <code>lapply()</code> est utilisé pour lire plusieurs feuilles spécifiques et les stocker dans une liste de dataframes. Cela permet de travailler facilement avec plusieurs ensembles de données provenant du même fichier Excel.</p>
+</div>
+<div id="lire-une-feuille-par-son-numéro" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Lire une feuille par son numéro<a href="importation-des-données.html#lire-une-feuille-par-son-numéro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vous pouvez aussi spécifier une feuille par son numéro d’ordre, ce qui est utile si vous ne connaissez pas le nom exact de la feuille :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="importation-des-données.html#cb5-1" tabindex="-1"></a><span class="co"># Lire la première feuille du fichier</span></span>
+<span id="cb5-2"><a href="importation-des-données.html#cb5-2" tabindex="-1"></a>premiere_feuille <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(chemin_xlsx, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>Dans ce cas, l’argument <code>sheet = 1</code> indique que la première feuille du fichier doit être lue.</p>
+</div>
+<div id="conclusion-1" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Conclusion<a href="importation-des-données.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La capacité de lire des feuilles spécifiques d’un fichier Excel vous donne une grande flexibilité dans la gestion de vos données. Que vous ayez besoin de travailler avec une seule feuille ou plusieurs, le package <code>readxl</code> et R vous fournissent les outils nécessaires pour le faire efficacement.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formattage-des-données.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarolineBrule/facileR/edit/main/02-compilation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CarolineBrule/facileR/blob/main/02-compilation.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
