@@ -1,9 +1,3 @@
-introduction
-pourquoi-on-fait-ca
-what-is-tidyverse
-creer-une-fonction
-creer-un-package
-work-flow
 importation-des-données
 gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path
 pourquoi-utiliser-file.path
@@ -16,13 +10,3 @@ charger-une-feuille-spécifique
 lire-plusieurs-feuilles
 lire-une-feuille-par-son-numéro
 conclusion-1
-formattage-des-données
-validation-des-données
-tableaux
-figures
-cartes-interactives
-création-dun-rapport-paramétrique
-dashboard
-application
-maintenance-et-reproductibilité
-reprex

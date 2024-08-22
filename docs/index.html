@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>facileR comme bonjour : Le guide pour un code qui circule bien</title>
-  <meta name="description" content="facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <title>brulR : Parler le même langage</title>
+  <meta name="description" content="brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta property="og:title" content="brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta name="twitter:title" content="brulR : Parler le même langage" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="introduction.html"/>
+<link rel="next" href="importation-des-données.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -141,42 +141,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>1</b> Importation des données</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-on-fait-ca"><i class="fa fa-check"></i><b>1.1</b> pourquoi on fait ca</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-is-tidyverse"><i class="fa fa-check"></i><b>1.2</b> What is tidyverse</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#creer-une-fonction"><i class="fa fa-check"></i><b>1.3</b> creer une fonction</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#creer-un-package"><i class="fa fa-check"></i><b>1.4</b> creer un package</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#work-flow"><i class="fa fa-check"></i><b>1.5</b> work flow</a></li>
+<li class="chapter" data-level="1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>1.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>1.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>1.1.2</b> Exemple avec un fichier CSV</a></li>
+<li class="chapter" data-level="1.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>1.1.3</b> Exemple avec un fichier XLSX</a></li>
+<li class="chapter" data-level="1.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion"><i class="fa fa-check"></i><b>1.1.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>2</b> Importation des données</a>
+<li class="chapter" data-level="1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>1.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>2.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>2.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
-<li class="chapter" data-level="2.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>2.1.2</b> Exemple avec un fichier CSV</a></li>
-<li class="chapter" data-level="2.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Exemple avec un fichier XLSX</a></li>
-<li class="chapter" data-level="2.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion"><i class="fa fa-check"></i><b>2.1.4</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>2.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>2.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
-<li class="chapter" data-level="2.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>2.2.2</b> Charger une feuille spécifique</a></li>
-<li class="chapter" data-level="2.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>2.2.3</b> Lire plusieurs feuilles</a></li>
-<li class="chapter" data-level="2.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>2.2.4</b> Lire une feuille par son numéro</a></li>
-<li class="chapter" data-level="2.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>2.2.5</b> Conclusion</a></li>
+<li class="chapter" data-level="1.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>1.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>1.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="1.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>1.2.3</b> Lire plusieurs feuilles</a></li>
+<li class="chapter" data-level="1.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>1.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="1.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>1.2.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>3</b> Formattage des données</a></li>
-<li class="chapter" data-level="4" data-path="validation-des-données.html"><a href="validation-des-données.html"><i class="fa fa-check"></i><b>4</b> Validation des données</a></li>
-<li class="chapter" data-level="5" data-path="tableaux.html"><a href="tableaux.html"><i class="fa fa-check"></i><b>5</b> Tableaux</a></li>
-<li class="chapter" data-level="6" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>6</b> Figures</a></li>
-<li class="chapter" data-level="7" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>7</b> Cartes interactives</a></li>
-<li class="chapter" data-level="8" data-path="création-dun-rapport-paramétrique.html"><a href="création-dun-rapport-paramétrique.html"><i class="fa fa-check"></i><b>8</b> Création d’un rapport paramétrique</a></li>
-<li class="chapter" data-level="9" data-path="dashboard.html"><a href="dashboard.html"><i class="fa fa-check"></i><b>9</b> Dashboard</a></li>
-<li class="chapter" data-level="10" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>10</b> Application</a></li>
-<li class="chapter" data-level="11" data-path="maintenance-et-reproductibilité.html"><a href="maintenance-et-reproductibilité.html"><i class="fa fa-check"></i><b>11</b> Maintenance et reproductibilité</a></li>
-<li class="chapter" data-level="12" data-path="reprex.html"><a href="reprex.html"><i class="fa fa-check"></i><b>12</b> Reprex</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -188,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">facileR comme bonjour : Le guide pour un code qui circule bien</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">brulR : Parler le même langage</a>
           </h1>
         </div>
 
@@ -197,16 +179,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">facileR comme bonjour : Le guide pour un code qui circule bien</h1>
+<h1 class="title">brulR : Parler le même langage</h1>
 <p class="author"><em>Caroline Brûlé</em></p>
-<p class="date"><em>2024-08-21</em></p>
+<p class="date"><em>2024-08-22</em></p>
 </div>
 <div id="préface" class="section level1 unnumbered hasAnchor">
 <h1>Préface<a href="index.html#préface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Bienvenue dans facileR, un guide qui vise à rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus facile. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C’est là que ce guide intervient.</p>
-<p>facileR n’est pas seulement un recueil de bonnes pratiques, c’est un effort collectif pour créer un langage commun à travers le Tidyverse, qui simplifie nos échanges et améliore la qualité de nos analyses. Que vous soyez un habitué du R ou que vous commenciez tout juste à explorer ses possibilités, ce guide est là pour vous accompagner.</p>
-<p>L’objectif est simple : uniformiser notre syntaxe et renforcer notre cohésion en tant qu’équipe. Grâce à des exemples concrets et des conseils pratiques, facileR vous aidera à écrire du code propre, efficace et facilement compréhensible par tous. Ensemble, faisons en sorte que coder en R devienne une expérience encore plus fluide et agréable.</p>
-<p>Merci de faire partie de cette aventure collective, où chacun de nous contribue à rendre le R plus “facileR” pour tous.</p>
+<p>Bienvenue dans <strong>brulR: Parler le même langage</strong>, un guide conçu pour rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus compréhensible pour tous. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C’est là que ce guide prend tout son sens.</p>
+<p><strong>brulR</strong> n’est pas seulement un recueil de bonnes pratiques; c’est un effort collectif pour créer un langage commun, unifier nos syntaxes et ainsi simplifier nos échanges tout en améliorant la qualité de nos analyses. Que vous soyez un habitué de R ou que vous commenciez tout juste à explorer ses possibilités, ce guide est là pour vous accompagner.</p>
+<p>L’objectif est clair : uniformiser notre syntaxe pour que, en tant qu’équipe, nous parlions tous le même langage. Grâce à des exemples concrets et des conseils pratiques, <strong>brulR</strong> vous aidera à écrire du code propre, efficace et facilement compréhensible par tous. Ensemble, faisons en sorte que coder en R devienne une expérience encore plus fluide, cohérente et agréable.</p>
+<p>Merci de faire partie de cette aventure collective, où chacun de nous contribue à ce que nous parlions tous le même langage en R.</p>
 
 </div>
             </section>
@@ -215,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="importation-des-données.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,16 +1,18 @@
---- 
-title: "facileR comme bonjour : Le guide pour un code qui circule bien"
+---
+title: "brulR : Parler le même langage"
 author: "Caroline Brûlé"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Préface {-}
+![hexbrulR](images/hex-brulR.png)
 
-Bienvenue dans facileR, un guide qui vise à rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus facile. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C’est là que ce guide intervient.
+# Préface {.unnumbered}
 
-facileR n’est pas seulement un recueil de bonnes pratiques, c’est un effort collectif pour créer un langage commun à travers le Tidyverse, qui simplifie nos échanges et améliore la qualité de nos analyses. Que vous soyez un habitué du R ou que vous commenciez tout juste à explorer ses possibilités, ce guide est là pour vous accompagner.
+Bienvenue dans **brulR: Parler le même langage**, un guide conçu pour rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus compréhensible pour tous. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C'est là que ce guide prend tout son sens.
 
-L’objectif est simple : uniformiser notre syntaxe et renforcer notre cohésion en tant qu’équipe. Grâce à des exemples concrets et des conseils pratiques, facileR vous aidera à écrire du code propre, efficace et facilement compréhensible par tous. Ensemble, faisons en sorte que coder en R devienne une expérience encore plus fluide et agréable.
+**brulR** n'est pas seulement un recueil de bonnes pratiques; c'est un effort collectif pour créer un langage commun, unifier nos syntaxes et ainsi simplifier nos échanges tout en améliorant la qualité de nos analyses. Que vous soyez un habitué de R ou que vous commenciez tout juste à explorer ses possibilités, ce guide est là pour vous accompagner.
 
-Merci de faire partie de cette aventure collective, où chacun de nous contribue à rendre le R plus "facileR" pour tous.
+L'objectif est clair : uniformiser notre syntaxe pour que, en tant qu'équipe, nous parlions tous le même langage. Grâce à des exemples concrets et des conseils pratiques, **brulR** vous aidera à écrire du code propre, efficace et facilement compréhensible par tous. Ensemble, faisons en sorte que coder en R devienne une expérience encore plus fluide, cohérente et agréable.
+
+Merci de faire partie de cette aventure collective, où chacun de nous contribue à ce que nous parlions tous le même langage en R.
