@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="uniformiser-la-syntaxe-r.html"/>
-
+<link rel="next" href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -185,6 +185,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><i class="fa fa-check"></i><b>4</b> L’art du REPREX : pourquoi et comment créer des exemples reproductibles</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex"><i class="fa fa-check"></i><b>4.1</b> Qu’est-ce qu’un REPREX ?</a></li>
+<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
+<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
+<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
+<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
+<li class="chapter" data-level="4.3.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex"><i class="fa fa-check"></i><b>4.3.4</b> Tester le REPREX</a></li>
+<li class="chapter" data-level="4.3.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex"><i class="fa fa-check"></i><b>4.3.5</b> Utiliser le package <code>reprex</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex"><i class="fa fa-check"></i><b>4.3.6</b> Partager le REPREX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques"><i class="fa fa-check"></i><b>4.4</b> Exemples de bonnes pratiques</a></li>
+<li class="chapter" data-level="4.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -309,8 +325,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="uniformiser-la-syntaxe-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="uniformiser-la-syntaxe-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

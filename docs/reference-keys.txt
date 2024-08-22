@@ -30,3 +30,15 @@ charger-une-feuille-spécifique
 lire-plusieurs-feuilles
 lire-une-feuille-par-son-numéro
 conclusion-2
+lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles
+quest-ce-quun-reprex
+pourquoi-écrire-un-reprex
+comment-écrire-un-reprex
+isoler-le-problème
+utiliser-des-données-simulées-ou-publiques
+inclure-le-contexte-nécessaire
+tester-le-reprex
+utiliser-le-package-reprex
+partager-le-reprex
+exemples-de-bonnes-pratiques
+conclusion-3

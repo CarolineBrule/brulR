@@ -1,0 +1,128 @@
+# L'art du REPREX : pourquoi et comment créer des exemples reproductibles
+
+## Qu'est-ce qu'un REPREX ?
+
+Un REPREX, ou **REPRoducible EXample**, est un extrait de code qui reproduit un problème ou une question de manière concise et reproductible. Il s'agit d'une pratique essentielle lorsque vous demandez de l'aide, que vous partagez un problème sur un forum, ou que vous collaborez avec d'autres personnes sur un projet R. L'idée est de fournir un exemple minimal qui montre clairement le problème ou la question, tout en étant simple à comprendre et à exécuter.
+
+## Pourquoi écrire un REPREX ?
+
+Écrire un REPREX présente plusieurs avantages significatifs :
+
+-   **Clarté** : Un REPREX force à isoler le problème ou la question spécifique, éliminant le bruit des autres parties du code. Cela aide non seulement à clarifier la question pour les autres, mais aussi à mieux comprendre le problème vous-même.
+
+-   **Reproductibilité** : En fournissant un exemple reproductible, vous permettez à ceux qui vous aident de reproduire exactement le même problème que vous rencontrez. Cela accélère la résolution des problèmes.
+
+-   **Efficacité** : Un REPREX bien conçu permet à la personne qui vous aide de se concentrer sur l'essentiel, ce qui augmente les chances d'obtenir une réponse rapide et précise.
+
+-   **Documentation** : Les REPREX peuvent également servir de documentation pour des problèmes ou des questions résolus. Ils constituent des exemples concrets de ce qui a été essayé et de ce qui fonctionne ou ne fonctionne pas.
+
+-   **Réflexion** : Le processus d'écriture d'un REPREX peut souvent vous amener à trouver la solution par vous-même, en simplifiant et en isolant le problème.
+
+## Comment écrire un REPREX ?
+
+Voici les étapes pour écrire un bon REPREX :
+
+### Isoler le problème
+
+Commencez par isoler le problème ou la question spécifique que vous rencontrez. Essayez de réduire le code à l'essentiel nécessaire pour reproduire le problème. Évitez d'inclure des parties de code non pertinentes.
+
+### Utiliser des données simulées ou publiques
+
+Si possible, utilisez des données simulées ou un sous-ensemble de données publiques pour rendre votre exemple reproductible par tous. Vous pouvez utiliser des fonctions comme `set.seed()` pour garantir que les résultats sont reproductibles.
+
+```{r, eval=FALSE}
+set.seed(123)
+data <- data.frame(
+  x = rnorm(10),
+  y = rnorm(10)
+)
+```
+
+### Inclure le contexte nécessaire
+
+Assurez-vous que votre REPREX inclut toutes les informations nécessaires pour reproduire le problème, telles que les packages utilisés, les options de configuration, et les versions importantes de R ou de packages.
+
+```{r, eval=FALSE}
+# Packages nécessaires
+library(ggplot2)
+
+# Exemple minimal
+set.seed(123)
+data <- data.frame(
+  x = rnorm(10),
+  y = rnorm(10)
+)
+
+# Problème : la fonction geom_point ne fonctionne pas comme prévu
+ggplot(data, aes(x, y)) +
+  geom_point() +
+  labs(title = "Graphique d'exemple")
+```
+
+### Tester le REPREX
+
+Avant de partager votre REPREX, testez-le dans une nouvelle session R pour vous assurer qu'il reproduit bien le problème de manière isolée. Si le problème ne se reproduit pas, essayez de réduire encore le code ou de vérifier les dépendances.
+
+### Utiliser le package `reprex`
+
+Le package `reprex` (Reproducible Example) de R est conçu pour faciliter la création et le partage de REPREX. Il capture le code R, l'exécute, et produit une sortie formatée pour les forums, les e-mails, ou d'autres contextes.
+
+Pour créer un REPREX avec le package `reprex` :
+
+1.  Installez et chargez le package :
+
+```{r, eval=FALSE}
+install.packages("reprex")
+library(reprex)
+```
+
+2.  Créez votre REPREX :
+
+```{r, eval=FALSE}
+reprex({
+  # Code ici
+  set.seed(123)
+  data <- data.frame(
+    x = rnorm(10),
+    y = rnorm(10)
+  )
+  ggplot(data, aes(x, y)) +
+    geom_point() +
+    labs(title = "Graphique d'exemple")
+})
+```
+
+3.  `reprex` génère un extrait de code avec la sortie incluse, formaté pour être facilement partagé.
+
+### Partager le REPREX
+
+Une fois que votre REPREX est prêt et testé, partagez-le dans le contexte approprié, que ce soit un forum, un e-mail, ou un système de gestion de tickets. Assurez-vous que le formatage est correct et que tous les éléments nécessaires sont inclus.
+
+## Exemples de bonnes pratiques
+
+-   **Bon REPREX** :
+
+```{r, eval=FALSE}
+library(dplyr)
+data <- data.frame(x = c(1, 2, NA, 4), y = c(5, 6, 7, NA))
+
+result <- data %>%
+  mutate(z = x + y)
+
+print(result)
+```
+
+-   **Mauvais REPREX** :
+
+```{r, eval=FALSE}
+data <- read.csv("myfile.csv")
+result <- mutate(z = x + y)
+```
+
+Dans le mauvais exemple, il manque les packages nécessaires, la source des données, et le problème n'est pas clairement défini. Le bon REPREX, en revanche, est autonome, clair, et reproduit un problème spécifique.
+
+## Conclusion
+
+L'écriture de REPREX est une compétence essentielle pour tout utilisateur de R, que ce soit pour demander de l'aide, collaborer avec des collègues, ou documenter des problèmes. Un REPREX bien conçu rend la communication plus efficace, permet de résoudre les problèmes plus rapidement, et contribue à un code plus clair et mieux documenté.
+
+Nous vous encourageons à intégrer la pratique des REPREX dans votre flux de travail quotidien, pour améliorer la qualité de vos interactions et de vos projets en R.
