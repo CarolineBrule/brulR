@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Uniformiser la Syntaxe R | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 2 Uniformiser la Syntaxe R | brulR : Parler le même langage" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Uniformiser la Syntaxe R | brulR : Parler le même langage" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Uniformiser la Syntaxe R | brulR : Parler le même langage" />
+  
+  
+  
+
+<meta name="author" content="Caroline Brûlé" />
+
+
+<meta name="date" content="2024-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="importation-des-données.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">brulR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-ce-manuel"><i class="fa fa-check"></i><b>1.1</b> Pourquoi ce Manuel ?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#quest-ce-que-le-tidyverse"><i class="fa fa-check"></i><b>1.2</b> Qu’est-ce que le Tidyverse ?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#les-packages-du-tidyverse"><i class="fa fa-check"></i><b>1.3</b> Les Packages du Tidyverse</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#pas-encore-convaincu-quelles-sont-les-alternatives"><i class="fa fa-check"></i><b>1.4</b> Pas encore convaincu ? Quelles sont les alternatives ?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#base-r"><i class="fa fa-check"></i><b>1.4.1</b> 1. <strong>Base R</strong></a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#data.table"><i class="fa fa-check"></i><b>1.4.2</b> 2. <strong>data.table</strong></a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#plyr"><i class="fa fa-check"></i><b>1.4.3</b> 3. <strong>plyr</strong></a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#sqldf"><i class="fa fa-check"></i><b>1.4.4</b> 4. <strong>sqldf</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#conclusion"><i class="fa fa-check"></i><b>1.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html"><i class="fa fa-check"></i><b>2</b> Uniformiser la Syntaxe R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code"><i class="fa fa-check"></i><b>2.1</b> Structure et Organisation du Code</a></li>
+<li class="chapter" data-level="2.2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#nommage-des-objets"><i class="fa fa-check"></i><b>2.2</b> Nommage des Objets</a></li>
+<li class="chapter" data-level="2.3" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#style-de-code"><i class="fa fa-check"></i><b>2.3</b> Style de Code</a></li>
+<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-données"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
+<li class="chapter" data-level="2.5" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires"><i class="fa fa-check"></i><b>2.5</b> Documentation et Commentaires</a></li>
+<li class="chapter" data-level="2.6" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#tests-et-validation"><i class="fa fa-check"></i><b>2.6</b> Tests et Validation</a></li>
+<li class="chapter" data-level="2.7" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-packages"><i class="fa fa-check"></i><b>2.7</b> Gestion des Packages</a></li>
+<li class="chapter" data-level="2.8" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs"><i class="fa fa-check"></i><b>2.8</b> Gestion des Erreurs</a></li>
+<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilité"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>3</b> Importation des données</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>3.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>3.1.2</b> Exemple avec un fichier CSV</a></li>
+<li class="chapter" data-level="3.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>3.1.3</b> Exemple avec un fichier XLSX</a></li>
+<li class="chapter" data-level="3.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>3.1.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="3.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>3.2.3</b> Lire plusieurs feuilles</a></li>
+<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><i class="fa fa-check"></i><b>4</b> L’art du REPREX : pourquoi et comment créer des exemples reproductibles</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex"><i class="fa fa-check"></i><b>4.1</b> Qu’est-ce qu’un REPREX ?</a></li>
+<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
+<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
+<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
+<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
+<li class="chapter" data-level="4.3.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex"><i class="fa fa-check"></i><b>4.3.4</b> Tester le REPREX</a></li>
+<li class="chapter" data-level="4.3.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex"><i class="fa fa-check"></i><b>4.3.5</b> Utiliser le package <code>reprex</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex"><i class="fa fa-check"></i><b>4.3.6</b> Partager le REPREX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques"><i class="fa fa-check"></i><b>4.4</b> Exemples de bonnes pratiques</a></li>
+<li class="chapter" data-level="4.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">brulR : Parler le même langage</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="uniformiser-la-syntaxe-r" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapitre 2</span> Uniformiser la Syntaxe R<a href="uniformiser-la-syntaxe-r.html#uniformiser-la-syntaxe-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dans ce chapitre, nous vous proposons des lignes directrices pour uniformiser la syntaxe R au sein de notre organisation. Ces propositions visent à renforcer la cohérence, à faciliter la lisibilité et à encourager la collaboration entre les membres de l’équipe. Nous vous invitons à les adopter progressivement, en gardant à l’esprit qu’elles sont conçues pour être cohérentes avec les principes du tidyverse.</p>
+<div id="structure-et-organisation-du-code" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Structure et Organisation du Code<a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nous vous proposons de structurer le code en suivant ces principes pour améliorer sa clarté et sa maintenabilité.</p>
+<p><strong>Modularité</strong></p>
+<ul>
+<li>Décomposez le code en fonctions réutilisables et bien nommées.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="uniformiser-la-syntaxe-r.html#cb1-1" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb1-2"><a href="uniformiser-la-syntaxe-r.html#cb1-2" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="uniformiser-la-syntaxe-r.html#cb1-3" tabindex="-1"></a>    <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="uniformiser-la-syntaxe-r.html#cb1-4" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>({{ var }}, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-5"><a href="uniformiser-la-syntaxe-r.html#cb1-5" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Sections Commentées</strong></p>
+<ul>
+<li>Divisez le code en blocs logiques à l’aide de commentaires.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="uniformiser-la-syntaxe-r.html#cb2-1" tabindex="-1"></a><span class="co"># --- Importation des données ---</span></span>
+<span id="cb2-2"><a href="uniformiser-la-syntaxe-r.html#cb2-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="uniformiser-la-syntaxe-r.html#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="uniformiser-la-syntaxe-r.html#cb2-4" tabindex="-1"></a><span class="co"># --- Nettoyage des données ---</span></span>
+<span id="cb2-5"><a href="uniformiser-la-syntaxe-r.html#cb2-5" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="uniformiser-la-syntaxe-r.html#cb2-6" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable))</span></code></pre></div>
+<p><strong>Fichiers Scripts</strong></p>
+<ul>
+<li><p>Chaque script doit avoir une responsabilité principale, par exemple l’importation de données, le nettoyage, ou l’analyse.</p></li>
+<li><p>Si un script devient trop long, envisagez de le diviser en plusieurs scripts.</p></li>
+</ul>
+</div>
+<div id="nommage-des-objets" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Nommage des Objets<a href="uniformiser-la-syntaxe-r.html#nommage-des-objets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un nommage clair et cohérent facilite la compréhension et la maintenance du code. Voici nos propositions :</p>
+<p><strong>Variables et Fonctions</strong></p>
+<ul>
+<li>Utilisez des noms descriptifs en anglais, avec la notation snake_case.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="uniformiser-la-syntaxe-r.html#cb3-1" tabindex="-1"></a>mean_temperature <span class="ot">&lt;-</span> <span class="fu">calculate_mean</span>(data, temperature)</span></code></pre></div>
+<p><strong>Constantes</strong></p>
+<ul>
+<li>Nommez les constantes en majuscules avec des underscores pour séparer les mots.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="uniformiser-la-syntaxe-r.html#cb4-1" tabindex="-1"></a>MAX_ITERATIONS <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
+<p><strong>Variables Temporaires</strong></p>
+<ul>
+<li>Réservez des noms comme <code>tmp</code>, <code>i</code>, ou <code>j</code> pour des variables temporaires dans des boucles ou des opérations rapides.</li>
+</ul>
+</div>
+<div id="style-de-code" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Style de Code<a href="uniformiser-la-syntaxe-r.html#style-de-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour un code propre et lisible, nous vous proposons les règles suivantes :</p>
+<p><strong>Indentation</strong></p>
+<ul>
+<li>Utilisez deux espaces pour l'indentation. Évitez les tabulations.</li>
+</ul>
+<p><strong>Espaces</strong></p>
+<ul>
+<li>Ajoutez un espace après chaque virgule dans les arguments de fonctions et autour des opérateurs mathématiques et logiques.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="uniformiser-la-syntaxe-r.html#cb5-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
+<span id="cb5-2"><a href="uniformiser-la-syntaxe-r.html#cb5-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(var1 <span class="sc">&gt;</span> threshold)</span></code></pre></div>
+<p><strong>Longueur des Lignes</strong></p>
+<ul>
+<li>Limitez la longueur des lignes de code à 80 caractères pour éviter le défilement horizontal.</li>
+</ul>
+<p><strong>Accolades</strong></p>
+<ul>
+<li>Ouvrez les accolades <code>{</code> sur la même ligne que la condition, et fermez-les sur une nouvelle ligne.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="uniformiser-la-syntaxe-r.html#cb6-1" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb6-2"><a href="uniformiser-la-syntaxe-r.html#cb6-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Positive&quot;</span>)</span>
+<span id="cb6-3"><a href="uniformiser-la-syntaxe-r.html#cb6-3" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="gestion-des-données" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Gestion des Données<a href="uniformiser-la-syntaxe-r.html#gestion-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nous vous recommandons d’adopter le tidyverse pour la gestion des données, en raison de sa cohérence et de sa lisibilité.</p>
+<p><strong>Tidyverse</strong></p>
+<ul>
+<li>Favorisez l’utilisation des fonctions du tidyverse (<code>dplyr</code>, <code>tidyr</code>, etc.).</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="uniformiser-la-syntaxe-r.html#cb7-1" tabindex="-1"></a>summarized_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="uniformiser-la-syntaxe-r.html#cb7-2" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="uniformiser-la-syntaxe-r.html#cb7-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(var2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<p><strong>Pipelines (<code>%&gt;%</code>)</strong></p>
+<ul>
+<li>Utilisez le pipe <code>%&gt;%</code> pour chaîner les opérations de manière claire.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="uniformiser-la-syntaxe-r.html#cb8-1" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="uniformiser-la-syntaxe-r.html#cb8-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="uniformiser-la-syntaxe-r.html#cb8-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">as.numeric</span>(variable))</span></code></pre></div>
+<p><strong>Noms des Colonnes</strong></p>
+<ul>
+<li>Utilisez la notation snake_case pour les noms de colonnes, avec des noms significatifs.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="uniformiser-la-syntaxe-r.html#cb9-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="uniformiser-la-syntaxe-r.html#cb9-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">mean_temp =</span> avg_temperature)</span></code></pre></div>
+</div>
+<div id="documentation-et-commentaires" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Documentation et Commentaires<a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour rendre le code plus compréhensible, nous vous suggérons d’adopter ces pratiques en matière de documentation :</p>
+<p><strong>Commentaires</strong></p>
+<ul>
+<li>Expliquez les portions complexes du code avec des commentaires concis.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="uniformiser-la-syntaxe-r.html#cb10-1" tabindex="-1"></a><span class="co"># Calculer la moyenne de chaque groupe</span></span>
+<span id="cb10-2"><a href="uniformiser-la-syntaxe-r.html#cb10-2" tabindex="-1"></a>grouped_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="uniformiser-la-syntaxe-r.html#cb10-3" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="uniformiser-la-syntaxe-r.html#cb10-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(var2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<p><strong>Documentation des Fonctions</strong></p>
+<ul>
+<li>Documentez chaque fonction en utilisant roxygen2 pour faciliter l’utilisation par d’autres.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="uniformiser-la-syntaxe-r.html#cb11-1" tabindex="-1"></a><span class="co">#&#39; Calculate the mean value of a variable</span></span>
+<span id="cb11-2"><a href="uniformiser-la-syntaxe-r.html#cb11-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb11-3"><a href="uniformiser-la-syntaxe-r.html#cb11-3" tabindex="-1"></a><span class="co">#&#39; @param data A data frame containing the data</span></span>
+<span id="cb11-4"><a href="uniformiser-la-syntaxe-r.html#cb11-4" tabindex="-1"></a><span class="co">#&#39; @param var The name of the variable to summarize</span></span>
+<span id="cb11-5"><a href="uniformiser-la-syntaxe-r.html#cb11-5" tabindex="-1"></a><span class="co">#&#39; @return A data frame with the mean value</span></span>
+<span id="cb11-6"><a href="uniformiser-la-syntaxe-r.html#cb11-6" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb11-7"><a href="uniformiser-la-syntaxe-r.html#cb11-7" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="uniformiser-la-syntaxe-r.html#cb11-8" tabindex="-1"></a>    <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="uniformiser-la-syntaxe-r.html#cb11-9" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>({{ var }}, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb11-10"><a href="uniformiser-la-syntaxe-r.html#cb11-10" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="tests-et-validation" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Tests et Validation<a href="uniformiser-la-syntaxe-r.html#tests-et-validation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour garantir la fiabilité du code, nous vous proposons d’intégrer des tests et des validations :</p>
+<p><strong>Tests Unitaires</strong></p>
+<ul>
+<li>Pour les fonctions complexes ou critiques, écrivez des tests unitaires avec <code>testthat</code>.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="uniformiser-la-syntaxe-r.html#cb12-1" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">&quot;calculate_mean works correctly&quot;</span>, {</span>
+<span id="cb12-2"><a href="uniformiser-la-syntaxe-r.html#cb12-2" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">calculate_mean</span>(data, var)</span>
+<span id="cb12-3"><a href="uniformiser-la-syntaxe-r.html#cb12-3" tabindex="-1"></a>  <span class="fu">expect_equal</span>(result<span class="sc">$</span>mean_value, expected_value)</span>
+<span id="cb12-4"><a href="uniformiser-la-syntaxe-r.html#cb12-4" tabindex="-1"></a>})</span></code></pre></div>
+<p><strong>Validation des Données</strong></p>
+<ul>
+<li>Avant d’effectuer des analyses, validez la structure et la qualité des données.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="uniformiser-la-syntaxe-r.html#cb13-1" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(<span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>variable)))</span></code></pre></div>
+</div>
+<div id="gestion-des-packages" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Gestion des Packages<a href="uniformiser-la-syntaxe-r.html#gestion-des-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour une gestion efficace des packages, nous vous suggérons les pratiques suivantes :</p>
+<p><strong>Chargement des Packages</strong></p>
+<ul>
+<li>Chargez les packages nécessaires au début du script.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="uniformiser-la-syntaxe-r.html#cb14-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-2"><a href="uniformiser-la-syntaxe-r.html#cb14-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p><strong>Version des Packages</strong></p>
+<ul>
+<li>Documentez les versions critiques des packages ou utilisez <code>renv</code> pour assurer la reproductibilité.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="uniformiser-la-syntaxe-r.html#cb15-1" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code></pre></div>
+</div>
+<div id="gestion-des-erreurs" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Gestion des Erreurs<a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nous vous recommandons d’adopter une gestion proactive des erreurs pour améliorer la robustesse du code :</p>
+<p><strong>Gestion des Exceptions</strong></p>
+<ul>
+<li>Utilisez <code>tryCatch</code> pour capturer et gérer les erreurs dans les processus critiques.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="uniformiser-la-syntaxe-r.html#cb16-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb16-2"><a href="uniformiser-la-syntaxe-r.html#cb16-2" tabindex="-1"></a>  <span class="fu">risky_operation</span>()</span>
+<span id="cb16-3"><a href="uniformiser-la-syntaxe-r.html#cb16-3" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb16-4"><a href="uniformiser-la-syntaxe-r.html#cb16-4" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;An error occurred: &quot;</span>, e<span class="sc">$</span>message)</span>
+<span id="cb16-5"><a href="uniformiser-la-syntaxe-r.html#cb16-5" tabindex="-1"></a>  <span class="cn">NULL</span></span>
+<span id="cb16-6"><a href="uniformiser-la-syntaxe-r.html#cb16-6" tabindex="-1"></a>})</span></code></pre></div>
+</div>
+<div id="reproductibilité" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Reproductibilité<a href="uniformiser-la-syntaxe-r.html#reproductibilité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour assurer la reproductibilité des analyses, nous vous proposons de suivre ces pratiques :</p>
+<p><strong>Set Seed</strong></p>
+<ul>
+<li>Utilisez <code>set.seed()</code> pour assurer la reproductibilité des résultats aléatoires.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="uniformiser-la-syntaxe-r.html#cb17-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span></code></pre></div>
+<p><strong>Scripts Paramétrables</strong></p>
+<ul>
+<li>Lorsque possible, écrivez des scripts paramétrables pour permettre leur réutilisation.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="uniformiser-la-syntaxe-r.html#cb18-1" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">input_file =</span> <span class="st">&quot;data.csv&quot;</span>, <span class="at">output_file =</span> <span class="st">&quot;results.csv&quot;</span>)</span>
+<span id="cb18-2"><a href="uniformiser-la-syntaxe-r.html#cb18-2" tabindex="-1"></a>process_data <span class="ot">&lt;-</span> <span class="cf">function</span>(params) {</span>
+<span id="cb18-3"><a href="uniformiser-la-syntaxe-r.html#cb18-3" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(params<span class="sc">$</span>input_file)</span>
+<span id="cb18-4"><a href="uniformiser-la-syntaxe-r.html#cb18-4" tabindex="-1"></a>  <span class="co"># Traitement des données</span></span>
+<span id="cb18-5"><a href="uniformiser-la-syntaxe-r.html#cb18-5" tabindex="-1"></a>  <span class="fu">write_csv</span>(data, params<span class="sc">$</span>output_file)</span>
+<span id="cb18-6"><a href="uniformiser-la-syntaxe-r.html#cb18-6" tabindex="-1"></a>}</span>
+<span id="cb18-7"><a href="uniformiser-la-syntaxe-r.html#cb18-7" tabindex="-1"></a><span class="fu">process_data</span>(params)</span></code></pre></div>
+<p>Ces propositions sont ouvertes à la discussion et à l’adaptation en fonction des besoins spécifiques de nos projets. En adoptant ces pratiques, nous visons à rendre notre code plus lisible, maintenable et compatible avec les standards de la communauté R, tout en restant fidèle à la philosophie du tidyverse.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importation-des-données.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarolineBrule/brulR/edit/main/02-lignesdirectrices.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CarolineBrule/brulR/blob/main/02-lignesdirectrices.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
