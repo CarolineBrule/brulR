@@ -60,17 +60,24 @@ Voici une liste non exhaustive des principaux packages qui utilisent la syntaxe 
 
 Ces packages représentent le cœur du tidyverse, mais il en existe bien d'autres qui s'appuient sur la même syntaxe et philosophie, tels que `lubridate` pour la manipulation des dates, `broom` pour transformer les modèles statistiques en data frames, et `janitor` pour le nettoyage des données.
 
+
+<img src="~/brulR/images/meme_tidyverse.png" align="center" height="400"/></a>
+
+
 ## Pas encore convaincu ? Quelles sont les alternatives ?
 
 Si vous n'êtes pas encore convaincu que le tidyverse est l'approche la plus adaptée, il existe plusieurs alternatives populaires pour manipuler, analyser et visualiser des données en R. Cependant, chacune a ses propres avantages et inconvénients :
 
 ### 1. **Base R**
+<img src="~/brulR/images/meme_civilwar.png" align="right" height="300"/></a>
 
 -   **Description** : Les fonctions de base R permettent de manipuler les données sans avoir besoin de packages supplémentaires.
 
 -   **Avantages** : Pas de dépendances externes, très flexible pour des tâches spécifiques, performant pour certaines opérations.
 
 -   **Inconvénients** : Syntaxe moins intuitive, moins de cohérence, plus difficile à maintenir pour les projets complexes.
+
+
 
 ### 2. **data.table**
 
@@ -97,7 +104,10 @@ Si vous n'êtes pas encore convaincu que le tidyverse est l'approche la plus ada
 -   **Inconvénients** : Performance variable, syntaxe moins intégrée avec R, moins flexible pour certaines tâches.
 
 ## Conclusion
+<img src="~/brulR/images/meme_lovetidyverse.png" align="left" height="300"/></a>
 
 En comparant ces alternatives, le tidyverse se distingue par sa cohérence syntaxique, sa lisibilité et son intégration fluide entre les différents packages. Bien que des outils comme `data.table` ou la base R puissent offrir des avantages spécifiques, le tidyverse est souvent préféré pour sa capacité à rendre le code plus intuitif, maintenable et accessible à tous les membres de l'équipe.
 
 Nous vous invitons donc à adopter progressivement les suggestions de ce manuel pour aligner vos pratiques sur celles qui ont fait leurs preuves au sein de la communauté R, et ainsi améliorer la qualité et l'efficacité de notre travail collectif.
+
+
