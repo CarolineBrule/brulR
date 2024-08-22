@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 1 Introduction | facileR comme bonjour : Le guide pour un code qui circule bien</title>
-  <meta name="description" content="Chapitre 1 Introduction | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <title>Chapitre 1 Introduction | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 1 Introduction | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 1 Introduction | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta property="og:title" content="Chapitre 1 Introduction | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 1 Introduction | facileR comme bonjour : Le guide pour un code qui circule bien" />
+  <meta name="twitter:title" content="Chapitre 1 Introduction | brulR : Parler le même langage" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="importation-des-données.html"/>
+<link rel="next" href="uniformiser-la-syntaxe-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -137,46 +137,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">facileR</a></li>
+<li><a href="./">brulR</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-on-fait-ca"><i class="fa fa-check"></i><b>1.1</b> pourquoi on fait ca</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-is-tidyverse"><i class="fa fa-check"></i><b>1.2</b> What is tidyverse</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#creer-une-fonction"><i class="fa fa-check"></i><b>1.3</b> creer une fonction</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#creer-un-package"><i class="fa fa-check"></i><b>1.4</b> creer un package</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#work-flow"><i class="fa fa-check"></i><b>1.5</b> work flow</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>2</b> Importation des données</a>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-ce-manuel"><i class="fa fa-check"></i><b>1.1</b> Pourquoi ce Manuel ?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#quest-ce-que-le-tidyverse"><i class="fa fa-check"></i><b>1.2</b> Qu’est-ce que le Tidyverse ?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#les-packages-du-tidyverse"><i class="fa fa-check"></i><b>1.3</b> Les Packages du Tidyverse</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#pas-encore-convaincu-quelles-sont-les-alternatives"><i class="fa fa-check"></i><b>1.4</b> Pas encore convaincu ? Quelles sont les alternatives ?</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>2.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#base-r"><i class="fa fa-check"></i><b>1.4.1</b> 1. <strong>Base R</strong></a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#data.table"><i class="fa fa-check"></i><b>1.4.2</b> 2. <strong>data.table</strong></a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#plyr"><i class="fa fa-check"></i><b>1.4.3</b> 3. <strong>plyr</strong></a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#sqldf"><i class="fa fa-check"></i><b>1.4.4</b> 4. <strong>sqldf</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#conclusion"><i class="fa fa-check"></i><b>1.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html"><i class="fa fa-check"></i><b>2</b> Uniformiser la Syntaxe R</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>2.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
-<li class="chapter" data-level="2.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>2.1.2</b> Exemple avec un fichier CSV</a></li>
-<li class="chapter" data-level="2.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>2.1.3</b> Exemple avec un fichier XLSX</a></li>
-<li class="chapter" data-level="2.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion"><i class="fa fa-check"></i><b>2.1.4</b> Conclusion</a></li>
+<li class="chapter" data-level="2.1" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code"><i class="fa fa-check"></i><b>2.1</b> Structure et Organisation du Code</a></li>
+<li class="chapter" data-level="2.2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#nommage-des-objets"><i class="fa fa-check"></i><b>2.2</b> Nommage des Objets</a></li>
+<li class="chapter" data-level="2.3" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#style-de-code"><i class="fa fa-check"></i><b>2.3</b> Style de Code</a></li>
+<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-données"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
+<li class="chapter" data-level="2.5" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires"><i class="fa fa-check"></i><b>2.5</b> Documentation et Commentaires</a></li>
+<li class="chapter" data-level="2.6" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#tests-et-validation"><i class="fa fa-check"></i><b>2.6</b> Tests et Validation</a></li>
+<li class="chapter" data-level="2.7" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-packages"><i class="fa fa-check"></i><b>2.7</b> Gestion des Packages</a></li>
+<li class="chapter" data-level="2.8" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs"><i class="fa fa-check"></i><b>2.8</b> Gestion des Erreurs</a></li>
+<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilité"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>2.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<li class="chapter" data-level="3" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>3</b> Importation des données</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>2.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
-<li class="chapter" data-level="2.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>2.2.2</b> Charger une feuille spécifique</a></li>
-<li class="chapter" data-level="2.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>2.2.3</b> Lire plusieurs feuilles</a></li>
-<li class="chapter" data-level="2.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>2.2.4</b> Lire une feuille par son numéro</a></li>
-<li class="chapter" data-level="2.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>2.2.5</b> Conclusion</a></li>
+<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>3.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>3.1.2</b> Exemple avec un fichier CSV</a></li>
+<li class="chapter" data-level="3.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>3.1.3</b> Exemple avec un fichier XLSX</a></li>
+<li class="chapter" data-level="3.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>3.1.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="3.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>3.2.3</b> Lire plusieurs feuilles</a></li>
+<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>3</b> Formattage des données</a></li>
-<li class="chapter" data-level="4" data-path="validation-des-données.html"><a href="validation-des-données.html"><i class="fa fa-check"></i><b>4</b> Validation des données</a></li>
-<li class="chapter" data-level="5" data-path="tableaux.html"><a href="tableaux.html"><i class="fa fa-check"></i><b>5</b> Tableaux</a></li>
-<li class="chapter" data-level="6" data-path="figures.html"><a href="figures.html"><i class="fa fa-check"></i><b>6</b> Figures</a></li>
-<li class="chapter" data-level="7" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>7</b> Cartes interactives</a></li>
-<li class="chapter" data-level="8" data-path="création-dun-rapport-paramétrique.html"><a href="création-dun-rapport-paramétrique.html"><i class="fa fa-check"></i><b>8</b> Création d’un rapport paramétrique</a></li>
-<li class="chapter" data-level="9" data-path="dashboard.html"><a href="dashboard.html"><i class="fa fa-check"></i><b>9</b> Dashboard</a></li>
-<li class="chapter" data-level="10" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>10</b> Application</a></li>
-<li class="chapter" data-level="11" data-path="maintenance-et-reproductibilité.html"><a href="maintenance-et-reproductibilité.html"><i class="fa fa-check"></i><b>11</b> Maintenance et reproductibilité</a></li>
-<li class="chapter" data-level="12" data-path="reprex.html"><a href="reprex.html"><i class="fa fa-check"></i><b>12</b> Reprex</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -188,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">facileR comme bonjour : Le guide pour un code qui circule bien</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">brulR : Parler le même langage</a>
           </h1>
         </div>
 
@@ -198,20 +206,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introduction" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapitre 1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="pourquoi-on-fait-ca" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> pourquoi on fait ca<a href="introduction.html#pourquoi-on-fait-ca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pourquoi-ce-manuel" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Pourquoi ce Manuel ?<a href="introduction.html#pourquoi-ce-manuel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans un environnement où les projets d’analyse de données et de modélisation se multiplient, il devient crucial d’établir des pratiques de codage cohérentes. Ce manuel a été conçu pour vous proposer des lignes directrices qui visent à uniformiser la manière dont nous écrivons du code en R au sein de notre organisation. L’objectif est simple : faciliter la collaboration, améliorer la lisibilité du code et renforcer sa maintenabilité.</p>
+<p>Adopter des conventions communes en matière de syntaxe permet de réduire les erreurs, d’accélérer le processus de relecture par les pairs, et de rendre le code plus accessible, même pour ceux qui ne l’ont pas écrit. En d’autres termes, cela rend notre travail plus efficace et plus agréable.</p>
+<p><strong>Pourquoi est-ce nécessaire ?</strong></p>
+<ul>
+<li><p><strong>Collaboration améliorée</strong> : Lorsque tout le monde suit des conventions similaires, il est plus facile de comprendre et de contribuer au code des autres.</p></li>
+<li><p><strong>Réduction des erreurs</strong> : Des pratiques cohérentes réduisent les risques d’erreurs accidentelles et facilitent leur détection.</p></li>
+<li><p><strong>Reproductibilité</strong> : Un code propre et bien documenté est plus facile à reproduire, ce qui est essentiel pour des projets scientifiques ou industriels.</p></li>
+<li><p><strong>Formation et Intégration</strong> : Les nouveaux membres de l’équipe peuvent se familiariser plus rapidement avec le code existant si celui-ci suit des conventions claires et universelles.</p></li>
+</ul>
 </div>
-<div id="what-is-tidyverse" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> What is tidyverse<a href="introduction.html#what-is-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quest-ce-que-le-tidyverse" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Qu’est-ce que le Tidyverse ?<a href="introduction.html#quest-ce-que-le-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le tidyverse est un ensemble de packages en R qui partagent une philosophie commune de conception axée sur la lisibilité, la cohérence et l’efficacité. Ces packages sont conçus pour transformer les tâches de manipulation des données, de visualisation et d’analyse en processus simples et intuitifs, tout en étant puissants et flexibles.</p>
+<p><strong>Les principes fondamentaux du tidyverse :</strong></p>
+<ul>
+<li><p><strong>Données tidy</strong> : Une structure où chaque variable est une colonne, chaque observation est une ligne, et chaque type d’observation forme une table distincte. Cette structure simplifie considérablement la manipulation des données.</p></li>
+<li><p><strong>Syntaxe cohérente</strong> : Les fonctions des packages du tidyverse suivent une syntaxe uniforme, ce qui facilite l’apprentissage et l’utilisation de nouveaux outils.</p></li>
+<li><p><strong>Interopérabilité</strong> : Les packages du tidyverse sont conçus pour fonctionner ensemble de manière fluide, ce qui permet de créer des flux de travail efficaces du début à la fin.</p></li>
+</ul>
+<p><strong>Pourquoi adopter le tidyverse ?</strong></p>
+<ul>
+<li><p><strong>Lisibilité</strong> : Le code écrit en utilisant les packages du tidyverse est généralement plus lisible et plus facile à comprendre.</p></li>
+<li><p><strong>Productivité</strong> : Les pipelines et les fonctions du tidyverse permettent d’écrire moins de code pour accomplir plus de choses, ce qui augmente la productivité.</p></li>
+<li><p><strong>Écosystème riche</strong> : Le tidyverse s’intègre à un écosystème plus large de packages R, ce qui vous permet de réaliser des analyses complexes avec des outils familiers.</p></li>
+</ul>
 </div>
-<div id="creer-une-fonction" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> creer une fonction<a href="introduction.html#creer-une-fonction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="les-packages-du-tidyverse" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Les Packages du Tidyverse<a href="introduction.html#les-packages-du-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Voici une liste non exhaustive des principaux packages qui utilisent la syntaxe du tidyverse :</p>
+<ul>
+<li><p><strong><code>ggplot2</code></strong> : Pour créer des visualisations élégantes basées sur la grammaire des graphiques.</p></li>
+<li><p><strong><code>dplyr</code></strong> : Pour la manipulation des données (filtrage, sélection, réordonnancement, regroupement, etc.).</p></li>
+<li><p><strong><code>tidyr</code></strong> : Pour transformer les données, par exemple en passant d’un format large à un format long.</p></li>
+<li><p><strong><code>readr</code></strong> : Pour lire des fichiers de données de manière rapide et cohérente.</p></li>
+<li><p><strong><code>tibble</code></strong> : Pour travailler avec des data frames améliorés qui sont plus intuitifs et cohérents que les data frames de base.</p></li>
+<li><p><strong><code>gt</code></strong> : Pour créer des tableaux élégants et personnalisables.</p></li>
+<li><p><strong><code>purrr</code></strong> : Pour l’application de fonctions de manière élégante sur des listes et d’autres structures itérables.</p></li>
+<li><p><strong><code>stringr</code></strong> : Pour la manipulation de chaînes de caractères avec des fonctions claires et cohérentes.</p></li>
+<li><p><strong><code>forcats</code></strong> : Pour la gestion et la manipulation des variables de type facteur.</p></li>
+</ul>
+<p>Ces packages représentent le cœur du tidyverse, mais il en existe bien d’autres qui s’appuient sur la même syntaxe et philosophie, tels que <code>lubridate</code> pour la manipulation des dates, <code>broom</code> pour transformer les modèles statistiques en data frames, et <code>janitor</code> pour le nettoyage des données.</p>
 </div>
-<div id="creer-un-package" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> creer un package<a href="introduction.html#creer-un-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pas-encore-convaincu-quelles-sont-les-alternatives" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Pas encore convaincu ? Quelles sont les alternatives ?<a href="introduction.html#pas-encore-convaincu-quelles-sont-les-alternatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si vous n’êtes pas encore convaincu que le tidyverse est l’approche la plus adaptée, il existe plusieurs alternatives populaires pour manipuler, analyser et visualiser des données en R. Cependant, chacune a ses propres avantages et inconvénients :</p>
+<div id="base-r" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> 1. <strong>Base R</strong><a href="introduction.html#base-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Description</strong> : Les fonctions de base R permettent de manipuler les données sans avoir besoin de packages supplémentaires.</p></li>
+<li><p><strong>Avantages</strong> : Pas de dépendances externes, très flexible pour des tâches spécifiques, performant pour certaines opérations.</p></li>
+<li><p><strong>Inconvénients</strong> : Syntaxe moins intuitive, moins de cohérence, plus difficile à maintenir pour les projets complexes.</p></li>
+</ul>
 </div>
-<div id="work-flow" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> work flow<a href="introduction.html#work-flow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data.table" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> 2. <strong>data.table</strong><a href="introduction.html#data.table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Description</strong> : <code>data.table</code> est une extension rapide et efficace des data frames, idéale pour les grandes tables de données.</p></li>
+<li><p><strong>Avantages</strong> : Très performant, syntaxe concise, utilisation efficace de la mémoire.</p></li>
+<li><p><strong>Inconvénients</strong> : Syntaxe différente et parfois moins intuitive, courbe d’apprentissage plus élevée, intégration moins fluide avec d’autres packages R.</p></li>
+</ul>
+</div>
+<div id="plyr" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> 3. <strong>plyr</strong><a href="introduction.html#plyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Description</strong> : <code>plyr</code> est un package plus ancien pour la manipulation des données, qui a précédé <code>dplyr</code>.</p></li>
+<li><p><strong>Avantages</strong> : Offre des fonctionnalités similaires à <code>dplyr</code>, support pour des objets complexes comme les listes et les arrays.</p></li>
+<li><p><strong>Inconvénients</strong> : Moins performant que <code>dplyr</code>, syntaxe plus verbeuse, moins activement maintenu.</p></li>
+</ul>
+</div>
+<div id="sqldf" class="section level3 hasAnchor" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> 4. <strong>sqldf</strong><a href="introduction.html#sqldf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Description</strong> : <code>sqldf</code> permet d’utiliser des requêtes SQL pour manipuler des data frames en R.</p></li>
+<li><p><strong>Avantages</strong> : Permet d’utiliser SQL directement dans R, pas besoin d’apprendre de nouvelles syntaxes si vous êtes familier avec SQL.</p></li>
+<li><p><strong>Inconvénients</strong> : Performance variable, syntaxe moins intégrée avec R, moins flexible pour certaines tâches.</p></li>
+</ul>
+</div>
+</div>
+<div id="conclusion" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Conclusion<a href="introduction.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En comparant ces alternatives, le tidyverse se distingue par sa cohérence syntaxique, sa lisibilité et son intégration fluide entre les différents packages. Bien que des outils comme <code>data.table</code> ou la base R puissent offrir des avantages spécifiques, le tidyverse est souvent préféré pour sa capacité à rendre le code plus intuitif, maintenable et accessible à tous les membres de l’équipe.</p>
+<p>Nous vous invitons donc à adopter progressivement les suggestions de ce manuel pour aligner vos pratiques sur celles qui ont fait leurs preuves au sein de la communauté R, et ainsi améliorer la qualité et l’efficacité de notre travail collectif.</p>
 
 </div>
 </div>
@@ -221,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="importation-des-données.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="uniformiser-la-syntaxe-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -252,7 +330,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/facileR/edit/main/01-intro.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -260,7 +338,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/facileR/blob/main/01-intro.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/01-intro.Rmd",
 "text": null
 },
 "download": null,

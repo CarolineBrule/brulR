@@ -3,11 +3,14 @@ title: "brulR : Parler le même langage"
 author: "Caroline Brûlé"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+
 ---
 
-![hexbrulR](images/hex-brulR.png)
+
+
 
 # Préface {.unnumbered}
+<img src="~/brulR/images/hex-brulR.png" align="right" height="138"/></a>
 
 Bienvenue dans **brulR: Parler le même langage**, un guide conçu pour rendre notre travail quotidien avec R plus harmonieux, collaboratif et, surtout, plus compréhensible pour tous. Au fil du temps, nous avons tous développé nos propres habitudes de codage, mais ces différences peuvent parfois compliquer la collaboration et la révision de code au sein de notre équipe. C'est là que ce guide prend tout son sens.
 

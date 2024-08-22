@@ -1,8 +1,8 @@
 book_filename: "bookdownproj"
 output_dir: docs
 delete_merged_file: true
-edit: https://github.com/CarolineBrule/facileR/edit/main/%s
-view: https://github.com/CarolineBrule/facileR/blob/main/%s
+edit: https://github.com/CarolineBrule/brulR/edit/main/%s
+view: https://github.com/CarolineBrule/brulR/blob/main/%s
 language:
   ui:
     chapter_name: "Chapitre "
