@@ -1,0 +1,83 @@
+# Utilisation de `ungroup()` après `group_by()`
+
+Lors de la manipulation des données avec `{dplyr}`, il est courant d'utiliser `group_by()` pour regrouper les données par une ou plusieurs variables avant d'appliquer des fonctions d'agrégation ou de transformation. Cependant, il est important de **dégrupper** les données après avoir effectué ces opérations afin d'éviter des comportements inattendus dans les étapes suivantes du pipeline de traitement des données.
+
+## Pourquoi utiliser `ungroup()` ?
+
+Lorsque vous utilisez `group_by()`, votre jeu de données reste **groupé** après l'opération, ce qui peut influencer le comportement des fonctions suivantes dans le pipeline. Si vous ne retirez pas ces groupes explicitement, des erreurs ou des résultats inattendus peuvent survenir lorsque vous effectuez des opérations qui ne nécessitent pas de groupes.
+
+En appelant `ungroup()`, vous **retirez l'attribut de regroupement** des données, ce qui permet de continuer l'analyse sur un dataframe non-groupé.
+
+### Exemple d'utilisation de `group_by()` et `ungroup()`
+
+Voici un exemple classique montrant pourquoi et comment utiliser `ungroup()` après avoir travaillé avec des données groupées.
+
+```{r}
+library(dplyr)
+
+# Exemple de jeu de données
+data <- data.frame(
+  groupe = c("A", "A", "B", "B", "C", "C"),
+  valeur = c(10, 20, 30, 40, 50, 60)
+)
+
+# 1. Regrouper les données par 'groupe' et calculer la somme des valeurs
+data_grouped <- data %>%
+  group_by(groupe) %>%
+  summarise(total = sum(valeur))
+
+# Les données sont toujours groupées après summarise()
+print(data_grouped)
+
+# 2. Utiliser ungroup() pour supprimer le regroupement
+data_ungrouped <- data_grouped %>%
+  ungroup()
+
+# Maintenant, les données ne sont plus groupées
+print(data_ungrouped)
+```
+
+### Explication
+
+1.  **`group_by()`** : Cette fonction regroupe les lignes du dataframe par la variable `groupe`. Cela permet d'appliquer des calculs par groupe.
+
+2.  **`summarise()`** : Cette fonction calcule la somme de la colonne `valeur` pour chaque groupe. Cependant, même après la summarisation, les données restent **groupées**.
+
+3.  **Pourquoi `ungroup()` ?** : Si vous voulez appliquer d'autres transformations ou analyses sur le dataframe sans que les données soient toujours groupées, il est crucial d'appeler `ungroup()`. Cela empêche des comportements inattendus pour les fonctions suivantes.
+
+### Que se passe-t-il sans `ungroup()` ?
+
+Si vous n'utilisez pas `ungroup()`, certaines opérations postérieures au `summarise()` pourraient être affectées par la structure de regroupement. Par exemple, si vous tentez de modifier une colonne sans `ungroup()`, cela pourrait provoquer des erreurs ou des avertissements. Voici un exemple :
+
+```{r}
+# Sans ungroup(), certaines opérations peuvent ne pas fonctionner comme prévu
+data_grouped %>%
+  mutate(total_augmente = total + 10) # Fonctionne, mais le dataframe est encore groupé
+```
+
+Dans certains cas, il peut aussi y avoir des **performances moindres** si des fonctions sont appliquées sur des données toujours groupées inutilement.
+
+### Bonnes pratiques
+
+-   **Toujours dégroupper après un `group_by()`** : Même si certaines opérations peuvent fonctionner avec des données encore groupées, il est préférable de toujours faire un `ungroup()` après avoir terminé les calculs sur des groupes. Cela garantit que les étapes suivantes du pipeline ne seront pas influencées par des groupes résiduels.
+
+-   **Clarté et maintenance du code** : Utiliser `ungroup()` explicite votre intention de revenir à un dataframe non-groupé, ce qui rend votre code plus clair pour d'autres utilisateurs (et vous-même dans le futur).
+
+### Cas pratique : Eviter les erreurs avec `ungroup()`
+
+Imaginons que vous souhaitiez calculer la moyenne après avoir agrégé les données par groupe. Si vous ne dégrouppez pas vos données après `summarise()`, vous risquez d'obtenir des erreurs dans le calcul de la moyenne sur l'ensemble du jeu de données.
+
+```{r}
+# Erreur potentielle sans ungroup()
+data_grouped %>%
+  mutate(moyenne = mean(total))  # La moyenne sera calculée par groupe et non globalement
+
+# Solution avec ungroup()
+data_ungrouped <- data_grouped %>%
+  ungroup() %>%
+  mutate(moyenne = mean(total))  # Calcul de la moyenne globale
+```
+
+### Conclusion
+
+L'utilisation de `ungroup()` est une bonne pratique lorsque vous travaillez avec des fonctions comme `group_by()`. Cela permet de dégrupper explicitement les données après avoir effectué des agrégations ou des transformations, évitant ainsi des erreurs et assurant que les étapes suivantes de votre pipeline fonctionnent comme prévu.

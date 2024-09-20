@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <title>Chapitre 9 Boucles, lapply() et map() : quelles méthodes privilégier ? | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 9 Boucles, lapply() et map() : quelles méthodes privilégier ? | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 9 Boucles, lapply() et map() : quelles méthodes privilégier ? | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 9 Boucles, lapply() et map() : quelles méthodes privilégier ? | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importation-des-données.html"/>
-<link rel="next" href="cartes-interactives.html"/>
+<link rel="prev" href="utilisation-de-ungroup-après-group_by.html"/>
+<link rel="next" href="structurer-un-script-r-de-manière-adéquate.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -345,161 +345,186 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapitre 4</span> L’art du REPREX : pourquoi et comment créer des exemples reproductibles<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="quest-ce-quun-reprex" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Qu’est-ce qu’un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Un REPREX, ou <strong>REPRoducible EXample</strong>, est un extrait de code qui reproduit un problème ou une question de manière concise et reproductible. Il s’agit d’une pratique essentielle lorsque vous demandez de l’aide, que vous partagez un problème sur un forum, ou que vous collaborez avec d’autres personnes sur un projet R. L’idée est de fournir un exemple minimal qui montre clairement le problème ou la question, tout en étant simple à comprendre et à exécuter.</p>
+<div id="boucles-lapply-et-map-quelles-méthodes-privilégier" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapitre 9</span> Boucles, <code>lapply()</code> et <code>map()</code> : quelles méthodes privilégier ?<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#boucles-lapply-et-map-quelles-méthodes-privilégier" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="les-boucles-for" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> <strong>Les boucles <code>for</code></strong><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#les-boucles-for" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les boucles <code>for</code> sont une des méthodes les plus intuitives pour parcourir un ensemble de données en R. Elles permettent d’itérer explicitement sur des vecteurs, des listes ou des matrices.</p>
+<div id="syntaxe-dune-boucle-for" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Syntaxe d’une boucle <code>for</code><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#syntaxe-dune-boucle-for" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb66-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb66-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb66-2" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb66-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb66-3" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+<p>Dans cet exemple, la boucle itère de <code>1</code> à <code>10</code>, imprimant chaque valeur.</p>
 </div>
-<div id="pourquoi-écrire-un-reprex" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Pourquoi écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Écrire un REPREX présente plusieurs avantages significatifs :</p>
+<div id="exemple-pratique" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Exemple pratique<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-pratique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supposons que vous ayez une liste de vecteurs et que vous souhaitiez calculer la somme de chaque vecteur. Vous pourriez utiliser une boucle <code>for</code> comme suit :</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-1" tabindex="-1"></a><span class="co"># Liste de vecteurs</span></span>
+<span id="cb68-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-2" tabindex="-1"></a>liste_vecteurs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>))</span>
+<span id="cb68-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-3" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-4" tabindex="-1"></a><span class="co"># Calculer la somme de chaque vecteur avec une boucle for</span></span>
+<span id="cb68-5"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-5" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(liste_vecteurs))</span>
+<span id="cb68-6"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(liste_vecteurs)) {</span>
+<span id="cb68-7"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-7" tabindex="-1"></a>  somme_vecteurs[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(liste_vecteurs[[i]])</span>
+<span id="cb68-8"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-8" tabindex="-1"></a>}</span>
+<span id="cb68-9"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb68-9" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)</span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+</div>
+<div id="avantages-et-inconvénients-des-boucles-for" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Avantages et inconvénients des boucles <code>for</code><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconvénients-des-boucles-for" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p><strong>Clarté</strong> : Un REPREX force à isoler le problème ou la question spécifique, éliminant le bruit des autres parties du code. Cela aide non seulement à clarifier la question pour les autres, mais aussi à mieux comprendre le problème vous-même.</p></li>
-<li><p><strong>Reproductibilité</strong> : En fournissant un exemple reproductible, vous permettez à ceux qui vous aident de reproduire exactement le même problème que vous rencontrez. Cela accélère la résolution des problèmes.</p></li>
-<li><p><strong>Efficacité</strong> : Un REPREX bien conçu permet à la personne qui vous aide de se concentrer sur l’essentiel, ce qui augmente les chances d’obtenir une réponse rapide et précise.</p></li>
-<li><p><strong>Documentation</strong> : Les REPREX peuvent également servir de documentation pour des problèmes ou des questions résolus. Ils constituent des exemples concrets de ce qui a été essayé et de ce qui fonctionne ou ne fonctionne pas.</p></li>
-<li><p><strong>Réflexion</strong> : Le processus d’écriture d’un REPREX peut souvent vous amener à trouver la solution par vous-même, en simplifiant et en isolant le problème.</p></li>
+<li><p><strong>Avantages</strong> :</p>
+<ul>
+<li><p><strong>Clarté</strong> : La logique est facile à comprendre, même pour les débutants.</p></li>
+<li><p><strong>Contrôle</strong> : Vous pouvez facilement ajouter des conditions, modifier des indices, ou déboguer le processus.</p></li>
+</ul></li>
+<li><p><strong>Inconvénients</strong> :</p>
+<ul>
+<li><p><strong>Performance</strong> : Les boucles <code>for</code> peuvent devenir plus lentes avec de grands volumes de données. Elles ne tirent pas parti des optimisations natives de R pour la manipulation de structures complexes comme les listes ou les dataframes.</p></li>
+<li><p><strong>Lisibilité</strong> : Le code peut devenir plus verbeux, surtout pour des opérations répétitives.</p></li>
+</ul></li>
 </ul>
 </div>
-<div id="comment-écrire-un-reprex" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Comment écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voici les étapes pour écrire un bon REPREX :</p>
-<div id="isoler-le-problème" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Isoler le problème<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Commencez par isoler le problème ou la question spécifique que vous rencontrez. Essayez de réduire le code à l’essentiel nécessaire pour reproduire le problème. Évitez d’inclure des parties de code non pertinentes.</p>
 </div>
-<div id="utiliser-des-données-simulées-ou-publiques" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Utiliser des données simulées ou publiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Si possible, utilisez des données simulées ou un sous-ensemble de données publiques pour rendre votre exemple reproductible par tous. Vous pouvez utiliser des fonctions comme <code>set.seed()</code> pour garantir que les résultats sont reproductibles.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb24-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb24-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-3" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb24-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-4" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb24-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-5" tabindex="-1"></a>)</span></code></pre></div>
-</div>
-<div id="inclure-le-contexte-nécessaire" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Inclure le contexte nécessaire<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Assurez-vous que votre REPREX inclut toutes les informations nécessaires pour reproduire le problème, telles que les packages utilisés, les options de configuration, et les versions importantes de R ou de packages.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-1" tabindex="-1"></a><span class="co"># Packages nécessaires</span></span>
-<span id="cb25-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-4" tabindex="-1"></a><span class="co"># Exemple minimal</span></span>
-<span id="cb25-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb25-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-7" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb25-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb25-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-9" tabindex="-1"></a>)</span>
-<span id="cb25-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-10" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-11" tabindex="-1"></a><span class="co"># Problème : la fonction geom_point ne fonctionne pas comme prévu</span></span>
-<span id="cb25-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-12" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb25-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span></code></pre></div>
-</div>
-<div id="tester-le-reprex" class="section level3 hasAnchor" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Tester le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Avant de partager votre REPREX, testez-le dans une nouvelle session R pour vous assurer qu’il reproduit bien le problème de manière isolée. Si le problème ne se reproduit pas, essayez de réduire encore le code ou de vérifier les dépendances.</p>
-</div>
-<div id="utiliser-le-package-reprex" class="section level3 hasAnchor" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Utiliser le package <code>reprex</code><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Le package <code>reprex</code> (Reproducible Example) de R est conçu pour faciliter la création et le partage de REPREX. Il capture le code R, l’exécute, et produit une sortie formatée pour les forums, les e-mails, ou d’autres contextes.</p>
-<p>Pour créer un REPREX avec le package <code>reprex</code> :</p>
-<ol style="list-style-type: decimal">
-<li>Installez et chargez le package :</li>
-</ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;reprex&quot;</span>)</span>
-<span id="cb26-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-2" tabindex="-1"></a><span class="fu">library</span>(reprex)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Créez votre REPREX :</li>
-</ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-1" tabindex="-1"></a><span class="fu">reprex</span>({</span>
-<span id="cb27-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-2" tabindex="-1"></a>  <span class="co"># Code ici</span></span>
-<span id="cb27-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-3" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb27-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-4" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-5" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb27-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-6" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb27-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-7" tabindex="-1"></a>  )</span>
-<span id="cb27-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb27-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-9" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-10" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span>
-<span id="cb27-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-11" tabindex="-1"></a>})</span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li><code>reprex</code> génère un extrait de code avec la sortie incluse, formaté pour être facilement partagé.</li>
-</ol>
-</div>
-<div id="partager-le-reprex" class="section level3 hasAnchor" number="4.3.6">
-<h3><span class="header-section-number">4.3.6</span> Partager le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Une fois que votre REPREX est prêt et testé, partagez-le dans le contexte approprié, que ce soit un forum, un e-mail, ou un système de gestion de tickets. Assurez-vous que le formatage est correct et que tous les éléments nécessaires sont inclus.</p>
-</div>
-</div>
-<div id="exemples-de-bonnes-pratiques" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Exemples de bonnes pratiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="lapply-et-les-variantes-de-la-famille-apply" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> <strong><code>lapply()</code> et les variantes de la famille <code>apply()</code></strong><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply-et-les-variantes-de-la-famille-apply" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La famille <code>apply()</code> propose des alternatives aux boucles pour appliquer des fonctions sur des structures comme des listes ou des matrices. Ces fonctions sont souvent plus performantes et concises.</p>
+<div id="lapply" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> <code>lapply()</code><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>lapply()</code> est utilisée pour appliquer une fonction à chaque élément d’une liste et retourne une liste des résultats.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb70-1" tabindex="-1"></a><span class="co"># Appliquer sum() à chaque vecteur de la liste avec lapply</span></span>
+<span id="cb70-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb70-2" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(liste_vecteurs, sum)</span>
+<span id="cb70-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb70-3" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 6
+## 
+## [[2]]
+## [1] 15
+## 
+## [[3]]
+## [1] 24</code></pre>
 <ul>
-<li><strong>Bon REPREX</strong> :</li>
-</ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb28-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="cn">NA</span>))</span>
-<span id="cb28-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-3" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span>
-<span id="cb28-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-6" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-7" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<li><p><strong>Avantages</strong> :</p>
 <ul>
-<li><strong>Mauvais REPREX</strong> :</li>
+<li><p><strong>Concision</strong> : Le code est plus court que celui des boucles <code>for</code>.</p></li>
+<li><p><strong>Meilleure performance</strong> : Comparé à une boucle <code>for</code>, <code>lapply()</code> est souvent plus rapide car optimisé pour les listes.</p></li>
+</ul></li>
+<li><p><strong>Inconvénients</strong> :</p>
+<ul>
+<li><strong>Retourne toujours une liste</strong> : Si vous souhaitez un autre type de structure en sortie (e.g., vecteur ou dataframe), il faut convertir le résultat (e.g., <code>unlist()</code> pour obtenir un vecteur).</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;myfile.csv&quot;</span>)</span>
-<span id="cb29-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span></code></pre></div>
-<p>Dans le mauvais exemple, il manque les packages nécessaires, la source des données, et le problème n’est pas clairement défini. Le bon REPREX, en revanche, est autonome, clair, et reproduit un problème spécifique.</p>
 </div>
-<div id="conclusion-3" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Conclusion<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>L’écriture de REPREX est une compétence essentielle pour tout utilisateur de R, que ce soit pour demander de l’aide, collaborer avec des collègues, ou documenter des problèmes. Un REPREX bien conçu rend la communication plus efficace, permet de résoudre les problèmes plus rapidement, et contribue à un code plus clair et mieux documenté.</p>
-<p>Nous vous encourageons à intégrer la pratique des REPREX dans votre flux de travail quotidien, pour améliorer la qualité de vos interactions et de vos projets en R.</p>
-<p>Exemple complet d’un REPREX (utile en plus!)</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-1" tabindex="-1"></a><span class="co"># Script pour la création de dossiers par lac</span></span>
-<span id="cb30-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-2" tabindex="-1"></a><span class="co"># Auteur : Caroline Brule</span></span>
-<span id="cb30-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-3" tabindex="-1"></a><span class="co"># Date : 4 mars 2024</span></span>
-<span id="cb30-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-4" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-5" tabindex="-1"></a><span class="co"># Objectif : Ce script crée un dossier pour chaque lac dans un répertoire spécifique,</span></span>
-<span id="cb30-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-6" tabindex="-1"></a><span class="co"># afin de faciliter le regroupement et l&#39;organisation des analyses de données par lac.</span></span>
-<span id="cb30-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-7" tabindex="-1"></a><span class="co"># Note importante : Ne pas exécuter ce script plusieurs fois afin d&#39;éviter d&#39;écraser </span></span>
-<span id="cb30-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-8" tabindex="-1"></a><span class="co"># les dossiers existants et d&#39;en supprimer le contenu.</span></span>
-<span id="cb30-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-9" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-10" tabindex="-1"></a><span class="co"># Chargement des bibliothèques nécessaires</span></span>
-<span id="cb30-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-11" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb30-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-12" tabindex="-1"></a><span class="fu">library</span>(fs) <span class="co"># Pour une gestion des fichiers plus robuste</span></span>
-<span id="cb30-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-13" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-14" tabindex="-1"></a><span class="co"># 1. Préparer les données des lacs ----</span></span>
-<span id="cb30-15"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-15" tabindex="-1"></a><span class="co"># Création d&#39;un dataframe contenant les informations de base pour chaque lac</span></span>
-<span id="cb30-16"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-16" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb30-17"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-17" tabindex="-1"></a>  <span class="at">no_lce =</span> <span class="fu">c</span>(<span class="st">&quot;00001&quot;</span>, <span class="st">&quot;00002&quot;</span>, <span class="st">&quot;00003&quot;</span>),</span>
-<span id="cb30-18"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-18" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac A&quot;</span>, <span class="st">&quot;Lac B&quot;</span>, <span class="st">&quot;Lac C&quot;</span>),</span>
-<span id="cb30-19"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-19" tabindex="-1"></a>  <span class="at">no_rsvl =</span> <span class="fu">c</span>(<span class="st">&quot;0001&quot;</span>, <span class="st">&quot;0002&quot;</span>, <span class="st">&quot;0003&quot;</span>)</span>
-<span id="cb30-20"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-20" tabindex="-1"></a>)</span>
-<span id="cb30-21"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-21" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-22" tabindex="-1"></a><span class="co"># 2. Générer les noms de dossiers ----</span></span>
-<span id="cb30-23"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-23" tabindex="-1"></a><span class="co"># Combiner les informations pour créer un nom unique pour chaque dossier</span></span>
-<span id="cb30-24"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-24" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-25"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-25" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb30-26"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-26" tabindex="-1"></a>    <span class="at">name_dossier =</span> <span class="fu">paste0</span>(no_lce, <span class="st">&quot;_&quot;</span>, nom_du_lac, <span class="st">&quot;_RSVL_&quot;</span>, no_rsvl)</span>
-<span id="cb30-27"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-27" tabindex="-1"></a>  )</span>
-<span id="cb30-28"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-28" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-29" tabindex="-1"></a><span class="co"># 3. Définir le répertoire cible ----</span></span>
-<span id="cb30-30"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-30" tabindex="-1"></a><span class="co"># Utilisation de file.path pour créer un chemin de fichier de manière robuste</span></span>
-<span id="cb30-31"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-31" tabindex="-1"></a>repertoire <span class="ot">&lt;-</span> <span class="fu">file.path</span>(</span>
-<span id="cb30-32"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-32" tabindex="-1"></a>  <span class="st">&quot;X:&quot;</span>, <span class="st">&quot;DOCUM&quot;</span>, <span class="st">&quot;4500_Produits_val_ajoutee&quot;</span>, </span>
-<span id="cb30-33"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-33" tabindex="-1"></a>  <span class="st">&quot;Eau_Suivi&quot;</span>, <span class="st">&quot;Lacs&quot;</span>, <span class="st">&quot;Périphyton&quot;</span>, <span class="st">&quot;Analyses de données&quot;</span></span>
-<span id="cb30-34"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-34" tabindex="-1"></a>)</span>
-<span id="cb30-35"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-35" tabindex="-1"></a></span>
-<span id="cb30-36"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-36" tabindex="-1"></a><span class="co"># 4. Créer les dossiers ----</span></span>
-<span id="cb30-37"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-37" tabindex="-1"></a><span class="co"># Créer chaque dossier en utilisant fs::dir_create pour une gestion sécurisée</span></span>
-<span id="cb30-38"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-38" tabindex="-1"></a>lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-39"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-39" tabindex="-1"></a>  <span class="fu">pull</span>(name_dossier) <span class="sc">%&gt;%</span></span>
-<span id="cb30-40"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-40" tabindex="-1"></a>  <span class="fu">walk</span>(<span class="sc">~</span> fs<span class="sc">::</span><span class="fu">dir_create</span>(<span class="at">path =</span> <span class="fu">file.path</span>(repertoire, .x)))</span>
-<span id="cb30-41"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-41" tabindex="-1"></a></span>
-<span id="cb30-42"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-42" tabindex="-1"></a><span class="co"># 5. Vérification finale ----</span></span>
-<span id="cb30-43"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-43" tabindex="-1"></a><span class="co"># Afficher la structure du dataframe pour vérifier les données traitées</span></span>
-<span id="cb30-44"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-44" tabindex="-1"></a><span class="fu">str</span>(lacs)</span></code></pre></div>
+<div id="autres-variantes-de-apply" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Autres variantes de <code>apply()</code> :<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#autres-variantes-de-apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong><code>sapply()</code></strong> : Similaire à <code>lapply()</code>, mais essaie de simplifier le résultat. Par exemple, il renvoie un vecteur au lieu d’une liste si possible :</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb72-1" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">sapply</span>(liste_vecteurs, sum)</span>
+<span id="cb72-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb72-2" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)  <span class="co"># retourne un vecteur</span></span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+<ul>
+<li><p><strong><code>tapply()</code></strong> : Applique une fonction à des sous-groupes définis par une variable de regroupement. Utile pour les agrégations par catégorie.</p></li>
+<li><p><strong><code>apply()</code></strong> : Applique une fonction à des matrices ou dataframes, soit par ligne, soit par colonne</p></li>
+</ul>
+</div>
+</div>
+<div id="map-et-la-famille-purrr" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> <strong><code>map()</code> et la famille <code>purrr</code></strong><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map-et-la-famille-purrr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La famille de fonctions <code>map()</code> appartient au package <strong><code>purrr</code></strong> (du <code>tidyverse</code>). Elle est similaire à <code>lapply()</code>, mais plus flexible et expressive. Elle permet de spécifier le type de sortie et fournit des fonctions pour manipuler les listes de manière plus puissante.</p>
+<div id="map" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> <code>map()</code><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb74-1" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div>
+<pre><code>## Warning: le package &#39;purrr&#39; a été compilé avec la version R 4.3.2</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb76-1" tabindex="-1"></a><span class="co"># Appliquer sum() à chaque vecteur de la liste avec map</span></span>
+<span id="cb76-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb76-2" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">map</span>(liste_vecteurs, sum)</span>
+<span id="cb76-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb76-3" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 6
+## 
+## [[2]]
+## [1] 15
+## 
+## [[3]]
+## [1] 24</code></pre>
+<ul>
+<li><p><strong>Avantages</strong> :</p>
+<ul>
+<li><p><strong>Flexibilité</strong> : Vous pouvez utiliser des variantes comme <code>map_dbl()</code> (pour retourner un vecteur numérique), <code>map_chr()</code> (pour retourner un vecteur de caractères), etc.</p></li>
+<li><p><strong>Gestion d’erreurs intégrée</strong> : Avec <code>purrr</code>, vous pouvez facilement gérer les erreurs lors de l’application de fonctions avec des variantes comme <code>safely()</code> ou <code>possibly()</code>.</p></li>
+<li><p><strong>Syntaxe fonctionnelle</strong> : L’approche de <code>purrr</code> est bien intégrée dans les workflows <code>tidyverse</code>, et encourage une écriture fonctionnelle.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="variantes-de-map" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Variantes de <code>map()</code> :<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#variantes-de-map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong><code>map_dbl()</code></strong> : Retourne un vecteur numérique.</li>
+</ul>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb78-1" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(liste_vecteurs, sum)</span>
+<span id="cb78-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb78-2" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)  <span class="co"># Retourne un vecteur numérique</span></span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+<ul>
+<li><p><strong><code>map2()</code></strong> : Applique une fonction sur deux listes simultanément, ce qui est utile pour comparer des éléments de deux listes de manière parallèle.</p></li>
+<li><p><strong><code>pmap()</code></strong> : Applique une fonction à plusieurs listes ou dataframes, ce qui permet de travailler avec plusieurs ensembles de données en même temps.</p></li>
+</ul>
+</div>
+</div>
+<div id="quelle-méthode-privilégier" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Quelle méthode privilégier ?<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-méthode-privilégier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Utilisez <code>for</code></strong> lorsque :</p>
+<ul>
+<li><p>Vous avez besoin de <strong>plus de contrôle</strong> sur l’itération (par exemple, ajouter des conditions complexes).</p></li>
+<li><p>Les itérations sont limitées et ne posent pas de problème de performance.</p></li>
+</ul></li>
+<li><p><strong>Utilisez <code>lapply()</code>/<code>sapply()</code></strong> lorsque :</p>
+<ul>
+<li><p>Vous travaillez avec des listes ou des vecteurs.</p></li>
+<li><p>Vous avez besoin de concision et d’optimisation pour des opérations simples et répétitives.</p></li>
+</ul></li>
+<li><p><strong>Utilisez <code>map()</code> (de <code>purrr</code>) lorsque</strong> :</p>
+<ul>
+<li><p>Vous travaillez dans un pipeline <code>tidyverse</code> et souhaitez une approche plus <strong>fonctionnelle</strong>.</p></li>
+<li><p>Vous avez besoin d’une <strong>flexibilité accrue</strong> (par exemple, pour forcer le type de sortie ou gérer des erreurs).</p></li>
+<li><p>Vous manipulez des listes complexes ou souhaitez utiliser des outils comme <code>map2()</code> ou <code>pmap()</code> pour itérer sur plusieurs structures de données.</p></li>
+</ul></li>
+</ul>
+<div id="exemple-comparatif" class="section level4 hasAnchor" number="9.4.0.1">
+<h4><span class="header-section-number">9.4.0.1</span> Exemple comparatif<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-comparatif" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Voici un exemple qui compare les trois méthodes pour résoudre le même problème : calculer la somme de plusieurs vecteurs dans une liste.</p>
+<p>Avec <code>for</code> :</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb80-1" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(liste_vecteurs))</span>
+<span id="cb80-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb80-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(liste_vecteurs)) {</span>
+<span id="cb80-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb80-3" tabindex="-1"></a>  somme_vecteurs[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(liste_vecteurs[[i]])</span>
+<span id="cb80-4"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb80-4" tabindex="-1"></a>}</span>
+<span id="cb80-5"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb80-5" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)</span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+<p>Avec <code>lapply()</code> :</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb82-1" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(liste_vecteurs, sum)</span>
+<span id="cb82-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb82-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unlist</span>(somme_vecteurs))  <span class="co"># Conversion en vecteur</span></span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+<p>Avec <code>map_dbl()</code> de <code>purrr</code> :</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb84-2"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb84-2" tabindex="-1"></a>somme_vecteurs <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(liste_vecteurs, sum)</span>
+<span id="cb84-3"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#cb84-3" tabindex="-1"></a><span class="fu">print</span>(somme_vecteurs)</span></code></pre></div>
+<pre><code>## [1]  6 15 24</code></pre>
+</div>
+</div>
+<div id="conclusion-5" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Conclusion<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#conclusion-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le choix de la méthode dépend de la complexité de l’opération, du volume des données, et de votre style de programmation préféré. Dans de nombreux cas, l’utilisation des fonctions de la famille <code>apply()</code> ou <code>purrr::map()</code> est plus performante et plus lisible que les boucles <code>for</code>. Toutefois, les boucles peuvent rester pertinentes pour des cas spécifiques nécessitant un contrôle plus fin.</p>
 
 </div>
 </div>
@@ -508,8 +533,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="importation-des-données.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cartes-interactives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="utilisation-de-ungroup-après-group_by.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="structurer-un-script-r-de-manière-adéquate.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -540,7 +565,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/09-iterations.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -548,7 +573,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/09-iterations.Rmd",
 "text": null
 },
 "download": null,

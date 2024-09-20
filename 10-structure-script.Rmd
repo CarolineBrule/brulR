@@ -1,0 +1,205 @@
+# Structurer un script R de manière adéquate
+
+La structure d'un script R joue un rôle clé dans la lisibilité, la maintenabilité et la reproductibilité de vos analyses. Un script bien organisé facilite la navigation, la compréhension des différentes étapes du workflow et la collaboration avec d'autres personnes. Voici quelques bonnes pratiques pour organiser vos scripts en sections claires et concises.
+
+## **En-tête du script**
+
+L'en-tête d'un script R est essentiel pour la documentation, la maintenance et le partage du code. Un en-tête bien rédigé permet aux utilisateurs de comprendre rapidement le contenu et l'objectif du script. Voici ses principaux avantages :
+
+**Clarté** : Un en-tête clair aide à saisir rapidement le rôle du script, même longtemps après son écriture.
+
+**Documentation des intrants et sortants** : En listant les fichiers d'entrée et de sortie, vous facilitez l'identification des dépendances et des données nécessaires pour l'exécution.
+
+**Facilitation de la collaboration** : Un en-tête informatif rend le script plus accessible pour les collègues, ce qui favorise le partage de connaissances.
+
+**Amélioration de la reproductibilité** : En indiquant les intrants et sortants, vous aidez les autres à reproduire les résultats avec les fichiers appropriés
+
+### Exemple d'en-tête
+
+```{r, eval = FALSE}
+# ---------------------------------------------------------------------------
+# Nom du Script : 03_analyse_avancee.R
+# Description   : Ce script effectue une analyse exploratoire approfondie,
+#                 y compris des statistiques descriptives, des tests 
+#                 statistiques et des visualisations pour les données 
+#                 nettoyées.
+#
+# Intrants      : - data/clean_data.csv
+#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)
+#
+# Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)
+#                 - output/visualisation_test.png (graphique des résultats)
+#
+# Auteur        : VotreNom
+# Date          : 2024-09-20
+#
+# Notes         : Ce script nécessite que le package 'ggplot2' et 'dplyr' soient
+#                 installés. Les résultats de l'analyse seront sauvegardés dans
+#                 le dossier output.
+# ---------------------------------------------------------------------------
+```
+
+## **Nommer et commenter les sections**
+
+Il est important de nommer chaque section de manière explicite pour indiquer clairement son but. Utilisez des titres comme "Chargement des packages", "Importation des données", "Nettoyage des données", etc. Cela permet de naviguer rapidement dans le script et d'identifier la logique du flux de travail.
+
+### Bonnes pratiques pour les sections :
+
+-   **Utilisez des titres explicites** : Assurez-vous que chaque section décrit son contenu de manière concise et descriptive.
+
+-   **Structure hiérarchique** : Commencez toujours par les sections essentielles (chargement des packages, importation des données), puis avancez progressivement dans le pipeline de l'analyse (nettoyage, analyse, visualisation).
+
+    ```{r, eval = FALSE}
+    # ---------------------------------------------------------------------------
+    # 1. Chargement des packages et des fonctions
+    # ---------------------------------------------------------------------------
+    library(dplyr)
+    library(ggplot2)
+    source("scripts/fonctions_utiles.R")
+
+    # ---------------------------------------------------------------------------
+    # 2. Importation des données
+    # ---------------------------------------------------------------------------
+    data <- read.csv("data/donnees_brutes.csv")
+
+    # ---------------------------------------------------------------------------
+    # 3. Nettoyage des données
+    # ---------------------------------------------------------------------------
+    # Suppression des valeurs manquantes et formatage des noms de colonnes
+    data_clean <- data %>%
+      drop_na() %>%
+      janitor::clean_names()
+
+    # ---------------------------------------------------------------------------
+    # 4. Analyse exploratoire
+    # ---------------------------------------------------------------------------
+    # Calcul des statistiques descriptives
+    summary_stats <- data_clean %>%
+      summarise(mean_value = mean(variable_x), sd_value = sd(variable_x))
+
+    # ---------------------------------------------------------------------------
+    # 5. Visualisation des résultats
+    # ---------------------------------------------------------------------------
+    ggplot(data_clean, aes(x = variable_x, y = variable_y)) +
+      geom_point() +
+      labs(title = "Relation entre X et Y")
+
+    # ---------------------------------------------------------------------------
+    # 6. Sauvegarde des résultats
+    # ---------------------------------------------------------------------------
+    write.csv(summary_stats, "output/summary_stats.csv", row.names = FALSE)
+    ```
+
+### Raccourcis clavier
+
+**Pour insérer un commentaire de section** :
+
+**Windows** : `Ctrl + Shift + R`
+
+Ce raccourci insère un commentaire de section préformaté, que vous pouvez ensuite personnaliser avec le nom de la section souhaitée.
+
+**Pour naviguer entre les sections** :
+
+Utilisez le volet "Plan" (ou "Outline") dans RStudio pour voir toutes les sections de votre script. Cela vous permet de cliquer rapidement sur une section pour y accéder.
+
+**Pour exécuter une section** :
+
+**Windows** : `Ctrl + Alt + T`
+
+Ce raccourci exécute toutes les lignes de code dans la section en cours.
+
+### Avantages des sections
+
+-   **Meilleure lisibilité** : Les sections clairement délimitées rendent le code plus lisible.
+
+-   **Navigation rapide** : Le volet "Plan" vous permet de naviguer facilement dans le script sans faire défiler tout le code.
+
+-   **Organisation logique** : Les sections aident à structurer le script en étapes logiques, ce qui facilite la compréhension du flux de travail.
+
+## **Documentation claire avec des commentaires**
+
+Ajouter des **commentaires** au sein de chaque section est une pratique essentielle pour expliquer le rôle de chaque bloc de code. Les commentaires permettent de :
+
+-   Décrire ce que fait chaque section ou fonction.
+
+-   Expliquer les choix de certaines opérations complexes.
+
+-   Rendre votre script compréhensible pour vous-même à long terme, ou pour d'autres utilisateurs.
+
+### Exemple de commentaires :
+
+```{r, eval = FALSE}
+# Calcul de la moyenne et de l'écart type pour la variable 'variable_x'
+summary_stats <- data_clean %>%
+  summarise(mean_value = mean(variable_x),  # Moyenne
+            sd_value = sd(variable_x))      # Écart type
+```
+
+## Script de contrôle avec `run_all`\*\*
+
+Si votre projet comporte plusieurs scripts qui doivent être exécutés dans un certain ordre, vous pouvez utiliser un **script de contrôle** appelé `run_all` qui exécute les autres scripts dans le bon ordre. Ce script centralise l'exécution de tout votre pipeline et assure la reproductibilité complète.
+
+```{r, eval = FALSE}
+# run_all.R : Script de contrôle pour exécuter toutes les étapes du projet
+source("scripts/01_importation.R")
+source("scripts/02_nettoyage.R")
+source("scripts/03_analyse.R")
+source("scripts/04_visualisation.R")
+```
+
+Cela permet de relancer facilement tout le processus de bout en bout.
+
+## Gestion des scripts exploratoires
+
+Lorsque vous débutez un script, surtout dans un contexte exploratoire, il est fréquent de ne pas savoir exactement ce qu'il contiendra. L'exploration des données implique souvent des essais et des erreurs, et il est essentiel de garder une trace de votre réflexion et de vos découvertes. Voici quelques conseils pour structurer vos scripts exploratoires tout en restant en accord avec les bonnes pratiques.
+
+### Utiliser des commentaires pour documenter votre réflexion
+
+Ajoutez des commentaires tout au long du script pour expliquer vos pensées, les raisons de vos choix, et les résultats de vos explorations. Cela vous aidera à comprendre votre logique lorsque vous reviendrez sur le script plus tard.
+
+```{r, eval = FALSE}
+# Exploration des données : Vérification de la distribution des valeurs
+hist(data$variable_x)
+# Ici, je m'interroge sur la présence d'une asymétrie. Il serait intéressant de faire un test de normalité.
+```
+
+### Inclure des sections même dans les scripts exploratoires
+
+Utilisez des sections pour structurer vos idées, même si le contenu n'est pas encore finalisé. Cela vous aidera à garder une organisation, même dans un contexte d'exploration.
+
+```{r, eval = FALSE}
+# ---------------------------------------------------------------------------
+# 1. Chargement des données
+# ---------------------------------------------------------------------------
+data <- read.csv("data/exemple.csv")
+
+# ---------------------------------------------------------------------------
+# 2. Exploration initiale
+# ---------------------------------------------------------------------------
+summary(data)  # Résumé des données
+str(data)      # Structure des données
+
+```
+
+### Écrire des notes et des questions
+
+Incluez des sections où vous notez vos questions, hypothèses, et réflexions sur les données. Cela peut servir de guide pour les étapes futures de votre analyse.
+
+```{r, eval = FALSE}
+# ---------------------------------------------------------------------------
+# 3. Réflexions
+# ---------------------------------------------------------------------------
+# Questions :
+# - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?
+# - Quelle transformation pourrait être utile pour variable_x ?
+```
+
+### Sauvegarder des versions du script
+
+Si vous travaillez sur une exploration qui évolue au fil du temps, envisagez de sauvegarder différentes versions de votre script. Cela vous permettra de revenir en arrière si nécessaire et de suivre l'évolution de votre réflexion.
+
+Si vous ne le faites pas déjà, envisagez d'utiliser Git pour gérer vos scripts exploratoires. Cela vous permettra de suivre les modifications apportées au fur et à mesure de votre exploration et de revenir à des versions antérieures si besoin.
+
+## Conclusion
+
+Une bonne organisation des scripts, même dans un contexte exploratoire, est essentielle pour garantir la **lisibilité**, la **maintenabilité** et la **reproductibilité** de vos projets. En gardant une trace de vos réflexions, questions, et résultats intermédiaires à travers des **commentaires**, des **sections claires**, et en utilisant des **pratiques de gestion de version**, vous pouvez transformer vos scripts exploratoires en documents utiles qui guideront vos analyses futures. Suivre ces bonnes pratiques vous permettra de revenir facilement sur vos scripts, de mieux comprendre vos processus à long terme, et de partager votre travail avec d'autres collaborateurs sans difficulté, même lors des étapes plus formelles du projet.

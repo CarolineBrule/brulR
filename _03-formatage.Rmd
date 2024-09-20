@@ -1,3 +1,0 @@
-# Formattage des données
-
-Make then clean

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <title>Chapitre 7 Structure d’un projet R : Package, Dépôt, et Projet | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 7 Structure d’un projet R : Package, Dépôt, et Projet | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 7 Structure d’un projet R : Package, Dépôt, et Projet | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 7 Structure d’un projet R : Package, Dépôt, et Projet | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importation-des-données.html"/>
-<link rel="next" href="cartes-interactives.html"/>
+<link rel="prev" href="formattage-des-données.html"/>
+<link rel="next" href="utilisation-de-ungroup-après-group_by.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -345,161 +345,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapitre 4</span> L’art du REPREX : pourquoi et comment créer des exemples reproductibles<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="quest-ce-quun-reprex" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Qu’est-ce qu’un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Un REPREX, ou <strong>REPRoducible EXample</strong>, est un extrait de code qui reproduit un problème ou une question de manière concise et reproductible. Il s’agit d’une pratique essentielle lorsque vous demandez de l’aide, que vous partagez un problème sur un forum, ou que vous collaborez avec d’autres personnes sur un projet R. L’idée est de fournir un exemple minimal qui montre clairement le problème ou la question, tout en étant simple à comprendre et à exécuter.</p>
-</div>
-<div id="pourquoi-écrire-un-reprex" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Pourquoi écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Écrire un REPREX présente plusieurs avantages significatifs :</p>
+<div id="structure-dun-projet-r-package-dépôt-et-projet" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapitre 7</span> Structure d’un projet R : Package, Dépôt, et Projet<a href="structure-dun-projet-r-package-dépôt-et-projet.html#structure-dun-projet-r-package-dépôt-et-projet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>L’organisation d’un projet R est cruciale pour assurer la lisibilité, la maintenance, et la collaboration sur du code. Il existe plusieurs types de projets en R, chacun avec sa propre structure : <strong>package</strong>, <strong>dépôt (repo)</strong>, et <strong>projet</strong>. Bien qu’ils partagent des points communs, ces structures répondent à des besoins différents.</p>
+<div id="projets-rstudio" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> <strong>Projets RStudio</strong><a href="structure-dun-projet-r-package-dépôt-et-projet.html#projets-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les <strong>projets</strong> dans RStudio sont une manière d’organiser vos scripts, données et fichiers de travail. Un projet est un dossier où vous centralisez tous les fichiers associés à une analyse ou une tâche spécifique. Voici une structure typique :</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-1" tabindex="-1"></a><span class="ex">/MonProjet/</span></span>
+<span id="cb54-2"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-2" tabindex="-1"></a>  <span class="ex">├──</span> data/               <span class="co"># Données brutes ou pré-traitées</span></span>
+<span id="cb54-3"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-3" tabindex="-1"></a>  <span class="ex">├──</span> R/                  <span class="co"># Scripts R</span></span>
+<span id="cb54-4"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-4" tabindex="-1"></a>  <span class="ex">├──</span> output/             <span class="co"># Résultats, graphiques, rapports</span></span>
+<span id="cb54-5"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-5" tabindex="-1"></a>  <span class="ex">├──</span> reports/            <span class="co"># Fichiers RMarkdown ou Quarto pour rapports</span></span>
+<span id="cb54-6"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb54-6" tabindex="-1"></a>  <span class="ex">└──</span> README.md           <span class="co"># Description générale du projet</span></span></code></pre></div>
+<p>Les projets facilitent :</p>
 <ul>
-<li><p><strong>Clarté</strong> : Un REPREX force à isoler le problème ou la question spécifique, éliminant le bruit des autres parties du code. Cela aide non seulement à clarifier la question pour les autres, mais aussi à mieux comprendre le problème vous-même.</p></li>
-<li><p><strong>Reproductibilité</strong> : En fournissant un exemple reproductible, vous permettez à ceux qui vous aident de reproduire exactement le même problème que vous rencontrez. Cela accélère la résolution des problèmes.</p></li>
-<li><p><strong>Efficacité</strong> : Un REPREX bien conçu permet à la personne qui vous aide de se concentrer sur l’essentiel, ce qui augmente les chances d’obtenir une réponse rapide et précise.</p></li>
-<li><p><strong>Documentation</strong> : Les REPREX peuvent également servir de documentation pour des problèmes ou des questions résolus. Ils constituent des exemples concrets de ce qui a été essayé et de ce qui fonctionne ou ne fonctionne pas.</p></li>
-<li><p><strong>Réflexion</strong> : Le processus d’écriture d’un REPREX peut souvent vous amener à trouver la solution par vous-même, en simplifiant et en isolant le problème.</p></li>
+<li><p><strong>La reproductibilité</strong> : Un projet encapsule tout ce qui est nécessaire pour exécuter les analyses.</p></li>
+<li><p><strong>L’isolation</strong> : Chaque projet a son propre espace de travail, ce qui évite les conflits de fichiers ou variables avec d’autres projets.</p></li>
+</ul>
+<div id="points-clés-dun-projet-r" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Points clés d’un projet R<a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-projet-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Fichier <code>.Rproj</code></strong> : Ce fichier spécifique à RStudio contient les paramètres de projet.</p></li>
+<li><p><strong>Organisation des dossiers</strong> : Séparez les scripts, données, et résultats pour garder une structure claire.</p></li>
+<li><p><strong>Gestion des dépendances</strong> : Utilisez des outils comme <code>{renv}</code> pour gérer les versions de packages.</p></li>
 </ul>
 </div>
-<div id="comment-écrire-un-reprex" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Comment écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voici les étapes pour écrire un bon REPREX :</p>
-<div id="isoler-le-problème" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Isoler le problème<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Commencez par isoler le problème ou la question spécifique que vous rencontrez. Essayez de réduire le code à l’essentiel nécessaire pour reproduire le problème. Évitez d’inclure des parties de code non pertinentes.</p>
 </div>
-<div id="utiliser-des-données-simulées-ou-publiques" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Utiliser des données simulées ou publiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Si possible, utilisez des données simulées ou un sous-ensemble de données publiques pour rendre votre exemple reproductible par tous. Vous pouvez utiliser des fonctions comme <code>set.seed()</code> pour garantir que les résultats sont reproductibles.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb24-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb24-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-3" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb24-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-4" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb24-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-5" tabindex="-1"></a>)</span></code></pre></div>
-</div>
-<div id="inclure-le-contexte-nécessaire" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Inclure le contexte nécessaire<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Assurez-vous que votre REPREX inclut toutes les informations nécessaires pour reproduire le problème, telles que les packages utilisés, les options de configuration, et les versions importantes de R ou de packages.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-1" tabindex="-1"></a><span class="co"># Packages nécessaires</span></span>
-<span id="cb25-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-4" tabindex="-1"></a><span class="co"># Exemple minimal</span></span>
-<span id="cb25-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb25-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-7" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb25-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb25-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-9" tabindex="-1"></a>)</span>
-<span id="cb25-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-10" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-11" tabindex="-1"></a><span class="co"># Problème : la fonction geom_point ne fonctionne pas comme prévu</span></span>
-<span id="cb25-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-12" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb25-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span></code></pre></div>
-</div>
-<div id="tester-le-reprex" class="section level3 hasAnchor" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Tester le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Avant de partager votre REPREX, testez-le dans une nouvelle session R pour vous assurer qu’il reproduit bien le problème de manière isolée. Si le problème ne se reproduit pas, essayez de réduire encore le code ou de vérifier les dépendances.</p>
-</div>
-<div id="utiliser-le-package-reprex" class="section level3 hasAnchor" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Utiliser le package <code>reprex</code><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Le package <code>reprex</code> (Reproducible Example) de R est conçu pour faciliter la création et le partage de REPREX. Il capture le code R, l’exécute, et produit une sortie formatée pour les forums, les e-mails, ou d’autres contextes.</p>
-<p>Pour créer un REPREX avec le package <code>reprex</code> :</p>
-<ol style="list-style-type: decimal">
-<li>Installez et chargez le package :</li>
-</ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;reprex&quot;</span>)</span>
-<span id="cb26-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-2" tabindex="-1"></a><span class="fu">library</span>(reprex)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Créez votre REPREX :</li>
-</ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-1" tabindex="-1"></a><span class="fu">reprex</span>({</span>
-<span id="cb27-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-2" tabindex="-1"></a>  <span class="co"># Code ici</span></span>
-<span id="cb27-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-3" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb27-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-4" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-5" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb27-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-6" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb27-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-7" tabindex="-1"></a>  )</span>
-<span id="cb27-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb27-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-9" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-10" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span>
-<span id="cb27-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-11" tabindex="-1"></a>})</span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li><code>reprex</code> génère un extrait de code avec la sortie incluse, formaté pour être facilement partagé.</li>
-</ol>
-</div>
-<div id="partager-le-reprex" class="section level3 hasAnchor" number="4.3.6">
-<h3><span class="header-section-number">4.3.6</span> Partager le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Une fois que votre REPREX est prêt et testé, partagez-le dans le contexte approprié, que ce soit un forum, un e-mail, ou un système de gestion de tickets. Assurez-vous que le formatage est correct et que tous les éléments nécessaires sont inclus.</p>
-</div>
-</div>
-<div id="exemples-de-bonnes-pratiques" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Exemples de bonnes pratiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="packages-r" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> <strong>Packages R</strong><a href="structure-dun-projet-r-package-dépôt-et-projet.html#packages-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un <strong>package R</strong> est un projet plus structuré destiné à être partagé et distribué. Il contient du code, de la documentation, et éventuellement des données, le tout dans une structure spécifique pour faciliter son installation et son utilisation. Voici la structure d’un package typique :</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-1" tabindex="-1"></a><span class="ex">/MonPackage/</span></span>
+<span id="cb55-2"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-2" tabindex="-1"></a>  <span class="ex">├──</span> R/                  <span class="co"># Fichiers R avec les fonctions</span></span>
+<span id="cb55-3"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-3" tabindex="-1"></a>  <span class="ex">├──</span> man/                <span class="co"># Documentation générée par roxygen2</span></span>
+<span id="cb55-4"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-4" tabindex="-1"></a>  <span class="ex">├──</span> NAMESPACE           <span class="co"># Déclaration des fonctions exportées</span></span>
+<span id="cb55-5"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-5" tabindex="-1"></a>  <span class="ex">├──</span> DESCRIPTION         <span class="co"># Métadonnées sur le package</span></span>
+<span id="cb55-6"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-6" tabindex="-1"></a>  <span class="ex">├──</span> tests/              <span class="co"># Tests unitaires avec testthat</span></span>
+<span id="cb55-7"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-7" tabindex="-1"></a>  <span class="ex">├──</span> vignettes/          <span class="co"># Vignettes explicatives</span></span>
+<span id="cb55-8"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-8" tabindex="-1"></a>  <span class="ex">├──</span> data/               <span class="co"># Données incluses dans le package</span></span>
+<span id="cb55-9"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-9" tabindex="-1"></a>  <span class="ex">├──</span> inst/               <span class="co"># Fichiers divers (ex. : fichiers externes, exemples)</span></span>
+<span id="cb55-10"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb55-10" tabindex="-1"></a>  <span class="ex">└──</span> README.md           <span class="co"># Documentation du projet</span></span></code></pre></div>
+<div id="points-clés-dun-package-r" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Points clés d’un package R<a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-package-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Bon REPREX</strong> :</li>
+<li><p><strong><code>DESCRIPTION</code></strong> : Ce fichier contient les métadonnées du package (nom, auteur, dépendances, version).</p></li>
+<li><p><strong><code>NAMESPACE</code></strong> : Liste les fonctions et objets exportés.</p></li>
+<li><p><strong>Documentation</strong> : Utilisez <code>{roxygen2}</code> pour générer automatiquement la documentation dans le dossier <code>man/</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb28-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="cn">NA</span>))</span>
-<span id="cb28-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-3" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span>
-<span id="cb28-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-6" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-7" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
-<ul>
-<li><strong>Mauvais REPREX</strong> :</li>
-</ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;myfile.csv&quot;</span>)</span>
-<span id="cb29-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span></code></pre></div>
-<p>Dans le mauvais exemple, il manque les packages nécessaires, la source des données, et le problème n’est pas clairement défini. Le bon REPREX, en revanche, est autonome, clair, et reproduit un problème spécifique.</p>
+<p>Les packages sont structurés pour être <strong>réutilisables</strong> et <strong>distribuables</strong>. Ils incluent des tests (<code>tests/</code>) pour garantir que le code fonctionne correctement dans différents contextes.</p>
 </div>
-<div id="conclusion-3" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Conclusion<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>L’écriture de REPREX est une compétence essentielle pour tout utilisateur de R, que ce soit pour demander de l’aide, collaborer avec des collègues, ou documenter des problèmes. Un REPREX bien conçu rend la communication plus efficace, permet de résoudre les problèmes plus rapidement, et contribue à un code plus clair et mieux documenté.</p>
-<p>Nous vous encourageons à intégrer la pratique des REPREX dans votre flux de travail quotidien, pour améliorer la qualité de vos interactions et de vos projets en R.</p>
-<p>Exemple complet d’un REPREX (utile en plus!)</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-1" tabindex="-1"></a><span class="co"># Script pour la création de dossiers par lac</span></span>
-<span id="cb30-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-2" tabindex="-1"></a><span class="co"># Auteur : Caroline Brule</span></span>
-<span id="cb30-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-3" tabindex="-1"></a><span class="co"># Date : 4 mars 2024</span></span>
-<span id="cb30-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-4" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-5" tabindex="-1"></a><span class="co"># Objectif : Ce script crée un dossier pour chaque lac dans un répertoire spécifique,</span></span>
-<span id="cb30-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-6" tabindex="-1"></a><span class="co"># afin de faciliter le regroupement et l&#39;organisation des analyses de données par lac.</span></span>
-<span id="cb30-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-7" tabindex="-1"></a><span class="co"># Note importante : Ne pas exécuter ce script plusieurs fois afin d&#39;éviter d&#39;écraser </span></span>
-<span id="cb30-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-8" tabindex="-1"></a><span class="co"># les dossiers existants et d&#39;en supprimer le contenu.</span></span>
-<span id="cb30-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-9" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-10" tabindex="-1"></a><span class="co"># Chargement des bibliothèques nécessaires</span></span>
-<span id="cb30-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-11" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb30-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-12" tabindex="-1"></a><span class="fu">library</span>(fs) <span class="co"># Pour une gestion des fichiers plus robuste</span></span>
-<span id="cb30-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-13" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-14" tabindex="-1"></a><span class="co"># 1. Préparer les données des lacs ----</span></span>
-<span id="cb30-15"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-15" tabindex="-1"></a><span class="co"># Création d&#39;un dataframe contenant les informations de base pour chaque lac</span></span>
-<span id="cb30-16"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-16" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb30-17"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-17" tabindex="-1"></a>  <span class="at">no_lce =</span> <span class="fu">c</span>(<span class="st">&quot;00001&quot;</span>, <span class="st">&quot;00002&quot;</span>, <span class="st">&quot;00003&quot;</span>),</span>
-<span id="cb30-18"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-18" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac A&quot;</span>, <span class="st">&quot;Lac B&quot;</span>, <span class="st">&quot;Lac C&quot;</span>),</span>
-<span id="cb30-19"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-19" tabindex="-1"></a>  <span class="at">no_rsvl =</span> <span class="fu">c</span>(<span class="st">&quot;0001&quot;</span>, <span class="st">&quot;0002&quot;</span>, <span class="st">&quot;0003&quot;</span>)</span>
-<span id="cb30-20"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-20" tabindex="-1"></a>)</span>
-<span id="cb30-21"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-21" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-22" tabindex="-1"></a><span class="co"># 2. Générer les noms de dossiers ----</span></span>
-<span id="cb30-23"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-23" tabindex="-1"></a><span class="co"># Combiner les informations pour créer un nom unique pour chaque dossier</span></span>
-<span id="cb30-24"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-24" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-25"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-25" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb30-26"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-26" tabindex="-1"></a>    <span class="at">name_dossier =</span> <span class="fu">paste0</span>(no_lce, <span class="st">&quot;_&quot;</span>, nom_du_lac, <span class="st">&quot;_RSVL_&quot;</span>, no_rsvl)</span>
-<span id="cb30-27"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-27" tabindex="-1"></a>  )</span>
-<span id="cb30-28"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-28" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-29" tabindex="-1"></a><span class="co"># 3. Définir le répertoire cible ----</span></span>
-<span id="cb30-30"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-30" tabindex="-1"></a><span class="co"># Utilisation de file.path pour créer un chemin de fichier de manière robuste</span></span>
-<span id="cb30-31"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-31" tabindex="-1"></a>repertoire <span class="ot">&lt;-</span> <span class="fu">file.path</span>(</span>
-<span id="cb30-32"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-32" tabindex="-1"></a>  <span class="st">&quot;X:&quot;</span>, <span class="st">&quot;DOCUM&quot;</span>, <span class="st">&quot;4500_Produits_val_ajoutee&quot;</span>, </span>
-<span id="cb30-33"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-33" tabindex="-1"></a>  <span class="st">&quot;Eau_Suivi&quot;</span>, <span class="st">&quot;Lacs&quot;</span>, <span class="st">&quot;Périphyton&quot;</span>, <span class="st">&quot;Analyses de données&quot;</span></span>
-<span id="cb30-34"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-34" tabindex="-1"></a>)</span>
-<span id="cb30-35"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-35" tabindex="-1"></a></span>
-<span id="cb30-36"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-36" tabindex="-1"></a><span class="co"># 4. Créer les dossiers ----</span></span>
-<span id="cb30-37"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-37" tabindex="-1"></a><span class="co"># Créer chaque dossier en utilisant fs::dir_create pour une gestion sécurisée</span></span>
-<span id="cb30-38"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-38" tabindex="-1"></a>lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-39"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-39" tabindex="-1"></a>  <span class="fu">pull</span>(name_dossier) <span class="sc">%&gt;%</span></span>
-<span id="cb30-40"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-40" tabindex="-1"></a>  <span class="fu">walk</span>(<span class="sc">~</span> fs<span class="sc">::</span><span class="fu">dir_create</span>(<span class="at">path =</span> <span class="fu">file.path</span>(repertoire, .x)))</span>
-<span id="cb30-41"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-41" tabindex="-1"></a></span>
-<span id="cb30-42"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-42" tabindex="-1"></a><span class="co"># 5. Vérification finale ----</span></span>
-<span id="cb30-43"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-43" tabindex="-1"></a><span class="co"># Afficher la structure du dataframe pour vérifier les données traitées</span></span>
-<span id="cb30-44"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-44" tabindex="-1"></a><span class="fu">str</span>(lacs)</span></code></pre></div>
+</div>
+<div id="dépôts-repositories" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> <strong>Dépôts (Repositories)</strong><a href="structure-dun-projet-r-package-dépôt-et-projet.html#dépôts-repositories" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les <strong>dépôts</strong> (repos) sont souvent utilisés pour gérer le code via un contrôle de version (par exemple, avec <strong>Git</strong> et GitHub). Un dépôt est un espace de stockage pour un projet qui peut contenir du code, des packages, ou des analyses. Un dépôt peut être un projet ou un package, mais ce qui le distingue est l’utilisation du contrôle de version pour collaborer et suivre l’évolution du code.</p>
+<p>Voici une structure typique d’un dépôt Git :</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-1" tabindex="-1"></a><span class="ex">/MonRepo/</span></span>
+<span id="cb56-2"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-2" tabindex="-1"></a>  <span class="ex">├──</span> .git/               <span class="co"># Dossier de métadonnées Git (suivi des versions)</span></span>
+<span id="cb56-3"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-3" tabindex="-1"></a>  <span class="ex">├──</span> R/                  <span class="co"># Scripts ou fonctions R</span></span>
+<span id="cb56-4"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-4" tabindex="-1"></a>  <span class="ex">├──</span> data/               <span class="co"># Données brutes ou pré-traitées</span></span>
+<span id="cb56-5"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-5" tabindex="-1"></a>  <span class="ex">├──</span> output/             <span class="co"># Résultats ou graphiques</span></span>
+<span id="cb56-6"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-6" tabindex="-1"></a>  <span class="ex">├──</span> tests/              <span class="co"># Tests unitaires</span></span>
+<span id="cb56-7"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-7" tabindex="-1"></a>  <span class="ex">├──</span> README.md           <span class="co"># Description du projet et instructions</span></span>
+<span id="cb56-8"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#cb56-8" tabindex="-1"></a>  <span class="ex">└──</span> .gitignore          <span class="co"># Fichiers à ignorer par Git</span></span></code></pre></div>
+<div id="points-clés-dun-dépôt" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Points clés d'un dépôt<a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-dépôt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong><code>.git/</code></strong> : Géré par Git, ce dossier contient tout l'historique du projet.</p></li>
+<li><p><strong>Collaboration</strong> : Le dépôt permet à plusieurs utilisateurs de travailler simultanément tout en gardant une trace des changements.</p></li>
+<li><p><strong>GitHub</strong> : Permet de partager des dépôts en ligne, facilitant la collaboration.</p></li>
+</ul>
+</div>
+</div>
+<div id="différences-entre-package-dépôt-et-projet" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Différences entre package, dépôt, et projet<a href="structure-dun-projet-r-package-dépôt-et-projet.html#différences-entre-package-dépôt-et-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Projet RStudio</th>
+<th>Librairie R</th>
+<th>Dépôt (Repository)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Usage</strong></td>
+<td>Analyse de données</td>
+<td>Distribution de code</td>
+<td>Suivi du code</td>
+</tr>
+<tr class="even">
+<td><strong>Fichier clé</strong></td>
+<td><code>.Rproj</code></td>
+<td><code>DESCRIPTION</code> et <code>NAMESPACE</code></td>
+<td><code>.git/</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Documentation</strong></td>
+<td>Fichiers RMarkdown ou Quarto</td>
+<td>Roxygen2 + Vignettes</td>
+<td>README.md, GitHub Pages</td>
+</tr>
+<tr class="even">
+<td><strong>Dépendances</strong></td>
+<td><code>{renv}</code>, <code>DESCRIPTION</code></td>
+<td><code>{roxygen2}</code>, <code>testthat</code></td>
+<td>Git + GitHub Actions</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bonnes-pratiques-pour-structurer-un-projet" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Bonnes pratiques pour structurer un projet<a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Isolation des scripts, données et sorties</strong> : Gardez vos scripts dans un dossier <code>R/</code> ou <code>scripts/</code>, et les données dans un dossier <code>data/</code>. Séparez les résultats dans un dossier distinct comme <code>output/</code>.</p></li>
+<li><p><strong>Documentation</strong> : Ajoutez un fichier <code>README.md</code> pour expliquer le but du projet, comment exécuter les analyses, et quelles dépendances sont nécessaires.</p></li>
+<li><p><strong>Contrôle de version</strong> : Utilisez Git pour suivre l’évolution de votre code, même dans des projets RStudio ou des packages.</p></li>
+</ul>
 
 </div>
 </div>
@@ -508,8 +475,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="importation-des-données.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cartes-interactives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="formattage-des-données.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="utilisation-de-ungroup-après-group_by.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -540,7 +507,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/07-structure.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -548,7 +515,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/07-structure.Rmd",
 "text": null
 },
 "download": null,

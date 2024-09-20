@@ -1,0 +1,172 @@
+# Boucles, `lapply()` et `map()` : quelles méthodes privilégier ?
+
+## **Les boucles `for`**
+
+Les boucles `for` sont une des méthodes les plus intuitives pour parcourir un ensemble de données en R. Elles permettent d'itérer explicitement sur des vecteurs, des listes ou des matrices.
+
+### Syntaxe d'une boucle `for`
+
+```{r}
+for (i in 1:10) {
+  print(i)
+}
+```
+
+Dans cet exemple, la boucle itère de `1` à `10`, imprimant chaque valeur.
+
+### Exemple pratique
+
+Supposons que vous ayez une liste de vecteurs et que vous souhaitiez calculer la somme de chaque vecteur. Vous pourriez utiliser une boucle `for` comme suit :
+
+```{r}
+# Liste de vecteurs
+liste_vecteurs <- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))
+
+# Calculer la somme de chaque vecteur avec une boucle for
+somme_vecteurs <- numeric(length(liste_vecteurs))
+for (i in 1:length(liste_vecteurs)) {
+  somme_vecteurs[i] <- sum(liste_vecteurs[[i]])
+}
+print(somme_vecteurs)
+```
+
+### Avantages et inconvénients des boucles `for`
+
+-   **Avantages** :
+
+    -   **Clarté** : La logique est facile à comprendre, même pour les débutants.
+
+    -   **Contrôle** : Vous pouvez facilement ajouter des conditions, modifier des indices, ou déboguer le processus.
+
+-   **Inconvénients** :
+
+    -   **Performance** : Les boucles `for` peuvent devenir plus lentes avec de grands volumes de données. Elles ne tirent pas parti des optimisations natives de R pour la manipulation de structures complexes comme les listes ou les dataframes.
+
+    -   **Lisibilité** : Le code peut devenir plus verbeux, surtout pour des opérations répétitives.
+
+## **`lapply()` et les variantes de la famille `apply()`**
+
+La famille `apply()` propose des alternatives aux boucles pour appliquer des fonctions sur des structures comme des listes ou des matrices. Ces fonctions sont souvent plus performantes et concises.
+
+### `lapply()`
+
+`lapply()` est utilisée pour appliquer une fonction à chaque élément d'une liste et retourne une liste des résultats.
+
+```{r}
+# Appliquer sum() à chaque vecteur de la liste avec lapply
+somme_vecteurs <- lapply(liste_vecteurs, sum)
+print(somme_vecteurs)
+```
+
+-   **Avantages** :
+
+    -   **Concision** : Le code est plus court que celui des boucles `for`.
+
+    -   **Meilleure performance** : Comparé à une boucle `for`, `lapply()` est souvent plus rapide car optimisé pour les listes.
+
+-   **Inconvénients** :
+
+    -   **Retourne toujours une liste** : Si vous souhaitez un autre type de structure en sortie (e.g., vecteur ou dataframe), il faut convertir le résultat (e.g., `unlist()` pour obtenir un vecteur).
+
+### Autres variantes de `apply()` :
+
+-   **`sapply()`** : Similaire à `lapply()`, mais essaie de simplifier le résultat. Par exemple, il renvoie un vecteur au lieu d'une liste si possible :
+
+```{r}
+somme_vecteurs <- sapply(liste_vecteurs, sum)
+print(somme_vecteurs)  # retourne un vecteur
+```
+
+-   **`tapply()`** : Applique une fonction à des sous-groupes définis par une variable de regroupement. Utile pour les agrégations par catégorie.
+
+-   **`apply()`** : Applique une fonction à des matrices ou dataframes, soit par ligne, soit par colonne
+
+## **`map()` et la famille `purrr`**
+
+La famille de fonctions `map()` appartient au package **`purrr`** (du `tidyverse`). Elle est similaire à `lapply()`, mais plus flexible et expressive. Elle permet de spécifier le type de sortie et fournit des fonctions pour manipuler les listes de manière plus puissante.
+
+### `map()`
+
+```{r}
+library(purrr)
+
+# Appliquer sum() à chaque vecteur de la liste avec map
+somme_vecteurs <- map(liste_vecteurs, sum)
+print(somme_vecteurs)
+```
+
+-   **Avantages** :
+
+    -   **Flexibilité** : Vous pouvez utiliser des variantes comme `map_dbl()` (pour retourner un vecteur numérique), `map_chr()` (pour retourner un vecteur de caractères), etc.
+
+    -   **Gestion d'erreurs intégrée** : Avec `purrr`, vous pouvez facilement gérer les erreurs lors de l'application de fonctions avec des variantes comme `safely()` ou `possibly()`.
+
+    -   **Syntaxe fonctionnelle** : L'approche de `purrr` est bien intégrée dans les workflows `tidyverse`, et encourage une écriture fonctionnelle.
+
+### Variantes de `map()` :
+
+-   **`map_dbl()`** : Retourne un vecteur numérique.
+
+```{r}
+somme_vecteurs <- map_dbl(liste_vecteurs, sum)
+print(somme_vecteurs)  # Retourne un vecteur numérique
+```
+
+-   **`map2()`** : Applique une fonction sur deux listes simultanément, ce qui est utile pour comparer des éléments de deux listes de manière parallèle.
+
+-   **`pmap()`** : Applique une fonction à plusieurs listes ou dataframes, ce qui permet de travailler avec plusieurs ensembles de données en même temps.
+
+## Quelle méthode privilégier ?
+
+-   **Utilisez `for`** lorsque :
+
+    -   Vous avez besoin de **plus de contrôle** sur l'itération (par exemple, ajouter des conditions complexes).
+
+    -   Les itérations sont limitées et ne posent pas de problème de performance.
+
+-   **Utilisez `lapply()`/`sapply()`** lorsque :
+
+    -   Vous travaillez avec des listes ou des vecteurs.
+
+    -   Vous avez besoin de concision et d'optimisation pour des opérations simples et répétitives.
+
+-   **Utilisez `map()` (de `purrr`) lorsque** :
+
+    -   Vous travaillez dans un pipeline `tidyverse` et souhaitez une approche plus **fonctionnelle**.
+
+    -   Vous avez besoin d'une **flexibilité accrue** (par exemple, pour forcer le type de sortie ou gérer des erreurs).
+
+    -   Vous manipulez des listes complexes ou souhaitez utiliser des outils comme `map2()` ou `pmap()` pour itérer sur plusieurs structures de données.
+
+#### Exemple comparatif
+
+Voici un exemple qui compare les trois méthodes pour résoudre le même problème : calculer la somme de plusieurs vecteurs dans une liste.
+
+Avec `for` :
+
+```{r}
+somme_vecteurs <- numeric(length(liste_vecteurs))
+for (i in 1:length(liste_vecteurs)) {
+  somme_vecteurs[i] <- sum(liste_vecteurs[[i]])
+}
+print(somme_vecteurs)
+```
+
+Avec `lapply()` :
+
+```{r}
+somme_vecteurs <- lapply(liste_vecteurs, sum)
+print(unlist(somme_vecteurs))  # Conversion en vecteur
+```
+
+Avec `map_dbl()` de `purrr` :
+
+```{r}
+library(purrr)
+somme_vecteurs <- map_dbl(liste_vecteurs, sum)
+print(somme_vecteurs)
+```
+
+## Conclusion
+
+Le choix de la méthode dépend de la complexité de l'opération, du volume des données, et de votre style de programmation préféré. Dans de nombreux cas, l'utilisation des fonctions de la famille `apply()` ou `purrr::map()` est plus performante et plus lisible que les boucles `for`. Toutefois, les boucles peuvent rester pertinentes pour des cas spécifiques nécessitant un contrôle plus fin.

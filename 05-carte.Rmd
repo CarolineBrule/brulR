@@ -1,0 +1,85 @@
+# Cartes interactives
+
+## Configuration de base
+
+Syntaxe de base pour créer une carte :
+
+```{r, eval=FALSE}
+install.packages("leaflet")
+library(leaflet)
+```
+
+
+```{r include=FALSE}
+library(leaflet)
+library(dplyr)
+```
+
+```{r}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -73.5673, lat = 45.5017, zoom = 10)
+```
+
+
+## Ajout de données géographiques
+```{r}
+data <- data.frame(lng = c(-73.5673, -73.568, -73.569),
+                   lat = c(45.5017, 45.502, 45.503),
+                   label = c("Point 1", "Point 2", "Point 3"))
+
+leaflet(data) %>%
+  addTiles() %>%
+  addMarkers(~lng, ~lat, popup = ~label)
+```
+
+## Personnalisation des cartes
+Personnalisation des styles de marqueurs, de polygones, de lignes.
+Utilisation des options comme addLegend() pour ajouter des légendes aux cartes.
+Personnalisation de tuiles avec addProviderTiles() (e.g., OpenStreetMap, CartoDB, etc.).
+
+```{r}
+# Créer une carte Leaflet avec des tuiles OpenStreetMap (par défaut)
+leaflet() %>%
+  addProviderTiles(providers$OpenStreetMap) %>%
+  setView(lng = -73.5673, lat = 45.5017, zoom = 10)
+
+# Créer une carte Leaflet avec des tuiles CartoDB.Positron
+leaflet() %>%
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  setView(lng = -73.5673, lat = 45.5017, zoom = 10)
+```
+
+providers$OpenStreetMap : Utilise les tuiles par défaut d'OpenStreetMap.
+providers$CartoDB.Positron : Utilise un style de carte plus clair, minimaliste, souvent utilisé pour des visualisations de données.
+Vous pouvez consulter la liste complète des styles de tuiles disponibles avec {leaflet} en visitant le site : https://leaflet-extras.github.io/leaflet-providers/preview/.
+
+Cela vous permettra de choisir la tuile qui convient le mieux à votre projet.
+
+## Interaction utilisateur
+Explication sur les interactions telles que les popups, les survols, et la capture d'événements comme les clics sur des marqueurs.
+
+```{r}
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lng = -73.5673, lat = 45.5017, popup = "Centre-ville de Montréal")
+```
+
+## Gestion de grandes quantités de données
+
+Conseils sur l'utilisation de Leaflet pour visualiser de grandes quantités de points (e.g., clustering).
+
+```{r}
+# Exemples de données avec coordonnées longitude/latitude
+data <- data.frame(
+  lng = c(-73.5673, -73.568, -73.569, -73.570, -73.571),
+  lat = c(45.5017, 45.502, 45.503, 45.504, 45.505),
+  label = c("Point 1", "Point 2", "Point 3", "Point 4", "Point 5")
+)
+
+# Création de la carte avec clustering des marqueurs
+leaflet(data) %>%
+  addTiles() %>%
+  addMarkers(~lng, ~lat, popup = ~label, clusterOptions = markerClusterOptions())
+```
+

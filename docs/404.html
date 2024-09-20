@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-08-22" />
+<meta name="date" content="2024-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,22 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
 
 
 <style type="text/css">
@@ -201,6 +217,115 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques"><i class="fa fa-check"></i><b>4.4</b> Exemples de bonnes pratiques</a></li>
 <li class="chapter" data-level="4.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>5</b> Cartes interactives</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cartes-interactives.html"><a href="cartes-interactives.html#configuration-de-base"><i class="fa fa-check"></i><b>5.1</b> Configuration de base</a></li>
+<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-données-géographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
+<li class="chapter" data-level="5.3" data-path="cartes-interactives.html"><a href="cartes-interactives.html#personnalisation-des-cartes"><i class="fa fa-check"></i><b>5.3</b> Personnalisation des cartes</a></li>
+<li class="chapter" data-level="5.4" data-path="cartes-interactives.html"><a href="cartes-interactives.html#interaction-utilisateur"><i class="fa fa-check"></i><b>5.4</b> Interaction utilisateur</a></li>
+<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>6</b> Formattage des données</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#noms-de-colonnes"><i class="fa fa-check"></i><b>6.1</b> Noms de colonnes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-de-formattage"><i class="fa fa-check"></i><b>6.1.1</b> Exemple de formattage</a></li>
+<li class="chapter" data-level="6.1.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#transformation-avec-janitorclean_names"><i class="fa fa-check"></i><b>6.1.2</b> Transformation avec <code>janitor::clean_names()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résultat-après-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-étiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled"><i class="fa fa-check"></i><b>6.2.2</b> Exemple d’utilisation avec <code>labelled</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication"><i class="fa fa-check"></i><b>6.2.3</b> Explication</a></li>
+<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-étiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
+<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#intégration-des-étiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#détection-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
+<li class="chapter" data-level="6.3.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication-1"><i class="fa fa-check"></i><b>6.3.2</b> Explication</a></li>
+<li class="chapter" data-level="6.3.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#remplacer-ou-supprimer-les-valeurs-manquantes"><i class="fa fa-check"></i><b>6.3.3</b> Remplacer ou supprimer les valeurs manquantes</a></li>
+<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#stratégies-de-gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
+<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résumé"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html"><i class="fa fa-check"></i><b>7</b> Structure d’un projet R : Package, Dépôt, et Projet</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#projets-rstudio"><i class="fa fa-check"></i><b>7.1</b> <strong>Projets RStudio</strong></a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#packages-r"><i class="fa fa-check"></i><b>7.2</b> <strong>Packages R</strong></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#dépôts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-dépôt"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#différences-entre-package-dépôt-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
+<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.5</b> Bonnes pratiques pour structurer un projet</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html"><i class="fa fa-check"></i><b>8</b> Utilisation de <code>ungroup()</code> après <code>group_by()</code></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#pourquoi-utiliser-ungroup"><i class="fa fa-check"></i><b>8.1</b> Pourquoi utiliser <code>ungroup()</code> ?</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#exemple-dutilisation-de-group_by-et-ungroup"><i class="fa fa-check"></i><b>8.1.1</b> Exemple d’utilisation de <code>group_by()</code> et <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.1.2" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#explication-2"><i class="fa fa-check"></i><b>8.1.2</b> Explication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#que-se-passe-t-il-sans-ungroup"><i class="fa fa-check"></i><b>8.1.3</b> Que se passe-t-il sans <code>ungroup()</code> ?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#bonnes-pratiques"><i class="fa fa-check"></i><b>8.1.4</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="8.1.5" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#cas-pratique-eviter-les-erreurs-avec-ungroup"><i class="fa fa-check"></i><b>8.1.5</b> Cas pratique : Eviter les erreurs avec <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.1.6" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#conclusion-4"><i class="fa fa-check"></i><b>8.1.6</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><i class="fa fa-check"></i><b>9</b> Boucles, <code>lapply()</code> et <code>map()</code> : quelles méthodes privilégier ?</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#les-boucles-for"><i class="fa fa-check"></i><b>9.1</b> <strong>Les boucles <code>for</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#syntaxe-dune-boucle-for"><i class="fa fa-check"></i><b>9.1.1</b> Syntaxe d’une boucle <code>for</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-pratique"><i class="fa fa-check"></i><b>9.1.2</b> Exemple pratique</a></li>
+<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconvénients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply-et-les-variantes-de-la-famille-apply"><i class="fa fa-check"></i><b>9.2</b> <strong><code>lapply()</code> et les variantes de la famille <code>apply()</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply"><i class="fa fa-check"></i><b>9.2.1</b> <code>lapply()</code></a></li>
+<li class="chapter" data-level="9.2.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#autres-variantes-de-apply"><i class="fa fa-check"></i><b>9.2.2</b> Autres variantes de <code>apply()</code> :</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map-et-la-famille-purrr"><i class="fa fa-check"></i><b>9.3</b> <strong><code>map()</code> et la famille <code>purrr</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map"><i class="fa fa-check"></i><b>9.3.1</b> <code>map()</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#variantes-de-map"><i class="fa fa-check"></i><b>9.3.2</b> Variantes de <code>map()</code> :</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-méthode-privilégier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
+<li class="chapter" data-level="9.5" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#conclusion-5"><i class="fa fa-check"></i><b>9.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html"><i class="fa fa-check"></i><b>10</b> Structurer un script R de manière adéquate</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#nommer-et-commenter-les-sections"><i class="fa fa-check"></i><b>10.2</b> <strong>Nommer et commenter les sections</strong></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#bonnes-pratiques-pour-les-sections"><i class="fa fa-check"></i><b>10.2.1</b> Bonnes pratiques pour les sections :</a></li>
+<li class="chapter" data-level="10.2.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#raccourcis-clavier"><i class="fa fa-check"></i><b>10.2.2</b> Raccourcis clavier</a></li>
+<li class="chapter" data-level="10.2.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#avantages-des-sections"><i class="fa fa-check"></i><b>10.2.3</b> Avantages des sections</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#documentation-claire-avec-des-commentaires"><i class="fa fa-check"></i><b>10.3</b> <strong>Documentation claire avec des commentaires</strong></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires"><i class="fa fa-check"></i><b>10.3.1</b> Exemple de commentaires :</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
+<li class="chapter" data-level="10.5" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5</b> Gestion des scripts exploratoires</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
+<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
+<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
+<li class="chapter" data-level="10.5.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script"><i class="fa fa-check"></i><b>10.5.4</b> Sauvegarder des versions du script</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -286,6 +411,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

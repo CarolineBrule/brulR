@@ -1,0 +1,99 @@
+# Structure d'un projet R : Package, Dépôt, et Projet
+
+L'organisation d'un projet R est cruciale pour assurer la lisibilité, la maintenance, et la collaboration sur du code. Il existe plusieurs types de projets en R, chacun avec sa propre structure : **package**, **dépôt (repo)**, et **projet**. Bien qu'ils partagent des points communs, ces structures répondent à des besoins différents.
+
+## **Projets RStudio**
+
+Les **projets** dans RStudio sont une manière d'organiser vos scripts, données et fichiers de travail. Un projet est un dossier où vous centralisez tous les fichiers associés à une analyse ou une tâche spécifique. Voici une structure typique :
+
+```{bash, eval = FALSE}
+/MonProjet/
+  ├── data/               # Données brutes ou pré-traitées
+  ├── R/                  # Scripts R
+  ├── output/             # Résultats, graphiques, rapports
+  ├── reports/            # Fichiers RMarkdown ou Quarto pour rapports
+  └── README.md           # Description générale du projet
+```
+
+Les projets facilitent :
+
+-   **La reproductibilité** : Un projet encapsule tout ce qui est nécessaire pour exécuter les analyses.
+
+-   **L'isolation** : Chaque projet a son propre espace de travail, ce qui évite les conflits de fichiers ou variables avec d'autres projets.
+
+### Points clés d'un projet R
+
+-   **Fichier `.Rproj`** : Ce fichier spécifique à RStudio contient les paramètres de projet.
+
+-   **Organisation des dossiers** : Séparez les scripts, données, et résultats pour garder une structure claire.
+
+-   **Gestion des dépendances** : Utilisez des outils comme `{renv}` pour gérer les versions de packages.
+
+## **Packages R**
+
+Un **package R** est un projet plus structuré destiné à être partagé et distribué. Il contient du code, de la documentation, et éventuellement des données, le tout dans une structure spécifique pour faciliter son installation et son utilisation. Voici la structure d'un package typique :
+
+```{bash, eval = FALSE}
+/MonPackage/
+  ├── R/                  # Fichiers R avec les fonctions
+  ├── man/                # Documentation générée par roxygen2
+  ├── NAMESPACE           # Déclaration des fonctions exportées
+  ├── DESCRIPTION         # Métadonnées sur le package
+  ├── tests/              # Tests unitaires avec testthat
+  ├── vignettes/          # Vignettes explicatives
+  ├── data/               # Données incluses dans le package
+  ├── inst/               # Fichiers divers (ex. : fichiers externes, exemples)
+  └── README.md           # Documentation du projet
+```
+
+### Points clés d'un package R
+
+-   **`DESCRIPTION`** : Ce fichier contient les métadonnées du package (nom, auteur, dépendances, version).
+
+-   **`NAMESPACE`** : Liste les fonctions et objets exportés.
+
+-   **Documentation** : Utilisez `{roxygen2}` pour générer automatiquement la documentation dans le dossier `man/`.
+
+Les packages sont structurés pour être **réutilisables** et **distribuables**. Ils incluent des tests (`tests/`) pour garantir que le code fonctionne correctement dans différents contextes.
+
+## **Dépôts (Repositories)**
+
+Les **dépôts** (repos) sont souvent utilisés pour gérer le code via un contrôle de version (par exemple, avec **Git** et GitHub). Un dépôt est un espace de stockage pour un projet qui peut contenir du code, des packages, ou des analyses. Un dépôt peut être un projet ou un package, mais ce qui le distingue est l'utilisation du contrôle de version pour collaborer et suivre l'évolution du code.
+
+Voici une structure typique d'un dépôt Git :
+
+```{bash, eval = FALSE}
+/MonRepo/
+  ├── .git/               # Dossier de métadonnées Git (suivi des versions)
+  ├── R/                  # Scripts ou fonctions R
+  ├── data/               # Données brutes ou pré-traitées
+  ├── output/             # Résultats ou graphiques
+  ├── tests/              # Tests unitaires
+  ├── README.md           # Description du projet et instructions
+  └── .gitignore          # Fichiers à ignorer par Git
+```
+
+### Points clés d\'un dépôt
+
+-   **`.git/`** : Géré par Git, ce dossier contient tout l\'historique du projet.
+
+-   **Collaboration** : Le dépôt permet à plusieurs utilisateurs de travailler simultanément tout en gardant une trace des changements.
+
+-   **GitHub** : Permet de partager des dépôts en ligne, facilitant la collaboration.
+
+## Différences entre package, dépôt, et projet
+
+| Aspect            | Projet RStudio               | Librairie R                  | Dépôt (Repository)      |
+|------------------|------------------|------------------|------------------|
+| **Usage**         | Analyse de données           | Distribution de code         | Suivi du code           |
+| **Fichier clé**   | `.Rproj`                     | `DESCRIPTION` et `NAMESPACE` | `.git/`                 |
+| **Documentation** | Fichiers RMarkdown ou Quarto | Roxygen2 + Vignettes         | README.md, GitHub Pages |
+| **Dépendances**   | `{renv}`, `DESCRIPTION`      | `{roxygen2}`, `testthat`     | Git + GitHub Actions    |
+
+## Bonnes pratiques pour structurer un projet
+
+-   **Isolation des scripts, données et sorties** : Gardez vos scripts dans un dossier `R/` ou `scripts/`, et les données dans un dossier `data/`. Séparez les résultats dans un dossier distinct comme `output/`.
+
+-   **Documentation** : Ajoutez un fichier `README.md` pour expliquer le but du projet, comment exécuter les analyses, et quelles dépendances sont nécessaires.
+
+-   **Contrôle de version** : Utilisez Git pour suivre l'évolution de votre code, même dans des projets RStudio ou des packages.

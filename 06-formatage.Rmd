@@ -1,0 +1,216 @@
+# Formattage des données
+
+## Noms de colonnes
+
+Une étape essentielle lors du nettoyage des données consiste à uniformiser les noms de colonnes afin de rendre le jeu de données plus lisible, cohérent, et compatible avec la syntaxe `tidyverse`. Les bonnes pratiques de formattage des noms de colonnes sont les suivantes :
+
+-   Utiliser uniquement des caractères alphanumériques : Les accents, espaces, et symboles spéciaux doivent être supprimés ou remplacés.
+
+-   Remplacer les espaces par des underscores (`_`).
+
+-   Utiliser des noms en minuscules pour assurer une uniformité.
+
+-   Rendre les noms explicites et descriptifs, sans abréviations inutiles.
+
+### Exemple de formattage
+
+Prenons un exemple simplifié de jeu de données où les noms de colonnes ne respectent pas encore ces bonnes pratiques.
+
+```{r}
+# Jeu de données avant formattage
+BD <- data.frame(
+  `N° RSVL (Alpha)` = 1:5,
+  `Nom du lac` = c("Lac Beauport", "Lac Tourbillon", "Lac Sergent", "Lac Bleu", "Lac Jaune"),
+  `LCE: Latitude` = c(47, 47, 46.9, 46.9, 46.1),
+  `LCE: Longitude` = c(-71.3, -71.2, -71.7, -72, -73.6),
+  `CHLO-A` = c(2.51, 2.81, 5.75, 3.45, 3.06),
+  `P-T-TRA` = c(5.19, 8.87, 8.43, 8.09, 6.66),
+  `Profondeur moyenne` = c(4.1, 1.7, NA, 18.2, 11.5)
+)
+
+# Visualisation des noms de colonnes
+colnames(BD)
+```
+
+### Transformation avec `janitor::clean_names()`
+
+Pour appliquer les bonnes pratiques de formattage, nous utilisons la fonction `clean_names()` du package `janitor`. Elle permet de reformater automatiquement les noms de colonnes selon la norme `snake_case`, qui est largement adoptée dans la syntaxe `tidyverse`.
+
+```{r message=FALSE, warning=FALSE}
+# Chargement de la bibliothèque janitor
+library(janitor)
+
+# Nettoyage des noms de colonnes
+BD_clean <- BD %>%   clean_names()
+
+# Visualisation des nouveaux noms de colonnes
+colnames(BD_clean)
+```
+
+### Résultat après formattage
+
+Le jeu de données transformé respecte désormais les bonnes pratiques. Voici la correspondance entre les anciens noms et les nouveaux :
+
+| Ancien nom         | Nouveau nom        |
+|--------------------|--------------------|
+| N° RSVL (Alpha)    | n_rsvl_alpha       |
+| Nom du lac         | nom_du_lac         |
+| LCE: Latitude      | lce_latitude       |
+| LCE: Longitude     | lce_longitude      |
+| CHLO-A             | chlo_a             |
+| P-T-TRA            | p_t_tra            |
+| Profondeur moyenne | profondeur_moyenne |
+
+-   Accents et caractères spéciaux : Les accents (`N°`) ont été transformés (`n`).
+
+-   Espaces et symboles : Les espaces ont été remplacés par des underscores (`_`), et les symboles comme `:` ou `-` ont été retirés.
+
+-   Minuscules : Les lettres majuscules ont été converties en minuscules.
+
+Cette approche garantit des noms de colonnes cohérents et conformes à la syntaxe `tidyverse`, facilitant l'utilisation dans des pipelines de manipulation de données avec `{dplyr}`, `{ggplot2}`, etc.
+
+## Utilisation de `labelled` pour ajouter des étiquettes aux variables
+
+En plus de bien nommer les colonnes, il est souvent utile d'ajouter des **étiquettes** (ou labels) aux variables afin de fournir des descriptions plus détaillées des colonnes dans un jeu de données. Cela est particulièrement utile lors du partage de données avec d'autres analystes ou pour la documentation.
+
+Le package `labelled` permet d'ajouter des étiquettes aux colonnes de manière efficace.
+
+### Pourquoi utiliser des étiquettes de variables ?
+
+-   **Clarté** : Les noms de colonnes peuvent être courts et concis, tandis que les étiquettes fournissent des descriptions complètes et explicites des variables.
+
+-   **Documentation** : L'ajout d'étiquettes aide à documenter chaque colonne, facilitant la compréhension du jeu de données, surtout lorsqu'il est partagé.
+
+### Exemple d'utilisation avec `labelled`
+
+Imaginons que vous souhaitez ajouter des étiquettes descriptives à certaines colonnes de votre jeu de données :
+
+```{r}
+# Chargement du package labelled
+library(labelled)
+
+# Jeu de données exemple
+BD <- data.frame(
+  no_rsvl_alpha = 1:5,
+  nom_du_lac = c("Lac Beauport", "Lac Tourbillon", "Lac Sergent", "Lac Bleu", "Lac Jaune"),
+  lce_latitude = c(47, 47, 46.9, 46.9, 46.1),
+  lce_longitude = c(-71.3, -71.2, -71.7, -72, -73.6),
+  chlo_a = c(2.51, 2.81, 5.75, 3.45, 3.06)
+)
+
+# Ajout d'étiquettes aux variables
+BD_labelled <- BD %>%
+  set_variable_labels(
+    no_rsvl_alpha = "Numéro RSVL du lac",
+    nom_du_lac = "Nom du lac",
+    lce_latitude = "Latitude du lac selon le LCE",
+    lce_longitude = "Longitude du lac selon le LCE",
+    chlo_a = "Concentration de chlorophylle-A"
+  )
+
+# Visualisation des étiquettes des variables
+var_label(BD_labelled)
+```
+
+### Explication
+
+1.  **`set_variable_labels()`** : Cette fonction permet d'ajouter des descriptions aux colonnes du jeu de données. Les étiquettes ne changent pas le nom des colonnes mais fournissent des informations supplémentaires.
+
+2.  **Consultation des étiquettes** : Pour vérifier ou afficher les étiquettes d'un jeu de données, vous pouvez utiliser la fonction `var_label()`.
+
+### Visualisation des étiquettes
+
+Vous pouvez également afficher les étiquettes dans un rapport ou un script de documentation. Par exemple, en utilisant la fonction `var_label()`, voici les étiquettes des variables :
+
+| Colonne       | Étiquette                       |
+|---------------|---------------------------------|
+| n_rsvl_alpha  | Numéro RSVL du lac              |
+| nom_du_lac    | Nom du lac                      |
+| lce_latitude  | Latitude du lac selon le LCE    |
+| lce_longitude | Longitude du lac selon le LCE   |
+| chlo_a        | Concentration de chlorophylle-A |
+
+### Intégration des étiquettes dans un workflow d'analyse
+
+L'ajout d'étiquettes est utile non seulement pour la documentation, mais aussi pour les analyses descriptives ou la production de rapports. Par exemple, ces étiquettes peuvent être utilisées lors de l'exportation des données ou lors de la génération de rapports avec des packages comme `{gt}`, `{flextable}`, ou `{rmarkdown}`.
+
+## Gestion des données manquantes
+
+Dans un jeu de données, il est courant de rencontrer des valeurs manquantes sous différentes formes : `NA`, `NaN`, des cases vides (`""`, `" "`), ou des espaces vides (`" "`). Le `tidyverse` propose plusieurs approches pour détecter, traiter et remplacer ces valeurs manquantes afin de garantir la qualité de vos analyses.
+
+### Détection des données manquantes
+
+Avant de traiter les valeurs manquantes, il est important de pouvoir les identifier. Voici quelques méthodes pour détecter les différentes formes de valeurs manquantes :
+
+```{r}
+library(dplyr)
+
+# Exemple de jeu de données avec différentes valeurs manquantes
+BD <- data.frame(
+  nom_du_lac = c("Lac Beauport", "Lac Tourbillon", "", " ", NA),
+  profondeur_moyenne = c(4.1, NaN, NA, 18.2, 11.5),
+  chlo_a = c(2.51, 2.81, NA, 3.45, "")
+)
+
+# Identifier les valeurs manquantes (NA, NaN, "", " ")
+BD_clean <- BD %>%
+  mutate(across(everything(), ~ ifelse(. %in% c("", " ", NA, NaN), NA, .)))
+
+# Visualiser le jeu de données après nettoyage
+BD_clean
+```
+
+### Explication
+
+1.  **`mutate(across())`** : Utilise `across()` pour appliquer une transformation à toutes les colonnes. Cette approche permet de détecter et remplacer différentes formes de valeurs manquantes (`NA`, `NaN`, `""`, `" "`).
+
+2.  **`ifelse()`** : Pour chaque colonne, nous remplaçons les valeurs `""`, `" "`, `NA`, et `NaN` par `NA`, ce qui facilite la gestion homogène des valeurs manquantes dans le jeu de données.
+
+### Remplacer ou supprimer les valeurs manquantes
+
+Selon le contexte, vous pouvez choisir de :
+
+-   **Remplacer les valeurs manquantes** par une valeur spécifique (par exemple, 0 pour des variables numériques).
+
+-   **Supprimer les lignes contenant des valeurs manquantes** si ces données sont inutilisables.
+
+#### Remplacer les valeurs manquantes
+
+```{r}
+# Charger la librairie tidyr
+library(tidyr)
+
+# Remplacer les valeurs manquantes par 0 pour les colonnes numériques
+BD_clean <- BD_clean %>%
+  mutate(across(where(is.numeric), ~ replace_na(., 0)))
+
+# Remplacer les valeurs manquantes par "Inconnu" pour les colonnes non numériques
+BD_clean <- BD_clean %>%
+  mutate(across(where(is.character), ~ replace_na(., "Inconnu")))
+
+# Visualiser le jeu de données après remplacement
+BD_clean
+```
+
+#### Supprimer les lignes avec des valeurs manquantes
+
+```{r}
+# Supprimer les lignes avec des valeurs manquantes dans n'importe quelle colonne
+BD_clean <- BD_clean %>%
+  drop_na()
+
+# Visualiser le jeu de données après suppression
+BD_clean
+```
+
+### Stratégies de gestion des données manquantes
+
+-   **Remplacement** : Vous pouvez choisir de remplacer les valeurs manquantes par une valeur par défaut (comme 0 ou "Inconnu"). Cela peut être utile pour éviter la perte de données.
+
+-   **Suppression** : Lorsque les valeurs manquantes sont trop nombreuses ou lorsque ces données sont essentielles à l'analyse, il est parfois préférable de supprimer les lignes ou colonnes affectées.
+
+-   **Imputation** : Dans certains cas, vous pourriez envisager d'imputer les valeurs manquantes avec une méthode statistique, comme la moyenne ou la médiane. Ce processus n'est pas couvert dans cette section mais peut être exploré dans des contextes avancés.
+
+### Résumé
+
+Il est essentiel de détecter, nettoyer, et traiter les données manquantes de manière cohérente pour assurer la robustesse de vos analyses. Les fonctions du `tidyverse` telles que `replace_na()`, `drop_na()`, et `mutate(across())` fournissent un moyen efficace de gérer les valeurs manquantes, quelles que soient leur forme.

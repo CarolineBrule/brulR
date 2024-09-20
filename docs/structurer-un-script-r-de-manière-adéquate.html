@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <title>Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 4 L’art du REPREX : pourquoi et comment créer des exemples reproductibles | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="importation-des-données.html"/>
-<link rel="next" href="cartes-interactives.html"/>
+<link rel="prev" href="boucles-lapply-et-map-quelles-méthodes-privilégier.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -345,161 +345,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapitre 4</span> L’art du REPREX : pourquoi et comment créer des exemples reproductibles<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="quest-ce-quun-reprex" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Qu’est-ce qu’un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Un REPREX, ou <strong>REPRoducible EXample</strong>, est un extrait de code qui reproduit un problème ou une question de manière concise et reproductible. Il s’agit d’une pratique essentielle lorsque vous demandez de l’aide, que vous partagez un problème sur un forum, ou que vous collaborez avec d’autres personnes sur un projet R. L’idée est de fournir un exemple minimal qui montre clairement le problème ou la question, tout en étant simple à comprendre et à exécuter.</p>
+<div id="structurer-un-script-r-de-manière-adéquate" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapitre 10</span> Structurer un script R de manière adéquate<a href="structurer-un-script-r-de-manière-adéquate.html#structurer-un-script-r-de-manière-adéquate" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>La structure d’un script R joue un rôle clé dans la lisibilité, la maintenabilité et la reproductibilité de vos analyses. Un script bien organisé facilite la navigation, la compréhension des différentes étapes du workflow et la collaboration avec d’autres personnes. Voici quelques bonnes pratiques pour organiser vos scripts en sections claires et concises.</p>
+<div id="en-tête-du-script" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> <strong>En-tête du script</strong><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>L’en-tête d’un script R est essentiel pour la documentation, la maintenance et le partage du code. Un en-tête bien rédigé permet aux utilisateurs de comprendre rapidement le contenu et l’objectif du script. Voici ses principaux avantages :</p>
+<p><strong>Clarté</strong> : Un en-tête clair aide à saisir rapidement le rôle du script, même longtemps après son écriture.</p>
+<p><strong>Documentation des intrants et sortants</strong> : En listant les fichiers d’entrée et de sortie, vous facilitez l’identification des dépendances et des données nécessaires pour l’exécution.</p>
+<p><strong>Facilitation de la collaboration</strong> : Un en-tête informatif rend le script plus accessible pour les collègues, ce qui favorise le partage de connaissances.</p>
+<p><strong>Amélioration de la reproductibilité</strong> : En indiquant les intrants et sortants, vous aidez les autres à reproduire les résultats avec les fichiers appropriés</p>
+<div id="exemple-den-tête" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Exemple d’en-tête<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-2" tabindex="-1"></a><span class="co"># Nom du Script : 03_analyse_avancee.R</span></span>
+<span id="cb86-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-3" tabindex="-1"></a><span class="co"># Description   : Ce script effectue une analyse exploratoire approfondie,</span></span>
+<span id="cb86-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-4" tabindex="-1"></a><span class="co">#                 y compris des statistiques descriptives, des tests </span></span>
+<span id="cb86-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-5" tabindex="-1"></a><span class="co">#                 statistiques et des visualisations pour les données </span></span>
+<span id="cb86-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-6" tabindex="-1"></a><span class="co">#                 nettoyées.</span></span>
+<span id="cb86-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-7" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb86-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-8" tabindex="-1"></a><span class="co"># Intrants      : - data/clean_data.csv</span></span>
+<span id="cb86-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-9" tabindex="-1"></a><span class="co">#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)</span></span>
+<span id="cb86-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb86-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-11" tabindex="-1"></a><span class="co"># Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)</span></span>
+<span id="cb86-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-12" tabindex="-1"></a><span class="co">#                 - output/visualisation_test.png (graphique des résultats)</span></span>
+<span id="cb86-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb86-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-14" tabindex="-1"></a><span class="co"># Auteur        : VotreNom</span></span>
+<span id="cb86-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-15" tabindex="-1"></a><span class="co"># Date          : 2024-09-20</span></span>
+<span id="cb86-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-16" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb86-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-17" tabindex="-1"></a><span class="co"># Notes         : Ce script nécessite que le package &#39;ggplot2&#39; et &#39;dplyr&#39; soient</span></span>
+<span id="cb86-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-18" tabindex="-1"></a><span class="co">#                 installés. Les résultats de l&#39;analyse seront sauvegardés dans</span></span>
+<span id="cb86-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-19" tabindex="-1"></a><span class="co">#                 le dossier output.</span></span>
+<span id="cb86-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-20" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span></code></pre></div>
 </div>
-<div id="pourquoi-écrire-un-reprex" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Pourquoi écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Écrire un REPREX présente plusieurs avantages significatifs :</p>
+</div>
+<div id="nommer-et-commenter-les-sections" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> <strong>Nommer et commenter les sections</strong><a href="structurer-un-script-r-de-manière-adéquate.html#nommer-et-commenter-les-sections" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il est important de nommer chaque section de manière explicite pour indiquer clairement son but. Utilisez des titres comme “Chargement des packages”, “Importation des données”, “Nettoyage des données”, etc. Cela permet de naviguer rapidement dans le script et d’identifier la logique du flux de travail.</p>
+<div id="bonnes-pratiques-pour-les-sections" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Bonnes pratiques pour les sections :<a href="structurer-un-script-r-de-manière-adéquate.html#bonnes-pratiques-pour-les-sections" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p><strong>Clarté</strong> : Un REPREX force à isoler le problème ou la question spécifique, éliminant le bruit des autres parties du code. Cela aide non seulement à clarifier la question pour les autres, mais aussi à mieux comprendre le problème vous-même.</p></li>
-<li><p><strong>Reproductibilité</strong> : En fournissant un exemple reproductible, vous permettez à ceux qui vous aident de reproduire exactement le même problème que vous rencontrez. Cela accélère la résolution des problèmes.</p></li>
-<li><p><strong>Efficacité</strong> : Un REPREX bien conçu permet à la personne qui vous aide de se concentrer sur l’essentiel, ce qui augmente les chances d’obtenir une réponse rapide et précise.</p></li>
-<li><p><strong>Documentation</strong> : Les REPREX peuvent également servir de documentation pour des problèmes ou des questions résolus. Ils constituent des exemples concrets de ce qui a été essayé et de ce qui fonctionne ou ne fonctionne pas.</p></li>
-<li><p><strong>Réflexion</strong> : Le processus d’écriture d’un REPREX peut souvent vous amener à trouver la solution par vous-même, en simplifiant et en isolant le problème.</p></li>
+<li><p><strong>Utilisez des titres explicites</strong> : Assurez-vous que chaque section décrit son contenu de manière concise et descriptive.</p></li>
+<li><p><strong>Structure hiérarchique</strong> : Commencez toujours par les sections essentielles (chargement des packages, importation des données), puis avancez progressivement dans le pipeline de l’analyse (nettoyage, analyse, visualisation).</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-2" tabindex="-1"></a><span class="co"># 1. Chargement des packages et des fonctions</span></span>
+<span id="cb87-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb87-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb87-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-6" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/fonctions_utiles.R&quot;</span>)</span>
+<span id="cb87-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-7" tabindex="-1"></a></span>
+<span id="cb87-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-9" tabindex="-1"></a><span class="co"># 2. Importation des données</span></span>
+<span id="cb87-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-10" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-11" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/donnees_brutes.csv&quot;</span>)</span>
+<span id="cb87-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-12" tabindex="-1"></a></span>
+<span id="cb87-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-13" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-14" tabindex="-1"></a><span class="co"># 3. Nettoyage des données</span></span>
+<span id="cb87-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-15" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-16" tabindex="-1"></a><span class="co"># Suppression des valeurs manquantes et formatage des noms de colonnes</span></span>
+<span id="cb87-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-17" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb87-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-18" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb87-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-19" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb87-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-20" tabindex="-1"></a></span>
+<span id="cb87-21"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-21" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-22"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-22" tabindex="-1"></a><span class="co"># 4. Analyse exploratoire</span></span>
+<span id="cb87-23"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-23" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-24"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-24" tabindex="-1"></a><span class="co"># Calcul des statistiques descriptives</span></span>
+<span id="cb87-25"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-25" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb87-26"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-26" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x), <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))</span>
+<span id="cb87-27"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-27" tabindex="-1"></a></span>
+<span id="cb87-28"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-28" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-29"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-29" tabindex="-1"></a><span class="co"># 5. Visualisation des résultats</span></span>
+<span id="cb87-30"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-30" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-31"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-31" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
+<span id="cb87-32"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-32" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb87-33"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-33" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre X et Y&quot;</span>)</span>
+<span id="cb87-34"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-34" tabindex="-1"></a></span>
+<span id="cb87-35"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-35" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-36"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-36" tabindex="-1"></a><span class="co"># 6. Sauvegarde des résultats</span></span>
+<span id="cb87-37"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-37" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb87-38"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-38" tabindex="-1"></a><span class="fu">write.csv</span>(summary_stats, <span class="st">&quot;output/summary_stats.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div></li>
 </ul>
 </div>
-<div id="comment-écrire-un-reprex" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Comment écrire un REPREX ?<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voici les étapes pour écrire un bon REPREX :</p>
-<div id="isoler-le-problème" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Isoler le problème<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Commencez par isoler le problème ou la question spécifique que vous rencontrez. Essayez de réduire le code à l’essentiel nécessaire pour reproduire le problème. Évitez d’inclure des parties de code non pertinentes.</p>
+<div id="raccourcis-clavier" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Raccourcis clavier<a href="structurer-un-script-r-de-manière-adéquate.html#raccourcis-clavier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Pour insérer un commentaire de section</strong> :</p>
+<p><strong>Windows</strong> : <code>Ctrl + Shift + R</code></p>
+<p>Ce raccourci insère un commentaire de section préformaté, que vous pouvez ensuite personnaliser avec le nom de la section souhaitée.</p>
+<p><strong>Pour naviguer entre les sections</strong> :</p>
+<p>Utilisez le volet “Plan” (ou “Outline”) dans RStudio pour voir toutes les sections de votre script. Cela vous permet de cliquer rapidement sur une section pour y accéder.</p>
+<p><strong>Pour exécuter une section</strong> :</p>
+<p><strong>Windows</strong> : <code>Ctrl + Alt + T</code></p>
+<p>Ce raccourci exécute toutes les lignes de code dans la section en cours.</p>
 </div>
-<div id="utiliser-des-données-simulées-ou-publiques" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Utiliser des données simulées ou publiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Si possible, utilisez des données simulées ou un sous-ensemble de données publiques pour rendre votre exemple reproductible par tous. Vous pouvez utiliser des fonctions comme <code>set.seed()</code> pour garantir que les résultats sont reproductibles.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb24-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb24-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-3" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb24-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-4" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb24-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb24-5" tabindex="-1"></a>)</span></code></pre></div>
-</div>
-<div id="inclure-le-contexte-nécessaire" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Inclure le contexte nécessaire<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Assurez-vous que votre REPREX inclut toutes les informations nécessaires pour reproduire le problème, telles que les packages utilisés, les options de configuration, et les versions importantes de R ou de packages.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-1" tabindex="-1"></a><span class="co"># Packages nécessaires</span></span>
-<span id="cb25-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-4" tabindex="-1"></a><span class="co"># Exemple minimal</span></span>
-<span id="cb25-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb25-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb25-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-7" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb25-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb25-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-9" tabindex="-1"></a>)</span>
-<span id="cb25-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-10" tabindex="-1"></a></span>
-<span id="cb25-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-11" tabindex="-1"></a><span class="co"># Problème : la fonction geom_point ne fonctionne pas comme prévu</span></span>
-<span id="cb25-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-12" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb25-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb25-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span></code></pre></div>
-</div>
-<div id="tester-le-reprex" class="section level3 hasAnchor" number="4.3.4">
-<h3><span class="header-section-number">4.3.4</span> Tester le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Avant de partager votre REPREX, testez-le dans une nouvelle session R pour vous assurer qu’il reproduit bien le problème de manière isolée. Si le problème ne se reproduit pas, essayez de réduire encore le code ou de vérifier les dépendances.</p>
-</div>
-<div id="utiliser-le-package-reprex" class="section level3 hasAnchor" number="4.3.5">
-<h3><span class="header-section-number">4.3.5</span> Utiliser le package <code>reprex</code><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Le package <code>reprex</code> (Reproducible Example) de R est conçu pour faciliter la création et le partage de REPREX. Il capture le code R, l’exécute, et produit une sortie formatée pour les forums, les e-mails, ou d’autres contextes.</p>
-<p>Pour créer un REPREX avec le package <code>reprex</code> :</p>
-<ol style="list-style-type: decimal">
-<li>Installez et chargez le package :</li>
-</ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;reprex&quot;</span>)</span>
-<span id="cb26-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb26-2" tabindex="-1"></a><span class="fu">library</span>(reprex)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Créez votre REPREX :</li>
-</ol>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-1" tabindex="-1"></a><span class="fu">reprex</span>({</span>
-<span id="cb27-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-2" tabindex="-1"></a>  <span class="co"># Code ici</span></span>
-<span id="cb27-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-3" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb27-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-4" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-5" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb27-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-6" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb27-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-7" tabindex="-1"></a>  )</span>
-<span id="cb27-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb27-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-9" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-10" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Graphique d&#39;exemple&quot;</span>)</span>
-<span id="cb27-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb27-11" tabindex="-1"></a>})</span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li><code>reprex</code> génère un extrait de code avec la sortie incluse, formaté pour être facilement partagé.</li>
-</ol>
-</div>
-<div id="partager-le-reprex" class="section level3 hasAnchor" number="4.3.6">
-<h3><span class="header-section-number">4.3.6</span> Partager le REPREX<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Une fois que votre REPREX est prêt et testé, partagez-le dans le contexte approprié, que ce soit un forum, un e-mail, ou un système de gestion de tickets. Assurez-vous que le formatage est correct et que tous les éléments nécessaires sont inclus.</p>
-</div>
-</div>
-<div id="exemples-de-bonnes-pratiques" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Exemples de bonnes pratiques<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="avantages-des-sections" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Avantages des sections<a href="structurer-un-script-r-de-manière-adéquate.html#avantages-des-sections" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Bon REPREX</strong> :</li>
+<li><p><strong>Meilleure lisibilité</strong> : Les sections clairement délimitées rendent le code plus lisible.</p></li>
+<li><p><strong>Navigation rapide</strong> : Le volet “Plan” vous permet de naviguer facilement dans le script sans faire défiler tout le code.</p></li>
+<li><p><strong>Organisation logique</strong> : Les sections aident à structurer le script en étapes logiques, ce qui facilite la compréhension du flux de travail.</p></li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb28-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="cn">NA</span>))</span>
-<span id="cb28-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-3" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span>
-<span id="cb28-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-6" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb28-7" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
-<ul>
-<li><strong>Mauvais REPREX</strong> :</li>
-</ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;myfile.csv&quot;</span>)</span>
-<span id="cb29-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb29-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">mutate</span>(<span class="at">z =</span> x <span class="sc">+</span> y)</span></code></pre></div>
-<p>Dans le mauvais exemple, il manque les packages nécessaires, la source des données, et le problème n’est pas clairement défini. Le bon REPREX, en revanche, est autonome, clair, et reproduit un problème spécifique.</p>
 </div>
-<div id="conclusion-3" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Conclusion<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>L’écriture de REPREX est une compétence essentielle pour tout utilisateur de R, que ce soit pour demander de l’aide, collaborer avec des collègues, ou documenter des problèmes. Un REPREX bien conçu rend la communication plus efficace, permet de résoudre les problèmes plus rapidement, et contribue à un code plus clair et mieux documenté.</p>
-<p>Nous vous encourageons à intégrer la pratique des REPREX dans votre flux de travail quotidien, pour améliorer la qualité de vos interactions et de vos projets en R.</p>
-<p>Exemple complet d’un REPREX (utile en plus!)</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-1" tabindex="-1"></a><span class="co"># Script pour la création de dossiers par lac</span></span>
-<span id="cb30-2"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-2" tabindex="-1"></a><span class="co"># Auteur : Caroline Brule</span></span>
-<span id="cb30-3"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-3" tabindex="-1"></a><span class="co"># Date : 4 mars 2024</span></span>
-<span id="cb30-4"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-4" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-5" tabindex="-1"></a><span class="co"># Objectif : Ce script crée un dossier pour chaque lac dans un répertoire spécifique,</span></span>
-<span id="cb30-6"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-6" tabindex="-1"></a><span class="co"># afin de faciliter le regroupement et l&#39;organisation des analyses de données par lac.</span></span>
-<span id="cb30-7"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-7" tabindex="-1"></a><span class="co"># Note importante : Ne pas exécuter ce script plusieurs fois afin d&#39;éviter d&#39;écraser </span></span>
-<span id="cb30-8"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-8" tabindex="-1"></a><span class="co"># les dossiers existants et d&#39;en supprimer le contenu.</span></span>
-<span id="cb30-9"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-9" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-10" tabindex="-1"></a><span class="co"># Chargement des bibliothèques nécessaires</span></span>
-<span id="cb30-11"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-11" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb30-12"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-12" tabindex="-1"></a><span class="fu">library</span>(fs) <span class="co"># Pour une gestion des fichiers plus robuste</span></span>
-<span id="cb30-13"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-13" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-14" tabindex="-1"></a><span class="co"># 1. Préparer les données des lacs ----</span></span>
-<span id="cb30-15"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-15" tabindex="-1"></a><span class="co"># Création d&#39;un dataframe contenant les informations de base pour chaque lac</span></span>
-<span id="cb30-16"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-16" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb30-17"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-17" tabindex="-1"></a>  <span class="at">no_lce =</span> <span class="fu">c</span>(<span class="st">&quot;00001&quot;</span>, <span class="st">&quot;00002&quot;</span>, <span class="st">&quot;00003&quot;</span>),</span>
-<span id="cb30-18"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-18" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac A&quot;</span>, <span class="st">&quot;Lac B&quot;</span>, <span class="st">&quot;Lac C&quot;</span>),</span>
-<span id="cb30-19"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-19" tabindex="-1"></a>  <span class="at">no_rsvl =</span> <span class="fu">c</span>(<span class="st">&quot;0001&quot;</span>, <span class="st">&quot;0002&quot;</span>, <span class="st">&quot;0003&quot;</span>)</span>
-<span id="cb30-20"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-20" tabindex="-1"></a>)</span>
-<span id="cb30-21"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-21" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-22" tabindex="-1"></a><span class="co"># 2. Générer les noms de dossiers ----</span></span>
-<span id="cb30-23"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-23" tabindex="-1"></a><span class="co"># Combiner les informations pour créer un nom unique pour chaque dossier</span></span>
-<span id="cb30-24"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-24" tabindex="-1"></a>lacs <span class="ot">&lt;-</span> lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-25"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-25" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb30-26"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-26" tabindex="-1"></a>    <span class="at">name_dossier =</span> <span class="fu">paste0</span>(no_lce, <span class="st">&quot;_&quot;</span>, nom_du_lac, <span class="st">&quot;_RSVL_&quot;</span>, no_rsvl)</span>
-<span id="cb30-27"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-27" tabindex="-1"></a>  )</span>
-<span id="cb30-28"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-28" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-29" tabindex="-1"></a><span class="co"># 3. Définir le répertoire cible ----</span></span>
-<span id="cb30-30"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-30" tabindex="-1"></a><span class="co"># Utilisation de file.path pour créer un chemin de fichier de manière robuste</span></span>
-<span id="cb30-31"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-31" tabindex="-1"></a>repertoire <span class="ot">&lt;-</span> <span class="fu">file.path</span>(</span>
-<span id="cb30-32"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-32" tabindex="-1"></a>  <span class="st">&quot;X:&quot;</span>, <span class="st">&quot;DOCUM&quot;</span>, <span class="st">&quot;4500_Produits_val_ajoutee&quot;</span>, </span>
-<span id="cb30-33"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-33" tabindex="-1"></a>  <span class="st">&quot;Eau_Suivi&quot;</span>, <span class="st">&quot;Lacs&quot;</span>, <span class="st">&quot;Périphyton&quot;</span>, <span class="st">&quot;Analyses de données&quot;</span></span>
-<span id="cb30-34"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-34" tabindex="-1"></a>)</span>
-<span id="cb30-35"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-35" tabindex="-1"></a></span>
-<span id="cb30-36"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-36" tabindex="-1"></a><span class="co"># 4. Créer les dossiers ----</span></span>
-<span id="cb30-37"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-37" tabindex="-1"></a><span class="co"># Créer chaque dossier en utilisant fs::dir_create pour une gestion sécurisée</span></span>
-<span id="cb30-38"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-38" tabindex="-1"></a>lacs <span class="sc">%&gt;%</span></span>
-<span id="cb30-39"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-39" tabindex="-1"></a>  <span class="fu">pull</span>(name_dossier) <span class="sc">%&gt;%</span></span>
-<span id="cb30-40"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-40" tabindex="-1"></a>  <span class="fu">walk</span>(<span class="sc">~</span> fs<span class="sc">::</span><span class="fu">dir_create</span>(<span class="at">path =</span> <span class="fu">file.path</span>(repertoire, .x)))</span>
-<span id="cb30-41"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-41" tabindex="-1"></a></span>
-<span id="cb30-42"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-42" tabindex="-1"></a><span class="co"># 5. Vérification finale ----</span></span>
-<span id="cb30-43"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-43" tabindex="-1"></a><span class="co"># Afficher la structure du dataframe pour vérifier les données traitées</span></span>
-<span id="cb30-44"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#cb30-44" tabindex="-1"></a><span class="fu">str</span>(lacs)</span></code></pre></div>
+</div>
+<div id="documentation-claire-avec-des-commentaires" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> <strong>Documentation claire avec des commentaires</strong><a href="structurer-un-script-r-de-manière-adéquate.html#documentation-claire-avec-des-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ajouter des <strong>commentaires</strong> au sein de chaque section est une pratique essentielle pour expliquer le rôle de chaque bloc de code. Les commentaires permettent de :</p>
+<ul>
+<li><p>Décrire ce que fait chaque section ou fonction.</p></li>
+<li><p>Expliquer les choix de certaines opérations complexes.</p></li>
+<li><p>Rendre votre script compréhensible pour vous-même à long terme, ou pour d’autres utilisateurs.</p></li>
+</ul>
+<div id="exemple-de-commentaires" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Exemple de commentaires :<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-1" tabindex="-1"></a><span class="co"># Calcul de la moyenne et de l&#39;écart type pour la variable &#39;variable_x&#39;</span></span>
+<span id="cb88-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-2" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb88-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x),  <span class="co"># Moyenne</span></span>
+<span id="cb88-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-4" tabindex="-1"></a>            <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))      <span class="co"># Écart type</span></span></code></pre></div>
+</div>
+</div>
+<div id="script-de-contrôle-avec-run_all" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Script de contrôle avec <code>run_all</code>**<a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si votre projet comporte plusieurs scripts qui doivent être exécutés dans un certain ordre, vous pouvez utiliser un <strong>script de contrôle</strong> appelé <code>run_all</code> qui exécute les autres scripts dans le bon ordre. Ce script centralise l’exécution de tout votre pipeline et assure la reproductibilité complète.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-1" tabindex="-1"></a><span class="co"># run_all.R : Script de contrôle pour exécuter toutes les étapes du projet</span></span>
+<span id="cb89-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/01_importation.R&quot;</span>)</span>
+<span id="cb89-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/02_nettoyage.R&quot;</span>)</span>
+<span id="cb89-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/03_analyse.R&quot;</span>)</span>
+<span id="cb89-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/04_visualisation.R&quot;</span>)</span></code></pre></div>
+<p>Cela permet de relancer facilement tout le processus de bout en bout.</p>
+</div>
+<div id="gestion-des-scripts-exploratoires" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Gestion des scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lorsque vous débutez un script, surtout dans un contexte exploratoire, il est fréquent de ne pas savoir exactement ce qu’il contiendra. L’exploration des données implique souvent des essais et des erreurs, et il est essentiel de garder une trace de votre réflexion et de vos découvertes. Voici quelques conseils pour structurer vos scripts exploratoires tout en restant en accord avec les bonnes pratiques.</p>
+<div id="utiliser-des-commentaires-pour-documenter-votre-réflexion" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Utiliser des commentaires pour documenter votre réflexion<a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ajoutez des commentaires tout au long du script pour expliquer vos pensées, les raisons de vos choix, et les résultats de vos explorations. Cela vous aidera à comprendre votre logique lorsque vous reviendrez sur le script plus tard.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-1" tabindex="-1"></a><span class="co"># Exploration des données : Vérification de la distribution des valeurs</span></span>
+<span id="cb90-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>variable_x)</span>
+<span id="cb90-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-3" tabindex="-1"></a><span class="co"># Ici, je m&#39;interroge sur la présence d&#39;une asymétrie. Il serait intéressant de faire un test de normalité.</span></span></code></pre></div>
+</div>
+<div id="inclure-des-sections-même-dans-les-scripts-exploratoires" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Inclure des sections même dans les scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Utilisez des sections pour structurer vos idées, même si le contenu n’est pas encore finalisé. Cela vous aidera à garder une organisation, même dans un contexte d’exploration.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-2" tabindex="-1"></a><span class="co"># 1. Chargement des données</span></span>
+<span id="cb91-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/exemple.csv&quot;</span>)</span>
+<span id="cb91-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-5" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-6" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-7" tabindex="-1"></a><span class="co"># 2. Exploration initiale</span></span>
+<span id="cb91-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-9" tabindex="-1"></a><span class="fu">summary</span>(data)  <span class="co"># Résumé des données</span></span>
+<span id="cb91-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-10" tabindex="-1"></a><span class="fu">str</span>(data)      <span class="co"># Structure des données</span></span></code></pre></div>
+</div>
+<div id="écrire-des-notes-et-des-questions" class="section level3 hasAnchor" number="10.5.3">
+<h3><span class="header-section-number">10.5.3</span> Écrire des notes et des questions<a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Incluez des sections où vous notez vos questions, hypothèses, et réflexions sur les données. Cela peut servir de guide pour les étapes futures de votre analyse.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb92-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-2" tabindex="-1"></a><span class="co"># 3. Réflexions</span></span>
+<span id="cb92-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb92-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-4" tabindex="-1"></a><span class="co"># Questions :</span></span>
+<span id="cb92-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-5" tabindex="-1"></a><span class="co"># - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?</span></span>
+<span id="cb92-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-6" tabindex="-1"></a><span class="co"># - Quelle transformation pourrait être utile pour variable_x ?</span></span></code></pre></div>
+</div>
+<div id="sauvegarder-des-versions-du-script" class="section level3 hasAnchor" number="10.5.4">
+<h3><span class="header-section-number">10.5.4</span> Sauvegarder des versions du script<a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si vous travaillez sur une exploration qui évolue au fil du temps, envisagez de sauvegarder différentes versions de votre script. Cela vous permettra de revenir en arrière si nécessaire et de suivre l’évolution de votre réflexion.</p>
+<p>Si vous ne le faites pas déjà, envisagez d’utiliser Git pour gérer vos scripts exploratoires. Cela vous permettra de suivre les modifications apportées au fur et à mesure de votre exploration et de revenir à des versions antérieures si besoin.</p>
+</div>
+</div>
+<div id="conclusion-6" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Conclusion<a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Une bonne organisation des scripts, même dans un contexte exploratoire, est essentielle pour garantir la <strong>lisibilité</strong>, la <strong>maintenabilité</strong> et la <strong>reproductibilité</strong> de vos projets. En gardant une trace de vos réflexions, questions, et résultats intermédiaires à travers des <strong>commentaires</strong>, des <strong>sections claires</strong>, et en utilisant des <strong>pratiques de gestion de version</strong>, vous pouvez transformer vos scripts exploratoires en documents utiles qui guideront vos analyses futures. Suivre ces bonnes pratiques vous permettra de revenir facilement sur vos scripts, de mieux comprendre vos processus à long terme, et de partager votre travail avec d’autres collaborateurs sans difficulté, même lors des étapes plus formelles du projet.</p>
 
 </div>
 </div>
@@ -508,8 +524,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="importation-des-données.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cartes-interactives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -540,7 +556,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/10-structure-script.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -548,7 +564,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/04-reprex.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/10-structure-script.Rmd",
 "text": null
 },
 "download": null,
