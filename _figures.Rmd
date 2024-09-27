@@ -1,1 +1,15 @@
 # Figures
+
+En R, pour un graphique ggplot2, 1 point (pt) équivaut à 0,75 pixel (px). Donc pour convertir des pixels en points, il suffit de diviser par 0,75.
+
+Ainsi, pour 48 px :
+
+48px=48/0.75 = 64 pt
+
+Donc, 48 px équivaut à 64 points dans les marges d'un ggplot sur R.
+
+
+
+Dans ggplot2, la fonction annotate("text", ...) utilise une échelle différente pour la taille du texte par rapport à element_text(). La taille spécifiée dans element_text(size = ...) correspond à la taille en points, tandis que dans annotate(size = ...), la taille est relative et ne correspond pas directement aux points.
+
+Pour obtenir une taille équivalente à 14 points dans element_text(), vous pouvez ajuster la taille dans annotate(). Une taille de size = 4 dans annotate() est généralement proche de 14 points. Toutefois, vous pouvez affiner ce paramètre en utilisant la règle suivante : chaque unité dans annotate() correspond approximativement à 3,5 points. Donc, pour obtenir un texte de 14 points, utilisez une taille d'environ 4.

@@ -1,0 +1,13 @@
+# Annexe : Exemples REPREX
+
+## Exemple 1 : Part de marché des navigateurs
+
+Voici un exemple de REPREX qui montre comment structurer un graphique en barres en suivant les bonnes pratiques de présentation.
+
+```{r include=FALSE}
+# Lire le fichier R contenant le code REPREX
+knitr::read_chunk("reprex/marche_navigateurs_geom_bar.R")
+```
+
+```{r marche-navigateurs, echo=TRUE, message=FALSE, warning=FALSE}
+```

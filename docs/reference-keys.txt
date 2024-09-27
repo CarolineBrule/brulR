@@ -114,3 +114,5 @@ inclure-des-sections-même-dans-les-scripts-exploratoires
 écrire-des-notes-et-des-questions
 sauvegarder-des-versions-du-script
 conclusion-6
+annexe-exemples-reprex
+exemple-1-part-de-marché-des-navigateurs

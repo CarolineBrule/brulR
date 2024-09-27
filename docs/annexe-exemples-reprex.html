@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 8 Utilisation de ungroup() après group_by() | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 8 Utilisation de ungroup() après group_by() | brulR : Parler le même langage" />
+  <title>Chapitre 11 Annexe : Exemples REPREX | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 11 Annexe : Exemples REPREX | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 8 Utilisation de ungroup() après group_by() | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 11 Annexe : Exemples REPREX | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 8 Utilisation de ungroup() après group_by() | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 11 Annexe : Exemples REPREX | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="structure-dun-projet-r-package-dépôt-et-projet.html"/>
-<link rel="next" href="boucles-lapply-et-map-quelles-méthodes-privilégier.html"/>
+<link rel="prev" href="structurer-un-script-r-de-manière-adéquate.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,101 +349,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="utilisation-de-ungroup-après-group_by" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapitre 8</span> Utilisation de <code>ungroup()</code> après <code>group_by()</code><a href="utilisation-de-ungroup-après-group_by.html#utilisation-de-ungroup-après-group_by" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Lors de la manipulation des données avec <code>{dplyr}</code>, il est courant d’utiliser <code>group_by()</code> pour regrouper les données par une ou plusieurs variables avant d’appliquer des fonctions d’agrégation ou de transformation. Cependant, il est important de <strong>dégrupper</strong> les données après avoir effectué ces opérations afin d’éviter des comportements inattendus dans les étapes suivantes du pipeline de traitement des données.</p>
-<div id="pourquoi-utiliser-ungroup" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Pourquoi utiliser <code>ungroup()</code> ?<a href="utilisation-de-ungroup-après-group_by.html#pourquoi-utiliser-ungroup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Lorsque vous utilisez <code>group_by()</code>, votre jeu de données reste <strong>groupé</strong> après l’opération, ce qui peut influencer le comportement des fonctions suivantes dans le pipeline. Si vous ne retirez pas ces groupes explicitement, des erreurs ou des résultats inattendus peuvent survenir lorsque vous effectuez des opérations qui ne nécessitent pas de groupes.</p>
-<p>En appelant <code>ungroup()</code>, vous <strong>retirez l’attribut de regroupement</strong> des données, ce qui permet de continuer l’analyse sur un dataframe non-groupé.</p>
-<div id="exemple-dutilisation-de-group_by-et-ungroup" class="section level3 hasAnchor" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Exemple d’utilisation de <code>group_by()</code> et <code>ungroup()</code><a href="utilisation-de-ungroup-après-group_by.html#exemple-dutilisation-de-group_by-et-ungroup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Voici un exemple classique montrant pourquoi et comment utiliser <code>ungroup()</code> après avoir travaillé avec des données groupées.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="utilisation-de-ungroup-après-group_by.html#cb57-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb57-2"><a href="utilisation-de-ungroup-après-group_by.html#cb57-2" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="utilisation-de-ungroup-après-group_by.html#cb57-3" tabindex="-1"></a><span class="co"># Exemple de jeu de données</span></span>
-<span id="cb57-4"><a href="utilisation-de-ungroup-après-group_by.html#cb57-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb57-5"><a href="utilisation-de-ungroup-après-group_by.html#cb57-5" tabindex="-1"></a>  <span class="at">groupe =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C&quot;</span>),</span>
-<span id="cb57-6"><a href="utilisation-de-ungroup-après-group_by.html#cb57-6" tabindex="-1"></a>  <span class="at">valeur =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>)</span>
-<span id="cb57-7"><a href="utilisation-de-ungroup-après-group_by.html#cb57-7" tabindex="-1"></a>)</span>
-<span id="cb57-8"><a href="utilisation-de-ungroup-après-group_by.html#cb57-8" tabindex="-1"></a></span>
-<span id="cb57-9"><a href="utilisation-de-ungroup-après-group_by.html#cb57-9" tabindex="-1"></a><span class="co"># 1. Regrouper les données par &#39;groupe&#39; et calculer la somme des valeurs</span></span>
-<span id="cb57-10"><a href="utilisation-de-ungroup-après-group_by.html#cb57-10" tabindex="-1"></a>data_grouped <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb57-11"><a href="utilisation-de-ungroup-après-group_by.html#cb57-11" tabindex="-1"></a>  <span class="fu">group_by</span>(groupe) <span class="sc">%&gt;%</span></span>
-<span id="cb57-12"><a href="utilisation-de-ungroup-après-group_by.html#cb57-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(valeur))</span>
-<span id="cb57-13"><a href="utilisation-de-ungroup-après-group_by.html#cb57-13" tabindex="-1"></a></span>
-<span id="cb57-14"><a href="utilisation-de-ungroup-après-group_by.html#cb57-14" tabindex="-1"></a><span class="co"># Les données sont toujours groupées après summarise()</span></span>
-<span id="cb57-15"><a href="utilisation-de-ungroup-après-group_by.html#cb57-15" tabindex="-1"></a><span class="fu">print</span>(data_grouped)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 2
-##   groupe total
-##   &lt;chr&gt;  &lt;dbl&gt;
-## 1 A         30
-## 2 B         70
-## 3 C        110</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="utilisation-de-ungroup-après-group_by.html#cb59-1" tabindex="-1"></a><span class="co"># 2. Utiliser ungroup() pour supprimer le regroupement</span></span>
-<span id="cb59-2"><a href="utilisation-de-ungroup-après-group_by.html#cb59-2" tabindex="-1"></a>data_ungrouped <span class="ot">&lt;-</span> data_grouped <span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href="utilisation-de-ungroup-après-group_by.html#cb59-3" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb59-4"><a href="utilisation-de-ungroup-après-group_by.html#cb59-4" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="utilisation-de-ungroup-après-group_by.html#cb59-5" tabindex="-1"></a><span class="co"># Maintenant, les données ne sont plus groupées</span></span>
-<span id="cb59-6"><a href="utilisation-de-ungroup-après-group_by.html#cb59-6" tabindex="-1"></a><span class="fu">print</span>(data_ungrouped)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 2
-##   groupe total
-##   &lt;chr&gt;  &lt;dbl&gt;
-## 1 A         30
-## 2 B         70
-## 3 C        110</code></pre>
-</div>
-<div id="explication-2" class="section level3 hasAnchor" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Explication<a href="utilisation-de-ungroup-après-group_by.html#explication-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li><p><strong><code>group_by()</code></strong> : Cette fonction regroupe les lignes du dataframe par la variable <code>groupe</code>. Cela permet d’appliquer des calculs par groupe.</p></li>
-<li><p><strong><code>summarise()</code></strong> : Cette fonction calcule la somme de la colonne <code>valeur</code> pour chaque groupe. Cependant, même après la summarisation, les données restent <strong>groupées</strong>.</p></li>
-<li><p><strong>Pourquoi <code>ungroup()</code> ?</strong> : Si vous voulez appliquer d’autres transformations ou analyses sur le dataframe sans que les données soient toujours groupées, il est crucial d’appeler <code>ungroup()</code>. Cela empêche des comportements inattendus pour les fonctions suivantes.</p></li>
-</ol>
-</div>
-<div id="que-se-passe-t-il-sans-ungroup" class="section level3 hasAnchor" number="8.1.3">
-<h3><span class="header-section-number">8.1.3</span> Que se passe-t-il sans <code>ungroup()</code> ?<a href="utilisation-de-ungroup-après-group_by.html#que-se-passe-t-il-sans-ungroup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Si vous n’utilisez pas <code>ungroup()</code>, certaines opérations postérieures au <code>summarise()</code> pourraient être affectées par la structure de regroupement. Par exemple, si vous tentez de modifier une colonne sans <code>ungroup()</code>, cela pourrait provoquer des erreurs ou des avertissements. Voici un exemple :</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="utilisation-de-ungroup-après-group_by.html#cb61-1" tabindex="-1"></a><span class="co"># Sans ungroup(), certaines opérations peuvent ne pas fonctionner comme prévu</span></span>
-<span id="cb61-2"><a href="utilisation-de-ungroup-après-group_by.html#cb61-2" tabindex="-1"></a>data_grouped <span class="sc">%&gt;%</span></span>
-<span id="cb61-3"><a href="utilisation-de-ungroup-après-group_by.html#cb61-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_augmente =</span> total <span class="sc">+</span> <span class="dv">10</span>) <span class="co"># Fonctionne, mais le dataframe est encore groupé</span></span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   groupe total total_augmente
-##   &lt;chr&gt;  &lt;dbl&gt;          &lt;dbl&gt;
-## 1 A         30             40
-## 2 B         70             80
-## 3 C        110            120</code></pre>
-<p>Dans certains cas, il peut aussi y avoir des <strong>performances moindres</strong> si des fonctions sont appliquées sur des données toujours groupées inutilement.</p>
-</div>
-<div id="bonnes-pratiques" class="section level3 hasAnchor" number="8.1.4">
-<h3><span class="header-section-number">8.1.4</span> Bonnes pratiques<a href="utilisation-de-ungroup-après-group_by.html#bonnes-pratiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><strong>Toujours dégroupper après un <code>group_by()</code></strong> : Même si certaines opérations peuvent fonctionner avec des données encore groupées, il est préférable de toujours faire un <code>ungroup()</code> après avoir terminé les calculs sur des groupes. Cela garantit que les étapes suivantes du pipeline ne seront pas influencées par des groupes résiduels.</p></li>
-<li><p><strong>Clarté et maintenance du code</strong> : Utiliser <code>ungroup()</code> explicite votre intention de revenir à un dataframe non-groupé, ce qui rend votre code plus clair pour d’autres utilisateurs (et vous-même dans le futur).</p></li>
-</ul>
-</div>
-<div id="cas-pratique-eviter-les-erreurs-avec-ungroup" class="section level3 hasAnchor" number="8.1.5">
-<h3><span class="header-section-number">8.1.5</span> Cas pratique : Eviter les erreurs avec <code>ungroup()</code><a href="utilisation-de-ungroup-après-group_by.html#cas-pratique-eviter-les-erreurs-avec-ungroup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Imaginons que vous souhaitiez calculer la moyenne après avoir agrégé les données par groupe. Si vous ne dégrouppez pas vos données après <code>summarise()</code>, vous risquez d’obtenir des erreurs dans le calcul de la moyenne sur l’ensemble du jeu de données.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="utilisation-de-ungroup-après-group_by.html#cb63-1" tabindex="-1"></a><span class="co"># Erreur potentielle sans ungroup()</span></span>
-<span id="cb63-2"><a href="utilisation-de-ungroup-après-group_by.html#cb63-2" tabindex="-1"></a>data_grouped <span class="sc">%&gt;%</span></span>
-<span id="cb63-3"><a href="utilisation-de-ungroup-après-group_by.html#cb63-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">moyenne =</span> <span class="fu">mean</span>(total))  <span class="co"># La moyenne sera calculée par groupe et non globalement</span></span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   groupe total moyenne
-##   &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 A         30      70
-## 2 B         70      70
-## 3 C        110      70</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="utilisation-de-ungroup-après-group_by.html#cb65-1" tabindex="-1"></a><span class="co"># Solution avec ungroup()</span></span>
-<span id="cb65-2"><a href="utilisation-de-ungroup-après-group_by.html#cb65-2" tabindex="-1"></a>data_ungrouped <span class="ot">&lt;-</span> data_grouped <span class="sc">%&gt;%</span></span>
-<span id="cb65-3"><a href="utilisation-de-ungroup-après-group_by.html#cb65-3" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb65-4"><a href="utilisation-de-ungroup-après-group_by.html#cb65-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">moyenne =</span> <span class="fu">mean</span>(total))  <span class="co"># Calcul de la moyenne globale</span></span></code></pre></div>
-</div>
-<div id="conclusion-4" class="section level3 hasAnchor" number="8.1.6">
-<h3><span class="header-section-number">8.1.6</span> Conclusion<a href="utilisation-de-ungroup-après-group_by.html#conclusion-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>L’utilisation de <code>ungroup()</code> est une bonne pratique lorsque vous travaillez avec des fonctions comme <code>group_by()</code>. Cela permet de dégrupper explicitement les données après avoir effectué des agrégations ou des transformations, évitant ainsi des erreurs et assurant que les étapes suivantes de votre pipeline fonctionnent comme prévu.</p>
+<div id="annexe-exemples-reprex" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapitre 11</span> Annexe : Exemples REPREX<a href="annexe-exemples-reprex.html#annexe-exemples-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="exemple-1-part-de-marché-des-navigateurs" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Exemple 1 : Part de marché des navigateurs<a href="annexe-exemples-reprex.html#exemple-1-part-de-marché-des-navigateurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Voici un exemple de REPREX qui montre comment structurer un graphique en barres en suivant les bonnes pratiques de présentation.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="annexe-exemples-reprex.html#cb93-1" tabindex="-1"></a><span class="co"># REPREX - Graphique des parts de marché des navigateurs avec ggplot2 et grid</span></span>
+<span id="cb93-2"><a href="annexe-exemples-reprex.html#cb93-2" tabindex="-1"></a><span class="co"># Ce script explique en détail comment construire un graphique avec des normes spécifiques de présentation.</span></span>
+<span id="cb93-3"><a href="annexe-exemples-reprex.html#cb93-3" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="annexe-exemples-reprex.html#cb93-4" tabindex="-1"></a><span class="co"># Importer les librairies nécessaires --------------------------------------------------------</span></span>
+<span id="cb93-5"><a href="annexe-exemples-reprex.html#cb93-5" tabindex="-1"></a><span class="co"># ggplot2 : pour créer des graphiques basés sur les principes de la &quot;Grammaire des graphiques&quot;.</span></span>
+<span id="cb93-6"><a href="annexe-exemples-reprex.html#cb93-6" tabindex="-1"></a><span class="co"># grid et gridExtra : pour manipuler l&#39;arrangement des éléments graphiques et ajouter des marges externes.</span></span>
+<span id="cb93-7"><a href="annexe-exemples-reprex.html#cb93-7" tabindex="-1"></a><span class="co"># showtext et sysfonts : pour utiliser des polices personnalisées (Google Fonts) dans les graphiques.</span></span>
+<span id="cb93-8"><a href="annexe-exemples-reprex.html#cb93-8" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="annexe-exemples-reprex.html#cb93-9" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  <span class="co"># Création de graphiques</span></span>
+<span id="cb93-10"><a href="annexe-exemples-reprex.html#cb93-10" tabindex="-1"></a><span class="fu">library</span>(grid)  <span class="co"># Manipulation d&#39;éléments graphiques (grille, texte)</span></span>
+<span id="cb93-11"><a href="annexe-exemples-reprex.html#cb93-11" tabindex="-1"></a><span class="fu">library</span>(gridExtra)  <span class="co"># Arranger plusieurs éléments graphiques dans une grille</span></span>
+<span id="cb93-12"><a href="annexe-exemples-reprex.html#cb93-12" tabindex="-1"></a><span class="fu">library</span>(showtext)  <span class="co"># Utilisation de polices Google Fonts</span></span>
+<span id="cb93-13"><a href="annexe-exemples-reprex.html#cb93-13" tabindex="-1"></a><span class="fu">library</span>(sysfonts)  <span class="co"># Charger des polices supplémentaires</span></span>
+<span id="cb93-14"><a href="annexe-exemples-reprex.html#cb93-14" tabindex="-1"></a></span>
+<span id="cb93-15"><a href="annexe-exemples-reprex.html#cb93-15" tabindex="-1"></a><span class="co"># Charger la police Google Open Sans ---------------------------------------------------------</span></span>
+<span id="cb93-16"><a href="annexe-exemples-reprex.html#cb93-16" tabindex="-1"></a><span class="co"># Nous utilisons ici la police &quot;Open Sans&quot; de Google Fonts pour le texte.</span></span>
+<span id="cb93-17"><a href="annexe-exemples-reprex.html#cb93-17" tabindex="-1"></a><span class="co"># Cette police est populaire et adaptée aux graphiques formels.</span></span>
+<span id="cb93-18"><a href="annexe-exemples-reprex.html#cb93-18" tabindex="-1"></a></span>
+<span id="cb93-19"><a href="annexe-exemples-reprex.html#cb93-19" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="st">&quot;Open Sans&quot;</span>, <span class="st">&quot;open-sans&quot;</span>)</span>
+<span id="cb93-20"><a href="annexe-exemples-reprex.html#cb93-20" tabindex="-1"></a><span class="fu">showtext_auto</span>()  <span class="co"># Activer showtext pour que la police soit appliquée aux graphiques</span></span>
+<span id="cb93-21"><a href="annexe-exemples-reprex.html#cb93-21" tabindex="-1"></a></span>
+<span id="cb93-22"><a href="annexe-exemples-reprex.html#cb93-22" tabindex="-1"></a><span class="co"># Fonction de conversion pixels -&gt; points ----------------------------------------------------</span></span>
+<span id="cb93-23"><a href="annexe-exemples-reprex.html#cb93-23" tabindex="-1"></a><span class="co"># Cette fonction est utilisée pour convertir des pixels en points, car certaines marges sont exprimées en points.</span></span>
+<span id="cb93-24"><a href="annexe-exemples-reprex.html#cb93-24" tabindex="-1"></a><span class="co"># Dans R, 1 point correspond à 0,75 pixel.</span></span>
+<span id="cb93-25"><a href="annexe-exemples-reprex.html#cb93-25" tabindex="-1"></a></span>
+<span id="cb93-26"><a href="annexe-exemples-reprex.html#cb93-26" tabindex="-1"></a>px_to_pt <span class="ot">&lt;-</span> <span class="cf">function</span>(px) {</span>
+<span id="cb93-27"><a href="annexe-exemples-reprex.html#cb93-27" tabindex="-1"></a>  <span class="co"># Conversion de pixels en points (1 point = 0.75 pixel)</span></span>
+<span id="cb93-28"><a href="annexe-exemples-reprex.html#cb93-28" tabindex="-1"></a>  <span class="fu">return</span>(px <span class="sc">/</span> <span class="fl">0.75</span>)</span>
+<span id="cb93-29"><a href="annexe-exemples-reprex.html#cb93-29" tabindex="-1"></a>}</span>
+<span id="cb93-30"><a href="annexe-exemples-reprex.html#cb93-30" tabindex="-1"></a></span>
+<span id="cb93-31"><a href="annexe-exemples-reprex.html#cb93-31" tabindex="-1"></a><span class="co"># Créer des données fictives ---------------------------------------------------------------</span></span>
+<span id="cb93-32"><a href="annexe-exemples-reprex.html#cb93-32" tabindex="-1"></a><span class="co"># Nous créons ici un jeu de données factice qui montre la part de marché de différents navigateurs web.</span></span>
+<span id="cb93-33"><a href="annexe-exemples-reprex.html#cb93-33" tabindex="-1"></a><span class="co"># Les données sont organisées dans un tableau de données (data frame), et l&#39;axe des X est ordonné pour correspondre aux navigateurs.</span></span>
+<span id="cb93-34"><a href="annexe-exemples-reprex.html#cb93-34" tabindex="-1"></a></span>
+<span id="cb93-35"><a href="annexe-exemples-reprex.html#cb93-35" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb93-36"><a href="annexe-exemples-reprex.html#cb93-36" tabindex="-1"></a>  <span class="at">navigateur =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Chrome&quot;</span>, <span class="st">&quot;Safari&quot;</span>, <span class="st">&quot;Edge&quot;</span>, <span class="st">&quot;Firefox&quot;</span>, <span class="st">&quot;Opera&quot;</span>), </span>
+<span id="cb93-37"><a href="annexe-exemples-reprex.html#cb93-37" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Chrome&quot;</span>, <span class="st">&quot;Safari&quot;</span>, <span class="st">&quot;Edge&quot;</span>, <span class="st">&quot;Firefox&quot;</span>, <span class="st">&quot;Opera&quot;</span>)),  <span class="co"># Ordre spécifique pour l&#39;axe X</span></span>
+<span id="cb93-38"><a href="annexe-exemples-reprex.html#cb93-38" tabindex="-1"></a>  <span class="at">part_marche =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">15</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>)  <span class="co"># Parts de marché respectives</span></span>
+<span id="cb93-39"><a href="annexe-exemples-reprex.html#cb93-39" tabindex="-1"></a>)</span>
+<span id="cb93-40"><a href="annexe-exemples-reprex.html#cb93-40" tabindex="-1"></a></span>
+<span id="cb93-41"><a href="annexe-exemples-reprex.html#cb93-41" tabindex="-1"></a><span class="co"># Créer le graphique avec ggplot2 ---------------------------------------------------------</span></span>
+<span id="cb93-42"><a href="annexe-exemples-reprex.html#cb93-42" tabindex="-1"></a><span class="co"># Nous utilisons ggplot2 pour créer un graphique en barres. Chaque navigateur est représenté par une barre dont la hauteur reflète sa part de marché.</span></span>
+<span id="cb93-43"><a href="annexe-exemples-reprex.html#cb93-43" tabindex="-1"></a></span>
+<span id="cb93-44"><a href="annexe-exemples-reprex.html#cb93-44" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> navigateur, <span class="at">y =</span> part_marche)) <span class="sc">+</span></span>
+<span id="cb93-45"><a href="annexe-exemples-reprex.html#cb93-45" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;#095797&quot;</span>, <span class="at">width =</span> <span class="fl">0.67</span>) <span class="sc">+</span>  <span class="co"># Création des barres avec une couleur spécifique</span></span>
+<span id="cb93-46"><a href="annexe-exemples-reprex.html#cb93-46" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb93-47"><a href="annexe-exemples-reprex.html#cb93-47" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Part de marché des navigateurs&quot;</span>,  <span class="co"># Titre du graphique</span></span>
+<span id="cb93-48"><a href="annexe-exemples-reprex.html#cb93-48" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,  <span class="co"># Retirer le titre de l&#39;axe X (pas nécessaire ici)</span></span>
+<span id="cb93-49"><a href="annexe-exemples-reprex.html#cb93-49" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>   <span class="co"># Retirer le titre de l&#39;axe Y (pas nécessaire ici)</span></span>
+<span id="cb93-50"><a href="annexe-exemples-reprex.html#cb93-50" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb93-51"><a href="annexe-exemples-reprex.html#cb93-51" tabindex="-1"></a>  </span>
+<span id="cb93-52"><a href="annexe-exemples-reprex.html#cb93-52" tabindex="-1"></a>  <span class="co"># Échelle de l&#39;axe Y avec des valeurs entre 0 et 100, sans espace en bas</span></span>
+<span id="cb93-53"><a href="annexe-exemples-reprex.html#cb93-53" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb93-54"><a href="annexe-exemples-reprex.html#cb93-54" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),  <span class="co"># Retirer l&#39;espace en bas</span></span>
+<span id="cb93-55"><a href="annexe-exemples-reprex.html#cb93-55" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),  <span class="co"># Limite de 0 à 100 pour correspondre à des pourcentages</span></span>
+<span id="cb93-56"><a href="annexe-exemples-reprex.html#cb93-56" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>)  <span class="co"># Position des repères sur l&#39;axe Y</span></span>
+<span id="cb93-57"><a href="annexe-exemples-reprex.html#cb93-57" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb93-58"><a href="annexe-exemples-reprex.html#cb93-58" tabindex="-1"></a>  </span>
+<span id="cb93-59"><a href="annexe-exemples-reprex.html#cb93-59" tabindex="-1"></a>  <span class="co"># Thème du graphique</span></span>
+<span id="cb93-60"><a href="annexe-exemples-reprex.html#cb93-60" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span>  <span class="co"># Commence avec un thème vide pour tout personnaliser</span></span>
+<span id="cb93-61"><a href="annexe-exemples-reprex.html#cb93-61" tabindex="-1"></a>  </span>
+<span id="cb93-62"><a href="annexe-exemples-reprex.html#cb93-62" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb93-63"><a href="annexe-exemples-reprex.html#cb93-63" tabindex="-1"></a>    <span class="co"># Définition des marges autour du graphique (exprimées en points après conversion)</span></span>
+<span id="cb93-64"><a href="annexe-exemples-reprex.html#cb93-64" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="fu">px_to_pt</span>(<span class="dv">0</span>), <span class="at">r =</span> <span class="fu">px_to_pt</span>(<span class="dv">40</span>), <span class="at">b =</span> <span class="fu">px_to_pt</span>(<span class="dv">0</span>), <span class="at">l =</span> <span class="fu">px_to_pt</span>(<span class="dv">40</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),</span>
+<span id="cb93-65"><a href="annexe-exemples-reprex.html#cb93-65" tabindex="-1"></a>    </span>
+<span id="cb93-66"><a href="annexe-exemples-reprex.html#cb93-66" tabindex="-1"></a>    <span class="co"># Fond et bordures du graphique</span></span>
+<span id="cb93-67"><a href="annexe-exemples-reprex.html#cb93-67" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">colour =</span> <span class="st">&quot;#c5cad2&quot;</span>, <span class="at">linewidth =</span> <span class="dv">1</span>),  <span class="co"># Bordure grise autour du graphique</span></span>
+<span id="cb93-68"><a href="annexe-exemples-reprex.html#cb93-68" tabindex="-1"></a>    <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="fu">px_to_pt</span>(<span class="dv">48</span>), <span class="st">&quot;pt&quot;</span>),  <span class="co"># Espace entre le contenu du graphique et la bordure</span></span>
+<span id="cb93-69"><a href="annexe-exemples-reprex.html#cb93-69" tabindex="-1"></a>    </span>
+<span id="cb93-70"><a href="annexe-exemples-reprex.html#cb93-70" tabindex="-1"></a>    <span class="co"># Fond du panneau contenant le graphique</span></span>
+<span id="cb93-71"><a href="annexe-exemples-reprex.html#cb93-71" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;#FFFFFF&quot;</span>),  <span class="co"># Fond blanc du panneau</span></span>
+<span id="cb93-72"><a href="annexe-exemples-reprex.html#cb93-72" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="fl">0.5</span>, <span class="at">colour =</span> <span class="st">&quot;#C5CAD2&quot;</span>),  <span class="co"># Ligne de grille pour l&#39;axe Y</span></span>
+<span id="cb93-73"><a href="annexe-exemples-reprex.html#cb93-73" tabindex="-1"></a>    </span>
+<span id="cb93-74"><a href="annexe-exemples-reprex.html#cb93-74" tabindex="-1"></a>    <span class="co"># Axe des X</span></span>
+<span id="cb93-75"><a href="annexe-exemples-reprex.html#cb93-75" tabindex="-1"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;#6B778A&quot;</span>),  <span class="co"># Ligne de l&#39;axe des X avec une couleur spécifique</span></span>
+<span id="cb93-76"><a href="annexe-exemples-reprex.html#cb93-76" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb93-77"><a href="annexe-exemples-reprex.html#cb93-77" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>,  <span class="co"># Style des étiquettes des navigateurs</span></span>
+<span id="cb93-78"><a href="annexe-exemples-reprex.html#cb93-78" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="fu">px_to_pt</span>(<span class="dv">8</span>), <span class="at">b =</span> <span class="fu">px_to_pt</span>(<span class="dv">48</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),  <span class="co"># Marges autour des étiquettes</span></span>
+<span id="cb93-79"><a href="annexe-exemples-reprex.html#cb93-79" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>  <span class="co"># Centrer les étiquettes sous chaque barre</span></span>
+<span id="cb93-80"><a href="annexe-exemples-reprex.html#cb93-80" tabindex="-1"></a>    ),</span>
+<span id="cb93-81"><a href="annexe-exemples-reprex.html#cb93-81" tabindex="-1"></a>    </span>
+<span id="cb93-82"><a href="annexe-exemples-reprex.html#cb93-82" tabindex="-1"></a>    <span class="co"># Titre du graphique</span></span>
+<span id="cb93-83"><a href="annexe-exemples-reprex.html#cb93-83" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb93-84"><a href="annexe-exemples-reprex.html#cb93-84" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">color =</span> <span class="st">&quot;#223654&quot;</span>,  <span class="co"># Style du titre</span></span>
+<span id="cb93-85"><a href="annexe-exemples-reprex.html#cb93-85" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="fu">px_to_pt</span>(<span class="dv">48</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>)  <span class="co"># Espace au-dessus du titre</span></span>
+<span id="cb93-86"><a href="annexe-exemples-reprex.html#cb93-86" tabindex="-1"></a>    )</span>
+<span id="cb93-87"><a href="annexe-exemples-reprex.html#cb93-87" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb93-88"><a href="annexe-exemples-reprex.html#cb93-88" tabindex="-1"></a>  </span>
+<span id="cb93-89"><a href="annexe-exemples-reprex.html#cb93-89" tabindex="-1"></a>  <span class="co"># Ajout de textes supplémentaires pour l&#39;axe Y (positions fixes)</span></span>
+<span id="cb93-90"><a href="annexe-exemples-reprex.html#cb93-90" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">80</span>, <span class="at">label =</span> <span class="st">&quot;80 % d&#39;utilisation par navigateur&quot;</span>,</span>
+<span id="cb93-91"><a href="annexe-exemples-reprex.html#cb93-91" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-92"><a href="annexe-exemples-reprex.html#cb93-92" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">60</span>, <span class="at">label =</span> <span class="st">&quot;60&quot;</span>,</span>
+<span id="cb93-93"><a href="annexe-exemples-reprex.html#cb93-93" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-94"><a href="annexe-exemples-reprex.html#cb93-94" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">40</span>, <span class="at">label =</span> <span class="st">&quot;40&quot;</span>,</span>
+<span id="cb93-95"><a href="annexe-exemples-reprex.html#cb93-95" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-96"><a href="annexe-exemples-reprex.html#cb93-96" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">20</span>, <span class="at">label =</span> <span class="st">&quot;20&quot;</span>,</span>
+<span id="cb93-97"><a href="annexe-exemples-reprex.html#cb93-97" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-98"><a href="annexe-exemples-reprex.html#cb93-98" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">&quot;0&quot;</span>,</span>
+<span id="cb93-99"><a href="annexe-exemples-reprex.html#cb93-99" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>)</span>
+<span id="cb93-100"><a href="annexe-exemples-reprex.html#cb93-100" tabindex="-1"></a></span>
+<span id="cb93-101"><a href="annexe-exemples-reprex.html#cb93-101" tabindex="-1"></a><span class="co"># Utilisation de grid pour ajuster les marges externes autour du graphique ----------------</span></span>
+<span id="cb93-102"><a href="annexe-exemples-reprex.html#cb93-102" tabindex="-1"></a><span class="co"># Ici, nous ajoutons une marge externe au graphique pour créer un espace supplémentaire en haut et en bas.</span></span>
+<span id="cb93-103"><a href="annexe-exemples-reprex.html#cb93-103" tabindex="-1"></a><span class="co"># Cela est utile pour contrôler l&#39;espacement dans des documents ou des présentations.</span></span>
+<span id="cb93-104"><a href="annexe-exemples-reprex.html#cb93-104" tabindex="-1"></a></span>
+<span id="cb93-105"><a href="annexe-exemples-reprex.html#cb93-105" tabindex="-1"></a><span class="fu">grid.newpage</span>()  <span class="co"># Crée une nouvelle page graphique avant de dessiner le graphique avec des marges supplémentaires</span></span>
+<span id="cb93-106"><a href="annexe-exemples-reprex.html#cb93-106" tabindex="-1"></a></span>
+<span id="cb93-107"><a href="annexe-exemples-reprex.html#cb93-107" tabindex="-1"></a><span class="co"># Ajouter des marges externes autour du graphique ----------------------------------------</span></span>
+<span id="cb93-108"><a href="annexe-exemples-reprex.html#cb93-108" tabindex="-1"></a><span class="fu">grid.draw</span>(gridExtra<span class="sc">::</span><span class="fu">grid.arrange</span>(</span>
+<span id="cb93-109"><a href="annexe-exemples-reprex.html#cb93-109" tabindex="-1"></a>  p,  <span class="co"># Le graphique ggplot que nous avons créé</span></span>
+<span id="cb93-110"><a href="annexe-exemples-reprex.html#cb93-110" tabindex="-1"></a>  <span class="at">top =</span> <span class="fu">textGrob</span>(<span class="st">&quot; &quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="fu">px_to_pt</span>(<span class="dv">72</span>))),   <span class="co"># Marge en haut de 72 pixels convertis en points</span></span>
+<span id="cb93-111"><a href="annexe-exemples-reprex.html#cb93-111" tabindex="-1"></a>  <span class="at">bottom =</span> <span class="fu">textGrob</span>(<span class="st">&quot; &quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="fu">px_to_pt</span>(<span class="dv">72</span>))) <span class="co"># Marge en bas de 72 pixels convertis en points</span></span>
+<span id="cb93-112"><a href="annexe-exemples-reprex.html#cb93-112" tabindex="-1"></a>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/marche-navigateurs-1.png" width="672" /></p>
 
-</div>
 </div>
 </div>
             </section>
@@ -451,8 +475,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="structure-dun-projet-r-package-dépôt-et-projet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="structurer-un-script-r-de-manière-adéquate.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -483,7 +507,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/08-manipulation.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/annexes.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -491,7 +515,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/08-manipulation.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/annexes.Rmd",
 "text": null
 },
 "download": null,
