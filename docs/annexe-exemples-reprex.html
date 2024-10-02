@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,7 +328,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>11</b> Annexe : Exemples REPREX</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-1-part-de-marché-des-navigateurs"><i class="fa fa-check"></i><b>11.1</b> Exemple 1 : Part de marché des navigateurs</a></li>
+<li class="chapter" data-level="11.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-1-diagramme-à-bandes-exactement-comme-design.ca"><i class="fa fa-check"></i><b>11.1</b> Exemple 1 : Diagramme à bandes exactement comme design.ca</a></li>
+<li class="chapter" data-level="11.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>11.2</b> Exemple 2 : Diagramme à bandes pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>11.2.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="11.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#note"><i class="fa fa-check"></i><b>11.2.2</b> Note</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -351,8 +356,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="annexe-exemples-reprex" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapitre 11</span> Annexe : Exemples REPREX<a href="annexe-exemples-reprex.html#annexe-exemples-reprex" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="exemple-1-part-de-marché-des-navigateurs" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Exemple 1 : Part de marché des navigateurs<a href="annexe-exemples-reprex.html#exemple-1-part-de-marché-des-navigateurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exemple-1-diagramme-à-bandes-exactement-comme-design.ca" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Exemple 1 : Diagramme à bandes exactement comme design.ca<a href="annexe-exemples-reprex.html#exemple-1-diagramme-à-bandes-exactement-comme-design.ca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Voici un exemple de REPREX qui montre comment structurer un graphique en barres en suivant les bonnes pratiques de présentation.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="annexe-exemples-reprex.html#cb93-1" tabindex="-1"></a><span class="co"># REPREX - Graphique des parts de marché des navigateurs avec ggplot2 et grid</span></span>
 <span id="cb93-2"><a href="annexe-exemples-reprex.html#cb93-2" tabindex="-1"></a><span class="co"># Ce script explique en détail comment construire un graphique avec des normes spécifiques de présentation.</span></span>
@@ -467,7 +472,155 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb93-111"><a href="annexe-exemples-reprex.html#cb93-111" tabindex="-1"></a>  <span class="at">bottom =</span> <span class="fu">textGrob</span>(<span class="st">&quot; &quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="fu">px_to_pt</span>(<span class="dv">72</span>))) <span class="co"># Marge en bas de 72 pixels convertis en points</span></span>
 <span id="cb93-112"><a href="annexe-exemples-reprex.html#cb93-112" tabindex="-1"></a>))</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/marche-navigateurs-1.png" width="672" /></p>
+</div>
+<div id="exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Exemple 2 : Diagramme à bandes pour rapport gouvernemental<a href="annexe-exemples-reprex.html#exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="annexe-exemples-reprex.html#cb94-1" tabindex="-1"></a><span class="co"># Importer les bibliothèques nécessaires</span></span>
+<span id="cb94-2"><a href="annexe-exemples-reprex.html#cb94-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  <span class="co"># Pour créer des graphiques avec ggplot2</span></span>
+<span id="cb94-3"><a href="annexe-exemples-reprex.html#cb94-3" tabindex="-1"></a><span class="fu">library</span>(grid)  <span class="co"># Pour manipuler des éléments graphiques (comme les marges, les lignes)</span></span>
+<span id="cb94-4"><a href="annexe-exemples-reprex.html#cb94-4" tabindex="-1"></a><span class="fu">library</span>(showtext)  <span class="co"># Pour utiliser des polices Google Fonts dans les graphiques</span></span>
+<span id="cb94-5"><a href="annexe-exemples-reprex.html#cb94-5" tabindex="-1"></a><span class="fu">library</span>(sysfonts)  <span class="co"># Pour charger des polices supplémentaires</span></span>
+<span id="cb94-6"><a href="annexe-exemples-reprex.html#cb94-6" tabindex="-1"></a></span>
+<span id="cb94-7"><a href="annexe-exemples-reprex.html#cb94-7" tabindex="-1"></a><span class="co"># Charger la police Google Open Sans ---------------------------------------------------------</span></span>
+<span id="cb94-8"><a href="annexe-exemples-reprex.html#cb94-8" tabindex="-1"></a><span class="co"># Ici, nous utilisons la police &quot;Open Sans&quot; de Google Fonts, qui est bien adaptée pour un rendu clair</span></span>
+<span id="cb94-9"><a href="annexe-exemples-reprex.html#cb94-9" tabindex="-1"></a><span class="co"># et propre dans les graphiques formels.</span></span>
+<span id="cb94-10"><a href="annexe-exemples-reprex.html#cb94-10" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="st">&quot;Open Sans&quot;</span>, <span class="st">&quot;open-sans&quot;</span>)</span>
+<span id="cb94-11"><a href="annexe-exemples-reprex.html#cb94-11" tabindex="-1"></a><span class="fu">showtext_auto</span>()  <span class="co"># Activer showtext pour que la police soit correctement rendue dans les graphiques</span></span>
+<span id="cb94-12"><a href="annexe-exemples-reprex.html#cb94-12" tabindex="-1"></a></span>
+<span id="cb94-13"><a href="annexe-exemples-reprex.html#cb94-13" tabindex="-1"></a><span class="co"># Fonction utilitaire pour convertir des pixels en points ------------------------------------</span></span>
+<span id="cb94-14"><a href="annexe-exemples-reprex.html#cb94-14" tabindex="-1"></a><span class="co"># Cette fonction convertit des pixels en points, car ggplot fonctionne souvent avec des unités</span></span>
+<span id="cb94-15"><a href="annexe-exemples-reprex.html#cb94-15" tabindex="-1"></a><span class="co"># en points. (1 point = 0.75 pixel).</span></span>
+<span id="cb94-16"><a href="annexe-exemples-reprex.html#cb94-16" tabindex="-1"></a>px_to_pt <span class="ot">&lt;-</span> <span class="cf">function</span>(px) {</span>
+<span id="cb94-17"><a href="annexe-exemples-reprex.html#cb94-17" tabindex="-1"></a>  <span class="fu">return</span>(px <span class="sc">/</span> <span class="fl">0.75</span>)</span>
+<span id="cb94-18"><a href="annexe-exemples-reprex.html#cb94-18" tabindex="-1"></a>}</span>
+<span id="cb94-19"><a href="annexe-exemples-reprex.html#cb94-19" tabindex="-1"></a></span>
+<span id="cb94-20"><a href="annexe-exemples-reprex.html#cb94-20" tabindex="-1"></a><span class="co"># Création d&#39;un jeu de données simulé --------------------------------------------------------</span></span>
+<span id="cb94-21"><a href="annexe-exemples-reprex.html#cb94-21" tabindex="-1"></a><span class="co"># Ce jeu de données est utilisé pour reproduire la figure avec des mesures de carbone organique</span></span>
+<span id="cb94-22"><a href="annexe-exemples-reprex.html#cb94-22" tabindex="-1"></a><span class="co"># par station.</span></span>
+<span id="cb94-23"><a href="annexe-exemples-reprex.html#cb94-23" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Fixer une graine pour garantir la reproductibilité des résultats</span></span>
+<span id="cb94-24"><a href="annexe-exemples-reprex.html#cb94-24" tabindex="-1"></a></span>
+<span id="cb94-25"><a href="annexe-exemples-reprex.html#cb94-25" tabindex="-1"></a><span class="co"># Définir les noms des stations</span></span>
+<span id="cb94-26"><a href="annexe-exemples-reprex.html#cb94-26" tabindex="-1"></a>stations <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bree02A&quot;</span>, <span class="st">&quot;Bree02B&quot;</span>, <span class="st">&quot;Bree03&quot;</span>, <span class="st">&quot;Bree04&quot;</span>, <span class="st">&quot;Bree05&quot;</span>, </span>
+<span id="cb94-27"><a href="annexe-exemples-reprex.html#cb94-27" tabindex="-1"></a>              <span class="st">&quot;Tru01&quot;</span>, <span class="st">&quot;Tru02&quot;</span>, <span class="st">&quot;Tru03&quot;</span>, <span class="st">&quot;Tru04&quot;</span>, <span class="st">&quot;Tru05&quot;</span>)</span>
+<span id="cb94-28"><a href="annexe-exemples-reprex.html#cb94-28" tabindex="-1"></a></span>
+<span id="cb94-29"><a href="annexe-exemples-reprex.html#cb94-29" tabindex="-1"></a><span class="co"># Définir les valeurs de carbone organique total (%)</span></span>
+<span id="cb94-30"><a href="annexe-exemples-reprex.html#cb94-30" tabindex="-1"></a>carbone_organique <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="fl">1.5</span>, <span class="dv">4</span>, <span class="dv">12</span>, </span>
+<span id="cb94-31"><a href="annexe-exemples-reprex.html#cb94-31" tabindex="-1"></a>                       <span class="dv">3</span>, <span class="fl">2.5</span>, <span class="fl">4.5</span>, <span class="dv">5</span>, <span class="dv">4</span>)</span>
+<span id="cb94-32"><a href="annexe-exemples-reprex.html#cb94-32" tabindex="-1"></a></span>
+<span id="cb94-33"><a href="annexe-exemples-reprex.html#cb94-33" tabindex="-1"></a><span class="co"># Ajouter des barres d&#39;erreur simulées (écart-type) pour chaque mesure</span></span>
+<span id="cb94-34"><a href="annexe-exemples-reprex.html#cb94-34" tabindex="-1"></a>erreur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.2</span>, <span class="fl">0.8</span>, <span class="fl">3.0</span>, </span>
+<span id="cb94-35"><a href="annexe-exemples-reprex.html#cb94-35" tabindex="-1"></a>            <span class="fl">0.8</span>, <span class="fl">0.6</span>, <span class="fl">1.2</span>, <span class="fl">1.0</span>, <span class="fl">0.8</span>)</span>
+<span id="cb94-36"><a href="annexe-exemples-reprex.html#cb94-36" tabindex="-1"></a></span>
+<span id="cb94-37"><a href="annexe-exemples-reprex.html#cb94-37" tabindex="-1"></a><span class="co"># Localisation des stations (lac Bree ou lac Truite)</span></span>
+<span id="cb94-38"><a href="annexe-exemples-reprex.html#cb94-38" tabindex="-1"></a>localisation <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Bree&quot;</span>, <span class="st">&quot;Tru&quot;</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
+<span id="cb94-39"><a href="annexe-exemples-reprex.html#cb94-39" tabindex="-1"></a></span>
+<span id="cb94-40"><a href="annexe-exemples-reprex.html#cb94-40" tabindex="-1"></a><span class="co"># Création du data.frame avec les colonnes nécessaires</span></span>
+<span id="cb94-41"><a href="annexe-exemples-reprex.html#cb94-41" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Station =</span> stations, </span>
+<span id="cb94-42"><a href="annexe-exemples-reprex.html#cb94-42" tabindex="-1"></a>                   <span class="at">Carbone_organique =</span> carbone_organique, </span>
+<span id="cb94-43"><a href="annexe-exemples-reprex.html#cb94-43" tabindex="-1"></a>                   <span class="at">Erreur =</span> erreur, </span>
+<span id="cb94-44"><a href="annexe-exemples-reprex.html#cb94-44" tabindex="-1"></a>                   <span class="at">Lac =</span> localisation)</span>
+<span id="cb94-45"><a href="annexe-exemples-reprex.html#cb94-45" tabindex="-1"></a></span>
+<span id="cb94-46"><a href="annexe-exemples-reprex.html#cb94-46" tabindex="-1"></a><span class="co"># Afficher les premières lignes du jeu de données pour vérifier sa structure</span></span>
+<span id="cb94-47"><a href="annexe-exemples-reprex.html#cb94-47" tabindex="-1"></a><span class="fu">head</span>(data)</span>
+<span id="cb94-48"><a href="annexe-exemples-reprex.html#cb94-48" tabindex="-1"></a></span>
+<span id="cb94-49"><a href="annexe-exemples-reprex.html#cb94-49" tabindex="-1"></a><span class="co"># Création du thème personnalisé pour le graphique ------------------------------------------</span></span>
+<span id="cb94-50"><a href="annexe-exemples-reprex.html#cb94-50" tabindex="-1"></a><span class="co"># Nous créons un thème personnalisé pour harmoniser les éléments graphiques du diagramme.</span></span>
+<span id="cb94-51"><a href="annexe-exemples-reprex.html#cb94-51" tabindex="-1"></a>custom_theme <span class="ot">&lt;-</span> <span class="fu">theme_void</span>() <span class="sc">+</span>  <span class="co"># Commence par un thème vide sans éléments par défaut</span></span>
+<span id="cb94-52"><a href="annexe-exemples-reprex.html#cb94-52" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb94-53"><a href="annexe-exemples-reprex.html#cb94-53" tabindex="-1"></a>    <span class="co"># Marges autour du graphique (haut, droite, bas, gauche) en points</span></span>
+<span id="cb94-54"><a href="annexe-exemples-reprex.html#cb94-54" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="fu">px_to_pt</span>(<span class="dv">48</span>), <span class="at">r =</span> <span class="fu">px_to_pt</span>(<span class="dv">40</span>), <span class="at">b =</span> <span class="fu">px_to_pt</span>(<span class="dv">48</span>), <span class="at">l =</span> <span class="fu">px_to_pt</span>(<span class="dv">40</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),</span>
+<span id="cb94-55"><a href="annexe-exemples-reprex.html#cb94-55" tabindex="-1"></a>    </span>
+<span id="cb94-56"><a href="annexe-exemples-reprex.html#cb94-56" tabindex="-1"></a>    <span class="co"># Définir un fond blanc avec une bordure grise autour du graphique</span></span>
+<span id="cb94-57"><a href="annexe-exemples-reprex.html#cb94-57" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span>  <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;#c5cad2&quot;</span>, <span class="at">linewidth =</span> <span class="dv">1</span>),</span>
+<span id="cb94-58"><a href="annexe-exemples-reprex.html#cb94-58" tabindex="-1"></a>    <span class="co"># Fond blanc pour le panneau du graphique</span></span>
+<span id="cb94-59"><a href="annexe-exemples-reprex.html#cb94-59" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;#FFFFFF&quot;</span>),  </span>
+<span id="cb94-60"><a href="annexe-exemples-reprex.html#cb94-60" tabindex="-1"></a>    <span class="co"># Grille pour l&#39;axe Y en ligne fine grise</span></span>
+<span id="cb94-61"><a href="annexe-exemples-reprex.html#cb94-61" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="fl">0.5</span>, <span class="at">colour =</span> <span class="st">&quot;#C5CAD2&quot;</span>),</span>
+<span id="cb94-62"><a href="annexe-exemples-reprex.html#cb94-62" tabindex="-1"></a>    <span class="co"># Ligne de l&#39;axe X avec une couleur grise</span></span>
+<span id="cb94-63"><a href="annexe-exemples-reprex.html#cb94-63" tabindex="-1"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;#6B778A&quot;</span>),</span>
+<span id="cb94-64"><a href="annexe-exemples-reprex.html#cb94-64" tabindex="-1"></a>    <span class="co"># Position de la légende en bas du graphique</span></span>
+<span id="cb94-65"><a href="annexe-exemples-reprex.html#cb94-65" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb94-66"><a href="annexe-exemples-reprex.html#cb94-66" tabindex="-1"></a>    </span>
+<span id="cb94-67"><a href="annexe-exemples-reprex.html#cb94-67" tabindex="-1"></a>    <span class="co"># Style des étiquettes de l&#39;axe des X</span></span>
+<span id="cb94-68"><a href="annexe-exemples-reprex.html#cb94-68" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb94-69"><a href="annexe-exemples-reprex.html#cb94-69" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>,  <span class="co"># Police Open Sans, couleur grise</span></span>
+<span id="cb94-70"><a href="annexe-exemples-reprex.html#cb94-70" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="fu">px_to_pt</span>(<span class="dv">8</span>), <span class="at">b =</span> <span class="fu">px_to_pt</span>(<span class="dv">16</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),  <span class="co"># Marges autour des étiquettes</span></span>
+<span id="cb94-71"><a href="annexe-exemples-reprex.html#cb94-71" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>  <span class="co"># Centrer les étiquettes sous chaque barre</span></span>
+<span id="cb94-72"><a href="annexe-exemples-reprex.html#cb94-72" tabindex="-1"></a>    ),</span>
+<span id="cb94-73"><a href="annexe-exemples-reprex.html#cb94-73" tabindex="-1"></a>    </span>
+<span id="cb94-74"><a href="annexe-exemples-reprex.html#cb94-74" tabindex="-1"></a>    <span class="co"># Style des étiquettes de l&#39;axe des Y</span></span>
+<span id="cb94-75"><a href="annexe-exemples-reprex.html#cb94-75" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(</span>
+<span id="cb94-76"><a href="annexe-exemples-reprex.html#cb94-76" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>,  <span class="co"># Police Open Sans, couleur grise</span></span>
+<span id="cb94-77"><a href="annexe-exemples-reprex.html#cb94-77" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="fu">px_to_pt</span>(<span class="dv">8</span>), <span class="at">l =</span> <span class="fu">px_to_pt</span>(<span class="dv">16</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),  <span class="co"># Marges autour des étiquettes</span></span>
+<span id="cb94-78"><a href="annexe-exemples-reprex.html#cb94-78" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>  <span class="co"># Centrer les étiquettes de l&#39;axe Y</span></span>
+<span id="cb94-79"><a href="annexe-exemples-reprex.html#cb94-79" tabindex="-1"></a>    ),</span>
+<span id="cb94-80"><a href="annexe-exemples-reprex.html#cb94-80" tabindex="-1"></a>    </span>
+<span id="cb94-81"><a href="annexe-exemples-reprex.html#cb94-81" tabindex="-1"></a>    <span class="co"># Style du titre de l&#39;axe des X</span></span>
+<span id="cb94-82"><a href="annexe-exemples-reprex.html#cb94-82" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb94-83"><a href="annexe-exemples-reprex.html#cb94-83" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>,  <span class="co"># Police Open Sans</span></span>
+<span id="cb94-84"><a href="annexe-exemples-reprex.html#cb94-84" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="fu">px_to_pt</span>(<span class="dv">32</span>), <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>),  <span class="co"># Marges sous le titre</span></span>
+<span id="cb94-85"><a href="annexe-exemples-reprex.html#cb94-85" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>  <span class="co"># Centrer le titre</span></span>
+<span id="cb94-86"><a href="annexe-exemples-reprex.html#cb94-86" tabindex="-1"></a>    ),</span>
+<span id="cb94-87"><a href="annexe-exemples-reprex.html#cb94-87" tabindex="-1"></a>    </span>
+<span id="cb94-88"><a href="annexe-exemples-reprex.html#cb94-88" tabindex="-1"></a>    <span class="co"># Style du titre de l&#39;axe des Y</span></span>
+<span id="cb94-89"><a href="annexe-exemples-reprex.html#cb94-89" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(</span>
+<span id="cb94-90"><a href="annexe-exemples-reprex.html#cb94-90" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>, <span class="at">angle =</span> <span class="dv">90</span>,  <span class="co"># Angle de 90° pour le titre de l&#39;axe Y</span></span>
+<span id="cb94-91"><a href="annexe-exemples-reprex.html#cb94-91" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="fl">0.5</span>  <span class="co"># Centrer verticalement</span></span>
+<span id="cb94-92"><a href="annexe-exemples-reprex.html#cb94-92" tabindex="-1"></a>    ),</span>
+<span id="cb94-93"><a href="annexe-exemples-reprex.html#cb94-93" tabindex="-1"></a>    </span>
+<span id="cb94-94"><a href="annexe-exemples-reprex.html#cb94-94" tabindex="-1"></a>    <span class="co"># Style de la légende (sans titre et police Open Sans)</span></span>
+<span id="cb94-95"><a href="annexe-exemples-reprex.html#cb94-95" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb94-96"><a href="annexe-exemples-reprex.html#cb94-96" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;open-sans&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">&quot;#6b778a&quot;</span>),</span>
+<span id="cb94-97"><a href="annexe-exemples-reprex.html#cb94-97" tabindex="-1"></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fu">px_to_pt</span>(<span class="dv">16</span>), <span class="st">&quot;pt&quot;</span>)  <span class="co"># Taille des éléments de la légende</span></span>
+<span id="cb94-98"><a href="annexe-exemples-reprex.html#cb94-98" tabindex="-1"></a>  ) </span>
+<span id="cb94-99"><a href="annexe-exemples-reprex.html#cb94-99" tabindex="-1"></a></span>
+<span id="cb94-100"><a href="annexe-exemples-reprex.html#cb94-100" tabindex="-1"></a><span class="co"># Générer le graphique avec ggplot2 ---------------------------------------------------------</span></span>
+<span id="cb94-101"><a href="annexe-exemples-reprex.html#cb94-101" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Station, <span class="at">y =</span> Carbone_organique, <span class="at">fill =</span> Lac)) <span class="sc">+</span>  <span class="co"># Variable x: Station, y: Carbone organique</span></span>
+<span id="cb94-102"><a href="annexe-exemples-reprex.html#cb94-102" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">width =</span> <span class="fl">0.67</span>) <span class="sc">+</span>  <span class="co"># Barres pour chaque station</span></span>
+<span id="cb94-103"><a href="annexe-exemples-reprex.html#cb94-103" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Carbone_organique <span class="sc">-</span> Erreur, <span class="at">ymax =</span> Carbone_organique <span class="sc">+</span> Erreur), </span>
+<span id="cb94-104"><a href="annexe-exemples-reprex.html#cb94-104" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">&quot;#223654&quot;</span>) <span class="sc">+</span>  <span class="co"># Ajout des barres d&#39;erreur</span></span>
+<span id="cb94-105"><a href="annexe-exemples-reprex.html#cb94-105" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Station&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Carbone organique total (%)&quot;</span>) <span class="sc">+</span>  <span class="co"># Labels pour les axes</span></span>
+<span id="cb94-106"><a href="annexe-exemples-reprex.html#cb94-106" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb94-107"><a href="annexe-exemples-reprex.html#cb94-107" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">21</span>),  <span class="co"># Limiter l&#39;axe des Y de 0 à 21</span></span>
+<span id="cb94-108"><a href="annexe-exemples-reprex.html#cb94-108" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>),  <span class="co"># Intervalles des graduations de l&#39;axe Y</span></span>
+<span id="cb94-109"><a href="annexe-exemples-reprex.html#cb94-109" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)  <span class="co"># Retirer l&#39;espace vide en bas de l&#39;axe</span></span>
+<span id="cb94-110"><a href="annexe-exemples-reprex.html#cb94-110" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb94-111"><a href="annexe-exemples-reprex.html#cb94-111" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">gsub</span>(<span class="st">&quot;(Bree|Tru)&quot;</span>, <span class="st">&quot;&quot;</span>, stations)) <span class="sc">+</span>  <span class="co"># Enlever &quot;Bree&quot; et &quot;Tru&quot; des étiquettes de l&#39;axe X</span></span>
+<span id="cb94-112"><a href="annexe-exemples-reprex.html#cb94-112" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb94-113"><a href="annexe-exemples-reprex.html#cb94-113" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Bree&quot;</span> <span class="ot">=</span> <span class="st">&quot;#D56050&quot;</span>, <span class="st">&quot;Tru&quot;</span> <span class="ot">=</span> <span class="st">&quot;#68CEBA&quot;</span>),  <span class="co"># Définir les couleurs pour les lacs Bree et Tru</span></span>
+<span id="cb94-114"><a href="annexe-exemples-reprex.html#cb94-114" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Bree&quot;</span> <span class="ot">=</span> <span class="st">&quot;Lac Breeches&quot;</span>, <span class="st">&quot;Tru&quot;</span> <span class="ot">=</span> <span class="st">&quot;Lac Truite&quot;</span>)  <span class="co"># Modifier les labels de la légende</span></span>
+<span id="cb94-115"><a href="annexe-exemples-reprex.html#cb94-115" tabindex="-1"></a>  ) <span class="sc">+</span>  </span>
+<span id="cb94-116"><a href="annexe-exemples-reprex.html#cb94-116" tabindex="-1"></a>  custom_theme  <span class="co"># Appliquer le thème personnalisé</span></span></code></pre></div>
+<p><img src="images/exemple2_graph_olivier1.png" /></p>
+<div id="exporter-un-graphique-depuis-le-volet-plots-dans-rstudio" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio<a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour exporter un graphique affiché dans le volet <strong><code>Plots</code></strong> de RStudio, suivez ces étapes :</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Créer votre graphique</strong> : Exécutez votre code pour afficher le graphique dans le volet <strong><code>Plots</code></strong>.</p></li>
+<li><p><strong>Exporter le graphique</strong> :</p>
+<ul>
+<li><p><strong>Sauvegarder comme image</strong> :</p>
+<ul>
+<li><p>Cliquez sur le bouton <strong><code>Export</code></strong> en haut à droite du volet <strong><code>Plots</code></strong>.</p></li>
+<li><p>Sélectionnez <strong><code>Save As Image</code></strong>.</p></li>
+<li><p>Choisissez le format (PNG, JPEG, etc.), le nom de fichier, la résolution (DPI), et l’emplacement de sauvegarde.</p></li>
+<li><p>Cliquez sur <strong><code>Save</code></strong> pour enregistrer l’image.</p></li>
+</ul></li>
+<li><p><strong>Copier dans le presse-papier</strong> :</p>
+<ul>
+<li><p>Cliquez sur <strong><code>Export</code></strong>.</p></li>
+<li><p>Sélectionnez <strong><code>Copy to Clipboard</code></strong>.</p></li>
+<li><p>Collez ensuite le graphique directement dans un document (Word, PowerPoint, etc.) en utilisant la commande de collage (Ctrl + V).</p></li>
+</ul></li>
+</ul>
+<p><img src="images/export_from_pane_plots.PNG" /></p></li>
+</ol>
+</div>
+<div id="note" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Note<a href="annexe-exemples-reprex.html#note" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Il n’existe pas de commande R pour reproduire exactement ces actions manuelles. Toutefois, vous pouvez utiliser la fonction <code>ggsave()</code> pour automatiser l’enregistrement d’un graphique dans un script, mais cela n’offre pas les options visuelles du volet <strong><code>Plots</code></strong>.</p>
 
+</div>
 </div>
 </div>
             </section>

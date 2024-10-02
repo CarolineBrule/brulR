@@ -115,4 +115,7 @@ inclure-des-sections-même-dans-les-scripts-exploratoires
 sauvegarder-des-versions-du-script
 conclusion-6
 annexe-exemples-reprex
-exemple-1-part-de-marché-des-navigateurs
+exemple-1-diagramme-à-bandes-exactement-comme-design.ca
+exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental
+exporter-un-graphique-depuis-le-volet-plots-dans-rstudio
+note

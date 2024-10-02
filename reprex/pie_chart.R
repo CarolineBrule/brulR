@@ -13,16 +13,62 @@ showtext_auto()
 
 # Create dummy data -------------------------------------------------------
 
-
-# Jeu de données fictif
+# Créer les données
 data <- data.frame(
-  navigateur = c("Chrome", "Safari", "Edge", "Firefox", "Opera"),
-  part_marche = c(65, 15, 5, 7, 3)
+  tranche_age = c("0 à 19 ans", "20 à 64 ans", "65 ans et plus"),
+  proportion = c(20.6, 58.6, 20.8)
 )
 
-# Modification du jeu de données pour définir l'ordre de l'axe des X
-data$navigateur <- factor(data$navigateur, levels = c("Chrome", "Safari", "Edge", "Firefox", "Opera"))
 
+px_to_pt <- function(px) {
+  # Conversion de pixels en points (1 point = 0.75 pixel)
+  return(px / 0.75)
+}
+
+# Trier les données en ordre décroissant (ou croissant)
+data <- data %>%
+  arrange(proportion) # Trier en ordre décroissant (ou utiliser 'asc(proportion)' pour croissant)
+
+# Piechart ----------------------------------------------------------------
+
+library(ggplot2)
+library(dplyr)
+
+# Créer une marge de 4 pixels en ajustant la proportion
+# On introduit une légère réduction de chaque proportion pour créer un espacement
+
+
+# Créer le graphique en camembert avec étiquettes à l'extérieur
+ggplot(data, aes(x = "", y = proportion, fill = tranche_age)) +
+  geom_bar(width = 1, stat = "identity", color = "white", linewidth = 1.2) +  # taille de l'espacement
+  coord_polar("y", start = pi/2) +  # Camembert en sens horaire, débutant en haut
+  
+  # coord_polar("y", start =0)  + #8.6
+  scale_fill_manual(values = c("#95BFDD" ,"#095797", "#6194BF")) +   # Couleurs personnalisées pour chaque tranche
+  labs(
+    title = "Répartition de la population québécoise par tranches d'âge"
+  ) +
+  theme_void() +
+  theme(
+    legend.position = "none",
+    # Titre du graphique
+    plot.title = element_text(
+      family = "open-sans", face = "bold", size = 16, color = "#223654", hjust = 0.5, # Style du titre
+      margin = margin(t = px_to_pt(48), unit = "pt")  # Espace au-dessus du titre
+    ),
+    plot.margin = margin(t = px_to_pt(0), r = px_to_pt(90), b = px_to_pt(0), l = px_to_pt(90), unit = "pt"),
+    # panel.spacing.x = unit(px_to_pt(46), "pt"),  # Espace entre le contenu du graphique et la bordure
+    panel.background = element_rect(fill = "#FFFFFF", colour = "#FFFFFF"),  # Fond blanc du panneau
+    
+    # Fond et bordures du graphique
+    plot.background = element_rect(fill = NA, colour = "#c5cad2", linewidth = 1)  # Bordure grise autour du graphique
+  ) +
+  # xlim(-1.5, 2.5) +  # Ajuster les limites de l'axe x pour donner plus d'espace aux étiquettes
+  expand_limits(x = 3) +  # Élargir les limites pour donner plus d'espace sur la droite
+
+  geom_text(aes(x = 2.6,label = paste0(tranche_age, " : ", proportion, "%")), 
+            position = position_stack(vjust = 0.5), color = "#6b778a", family = "open-sans",  size = 4) 
+  
 
 
 # Create plot w/ ggplot2 -------------------------------------------------------
@@ -81,13 +127,14 @@ p <- ggplot(data, aes(x = navigateur, y = part_marche)) +
     #   family = "open-sans", face = "bold", size = 16, color = "#223654",lineheight = 24,
     #   margin = margin(b = 32)
     # ),
+          #CSS du titre de l'axe font-family: Open Sans; font-weight: bold;font-size: 18px;line-height: 24px;color: #223654;
+
     plot.title = element_text(
-      #CSS du titre de l'axe font-family: Open Sans; font-weight: bold;font-size: 18px;line-height: 24px;color: #223654;
       family = "open-sans", face = "bold", size = 16, color = "#223654",
       margin = margin(t = 48, r = 0, b = 48, l = 0, unit = "pt")
-    ),
+    ),      #CSS des informations complémentaires font-family: Open Sans; font-weight: italic;font-size: 14px;color: #6b778a;
+
     plot.caption = element_text(
-      #CSS des informations complémentaires font-family: Open Sans; font-weight: italic;font-size: 14px;color: #6b778a;
       family = "open-sans", face = "italic", size = 14, color = "#6b778a",
       margin = margin(t = 80, r = 40, b = 48, l = 0 , unit = "pt"), hjust = 0
     )
