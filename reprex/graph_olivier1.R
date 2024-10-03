@@ -64,6 +64,8 @@ custom_theme <- theme_void() +  # Commence par un thème vide sans éléments pa
     axis.line.x = element_line(linewidth = 1, colour = "#6B778A"),
     # Position de la légende en bas du graphique
     legend.position = "bottom",
+    legend.justification = c(0, 0),  # Alignement à gauche
+    
     
     # Style des étiquettes de l'axe des X
     axis.text.x = element_text(
@@ -94,7 +96,10 @@ custom_theme <- theme_void() +  # Commence par un thème vide sans éléments pa
     
     # Style de la légende (sans titre et police Open Sans)
     legend.title = element_blank(),
-    legend.text = element_text(family = "open-sans", size = 14, color = "#6b778a"),
+    legend.text = element_text(family = "open-sans", size = 14, color = "#6b778a",
+                               margin = margin(r = px_to_pt(8))  # Marge à droite pour espacer les éléments
+    ),
+
     legend.key.size = unit(px_to_pt(16), "pt")  # Taille des éléments de la légende
   ) 
 
