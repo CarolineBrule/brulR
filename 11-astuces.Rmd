@@ -1,0 +1,160 @@
+# Trucs et astuces RStudio
+
+::: {.callout-tip title="Série Trucs BrulR — Astuces pratiques pour coder efficacement"}
+
+Ce manuel propose, tout au long des chapitres, une série de courtes fiches intitulées **Trucs BrulR**, conçues pour :
+
+- vous faire gagner du temps au quotidien dans RStudio,
+- renforcer votre efficacité dans la navigation et l'organisation du code,
+- vous aider à adopter les bonnes pratiques recommandées au sein de l'équipe.
+
+Chaque *Truc BrulR* met en lumière une fonctionnalité simple, mais souvent sous-utilisée, qui peut considérablement améliorer votre confort de travail.
+
+Les encadrés sont facilement repérables et peuvent être lus de manière autonome.
+
+> Objectif : coder plus vite, plus proprement, et avec moins de frustration.
+
+:::
+
+::: {.callout-note title="Truc BrulR — Recherche rapide dans tout votre projet"}
+
+### Chercher un terme dans tous les fichiers avec `Ctrl + Shift + F`
+
+Lorsque le code est réparti dans plusieurs fichiers, il peut être difficile de retrouver où une fonction est définie, où un objet est modifié ou utilisé, ou encore d’identifier les scripts qui contiennent un mot-clé précis.
+
+RStudio offre un raccourci pratique pour ce type de recherche : `Ctrl + Shift + F` (ou `Cmd + Shift + F` sur Mac). Ce raccourci permet d’effectuer une recherche dans l’ensemble des fichiers du projet en cours.
+
+#### Utilisations courantes :
+- Retrouver rapidement la définition d’une fonction (`fit_modele`)
+- Vérifier où une variable est utilisée (`df_resultats`)
+- Localiser des commentaires à traiter (`# TODO`, `# à vérifier`)
+
+#### Options disponibles :
+- Filtrer par type de fichier (par exemple, `.R`, `.Rmd`, `.qmd`)
+- Restreindre la recherche à un sous-dossier spécifique
+- Utiliser des expressions régulières pour des recherches avancées
+
+Ce raccourci s’avère particulièrement utile dans les projets modulaires ou collaboratifs. Il permet de naviguer efficacement dans une base de code en pleine croissance.
+:::
+
+::: {.callout-note title="Truc BrulR — Exécuter du code sans toucher à la souris"}
+
+### Exécuter une ligne ou une sélection avec `Ctrl + Enter`
+
+Pour exécuter rapidement une ligne de code ou une portion sélectionnée dans l’éditeur de RStudio, utilisez `Ctrl + Enter` (ou `Cmd + Enter` sur Mac).  
+
+Cela permet d’envoyer le code à la console sans avoir à passer par le bouton "Run".  
+
+#### Bonnes pratiques :
+- Utilisez ce raccourci au fil de l’écriture pour valider votre code progressivement.
+- Si une portion de code est sélectionnée, seule cette sélection sera envoyée.
+
+Ce réflexe évite des interruptions constantes et favorise une écriture fluide du code.
+:::
+
+
+::: {.callout-note title="Truc BrulR — Aligner et aérer votre code automatiquement"}
+
+### Reformater un script avec `Ctrl + Shift + A`
+
+Pour améliorer la lisibilité de votre code, RStudio permet de le reformater automatiquement avec `Ctrl + Shift + A` (ou `Cmd + Shift + A` sur Mac).
+
+Cette commande :
+- Réindente le code de manière cohérente
+- Ajoute ou enlève les espaces nécessaires autour des opérateurs
+- Uniformise la présentation
+
+#### Exemple :
+```r
+filter(data,  var1==2&var2>10 )
+```
+devient :
+```r
+filter(data, var1 == 2 & var2 > 10)
+```
+
+Un outil essentiel pour rendre le code plus lisible, surtout avant de le partager ou de le versionner.
+:::
+
+
+::: {.callout-note title="Truc BrulR — Utiliser les projets RStudio (.Rproj)"}
+
+### Travailler dans un environnement propre avec un fichier `.Rproj`
+
+Créer un projet RStudio permet d’isoler un environnement de travail, de garder un répertoire propre et de bénéficier de fonctionnalités comme :
+- le **chemin relatif** (ex: `file.path()`)
+- la restauration de l’état de l’environnement
+
+Pour créer un projet :
+1. Aller dans **File > New Project**
+2. Choisir un répertoire existant ou en créer un nouveau
+3. Un fichier `.Rproj` est créé à la racine
+
+Travailler avec des projets `.Rproj` est une bonne pratique essentielle pour maintenir des workflows reproductibles et structurés.
+
+:::
+
+
+::: {.callout-note title="Truc BrulR — Rechercher avec des motifs avancés"}
+
+### Utiliser des expressions régulières dans `Ctrl + Shift + F`
+
+La recherche globale dans RStudio permet d’activer le mode "expression régulière" (regex), ce qui offre une puissance de recherche bien supérieure.
+
+Exemples :
+- Trouver tous les noms d’objets commençant par `df_` : `\\bdf_\\w+`
+- Repérer tous les appels à une fonction `filter` : `filter\\(`
+
+✅ Cochez l’option **Regex** dans la barre de recherche pour activer ce mode.  
+📚 Référez-vous à une documentation de base sur les regex si vous débutez.
+
+Très utile pour parcourir rapidement un projet complexe ou standardiser des noms.
+
+:::
+
+::: {.callout-note title="Truc BrulR — Structurer votre code avec `source()`"}
+
+### Utiliser `source("chemin/vers/fichier.R")` pour organiser l’exécution
+
+Lorsque vous segmentez un projet en plusieurs fichiers `.R`, vous pouvez exécuter un script complet à l’aide de la fonction `source()`.
+
+Cela permet de :
+- Charger des fonctions définies ailleurs
+- Reproduire une analyse complète en une ligne
+- Structurer votre projet de façon modulaire
+
+#### Exemple :
+```r
+source("R/prepare_donnees.R")
+```
+
+Pensez à utiliser des **chemins relatifs** (ex: `file.path()`) pour rester compatible avec la structure du projet.
+
+:::
+
+::: {.callout-note title="Truc BrulR — Préparer un script d'initialisation"}
+
+### Centraliser les chargements dans un fichier `init.R`
+
+Dans un projet un peu complexe, il peut être utile de créer un fichier `init.R` ou `startup.R` contenant :
+- le chargement des packages (`library()`)
+- les chemins de base
+- les options globales
+- le sourcing des fonctions
+
+Cela permet de lancer un environnement de travail cohérent dès le début de chaque session.
+
+#### Exemple :
+```r
+library(tidyverse)
+library(here)
+source(here("R", "fonctions_utiles.R"))
+options(dplyr.summarise.inform = FALSE)
+```
+
+En début de script, il suffira ensuite de faire :
+```r
+source("init.R")
+```
+
+:::

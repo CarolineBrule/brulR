@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 5 Cartes interactives | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <title>Chapitre 12 Définir et organiser ses fonctions | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 12 Définir et organiser ses fonctions | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 12 Définir et organiser ses fonctions | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 12 Définir et organiser ses fonctions | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"/>
-<link rel="next" href="formattage-des-données.html"/>
+<link rel="prev" href="trucs-et-astuces-rstudio.html"/>
+<link rel="next" href="annexe-exemples-reprex.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -375,78 +375,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cartes-interactives" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapitre 5</span> Cartes interactives<a href="cartes-interactives.html#cartes-interactives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="configuration-de-base" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Configuration de base<a href="cartes-interactives.html#configuration-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Syntaxe de base pour créer une carte :</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="cartes-interactives.html#cb31-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;leaflet&quot;</span>)</span>
-<span id="cb31-2"><a href="cartes-interactives.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="cartes-interactives.html#cb32-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="cartes-interactives.html#cb32-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="cartes-interactives.html#cb32-3" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-b06cdf5137b58da11a85" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b06cdf5137b58da11a85">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="définir-et-organiser-ses-fonctions" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapitre 12</span> Définir et organiser ses fonctions<a href="définir-et-organiser-ses-fonctions.html#définir-et-organiser-ses-fonctions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dans un projet R, les fonctions sont des blocs de code réutilisables qui permettent de structurer, automatiser et clarifier les opérations. Définir ses propres fonctions est une bonne pratique dès que l’on répète un traitement ou que l’on veut isoler une logique métier spécifique. Cela permet :</p>
+<ul>
+<li>d’éviter la redondance de code ;</li>
+<li>de mieux documenter son raisonnement ;</li>
+<li>de tester plus facilement chaque partie du projet ;</li>
+<li>de réutiliser les mêmes opérations dans plusieurs contextes (scripts, Shiny, RMarkdown, etc.).</li>
+</ul>
+<div id="bonnes-pratiques-2" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Bonnes pratiques<a href="définir-et-organiser-ses-fonctions.html#bonnes-pratiques-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Voici quelques principes généraux pour la création de fonctions :</p>
+<ul>
+<li>Donner un <strong>nom explicite</strong>, en anglais ou en français, qui décrit l’action ou le résultat attendu (<code>calcul_biomasse()</code>, <code>prepare_data()</code>).</li>
+<li>Documenter la fonction avec des <strong>commentaires roxygen2</strong> (<code>#'</code>), surtout si elle est appelée dans plusieurs scripts ou exportée dans un package.</li>
+<li>Isoler chaque fonction dans un fichier logique (ex: <code>utils.R</code>, <code>statistiques.R</code>), ou mieux, un fichier par fonction dans un projet structuré comme un package.</li>
+</ul>
 </div>
-<div id="ajout-de-données-géographiques" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Ajout de données géographiques<a href="cartes-interactives.html#ajout-de-données-géographiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="cartes-interactives.html#cb33-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">73.5673</span>, <span class="sc">-</span><span class="fl">73.568</span>, <span class="sc">-</span><span class="fl">73.569</span>),</span>
-<span id="cb33-2"><a href="cartes-interactives.html#cb33-2" tabindex="-1"></a>                   <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">45.5017</span>, <span class="fl">45.502</span>, <span class="fl">45.503</span>),</span>
-<span id="cb33-3"><a href="cartes-interactives.html#cb33-3" tabindex="-1"></a>                   <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;Point 1&quot;</span>, <span class="st">&quot;Point 2&quot;</span>, <span class="st">&quot;Point 3&quot;</span>))</span>
-<span id="cb33-4"><a href="cartes-interactives.html#cb33-4" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="cartes-interactives.html#cb33-5" tabindex="-1"></a><span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
-<span id="cb33-6"><a href="cartes-interactives.html#cb33-6" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb33-7"><a href="cartes-interactives.html#cb33-7" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>lng, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span>label)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-18e0324fd5659f9d8f81" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-18e0324fd5659f9d8f81">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[45.5017,45.502,45.503],[-73.5673,-73.568,-73.569],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Point 1","Point 2","Point 3"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.503],"lng":[-73.569,-73.5673]}},"evals":[],"jsHooks":[]}</script>
+<div id="typologie-des-fonctions-dans-un-projet" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Typologie des fonctions dans un projet<a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<caption><span id="tab:unnamed-chunk-66">Table 12.1: </span>Typologie des fonctions dans un projet R</caption>
+<colgroup>
+<col width="13%" />
+<col width="40%" />
+<col width="30%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Terme</th>
+<th align="left">Définition</th>
+<th align="left">Portée / Usage</th>
+<th align="left">Exemple typique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Fonction</td>
+<td align="left">Bloc de code nommé qui effectue une tâche et peut être réutilisé.</td>
+<td align="left">Interne ou externe ; réutilisable.</td>
+<td align="left">mean(), filter(), wri()</td>
+</tr>
+<tr class="even">
+<td align="left">Fonction métier</td>
+<td align="left">Fonction centrale au domaine d’application (ex. analyse écologique, économique).</td>
+<td align="left">Exportée dans le package / projet.</td>
+<td align="left">taille_masse_age(), psd_indice()</td>
+</tr>
+<tr class="odd">
+<td align="left">Fonction utilitaire</td>
+<td align="left">Fonction d’aide qui supporte les fonctions métier (calculs, formats, validations…).</td>
+<td align="left">Interne au package ou non exportée.</td>
+<td align="left">format_pval(), extract_param()</td>
+</tr>
+<tr class="even">
+<td align="left">Fonction interne</td>
+<td align="left">Fonction définie à l’intérieur d’une autre fonction, pour usage strictement local.</td>
+<td align="left">Non accessible en dehors de la fonction principale.</td>
+<td align="left">resumer_wr_par_groupe() dans wri()</td>
+</tr>
+<tr class="odd">
+<td align="left">Fonction module UI/Server</td>
+<td align="left">Fonction définissant une portion réutilisable d’interface dans Shiny (souvent avec golem).</td>
+<td align="left">Nommée mod_nom_ui() ou mod_nom_server() ; placée dans R/modules/</td>
+<td align="left">mod_cpue_ui(), mod_cpue_server()</td>
+</tr>
+<tr class="even">
+<td align="left">Fonction d’affichage (render)</td>
+<td align="left">Fonction utilitaire encapsulant le rendu d’un tableau ou graphique dans Shiny.</td>
+<td align="left">Utilisée dans server ou modules Shiny, pour automatiser les render*.</td>
+<td align="left">render_table_flextable()</td>
+</tr>
+<tr class="odd">
+<td align="left">Fonction exportée</td>
+<td align="left">Fonction accessible depuis l’extérieur du package (via <span class="citation">@export</span>).</td>
+<td align="left">Accessible à l’utilisateur ; visible via la documentation du package.</td>
+<td align="left">wri(), structure_taille()</td>
+</tr>
+<tr class="even">
+<td align="left">Fonction non exportée</td>
+<td align="left">Fonction interne au package, non visible à l’utilisateur final (pas <span class="citation">@export</span>).</td>
+<td align="left">Utilisée seulement dans d’autres fonctions du package ou projet.</td>
+<td align="left">fitfun(), simulateur_captures()</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="personnalisation-des-cartes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Personnalisation des cartes<a href="cartes-interactives.html#personnalisation-des-cartes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Personnalisation des styles de marqueurs, de polygones, de lignes.
-Utilisation des options comme addLegend() pour ajouter des légendes aux cartes.
-Personnalisation de tuiles avec addProviderTiles() (e.g., OpenStreetMap, CartoDB, etc.).</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="cartes-interactives.html#cb34-1" tabindex="-1"></a><span class="co"># Créer une carte Leaflet avec des tuiles OpenStreetMap (par défaut)</span></span>
-<span id="cb34-2"><a href="cartes-interactives.html#cb34-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="cartes-interactives.html#cb34-3" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>OpenStreetMap) <span class="sc">%&gt;%</span></span>
-<span id="cb34-4"><a href="cartes-interactives.html#cb34-4" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-20bcc2e55434fdc496f5" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-20bcc2e55434fdc496f5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="cartes-interactives.html#cb35-1" tabindex="-1"></a><span class="co"># Créer une carte Leaflet avec des tuiles CartoDB.Positron</span></span>
-<span id="cb35-2"><a href="cartes-interactives.html#cb35-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb35-3"><a href="cartes-interactives.html#cb35-3" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>CartoDB.Positron) <span class="sc">%&gt;%</span></span>
-<span id="cb35-4"><a href="cartes-interactives.html#cb35-4" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-3a7e58719724928f4b3e" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-3a7e58719724928f4b3e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
-<p>providers<span class="math inline">\(OpenStreetMap : Utilise les tuiles par défaut d&#39;OpenStreetMap.
-providers\)</span>CartoDB.Positron : Utilise un style de carte plus clair, minimaliste, souvent utilisé pour des visualisations de données.
-Vous pouvez consulter la liste complète des styles de tuiles disponibles avec {leaflet} en visitant le site : <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" class="uri">https://leaflet-extras.github.io/leaflet-providers/preview/</a>.</p>
-<p>Cela vous permettra de choisir la tuile qui convient le mieux à votre projet.</p>
-</div>
-<div id="interaction-utilisateur" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Interaction utilisateur<a href="cartes-interactives.html#interaction-utilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Explication sur les interactions telles que les popups, les survols, et la capture d’événements comme les clics sur des marqueurs.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="cartes-interactives.html#cb36-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="cartes-interactives.html#cb36-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a href="cartes-interactives.html#cb36-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">popup =</span> <span class="st">&quot;Centre-ville de Montréal&quot;</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-b5e670e960c3cb587de3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b5e670e960c3cb587de3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[45.5017,-73.5673,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Centre-ville de Montréal",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.5017],"lng":[-73.5673,-73.5673]}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="gestion-de-grandes-quantités-de-données" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Gestion de grandes quantités de données<a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Conseils sur l’utilisation de Leaflet pour visualiser de grandes quantités de points (e.g., clustering).</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="cartes-interactives.html#cb37-1" tabindex="-1"></a><span class="co"># Exemples de données avec coordonnées longitude/latitude</span></span>
-<span id="cb37-2"><a href="cartes-interactives.html#cb37-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-3"><a href="cartes-interactives.html#cb37-3" tabindex="-1"></a>  <span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">73.5673</span>, <span class="sc">-</span><span class="fl">73.568</span>, <span class="sc">-</span><span class="fl">73.569</span>, <span class="sc">-</span><span class="fl">73.570</span>, <span class="sc">-</span><span class="fl">73.571</span>),</span>
-<span id="cb37-4"><a href="cartes-interactives.html#cb37-4" tabindex="-1"></a>  <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">45.5017</span>, <span class="fl">45.502</span>, <span class="fl">45.503</span>, <span class="fl">45.504</span>, <span class="fl">45.505</span>),</span>
-<span id="cb37-5"><a href="cartes-interactives.html#cb37-5" tabindex="-1"></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;Point 1&quot;</span>, <span class="st">&quot;Point 2&quot;</span>, <span class="st">&quot;Point 3&quot;</span>, <span class="st">&quot;Point 4&quot;</span>, <span class="st">&quot;Point 5&quot;</span>)</span>
-<span id="cb37-6"><a href="cartes-interactives.html#cb37-6" tabindex="-1"></a>)</span>
-<span id="cb37-7"><a href="cartes-interactives.html#cb37-7" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="cartes-interactives.html#cb37-8" tabindex="-1"></a><span class="co"># Création de la carte avec clustering des marqueurs</span></span>
-<span id="cb37-9"><a href="cartes-interactives.html#cb37-9" tabindex="-1"></a><span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
-<span id="cb37-10"><a href="cartes-interactives.html#cb37-10" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb37-11"><a href="cartes-interactives.html#cb37-11" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>lng, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span>label, <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>())</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-bfdb6000ec16e06f3b0c" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-bfdb6000ec16e06f3b0c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[45.5017,45.502,45.503,45.504,45.505],[-73.5673,-73.568,-73.569,-73.56999999999999,-73.571],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Point 1","Point 2","Point 3","Point 4","Point 5"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.505],"lng":[-73.571,-73.5673]}},"evals":[],"jsHooks":[]}</script>
+<div id="conseils-dorganisation" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Conseils d’organisation<a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour garder une structure claire :</p>
+<ul>
+<li>Créez un sous-dossier <code>R/</code> avec des fichiers nommés logiquement (<code>utils_data.R</code>, <code>mod_viz.R</code>, etc.).</li>
+<li>Placez les fonctions internes (utilisées uniquement à l’intérieur d’une autre fonction) soit à la fin du fichier principal, soit dans un sous-dossier dédié comme <code>R/internals/</code>, pour clarifier la structure du projet.</li>
+<li>Si vous structurez votre projet comme un package, n’oubliez pas d’exporter les fonctions pertinentes avec <code>@export</code> et d’utiliser <code>devtools::document()</code> pour régénérer la documentation.</li>
+</ul>
 
 </div>
 </div>
@@ -455,8 +479,8 @@ Vous pouvez consulter la liste complète des styles de tuiles disponibles avec {
           </div>
         </div>
       </div>
-<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="formattage-des-données.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trucs-et-astuces-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="annexe-exemples-reprex.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -487,7 +511,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/05-carte.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/12-fonctions.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -495,7 +519,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/05-carte.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/12-fonctions.Rmd",
 "text": null
 },
 "download": null,

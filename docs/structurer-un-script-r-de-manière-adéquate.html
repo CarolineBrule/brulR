@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage</title>
   <meta name="description" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-10-03" />
+<meta name="date" content="2025-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="boucles-lapply-et-map-quelles-méthodes-privilégier.html"/>
-<link rel="next" href="annexe-exemples-reprex.html"/>
+<link rel="next" href="trucs-et-astuces-rstudio.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +82,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -326,13 +326,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>11</b> Annexe : Exemples REPREX</a>
+<li class="chapter" data-level="11" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html"><i class="fa fa-check"></i><b>11</b> Trucs et astuces RStudio</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-1-diagramme-à-bandes-exactement-comme-design.ca"><i class="fa fa-check"></i><b>11.1</b> Exemple 1 : Diagramme à bandes exactement comme design.ca</a></li>
-<li class="chapter" data-level="11.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>11.2</b> Exemple 2 : Diagramme à bandes pour rapport gouvernemental</a>
+<li class="chapter" data-level="11.0.1" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.1</b> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
+<li class="chapter" data-level="11.0.3" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a"><i class="fa fa-check"></i><b>11.0.3</b> Reformater un script avec <code>Ctrl + Shift + A</code></a></li>
+<li class="chapter" data-level="11.0.4" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj"><i class="fa fa-check"></i><b>11.0.4</b> Travailler dans un environnement propre avec un fichier <code>.Rproj</code></a></li>
+<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
+<li class="chapter" data-level="11.0.7" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r"><i class="fa fa-check"></i><b>11.0.7</b> Centraliser les chargements dans un fichier <code>init.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html"><i class="fa fa-check"></i><b>12</b> Définir et organiser ses fonctions</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>11.2.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
-<li class="chapter" data-level="11.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#note"><i class="fa fa-check"></i><b>11.2.2</b> Note</a></li>
+<li class="chapter" data-level="12.1" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#bonnes-pratiques-2"><i class="fa fa-check"></i><b>12.1</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="12.2" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet"><i class="fa fa-check"></i><b>12.2</b> Typologie des fonctions dans un projet</a></li>
+<li class="chapter" data-level="12.3" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation"><i class="fa fa-check"></i><b>12.3</b> Conseils d’organisation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>13</b> Annexe : Exemples REPREX</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>13.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="13.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>13.2</b> Comme design.ca</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes"><i class="fa fa-check"></i><b>13.2.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="13.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-linéraire"><i class="fa fa-check"></i><b>13.2.2</b> Diagramme linéraire</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>13.3</b> Pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes-1"><i class="fa fa-check"></i><b>13.3.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="13.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-moustaches"><i class="fa fa-check"></i><b>13.3.2</b> Diagramme à moustaches</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -366,26 +387,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Amélioration de la reproductibilité</strong> : En indiquant les intrants et sortants, vous aidez les autres à reproduire les résultats avec les fichiers appropriés</p>
 <div id="exemple-den-tête" class="section level3 hasAnchor" number="10.1.1">
 <h3><span class="header-section-number">10.1.1</span> Exemple d’en-tête<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb86-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-2" tabindex="-1"></a><span class="co"># Nom du Script : 03_analyse_avancee.R</span></span>
-<span id="cb86-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-3" tabindex="-1"></a><span class="co"># Description   : Ce script effectue une analyse exploratoire approfondie,</span></span>
-<span id="cb86-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-4" tabindex="-1"></a><span class="co">#                 y compris des statistiques descriptives, des tests </span></span>
-<span id="cb86-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-5" tabindex="-1"></a><span class="co">#                 statistiques et des visualisations pour les données </span></span>
-<span id="cb86-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-6" tabindex="-1"></a><span class="co">#                 nettoyées.</span></span>
-<span id="cb86-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-7" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb86-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-8" tabindex="-1"></a><span class="co"># Intrants      : - data/clean_data.csv</span></span>
-<span id="cb86-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-9" tabindex="-1"></a><span class="co">#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)</span></span>
-<span id="cb86-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-10" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb86-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-11" tabindex="-1"></a><span class="co"># Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)</span></span>
-<span id="cb86-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-12" tabindex="-1"></a><span class="co">#                 - output/visualisation_test.png (graphique des résultats)</span></span>
-<span id="cb86-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-13" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb86-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-14" tabindex="-1"></a><span class="co"># Auteur        : VotreNom</span></span>
-<span id="cb86-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-15" tabindex="-1"></a><span class="co"># Date          : 2024-09-20</span></span>
-<span id="cb86-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-16" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb86-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-17" tabindex="-1"></a><span class="co"># Notes         : Ce script nécessite que le package &#39;ggplot2&#39; et &#39;dplyr&#39; soient</span></span>
-<span id="cb86-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-18" tabindex="-1"></a><span class="co">#                 installés. Les résultats de l&#39;analyse seront sauvegardés dans</span></span>
-<span id="cb86-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-19" tabindex="-1"></a><span class="co">#                 le dossier output.</span></span>
-<span id="cb86-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-20" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb80-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-2" tabindex="-1"></a><span class="co"># Nom du Script : 03_analyse_avancee.R</span></span>
+<span id="cb80-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-3" tabindex="-1"></a><span class="co"># Description   : Ce script effectue une analyse exploratoire approfondie,</span></span>
+<span id="cb80-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-4" tabindex="-1"></a><span class="co">#                 y compris des statistiques descriptives, des tests </span></span>
+<span id="cb80-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-5" tabindex="-1"></a><span class="co">#                 statistiques et des visualisations pour les données </span></span>
+<span id="cb80-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-6" tabindex="-1"></a><span class="co">#                 nettoyées.</span></span>
+<span id="cb80-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-7" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb80-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-8" tabindex="-1"></a><span class="co"># Intrants      : - data/clean_data.csv</span></span>
+<span id="cb80-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-9" tabindex="-1"></a><span class="co">#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)</span></span>
+<span id="cb80-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb80-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-11" tabindex="-1"></a><span class="co"># Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)</span></span>
+<span id="cb80-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-12" tabindex="-1"></a><span class="co">#                 - output/visualisation_test.png (graphique des résultats)</span></span>
+<span id="cb80-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb80-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-14" tabindex="-1"></a><span class="co"># Auteur        : VotreNom</span></span>
+<span id="cb80-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-15" tabindex="-1"></a><span class="co"># Date          : 2024-09-20</span></span>
+<span id="cb80-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-16" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb80-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-17" tabindex="-1"></a><span class="co"># Notes         : Ce script nécessite que le package &#39;ggplot2&#39; et &#39;dplyr&#39; soient</span></span>
+<span id="cb80-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-18" tabindex="-1"></a><span class="co">#                 installés. Les résultats de l&#39;analyse seront sauvegardés dans</span></span>
+<span id="cb80-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-19" tabindex="-1"></a><span class="co">#                 le dossier output.</span></span>
+<span id="cb80-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-20" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="nommer-et-commenter-les-sections" class="section level2 hasAnchor" number="10.2">
@@ -396,44 +417,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong>Utilisez des titres explicites</strong> : Assurez-vous que chaque section décrit son contenu de manière concise et descriptive.</p></li>
 <li><p><strong>Structure hiérarchique</strong> : Commencez toujours par les sections essentielles (chargement des packages, importation des données), puis avancez progressivement dans le pipeline de l’analyse (nettoyage, analyse, visualisation).</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-2" tabindex="-1"></a><span class="co"># 1. Chargement des packages et des fonctions</span></span>
-<span id="cb87-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb87-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb87-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-6" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/fonctions_utiles.R&quot;</span>)</span>
-<span id="cb87-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-7" tabindex="-1"></a></span>
-<span id="cb87-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-9" tabindex="-1"></a><span class="co"># 2. Importation des données</span></span>
-<span id="cb87-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-10" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-11" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/donnees_brutes.csv&quot;</span>)</span>
-<span id="cb87-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-12" tabindex="-1"></a></span>
-<span id="cb87-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-13" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-14" tabindex="-1"></a><span class="co"># 3. Nettoyage des données</span></span>
-<span id="cb87-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-15" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-16" tabindex="-1"></a><span class="co"># Suppression des valeurs manquantes et formatage des noms de colonnes</span></span>
-<span id="cb87-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-17" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb87-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-18" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb87-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-19" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb87-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-20" tabindex="-1"></a></span>
-<span id="cb87-21"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-21" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-22"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-22" tabindex="-1"></a><span class="co"># 4. Analyse exploratoire</span></span>
-<span id="cb87-23"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-23" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-24"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-24" tabindex="-1"></a><span class="co"># Calcul des statistiques descriptives</span></span>
-<span id="cb87-25"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-25" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb87-26"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-26" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x), <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))</span>
-<span id="cb87-27"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-27" tabindex="-1"></a></span>
-<span id="cb87-28"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-28" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-29"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-29" tabindex="-1"></a><span class="co"># 5. Visualisation des résultats</span></span>
-<span id="cb87-30"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-30" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-31"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-31" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
-<span id="cb87-32"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-32" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb87-33"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-33" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre X et Y&quot;</span>)</span>
-<span id="cb87-34"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-34" tabindex="-1"></a></span>
-<span id="cb87-35"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-35" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-36"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-36" tabindex="-1"></a><span class="co"># 6. Sauvegarde des résultats</span></span>
-<span id="cb87-37"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-37" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb87-38"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-38" tabindex="-1"></a><span class="fu">write.csv</span>(summary_stats, <span class="st">&quot;output/summary_stats.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-2" tabindex="-1"></a><span class="co"># 1. Chargement des packages et des fonctions</span></span>
+<span id="cb81-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb81-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb81-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-6" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/fonctions_utiles.R&quot;</span>)</span>
+<span id="cb81-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-7" tabindex="-1"></a></span>
+<span id="cb81-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-9" tabindex="-1"></a><span class="co"># 2. Importation des données</span></span>
+<span id="cb81-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-10" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-11" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/donnees_brutes.csv&quot;</span>)</span>
+<span id="cb81-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-12" tabindex="-1"></a></span>
+<span id="cb81-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-13" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-14" tabindex="-1"></a><span class="co"># 3. Nettoyage des données</span></span>
+<span id="cb81-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-15" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-16" tabindex="-1"></a><span class="co"># Suppression des valeurs manquantes et formatage des noms de colonnes</span></span>
+<span id="cb81-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-17" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb81-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-18" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb81-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-19" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb81-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-20" tabindex="-1"></a></span>
+<span id="cb81-21"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-21" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-22"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-22" tabindex="-1"></a><span class="co"># 4. Analyse exploratoire</span></span>
+<span id="cb81-23"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-23" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-24"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-24" tabindex="-1"></a><span class="co"># Calcul des statistiques descriptives</span></span>
+<span id="cb81-25"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-25" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb81-26"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-26" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x), <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))</span>
+<span id="cb81-27"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-27" tabindex="-1"></a></span>
+<span id="cb81-28"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-28" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-29"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-29" tabindex="-1"></a><span class="co"># 5. Visualisation des résultats</span></span>
+<span id="cb81-30"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-30" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-31"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-31" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
+<span id="cb81-32"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-32" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb81-33"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-33" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre X et Y&quot;</span>)</span>
+<span id="cb81-34"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-34" tabindex="-1"></a></span>
+<span id="cb81-35"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-35" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-36"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-36" tabindex="-1"></a><span class="co"># 6. Sauvegarde des résultats</span></span>
+<span id="cb81-37"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-37" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb81-38"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-38" tabindex="-1"></a><span class="fu">write.csv</span>(summary_stats, <span class="st">&quot;output/summary_stats.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div></li>
 </ul>
 </div>
 <div id="raccourcis-clavier" class="section level3 hasAnchor" number="10.2.2">
@@ -466,20 +487,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="exemple-de-commentaires" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Exemple de commentaires :<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-1" tabindex="-1"></a><span class="co"># Calcul de la moyenne et de l&#39;écart type pour la variable &#39;variable_x&#39;</span></span>
-<span id="cb88-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-2" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb88-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x),  <span class="co"># Moyenne</span></span>
-<span id="cb88-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-4" tabindex="-1"></a>            <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))      <span class="co"># Écart type</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-1" tabindex="-1"></a><span class="co"># Calcul de la moyenne et de l&#39;écart type pour la variable &#39;variable_x&#39;</span></span>
+<span id="cb82-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-2" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb82-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x),  <span class="co"># Moyenne</span></span>
+<span id="cb82-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-4" tabindex="-1"></a>            <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))      <span class="co"># Écart type</span></span></code></pre></div>
 </div>
 </div>
 <div id="script-de-contrôle-avec-run_all" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> Script de contrôle avec <code>run_all</code>**<a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Si votre projet comporte plusieurs scripts qui doivent être exécutés dans un certain ordre, vous pouvez utiliser un <strong>script de contrôle</strong> appelé <code>run_all</code> qui exécute les autres scripts dans le bon ordre. Ce script centralise l’exécution de tout votre pipeline et assure la reproductibilité complète.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-1" tabindex="-1"></a><span class="co"># run_all.R : Script de contrôle pour exécuter toutes les étapes du projet</span></span>
-<span id="cb89-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/01_importation.R&quot;</span>)</span>
-<span id="cb89-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/02_nettoyage.R&quot;</span>)</span>
-<span id="cb89-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/03_analyse.R&quot;</span>)</span>
-<span id="cb89-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/04_visualisation.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-1" tabindex="-1"></a><span class="co"># run_all.R : Script de contrôle pour exécuter toutes les étapes du projet</span></span>
+<span id="cb83-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/01_importation.R&quot;</span>)</span>
+<span id="cb83-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/02_nettoyage.R&quot;</span>)</span>
+<span id="cb83-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/03_analyse.R&quot;</span>)</span>
+<span id="cb83-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/04_visualisation.R&quot;</span>)</span></code></pre></div>
 <p>Cela permet de relancer facilement tout le processus de bout en bout.</p>
 </div>
 <div id="gestion-des-scripts-exploratoires" class="section level2 hasAnchor" number="10.5">
@@ -488,33 +509,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="utiliser-des-commentaires-pour-documenter-votre-réflexion" class="section level3 hasAnchor" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> Utiliser des commentaires pour documenter votre réflexion<a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ajoutez des commentaires tout au long du script pour expliquer vos pensées, les raisons de vos choix, et les résultats de vos explorations. Cela vous aidera à comprendre votre logique lorsque vous reviendrez sur le script plus tard.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-1" tabindex="-1"></a><span class="co"># Exploration des données : Vérification de la distribution des valeurs</span></span>
-<span id="cb90-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>variable_x)</span>
-<span id="cb90-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-3" tabindex="-1"></a><span class="co"># Ici, je m&#39;interroge sur la présence d&#39;une asymétrie. Il serait intéressant de faire un test de normalité.</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-1" tabindex="-1"></a><span class="co"># Exploration des données : Vérification de la distribution des valeurs</span></span>
+<span id="cb84-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>variable_x)</span>
+<span id="cb84-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-3" tabindex="-1"></a><span class="co"># Ici, je m&#39;interroge sur la présence d&#39;une asymétrie. Il serait intéressant de faire un test de normalité.</span></span></code></pre></div>
 </div>
 <div id="inclure-des-sections-même-dans-les-scripts-exploratoires" class="section level3 hasAnchor" number="10.5.2">
 <h3><span class="header-section-number">10.5.2</span> Inclure des sections même dans les scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Utilisez des sections pour structurer vos idées, même si le contenu n’est pas encore finalisé. Cela vous aidera à garder une organisation, même dans un contexte d’exploration.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb91-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-2" tabindex="-1"></a><span class="co"># 1. Chargement des données</span></span>
-<span id="cb91-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb91-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/exemple.csv&quot;</span>)</span>
-<span id="cb91-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-5" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-6" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb91-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-7" tabindex="-1"></a><span class="co"># 2. Exploration initiale</span></span>
-<span id="cb91-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb91-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-9" tabindex="-1"></a><span class="fu">summary</span>(data)  <span class="co"># Résumé des données</span></span>
-<span id="cb91-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-10" tabindex="-1"></a><span class="fu">str</span>(data)      <span class="co"># Structure des données</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb85-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-2" tabindex="-1"></a><span class="co"># 1. Chargement des données</span></span>
+<span id="cb85-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb85-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/exemple.csv&quot;</span>)</span>
+<span id="cb85-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-5" tabindex="-1"></a></span>
+<span id="cb85-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-6" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb85-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-7" tabindex="-1"></a><span class="co"># 2. Exploration initiale</span></span>
+<span id="cb85-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb85-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-9" tabindex="-1"></a><span class="fu">summary</span>(data)  <span class="co"># Résumé des données</span></span>
+<span id="cb85-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-10" tabindex="-1"></a><span class="fu">str</span>(data)      <span class="co"># Structure des données</span></span></code></pre></div>
 </div>
 <div id="écrire-des-notes-et-des-questions" class="section level3 hasAnchor" number="10.5.3">
 <h3><span class="header-section-number">10.5.3</span> Écrire des notes et des questions<a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Incluez des sections où vous notez vos questions, hypothèses, et réflexions sur les données. Cela peut servir de guide pour les étapes futures de votre analyse.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb92-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-2" tabindex="-1"></a><span class="co"># 3. Réflexions</span></span>
-<span id="cb92-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb92-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-4" tabindex="-1"></a><span class="co"># Questions :</span></span>
-<span id="cb92-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-5" tabindex="-1"></a><span class="co"># - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?</span></span>
-<span id="cb92-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb92-6" tabindex="-1"></a><span class="co"># - Quelle transformation pourrait être utile pour variable_x ?</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-2" tabindex="-1"></a><span class="co"># 3. Réflexions</span></span>
+<span id="cb86-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-4" tabindex="-1"></a><span class="co"># Questions :</span></span>
+<span id="cb86-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-5" tabindex="-1"></a><span class="co"># - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?</span></span>
+<span id="cb86-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-6" tabindex="-1"></a><span class="co"># - Quelle transformation pourrait être utile pour variable_x ?</span></span></code></pre></div>
 </div>
 <div id="sauvegarder-des-versions-du-script" class="section level3 hasAnchor" number="10.5.4">
 <h3><span class="header-section-number">10.5.4</span> Sauvegarder des versions du script<a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -534,7 +555,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="annexe-exemples-reprex.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trucs-et-astuces-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

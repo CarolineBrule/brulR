@@ -1,27 +1,6 @@
 # Annexe : Exemples REPREX
 
-## Exemple 1 : Diagramme à bandes exactement comme design.ca
-
-Voici un exemple de REPREX qui montre comment structurer un graphique en barres en suivant les bonnes pratiques de présentation.
-
-```{r include=FALSE}
-# Lire le fichier R contenant le code REPREX
-knitr::read_chunk("reprex/marche_navigateurs_geom_bar.R")
-knitr::read_chunk("reprex/graph_olivier1.R")
-
-```
-
-```{r marche-navigateurs, echo=TRUE, message=FALSE, warning=FALSE}
-```
-
-## Exemple 2 : Diagramme à bandes pour rapport gouvernemental
-
-```{r graph-olivier1, echo=TRUE, eval=FALSE}
-```
-
-![](images/exemple2_graph_olivier1.png)
-
-### Exporter un graphique depuis le volet `Plots` dans RStudio
+## Exporter un graphique depuis le volet `Plots` dans RStudio
 
 Pour exporter un graphique affiché dans le volet **`Plots`** de RStudio, suivez ces étapes :
 
@@ -49,6 +28,62 @@ Pour exporter un graphique affiché dans le volet **`Plots`** de RStudio, suivez
 
     ![](images/export_from_pane_plots.PNG)
 
-### Note
+**NB. Il n'existe pas de commande R pour reproduire exactement ces actions manuelles. Toutefois, vous pouvez utiliser la fonction `ggsave()` pour automatiser l'enregistrement d'un graphique dans un script, mais cela n'offre pas les options visuelles du volet `Plots`.**
 
-Il n'existe pas de commande R pour reproduire exactement ces actions manuelles. Toutefois, vous pouvez utiliser la fonction `ggsave()` pour automatiser l'enregistrement d'un graphique dans un script, mais cela n'offre pas les options visuelles du volet **`Plots`**.
+## Comme design.ca
+
+### Diagramme à bandes 
+
+Voici des exemples reproductibles qui montrent comment structurer divers graphiques en suivant à la lettre des normes de quebec.ca. 
+
+```{r include=FALSE}
+# Lire le fichier R contenant le code REPREX
+knitr::read_chunk("reprex/marche_navigateurs_geom_bar.R")
+knitr::read_chunk("reprex/graphique_lineaire_simple.R")
+knitr::read_chunk("reprex/graph_olivier1.R")
+knitr::read_chunk("reprex/graph_olivier2.R")
+knitr::read_chunk("reprex/graph_olivier3.R")
+knitr::read_chunk("reprex/profil_vertical.R")
+
+```
+
+```{r marche-navigateurs, echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+```
+
+![](images/graph_boxplot_design.ca.png)
+
+### Diagramme linéraire 
+
+```{r graph-lineaire-simple, echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+```
+
+![](images/graph_lineraire_design.ca.png)
+
+## Pour rapport gouvernemental
+
+Voici maintenant des exemples reproductibles qui montrent comment structurer divers graphiques en ayant des normes de présentation cohérentes avec l'identité visuelle du gouvernement, tout en étant utilisable sur R de manière intuitive. 
+
+### Diagramme à bandes
+
+```{r graph-olivier1, echo=TRUE, eval=FALSE}
+```
+
+![](images/graph_olivier1.png)
+
+### Diagramme à moustaches
+
+```{r graph-olivier2, echo=TRUE, eval=FALSE}
+```
+
+![](images/graph_olivier2.png)
+
+```{r graph-olivier3, echo=TRUE, eval=FALSE}
+```
+
+![](images/graph_olivier3.png)
+### Diagramme linéaire
+
+```{r profil-vertical, echo=TRUE, eval=FALSE}
+```
+
+![](images/graph_profil_vertical.png)

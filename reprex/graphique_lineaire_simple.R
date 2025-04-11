@@ -1,3 +1,4 @@
+## ----graph-lineaire-simple----
 # Load necessary libraries
 library(ggplot2)
 library(dplyr)
@@ -12,7 +13,6 @@ px_to_pt <- function(px) {
   return(px / 0.75)
 }
 
-
 # Créer le jeu de données
 data <- data.frame(
   year = 2002:2013,
@@ -21,11 +21,11 @@ data <- data.frame(
   Total = c(69.0, 69.5, 70.0, 70.5, 71.0, 71.5, 72.0, 72.5, 73.0, 73.5, 74.0, 74.5)
 )
 
-# Créer le graphique sans pivot_longer
+# Créer le graphique 
 p <- ggplot(data) +
-  geom_line(aes(x = year, y = Femmes, color = "Femmes", linetype = "Femmes"), size = 1.2) +
-  geom_line(aes(x = year, y = Hommes, color = "Hommes", linetype = "Hommes"), size = 1.2) +
-  geom_line(aes(x = year, y = Total, color = "Total", linetype = "Total"), size = 1.2) +
+  geom_line(aes(x = year, y = Femmes, color = "Femmes", linetype = "Femmes"), linewidth = 1.2) +
+  geom_line(aes(x = year, y = Hommes, color = "Hommes", linetype = "Hommes"), linewidth = 1.2) +
+  geom_line(aes(x = year, y = Total, color = "Total", linetype = "Total"), linewidth = 1.2) +
   scale_color_manual(values = c("Femmes" = "#D0DC03", "Hommes" = "#095797", "Total" = "#DEDEE1")) +
   scale_linetype_manual(values = c("Femmes" = "solid", "Hommes" = "solid", "Total" = "dashed")) +
   scale_y_continuous(expand = c(0, 0),# Retirer l'espace en bas

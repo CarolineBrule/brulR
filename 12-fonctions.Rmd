@@ -1,0 +1,70 @@
+# Définir et organiser ses fonctions
+
+Dans un projet R, les fonctions sont des blocs de code réutilisables qui permettent de structurer, automatiser et clarifier les opérations. Définir ses propres fonctions est une bonne pratique dès que l'on répète un traitement ou que l'on veut isoler une logique métier spécifique. Cela permet :
+
+- d'éviter la redondance de code ;
+- de mieux documenter son raisonnement ;
+- de tester plus facilement chaque partie du projet ;
+- de réutiliser les mêmes opérations dans plusieurs contextes (scripts, Shiny, RMarkdown, etc.).
+
+## Bonnes pratiques
+
+Voici quelques principes généraux pour la création de fonctions :
+
+- Donner un **nom explicite**, en anglais ou en français, qui décrit l’action ou le résultat attendu (`calcul_biomasse()`, `prepare_data()`).
+- Documenter la fonction avec des **commentaires roxygen2** (`#'`), surtout si elle est appelée dans plusieurs scripts ou exportée dans un package.
+- Isoler chaque fonction dans un fichier logique (ex: `utils.R`, `statistiques.R`), ou mieux, un fichier par fonction dans un projet structuré comme un package.
+
+## Typologie des fonctions dans un projet
+
+```{r, echo=FALSE}
+knitr::kable(
+  data.frame(
+    Terme = c(
+      "Fonction", "Fonction métier", "Fonction utilitaire", "Fonction interne",
+      "Fonction module UI/Server", "Fonction d’affichage (render)",
+      "Fonction exportée", "Fonction non exportée"
+    ),
+    Définition = c(
+      "Bloc de code nommé qui effectue une tâche et peut être réutilisé.",
+      "Fonction centrale au domaine d’application (ex. analyse écologique, économique).",
+      "Fonction d’aide qui supporte les fonctions métier (calculs, formats, validations…).",
+      "Fonction définie à l’intérieur d’une autre fonction, pour usage strictement local.",
+      "Fonction définissant une portion réutilisable d'interface dans Shiny (souvent avec golem).",
+      "Fonction utilitaire encapsulant le rendu d’un tableau ou graphique dans Shiny.",
+      "Fonction accessible depuis l’extérieur du package (via @export).",
+      "Fonction interne au package, non visible à l’utilisateur final (pas @export)."
+    ),
+    `Portée / Usage` = c(
+      "Interne ou externe ; réutilisable.",
+      "Exportée dans le package / projet.",
+      "Interne au package ou non exportée.",
+      "Non accessible en dehors de la fonction principale.",
+      "Nommée mod_nom_ui() ou mod_nom_server() ; placée dans R/modules/",
+      "Utilisée dans server ou modules Shiny, pour automatiser les render*.",
+      "Accessible à l’utilisateur ; visible via la documentation du package.",
+      "Utilisée seulement dans d'autres fonctions du package ou projet."
+    ),
+    `Exemple typique` = c(
+      "mean(), filter(), wri()",
+      "taille_masse_age(), psd_indice()",
+      "format_pval(), extract_param()",
+      "resumer_wr_par_groupe() dans wri()",
+      "mod_cpue_ui(), mod_cpue_server()",
+      "render_table_flextable()",
+      "wri(), structure_taille()",
+      "fitfun(), simulateur_captures()"
+    ),
+    check.names = FALSE
+  ),
+  caption = "Typologie des fonctions dans un projet R"
+)
+```
+
+## Conseils d'organisation
+
+Pour garder une structure claire :
+
+- Créez un sous-dossier `R/` avec des fichiers nommés logiquement (`utils_data.R`, `mod_viz.R`, etc.).
+- Placez les fonctions internes (utilisées uniquement à l’intérieur d’une autre fonction) soit à la fin du fichier principal, soit dans un sous-dossier dédié comme `R/internals/`, pour clarifier la structure du projet.
+- Si vous structurez votre projet comme un package, n’oubliez pas d’exporter les fonctions pertinentes avec `@export` et d’utiliser `devtools::document()` pour régénérer la documentation.

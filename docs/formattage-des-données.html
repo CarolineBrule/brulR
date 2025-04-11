@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 6 Formattage des données | brulR : Parler le même langage</title>
   <meta name="description" content="Chapitre 6 Formattage des données | brulR : Parler le même langage" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 6 Formattage des données | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2024-10-03" />
+<meta name="date" content="2025-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -72,7 +72,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +82,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -326,13 +326,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>11</b> Annexe : Exemples REPREX</a>
+<li class="chapter" data-level="11" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html"><i class="fa fa-check"></i><b>11</b> Trucs et astuces RStudio</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-1-diagramme-à-bandes-exactement-comme-design.ca"><i class="fa fa-check"></i><b>11.1</b> Exemple 1 : Diagramme à bandes exactement comme design.ca</a></li>
-<li class="chapter" data-level="11.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exemple-2-diagramme-à-bandes-pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>11.2</b> Exemple 2 : Diagramme à bandes pour rapport gouvernemental</a>
+<li class="chapter" data-level="11.0.1" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.1</b> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
+<li class="chapter" data-level="11.0.3" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a"><i class="fa fa-check"></i><b>11.0.3</b> Reformater un script avec <code>Ctrl + Shift + A</code></a></li>
+<li class="chapter" data-level="11.0.4" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj"><i class="fa fa-check"></i><b>11.0.4</b> Travailler dans un environnement propre avec un fichier <code>.Rproj</code></a></li>
+<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
+<li class="chapter" data-level="11.0.7" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r"><i class="fa fa-check"></i><b>11.0.7</b> Centraliser les chargements dans un fichier <code>init.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html"><i class="fa fa-check"></i><b>12</b> Définir et organiser ses fonctions</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>11.2.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
-<li class="chapter" data-level="11.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#note"><i class="fa fa-check"></i><b>11.2.2</b> Note</a></li>
+<li class="chapter" data-level="12.1" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#bonnes-pratiques-2"><i class="fa fa-check"></i><b>12.1</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="12.2" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet"><i class="fa fa-check"></i><b>12.2</b> Typologie des fonctions dans un projet</a></li>
+<li class="chapter" data-level="12.3" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation"><i class="fa fa-check"></i><b>12.3</b> Conseils d’organisation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>13</b> Annexe : Exemples REPREX</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>13.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="13.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>13.2</b> Comme design.ca</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes"><i class="fa fa-check"></i><b>13.2.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="13.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-linéraire"><i class="fa fa-check"></i><b>13.2.2</b> Diagramme linéraire</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>13.3</b> Pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes-1"><i class="fa fa-check"></i><b>13.3.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="13.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-moustaches"><i class="fa fa-check"></i><b>13.3.2</b> Diagramme à moustaches</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -464,29 +485,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.2</span> Exemple d’utilisation avec <code>labelled</code><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Imaginons que vous souhaitez ajouter des étiquettes descriptives à certaines colonnes de votre jeu de données :</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="formattage-des-données.html#cb42-1" tabindex="-1"></a><span class="co"># Chargement du package labelled</span></span>
-<span id="cb42-2"><a href="formattage-des-données.html#cb42-2" tabindex="-1"></a><span class="fu">library</span>(labelled)</span></code></pre></div>
-<pre><code>## Warning: le package &#39;labelled&#39; a été compilé avec la version R 4.3.3</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="formattage-des-données.html#cb44-1" tabindex="-1"></a><span class="co"># Jeu de données exemple</span></span>
-<span id="cb44-2"><a href="formattage-des-données.html#cb44-2" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb44-3"><a href="formattage-des-données.html#cb44-3" tabindex="-1"></a>  <span class="at">no_rsvl_alpha =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb44-4"><a href="formattage-des-données.html#cb44-4" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;Lac Sergent&quot;</span>, <span class="st">&quot;Lac Bleu&quot;</span>, <span class="st">&quot;Lac Jaune&quot;</span>),</span>
-<span id="cb44-5"><a href="formattage-des-données.html#cb44-5" tabindex="-1"></a>  <span class="at">lce_latitude =</span> <span class="fu">c</span>(<span class="dv">47</span>, <span class="dv">47</span>, <span class="fl">46.9</span>, <span class="fl">46.9</span>, <span class="fl">46.1</span>),</span>
-<span id="cb44-6"><a href="formattage-des-données.html#cb44-6" tabindex="-1"></a>  <span class="at">lce_longitude =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">71.3</span>, <span class="sc">-</span><span class="fl">71.2</span>, <span class="sc">-</span><span class="fl">71.7</span>, <span class="sc">-</span><span class="dv">72</span>, <span class="sc">-</span><span class="fl">73.6</span>),</span>
-<span id="cb44-7"><a href="formattage-des-données.html#cb44-7" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="fl">5.75</span>, <span class="fl">3.45</span>, <span class="fl">3.06</span>)</span>
-<span id="cb44-8"><a href="formattage-des-données.html#cb44-8" tabindex="-1"></a>)</span>
-<span id="cb44-9"><a href="formattage-des-données.html#cb44-9" tabindex="-1"></a></span>
-<span id="cb44-10"><a href="formattage-des-données.html#cb44-10" tabindex="-1"></a><span class="co"># Ajout d&#39;étiquettes aux variables</span></span>
-<span id="cb44-11"><a href="formattage-des-données.html#cb44-11" tabindex="-1"></a>BD_labelled <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
-<span id="cb44-12"><a href="formattage-des-données.html#cb44-12" tabindex="-1"></a>  <span class="fu">set_variable_labels</span>(</span>
-<span id="cb44-13"><a href="formattage-des-données.html#cb44-13" tabindex="-1"></a>    <span class="at">no_rsvl_alpha =</span> <span class="st">&quot;Numéro RSVL du lac&quot;</span>,</span>
-<span id="cb44-14"><a href="formattage-des-données.html#cb44-14" tabindex="-1"></a>    <span class="at">nom_du_lac =</span> <span class="st">&quot;Nom du lac&quot;</span>,</span>
-<span id="cb44-15"><a href="formattage-des-données.html#cb44-15" tabindex="-1"></a>    <span class="at">lce_latitude =</span> <span class="st">&quot;Latitude du lac selon le LCE&quot;</span>,</span>
-<span id="cb44-16"><a href="formattage-des-données.html#cb44-16" tabindex="-1"></a>    <span class="at">lce_longitude =</span> <span class="st">&quot;Longitude du lac selon le LCE&quot;</span>,</span>
-<span id="cb44-17"><a href="formattage-des-données.html#cb44-17" tabindex="-1"></a>    <span class="at">chlo_a =</span> <span class="st">&quot;Concentration de chlorophylle-A&quot;</span></span>
-<span id="cb44-18"><a href="formattage-des-données.html#cb44-18" tabindex="-1"></a>  )</span>
-<span id="cb44-19"><a href="formattage-des-données.html#cb44-19" tabindex="-1"></a></span>
-<span id="cb44-20"><a href="formattage-des-données.html#cb44-20" tabindex="-1"></a><span class="co"># Visualisation des étiquettes des variables</span></span>
-<span id="cb44-21"><a href="formattage-des-données.html#cb44-21" tabindex="-1"></a><span class="fu">var_label</span>(BD_labelled)</span></code></pre></div>
+<span id="cb42-2"><a href="formattage-des-données.html#cb42-2" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb42-3"><a href="formattage-des-données.html#cb42-3" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="formattage-des-données.html#cb42-4" tabindex="-1"></a><span class="co"># Jeu de données exemple</span></span>
+<span id="cb42-5"><a href="formattage-des-données.html#cb42-5" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb42-6"><a href="formattage-des-données.html#cb42-6" tabindex="-1"></a>  <span class="at">no_rsvl_alpha =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb42-7"><a href="formattage-des-données.html#cb42-7" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;Lac Sergent&quot;</span>, <span class="st">&quot;Lac Bleu&quot;</span>, <span class="st">&quot;Lac Jaune&quot;</span>),</span>
+<span id="cb42-8"><a href="formattage-des-données.html#cb42-8" tabindex="-1"></a>  <span class="at">lce_latitude =</span> <span class="fu">c</span>(<span class="dv">47</span>, <span class="dv">47</span>, <span class="fl">46.9</span>, <span class="fl">46.9</span>, <span class="fl">46.1</span>),</span>
+<span id="cb42-9"><a href="formattage-des-données.html#cb42-9" tabindex="-1"></a>  <span class="at">lce_longitude =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">71.3</span>, <span class="sc">-</span><span class="fl">71.2</span>, <span class="sc">-</span><span class="fl">71.7</span>, <span class="sc">-</span><span class="dv">72</span>, <span class="sc">-</span><span class="fl">73.6</span>),</span>
+<span id="cb42-10"><a href="formattage-des-données.html#cb42-10" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="fl">5.75</span>, <span class="fl">3.45</span>, <span class="fl">3.06</span>)</span>
+<span id="cb42-11"><a href="formattage-des-données.html#cb42-11" tabindex="-1"></a>)</span>
+<span id="cb42-12"><a href="formattage-des-données.html#cb42-12" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="formattage-des-données.html#cb42-13" tabindex="-1"></a><span class="co"># Ajout d&#39;étiquettes aux variables</span></span>
+<span id="cb42-14"><a href="formattage-des-données.html#cb42-14" tabindex="-1"></a>BD_labelled <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
+<span id="cb42-15"><a href="formattage-des-données.html#cb42-15" tabindex="-1"></a>  <span class="fu">set_variable_labels</span>(</span>
+<span id="cb42-16"><a href="formattage-des-données.html#cb42-16" tabindex="-1"></a>    <span class="at">no_rsvl_alpha =</span> <span class="st">&quot;Numéro RSVL du lac&quot;</span>,</span>
+<span id="cb42-17"><a href="formattage-des-données.html#cb42-17" tabindex="-1"></a>    <span class="at">nom_du_lac =</span> <span class="st">&quot;Nom du lac&quot;</span>,</span>
+<span id="cb42-18"><a href="formattage-des-données.html#cb42-18" tabindex="-1"></a>    <span class="at">lce_latitude =</span> <span class="st">&quot;Latitude du lac selon le LCE&quot;</span>,</span>
+<span id="cb42-19"><a href="formattage-des-données.html#cb42-19" tabindex="-1"></a>    <span class="at">lce_longitude =</span> <span class="st">&quot;Longitude du lac selon le LCE&quot;</span>,</span>
+<span id="cb42-20"><a href="formattage-des-données.html#cb42-20" tabindex="-1"></a>    <span class="at">chlo_a =</span> <span class="st">&quot;Concentration de chlorophylle-A&quot;</span></span>
+<span id="cb42-21"><a href="formattage-des-données.html#cb42-21" tabindex="-1"></a>  )</span>
+<span id="cb42-22"><a href="formattage-des-données.html#cb42-22" tabindex="-1"></a></span>
+<span id="cb42-23"><a href="formattage-des-données.html#cb42-23" tabindex="-1"></a><span class="co"># Visualisation des étiquettes des variables</span></span>
+<span id="cb42-24"><a href="formattage-des-données.html#cb42-24" tabindex="-1"></a><span class="fu">var_label</span>(BD_labelled)</span></code></pre></div>
 <pre><code>## $no_rsvl_alpha
 ## [1] &quot;Numéro RSVL du lac&quot;
 ## 
@@ -554,21 +575,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="détection-des-données-manquantes" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Détection des données manquantes<a href="formattage-des-données.html#détection-des-données-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Avant de traiter les valeurs manquantes, il est important de pouvoir les identifier. Voici quelques méthodes pour détecter les différentes formes de valeurs manquantes :</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="formattage-des-données.html#cb46-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb46-2"><a href="formattage-des-données.html#cb46-2" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="formattage-des-données.html#cb46-3" tabindex="-1"></a><span class="co"># Exemple de jeu de données avec différentes valeurs manquantes</span></span>
-<span id="cb46-4"><a href="formattage-des-données.html#cb46-4" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb46-5"><a href="formattage-des-données.html#cb46-5" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>),</span>
-<span id="cb46-6"><a href="formattage-des-données.html#cb46-6" tabindex="-1"></a>  <span class="at">profondeur_moyenne =</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="cn">NaN</span>, <span class="cn">NA</span>, <span class="fl">18.2</span>, <span class="fl">11.5</span>),</span>
-<span id="cb46-7"><a href="formattage-des-données.html#cb46-7" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="cn">NA</span>, <span class="fl">3.45</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb46-8"><a href="formattage-des-données.html#cb46-8" tabindex="-1"></a>)</span>
-<span id="cb46-9"><a href="formattage-des-données.html#cb46-9" tabindex="-1"></a></span>
-<span id="cb46-10"><a href="formattage-des-données.html#cb46-10" tabindex="-1"></a><span class="co"># Identifier les valeurs manquantes (NA, NaN, &quot;&quot;, &quot; &quot;)</span></span>
-<span id="cb46-11"><a href="formattage-des-données.html#cb46-11" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
-<span id="cb46-12"><a href="formattage-des-données.html#cb46-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">ifelse</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>), <span class="cn">NA</span>, .)))</span>
-<span id="cb46-13"><a href="formattage-des-données.html#cb46-13" tabindex="-1"></a></span>
-<span id="cb46-14"><a href="formattage-des-données.html#cb46-14" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après nettoyage</span></span>
-<span id="cb46-15"><a href="formattage-des-données.html#cb46-15" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="formattage-des-données.html#cb44-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb44-2"><a href="formattage-des-données.html#cb44-2" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="formattage-des-données.html#cb44-3" tabindex="-1"></a><span class="co"># Exemple de jeu de données avec différentes valeurs manquantes</span></span>
+<span id="cb44-4"><a href="formattage-des-données.html#cb44-4" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb44-5"><a href="formattage-des-données.html#cb44-5" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>),</span>
+<span id="cb44-6"><a href="formattage-des-données.html#cb44-6" tabindex="-1"></a>  <span class="at">profondeur_moyenne =</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="cn">NaN</span>, <span class="cn">NA</span>, <span class="fl">18.2</span>, <span class="fl">11.5</span>),</span>
+<span id="cb44-7"><a href="formattage-des-données.html#cb44-7" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="cn">NA</span>, <span class="fl">3.45</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb44-8"><a href="formattage-des-données.html#cb44-8" tabindex="-1"></a>)</span>
+<span id="cb44-9"><a href="formattage-des-données.html#cb44-9" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="formattage-des-données.html#cb44-10" tabindex="-1"></a><span class="co"># Identifier les valeurs manquantes (NA, NaN, &quot;&quot;, &quot; &quot;)</span></span>
+<span id="cb44-11"><a href="formattage-des-données.html#cb44-11" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
+<span id="cb44-12"><a href="formattage-des-données.html#cb44-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">ifelse</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>), <span class="cn">NA</span>, .)))</span>
+<span id="cb44-13"><a href="formattage-des-données.html#cb44-13" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="formattage-des-données.html#cb44-14" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après nettoyage</span></span>
+<span id="cb44-15"><a href="formattage-des-données.html#cb44-15" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne chlo_a
 ## 1   Lac Beauport                4.1   2.51
 ## 2 Lac Tourbillon                 NA   2.81
@@ -592,19 +613,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="remplacer-les-valeurs-manquantes" class="section level4 hasAnchor" number="6.3.3.1">
 <h4><span class="header-section-number">6.3.3.1</span> Remplacer les valeurs manquantes<a href="formattage-des-données.html#remplacer-les-valeurs-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="formattage-des-données.html#cb48-1" tabindex="-1"></a><span class="co"># Charger la librairie tidyr</span></span>
-<span id="cb48-2"><a href="formattage-des-données.html#cb48-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
-<pre><code>## Warning: le package &#39;tidyr&#39; a été compilé avec la version R 4.3.2</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="formattage-des-données.html#cb50-1" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par 0 pour les colonnes numériques</span></span>
-<span id="cb50-2"><a href="formattage-des-données.html#cb50-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a href="formattage-des-données.html#cb50-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span>
-<span id="cb50-4"><a href="formattage-des-données.html#cb50-4" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="formattage-des-données.html#cb50-5" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par &quot;Inconnu&quot; pour les colonnes non numériques</span></span>
-<span id="cb50-6"><a href="formattage-des-données.html#cb50-6" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb50-7"><a href="formattage-des-données.html#cb50-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="st">&quot;Inconnu&quot;</span>)))</span>
-<span id="cb50-8"><a href="formattage-des-données.html#cb50-8" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="formattage-des-données.html#cb50-9" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après remplacement</span></span>
-<span id="cb50-10"><a href="formattage-des-données.html#cb50-10" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="formattage-des-données.html#cb46-1" tabindex="-1"></a><span class="co"># Charger la librairie tidyr</span></span>
+<span id="cb46-2"><a href="formattage-des-données.html#cb46-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb46-3"><a href="formattage-des-données.html#cb46-3" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="formattage-des-données.html#cb46-4" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par 0 pour les colonnes numériques</span></span>
+<span id="cb46-5"><a href="formattage-des-données.html#cb46-5" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb46-6"><a href="formattage-des-données.html#cb46-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span>
+<span id="cb46-7"><a href="formattage-des-données.html#cb46-7" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="formattage-des-données.html#cb46-8" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par &quot;Inconnu&quot; pour les colonnes non numériques</span></span>
+<span id="cb46-9"><a href="formattage-des-données.html#cb46-9" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb46-10"><a href="formattage-des-données.html#cb46-10" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="st">&quot;Inconnu&quot;</span>)))</span>
+<span id="cb46-11"><a href="formattage-des-données.html#cb46-11" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="formattage-des-données.html#cb46-12" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après remplacement</span></span>
+<span id="cb46-13"><a href="formattage-des-données.html#cb46-13" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne  chlo_a
 ## 1   Lac Beauport                4.1    2.51
 ## 2 Lac Tourbillon                0.0    2.81
@@ -614,12 +635,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="supprimer-les-lignes-avec-des-valeurs-manquantes" class="section level4 hasAnchor" number="6.3.3.2">
 <h4><span class="header-section-number">6.3.3.2</span> Supprimer les lignes avec des valeurs manquantes<a href="formattage-des-données.html#supprimer-les-lignes-avec-des-valeurs-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="formattage-des-données.html#cb52-1" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans n&#39;importe quelle colonne</span></span>
-<span id="cb52-2"><a href="formattage-des-données.html#cb52-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb52-3"><a href="formattage-des-données.html#cb52-3" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb52-4"><a href="formattage-des-données.html#cb52-4" tabindex="-1"></a></span>
-<span id="cb52-5"><a href="formattage-des-données.html#cb52-5" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après suppression</span></span>
-<span id="cb52-6"><a href="formattage-des-données.html#cb52-6" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="formattage-des-données.html#cb48-1" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans n&#39;importe quelle colonne</span></span>
+<span id="cb48-2"><a href="formattage-des-données.html#cb48-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="formattage-des-données.html#cb48-3" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb48-4"><a href="formattage-des-données.html#cb48-4" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="formattage-des-données.html#cb48-5" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après suppression</span></span>
+<span id="cb48-6"><a href="formattage-des-données.html#cb48-6" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne  chlo_a
 ## 1   Lac Beauport                4.1    2.51
 ## 2 Lac Tourbillon                0.0    2.81

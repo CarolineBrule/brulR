@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 5 Cartes interactives | brulR : Parler le même langage</title>
-  <meta name="description" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <title>Chapitre 11 Trucs et astuces RStudio | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 11 Trucs et astuces RStudio | brulR : Parler le même langage" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <meta property="og:title" content="Chapitre 11 Trucs et astuces RStudio | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 5 Cartes interactives | brulR : Parler le même langage" />
+  <meta name="twitter:title" content="Chapitre 11 Trucs et astuces RStudio | brulR : Parler le même langage" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"/>
-<link rel="next" href="formattage-des-données.html"/>
+<link rel="prev" href="structurer-un-script-r-de-manière-adéquate.html"/>
+<link rel="next" href="définir-et-organiser-ses-fonctions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -375,88 +375,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cartes-interactives" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapitre 5</span> Cartes interactives<a href="cartes-interactives.html#cartes-interactives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="configuration-de-base" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Configuration de base<a href="cartes-interactives.html#configuration-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Syntaxe de base pour créer une carte :</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="cartes-interactives.html#cb31-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;leaflet&quot;</span>)</span>
-<span id="cb31-2"><a href="cartes-interactives.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="cartes-interactives.html#cb32-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="cartes-interactives.html#cb32-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="cartes-interactives.html#cb32-3" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-b06cdf5137b58da11a85" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b06cdf5137b58da11a85">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="trucs-et-astuces-rstudio" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapitre 11</span> Trucs et astuces RStudio<a href="trucs-et-astuces-rstudio.html#trucs-et-astuces-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="callout-tip" title="Série Trucs BrulR — Astuces pratiques pour coder efficacement">
+<p>Ce manuel propose, tout au long des chapitres, une série de courtes fiches intitulées <strong>Trucs BrulR</strong>, conçues pour :</p>
+<ul>
+<li>vous faire gagner du temps au quotidien dans RStudio,</li>
+<li>renforcer votre efficacité dans la navigation et l’organisation du code,</li>
+<li>vous aider à adopter les bonnes pratiques recommandées au sein de l’équipe.</li>
+</ul>
+<p>Chaque <em>Truc BrulR</em> met en lumière une fonctionnalité simple, mais souvent sous-utilisée, qui peut considérablement améliorer votre confort de travail.</p>
+<p>Les encadrés sont facilement repérables et peuvent être lus de manière autonome.</p>
+<blockquote>
+<p>Objectif : coder plus vite, plus proprement, et avec moins de frustration.</p>
+</blockquote>
 </div>
-<div id="ajout-de-données-géographiques" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Ajout de données géographiques<a href="cartes-interactives.html#ajout-de-données-géographiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="cartes-interactives.html#cb33-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">73.5673</span>, <span class="sc">-</span><span class="fl">73.568</span>, <span class="sc">-</span><span class="fl">73.569</span>),</span>
-<span id="cb33-2"><a href="cartes-interactives.html#cb33-2" tabindex="-1"></a>                   <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">45.5017</span>, <span class="fl">45.502</span>, <span class="fl">45.503</span>),</span>
-<span id="cb33-3"><a href="cartes-interactives.html#cb33-3" tabindex="-1"></a>                   <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;Point 1&quot;</span>, <span class="st">&quot;Point 2&quot;</span>, <span class="st">&quot;Point 3&quot;</span>))</span>
-<span id="cb33-4"><a href="cartes-interactives.html#cb33-4" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="cartes-interactives.html#cb33-5" tabindex="-1"></a><span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
-<span id="cb33-6"><a href="cartes-interactives.html#cb33-6" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb33-7"><a href="cartes-interactives.html#cb33-7" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>lng, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span>label)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-18e0324fd5659f9d8f81" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-18e0324fd5659f9d8f81">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[45.5017,45.502,45.503],[-73.5673,-73.568,-73.569],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Point 1","Point 2","Point 3"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.503],"lng":[-73.569,-73.5673]}},"evals":[],"jsHooks":[]}</script>
+<div id="chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f" class="section level3 hasAnchor callout-note" title="Truc BrulR — Recherche rapide dans tout votre projet" number="11.0.1">
+<h3><span class="header-section-number">11.0.1</span> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lorsque le code est réparti dans plusieurs fichiers, il peut être difficile de retrouver où une fonction est définie, où un objet est modifié ou utilisé, ou encore d’identifier les scripts qui contiennent un mot-clé précis.</p>
+<p>RStudio offre un raccourci pratique pour ce type de recherche : <code>Ctrl + Shift + F</code> (ou <code>Cmd + Shift + F</code> sur Mac). Ce raccourci permet d’effectuer une recherche dans l’ensemble des fichiers du projet en cours.</p>
+<div id="utilisations-courantes" class="section level4 hasAnchor" number="11.0.1.1">
+<h4><span class="header-section-number">11.0.1.1</span> Utilisations courantes :<a href="trucs-et-astuces-rstudio.html#utilisations-courantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Retrouver rapidement la définition d’une fonction (<code>fit_modele</code>)</li>
+<li>Vérifier où une variable est utilisée (<code>df_resultats</code>)</li>
+<li>Localiser des commentaires à traiter (<code># TODO</code>, <code># à vérifier</code>)</li>
+</ul>
 </div>
-<div id="personnalisation-des-cartes" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Personnalisation des cartes<a href="cartes-interactives.html#personnalisation-des-cartes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Personnalisation des styles de marqueurs, de polygones, de lignes.
-Utilisation des options comme addLegend() pour ajouter des légendes aux cartes.
-Personnalisation de tuiles avec addProviderTiles() (e.g., OpenStreetMap, CartoDB, etc.).</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="cartes-interactives.html#cb34-1" tabindex="-1"></a><span class="co"># Créer une carte Leaflet avec des tuiles OpenStreetMap (par défaut)</span></span>
-<span id="cb34-2"><a href="cartes-interactives.html#cb34-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="cartes-interactives.html#cb34-3" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>OpenStreetMap) <span class="sc">%&gt;%</span></span>
-<span id="cb34-4"><a href="cartes-interactives.html#cb34-4" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-20bcc2e55434fdc496f5" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-20bcc2e55434fdc496f5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="cartes-interactives.html#cb35-1" tabindex="-1"></a><span class="co"># Créer une carte Leaflet avec des tuiles CartoDB.Positron</span></span>
-<span id="cb35-2"><a href="cartes-interactives.html#cb35-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb35-3"><a href="cartes-interactives.html#cb35-3" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>CartoDB.Positron) <span class="sc">%&gt;%</span></span>
-<span id="cb35-4"><a href="cartes-interactives.html#cb35-4" tabindex="-1"></a>  <span class="fu">setView</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">zoom =</span> <span class="dv">10</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-3a7e58719724928f4b3e" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-3a7e58719724928f4b3e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}],"setView":[[45.5017,-73.5673],10,[]]},"evals":[],"jsHooks":[]}</script>
-<p>providers<span class="math inline">\(OpenStreetMap : Utilise les tuiles par défaut d&#39;OpenStreetMap.
-providers\)</span>CartoDB.Positron : Utilise un style de carte plus clair, minimaliste, souvent utilisé pour des visualisations de données.
-Vous pouvez consulter la liste complète des styles de tuiles disponibles avec {leaflet} en visitant le site : <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" class="uri">https://leaflet-extras.github.io/leaflet-providers/preview/</a>.</p>
-<p>Cela vous permettra de choisir la tuile qui convient le mieux à votre projet.</p>
+<div id="options-disponibles" class="section level4 hasAnchor" number="11.0.1.2">
+<h4><span class="header-section-number">11.0.1.2</span> Options disponibles :<a href="trucs-et-astuces-rstudio.html#options-disponibles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Filtrer par type de fichier (par exemple, <code>.R</code>, <code>.Rmd</code>, <code>.qmd</code>)</li>
+<li>Restreindre la recherche à un sous-dossier spécifique</li>
+<li>Utiliser des expressions régulières pour des recherches avancées</li>
+</ul>
+<p>Ce raccourci s’avère particulièrement utile dans les projets modulaires ou collaboratifs. Il permet de naviguer efficacement dans une base de code en pleine croissance.</p>
 </div>
-<div id="interaction-utilisateur" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Interaction utilisateur<a href="cartes-interactives.html#interaction-utilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Explication sur les interactions telles que les popups, les survols, et la capture d’événements comme les clics sur des marqueurs.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="cartes-interactives.html#cb36-1" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="cartes-interactives.html#cb36-2" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a href="cartes-interactives.html#cb36-3" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">73.5673</span>, <span class="at">lat =</span> <span class="fl">45.5017</span>, <span class="at">popup =</span> <span class="st">&quot;Centre-ville de Montréal&quot;</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-b5e670e960c3cb587de3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-b5e670e960c3cb587de3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[45.5017,-73.5673,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Centre-ville de Montréal",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.5017],"lng":[-73.5673,-73.5673]}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="gestion-de-grandes-quantités-de-données" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Gestion de grandes quantités de données<a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Conseils sur l’utilisation de Leaflet pour visualiser de grandes quantités de points (e.g., clustering).</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="cartes-interactives.html#cb37-1" tabindex="-1"></a><span class="co"># Exemples de données avec coordonnées longitude/latitude</span></span>
-<span id="cb37-2"><a href="cartes-interactives.html#cb37-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-3"><a href="cartes-interactives.html#cb37-3" tabindex="-1"></a>  <span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">73.5673</span>, <span class="sc">-</span><span class="fl">73.568</span>, <span class="sc">-</span><span class="fl">73.569</span>, <span class="sc">-</span><span class="fl">73.570</span>, <span class="sc">-</span><span class="fl">73.571</span>),</span>
-<span id="cb37-4"><a href="cartes-interactives.html#cb37-4" tabindex="-1"></a>  <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">45.5017</span>, <span class="fl">45.502</span>, <span class="fl">45.503</span>, <span class="fl">45.504</span>, <span class="fl">45.505</span>),</span>
-<span id="cb37-5"><a href="cartes-interactives.html#cb37-5" tabindex="-1"></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;Point 1&quot;</span>, <span class="st">&quot;Point 2&quot;</span>, <span class="st">&quot;Point 3&quot;</span>, <span class="st">&quot;Point 4&quot;</span>, <span class="st">&quot;Point 5&quot;</span>)</span>
-<span id="cb37-6"><a href="cartes-interactives.html#cb37-6" tabindex="-1"></a>)</span>
-<span id="cb37-7"><a href="cartes-interactives.html#cb37-7" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="cartes-interactives.html#cb37-8" tabindex="-1"></a><span class="co"># Création de la carte avec clustering des marqueurs</span></span>
-<span id="cb37-9"><a href="cartes-interactives.html#cb37-9" tabindex="-1"></a><span class="fu">leaflet</span>(data) <span class="sc">%&gt;%</span></span>
-<span id="cb37-10"><a href="cartes-interactives.html#cb37-10" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb37-11"><a href="cartes-interactives.html#cb37-11" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>lng, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span>label, <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>())</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-bfdb6000ec16e06f3b0c" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-bfdb6000ec16e06f3b0c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[45.5017,45.502,45.503,45.504,45.505],[-73.5673,-73.568,-73.569,-73.56999999999999,-73.571],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Point 1","Point 2","Point 3","Point 4","Point 5"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[45.5017,45.505],"lng":[-73.571,-73.5673]}},"evals":[],"jsHooks":[]}</script>
+<div id="exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter" class="section level3 hasAnchor callout-note" title="Truc BrulR — Exécuter du code sans toucher à la souris" number="11.0.2">
+<h3><span class="header-section-number">11.0.2</span> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour exécuter rapidement une ligne de code ou une portion sélectionnée dans l’éditeur de RStudio, utilisez <code>Ctrl + Enter</code> (ou <code>Cmd + Enter</code> sur Mac).</p>
+<p>Cela permet d’envoyer le code à la console sans avoir à passer par le bouton “Run”.</p>
+<div id="bonnes-pratiques-1" class="section level4 hasAnchor" number="11.0.2.1">
+<h4><span class="header-section-number">11.0.2.1</span> Bonnes pratiques :<a href="trucs-et-astuces-rstudio.html#bonnes-pratiques-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Utilisez ce raccourci au fil de l’écriture pour valider votre code progressivement.</li>
+<li>Si une portion de code est sélectionnée, seule cette sélection sera envoyée.</li>
+</ul>
+<p>Ce réflexe évite des interruptions constantes et favorise une écriture fluide du code.</p>
+</div>
+</div>
+<div id="reformater-un-script-avec-ctrl-shift-a" class="section level3 hasAnchor callout-note" title="Truc BrulR — Aligner et aérer votre code automatiquement" number="11.0.3">
+<h3><span class="header-section-number">11.0.3</span> Reformater un script avec <code>Ctrl + Shift + A</code><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour améliorer la lisibilité de votre code, RStudio permet de le reformater automatiquement avec <code>Ctrl + Shift + A</code> (ou <code>Cmd + Shift + A</code> sur Mac).</p>
+<p>Cette commande :
+- Réindente le code de manière cohérente
+- Ajoute ou enlève les espaces nécessaires autour des opérateurs
+- Uniformise la présentation</p>
+<div id="exemple" class="section level4 hasAnchor" number="11.0.3.1">
+<h4><span class="header-section-number">11.0.3.1</span> Exemple :<a href="trucs-et-astuces-rstudio.html#exemple" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="trucs-et-astuces-rstudio.html#cb87-1" tabindex="-1"></a><span class="fu">filter</span>(data,  var1<span class="sc">==</span><span class="dv">2</span><span class="sc">&amp;</span>var2<span class="sc">&gt;</span><span class="dv">10</span> )</span></code></pre></div>
+<p>devient :</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="trucs-et-astuces-rstudio.html#cb88-1" tabindex="-1"></a><span class="fu">filter</span>(data, var1 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">&amp;</span> var2 <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code></pre></div>
+<p>Un outil essentiel pour rendre le code plus lisible, surtout avant de le partager ou de le versionner.</p>
+</div>
+</div>
+<div id="travailler-dans-un-environnement-propre-avec-un-fichier-.rproj" class="section level3 hasAnchor callout-note" title="Truc BrulR — Utiliser les projets RStudio (.Rproj)" number="11.0.4">
+<h3><span class="header-section-number">11.0.4</span> Travailler dans un environnement propre avec un fichier <code>.Rproj</code><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Créer un projet RStudio permet d’isoler un environnement de travail, de garder un répertoire propre et de bénéficier de fonctionnalités comme :
+- le <strong>chemin relatif</strong> (ex: <code>file.path()</code>)
+- la restauration de l’état de l’environnement</p>
+<p>Pour créer un projet :
+1. Aller dans <strong>File &gt; New Project</strong>
+2. Choisir un répertoire existant ou en créer un nouveau
+3. Un fichier <code>.Rproj</code> est créé à la racine</p>
+<p>Travailler avec des projets <code>.Rproj</code> est une bonne pratique essentielle pour maintenir des workflows reproductibles et structurés.</p>
+</div>
+<div id="utiliser-des-expressions-régulières-dans-ctrl-shift-f" class="section level3 hasAnchor callout-note" title="Truc BrulR — Rechercher avec des motifs avancés" number="11.0.5">
+<h3><span class="header-section-number">11.0.5</span> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La recherche globale dans RStudio permet d’activer le mode “expression régulière” (regex), ce qui offre une puissance de recherche bien supérieure.</p>
+<p>Exemples :
+- Trouver tous les noms d’objets commençant par <code>df_</code> : <code>\\bdf_\\w+</code>
+- Repérer tous les appels à une fonction <code>filter</code> : <code>filter\\(</code></p>
+<p>✅ Cochez l’option <strong>Regex</strong> dans la barre de recherche pour activer ce mode.<br />
+📚 Référez-vous à une documentation de base sur les regex si vous débutez.</p>
+<p>Très utile pour parcourir rapidement un projet complexe ou standardiser des noms.</p>
+</div>
+<div id="utiliser-sourcecheminversfichier.r-pour-organiser-lexécution" class="section level3 hasAnchor callout-note" title="Truc BrulR — Structurer votre code avec `source()`" number="11.0.6">
+<h3><span class="header-section-number">11.0.6</span> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution<a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lorsque vous segmentez un projet en plusieurs fichiers <code>.R</code>, vous pouvez exécuter un script complet à l’aide de la fonction <code>source()</code>.</p>
+<p>Cela permet de :
+- Charger des fonctions définies ailleurs
+- Reproduire une analyse complète en une ligne
+- Structurer votre projet de façon modulaire</p>
+<div id="exemple-1" class="section level4 hasAnchor" number="11.0.6.1">
+<h4><span class="header-section-number">11.0.6.1</span> Exemple :<a href="trucs-et-astuces-rstudio.html#exemple-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="trucs-et-astuces-rstudio.html#cb89-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/prepare_donnees.R&quot;</span>)</span></code></pre></div>
+<p>Pensez à utiliser des <strong>chemins relatifs</strong> (ex: <code>file.path()</code>) pour rester compatible avec la structure du projet.</p>
+</div>
+</div>
+<div id="centraliser-les-chargements-dans-un-fichier-init.r" class="section level3 hasAnchor callout-note" title="Truc BrulR — Préparer un script d&#39;initialisation" number="11.0.7">
+<h3><span class="header-section-number">11.0.7</span> Centraliser les chargements dans un fichier <code>init.R</code><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dans un projet un peu complexe, il peut être utile de créer un fichier <code>init.R</code> ou <code>startup.R</code> contenant :
+- le chargement des packages (<code>library()</code>)
+- les chemins de base
+- les options globales
+- le sourcing des fonctions</p>
+<p>Cela permet de lancer un environnement de travail cohérent dès le début de chaque session.</p>
+<div id="exemple-2" class="section level4 hasAnchor" number="11.0.7.1">
+<h4><span class="header-section-number">11.0.7.1</span> Exemple :<a href="trucs-et-astuces-rstudio.html#exemple-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="trucs-et-astuces-rstudio.html#cb90-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb90-2"><a href="trucs-et-astuces-rstudio.html#cb90-2" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb90-3"><a href="trucs-et-astuces-rstudio.html#cb90-3" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;fonctions_utiles.R&quot;</span>))</span>
+<span id="cb90-4"><a href="trucs-et-astuces-rstudio.html#cb90-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">dplyr.summarise.inform =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>En début de script, il suffira ensuite de faire :</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="trucs-et-astuces-rstudio.html#cb91-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;init.R&quot;</span>)</span></code></pre></div>
+</div>
+</div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="formattage-des-données.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="structurer-un-script-r-de-manière-adéquate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="définir-et-organiser-ses-fonctions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -487,7 +531,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/05-carte.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/edit/main/11-astuces.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -495,7 +539,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/05-carte.Rmd",
+"link": "https://github.com/CarolineBrule/brulR/blob/main/11-astuces.Rmd",
 "text": null
 },
 "download": null,
