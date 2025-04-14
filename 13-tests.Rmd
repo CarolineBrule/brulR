@@ -1,0 +1,46 @@
+# Tests
+
+## Types de tests automatisés
+
+Dans un projet R bien structuré, on distingue plusieurs types de tests automatisés. Chacun remplit une fonction complémentaire pour assurer la qualité, la stabilité et la maintenabilité du code.
+
+### Test unitaire
+
+Un test unitaire vérifie qu’une **fonction unique** se comporte comme prévu, dans **un cas d’utilisation précis**.  
+Ce type de test est rapide à exécuter et permet de repérer les erreurs au niveau le plus granulaire.
+
+**Exemples** :
+- Vérifier qu’une fonction retourne la bonne valeur numérique pour une entrée donnée.
+- Vérifier qu’une erreur est générée si l’entrée est invalide.
+- Vérifier que les valeurs manquantes sont correctement ignorées.
+
+Chaque bloc `test_that()` du package `{testthat}` représente un test unitaire.
+
+### Test d’intégration
+
+Un test d’intégration vérifie que **plusieurs fonctions fonctionnent correctement ensemble**, dans un enchaînement logique.  
+On s’assure que le **flux de données** circule bien à travers plusieurs étapes.
+
+**Exemple** :
+Tester une chaîne complète d’opérations, comme le prétraitement d’un jeu de données suivi de l’ajustement d’un modèle.
+
+Cela permet de détecter des erreurs qui ne sont visibles qu’en contexte d’utilisation combinée.
+
+### Test de régression
+
+Un test de régression vise à **s’assurer que des comportements valides dans le passé le restent après des modifications du code**.  
+Il consiste à **conserver et rejouer** les anciens tests unitaires ou d’intégration, afin de prévenir les effets secondaires non souhaités.
+
+Si une modification casse un test préexistant, cela signale une **régression** du comportement attendu.
+
+---
+
+### Résumé
+
+| Type de test         | Portée                     | Objectif principal                                       |
+|----------------------|----------------------------|----------------------------------------------------------|
+| **Test unitaire**     | Une fonction, un cas       | Valider un comportement isolé                            |
+| **Test d’intégration**| Plusieurs fonctions        | Valider les interactions entre composants                |
+| **Test de régression**| Ensemble du projet dans le temps | Prévenir les effets secondaires involontaires       |
+
+Mettre en place ces tests dès le début d’un projet permet de gagner en confiance, de faciliter la maintenance du code, et d’éviter les erreurs lors de futures modifications.

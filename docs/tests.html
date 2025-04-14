@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 13 Tests | brulR : Parler le même langage</title>
+  <meta name="description" content="Chapitre 13 Tests | brulR : Parler le même langage" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 13 Tests | brulR : Parler le même langage" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 13 Tests | brulR : Parler le même langage" />
+  
+  
+  
+
+<meta name="author" content="Caroline Brûlé" />
+
+
+<meta name="date" content="2025-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="définir-et-organiser-ses-fonctions.html"/>
+<link rel="next" href="annexe-exemples-reprex.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">brulR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#pourquoi-ce-manuel"><i class="fa fa-check"></i><b>1.1</b> Pourquoi ce Manuel ?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#quest-ce-que-le-tidyverse"><i class="fa fa-check"></i><b>1.2</b> Qu’est-ce que le Tidyverse ?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#les-packages-du-tidyverse"><i class="fa fa-check"></i><b>1.3</b> Les Packages du Tidyverse</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#pas-encore-convaincu-quelles-sont-les-alternatives"><i class="fa fa-check"></i><b>1.4</b> Pas encore convaincu ? Quelles sont les alternatives ?</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#base-r"><i class="fa fa-check"></i><b>1.4.1</b> 1. <strong>Base R</strong></a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#data.table"><i class="fa fa-check"></i><b>1.4.2</b> 2. <strong>data.table</strong></a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#plyr"><i class="fa fa-check"></i><b>1.4.3</b> 3. <strong>plyr</strong></a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#sqldf"><i class="fa fa-check"></i><b>1.4.4</b> 4. <strong>sqldf</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#conclusion"><i class="fa fa-check"></i><b>1.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html"><i class="fa fa-check"></i><b>2</b> Uniformiser la Syntaxe R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code"><i class="fa fa-check"></i><b>2.1</b> Structure et Organisation du Code</a></li>
+<li class="chapter" data-level="2.2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#nommage-des-objets"><i class="fa fa-check"></i><b>2.2</b> Nommage des Objets</a></li>
+<li class="chapter" data-level="2.3" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#style-de-code"><i class="fa fa-check"></i><b>2.3</b> Style de Code</a></li>
+<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-données"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
+<li class="chapter" data-level="2.5" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires"><i class="fa fa-check"></i><b>2.5</b> Documentation et Commentaires</a></li>
+<li class="chapter" data-level="2.6" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#tests-et-validation"><i class="fa fa-check"></i><b>2.6</b> Tests et Validation</a></li>
+<li class="chapter" data-level="2.7" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-packages"><i class="fa fa-check"></i><b>2.7</b> Gestion des Packages</a></li>
+<li class="chapter" data-level="2.8" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs"><i class="fa fa-check"></i><b>2.8</b> Gestion des Erreurs</a></li>
+<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilité"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>3</b> Importation des données</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>3.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>3.1.2</b> Exemple avec un fichier CSV</a></li>
+<li class="chapter" data-level="3.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>3.1.3</b> Exemple avec un fichier XLSX</a></li>
+<li class="chapter" data-level="3.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>3.1.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="3.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>3.2.3</b> Lire plusieurs feuilles</a></li>
+<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><i class="fa fa-check"></i><b>4</b> L’art du REPREX : pourquoi et comment créer des exemples reproductibles</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex"><i class="fa fa-check"></i><b>4.1</b> Qu’est-ce qu’un REPREX ?</a></li>
+<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
+<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
+<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
+<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
+<li class="chapter" data-level="4.3.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex"><i class="fa fa-check"></i><b>4.3.4</b> Tester le REPREX</a></li>
+<li class="chapter" data-level="4.3.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex"><i class="fa fa-check"></i><b>4.3.5</b> Utiliser le package <code>reprex</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex"><i class="fa fa-check"></i><b>4.3.6</b> Partager le REPREX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#exemples-de-bonnes-pratiques"><i class="fa fa-check"></i><b>4.4</b> Exemples de bonnes pratiques</a></li>
+<li class="chapter" data-level="4.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#conclusion-3"><i class="fa fa-check"></i><b>4.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>5</b> Cartes interactives</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cartes-interactives.html"><a href="cartes-interactives.html#configuration-de-base"><i class="fa fa-check"></i><b>5.1</b> Configuration de base</a></li>
+<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-données-géographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
+<li class="chapter" data-level="5.3" data-path="cartes-interactives.html"><a href="cartes-interactives.html#personnalisation-des-cartes"><i class="fa fa-check"></i><b>5.3</b> Personnalisation des cartes</a></li>
+<li class="chapter" data-level="5.4" data-path="cartes-interactives.html"><a href="cartes-interactives.html#interaction-utilisateur"><i class="fa fa-check"></i><b>5.4</b> Interaction utilisateur</a></li>
+<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>6</b> Formattage des données</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#noms-de-colonnes"><i class="fa fa-check"></i><b>6.1</b> Noms de colonnes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-de-formattage"><i class="fa fa-check"></i><b>6.1.1</b> Exemple de formattage</a></li>
+<li class="chapter" data-level="6.1.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#transformation-avec-janitorclean_names"><i class="fa fa-check"></i><b>6.1.2</b> Transformation avec <code>janitor::clean_names()</code></a></li>
+<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résultat-après-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-étiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
+<li class="chapter" data-level="6.2.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled"><i class="fa fa-check"></i><b>6.2.2</b> Exemple d’utilisation avec <code>labelled</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication"><i class="fa fa-check"></i><b>6.2.3</b> Explication</a></li>
+<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-étiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
+<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#intégration-des-étiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#détection-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
+<li class="chapter" data-level="6.3.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication-1"><i class="fa fa-check"></i><b>6.3.2</b> Explication</a></li>
+<li class="chapter" data-level="6.3.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#remplacer-ou-supprimer-les-valeurs-manquantes"><i class="fa fa-check"></i><b>6.3.3</b> Remplacer ou supprimer les valeurs manquantes</a></li>
+<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#stratégies-de-gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
+<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résumé"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html"><i class="fa fa-check"></i><b>7</b> Structure d’un projet R : Package, Dépôt, et Projet</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#projets-rstudio"><i class="fa fa-check"></i><b>7.1</b> <strong>Projets RStudio</strong></a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#packages-r"><i class="fa fa-check"></i><b>7.2</b> <strong>Packages R</strong></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#dépôts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-dépôt"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#différences-entre-package-dépôt-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
+<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.5</b> Bonnes pratiques pour structurer un projet</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html"><i class="fa fa-check"></i><b>8</b> Utilisation de <code>ungroup()</code> après <code>group_by()</code></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#pourquoi-utiliser-ungroup"><i class="fa fa-check"></i><b>8.1</b> Pourquoi utiliser <code>ungroup()</code> ?</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#exemple-dutilisation-de-group_by-et-ungroup"><i class="fa fa-check"></i><b>8.1.1</b> Exemple d’utilisation de <code>group_by()</code> et <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.1.2" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#explication-2"><i class="fa fa-check"></i><b>8.1.2</b> Explication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#que-se-passe-t-il-sans-ungroup"><i class="fa fa-check"></i><b>8.1.3</b> Que se passe-t-il sans <code>ungroup()</code> ?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#bonnes-pratiques"><i class="fa fa-check"></i><b>8.1.4</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="8.1.5" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#cas-pratique-eviter-les-erreurs-avec-ungroup"><i class="fa fa-check"></i><b>8.1.5</b> Cas pratique : Eviter les erreurs avec <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.1.6" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html#conclusion-4"><i class="fa fa-check"></i><b>8.1.6</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><i class="fa fa-check"></i><b>9</b> Boucles, <code>lapply()</code> et <code>map()</code> : quelles méthodes privilégier ?</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#les-boucles-for"><i class="fa fa-check"></i><b>9.1</b> <strong>Les boucles <code>for</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#syntaxe-dune-boucle-for"><i class="fa fa-check"></i><b>9.1.1</b> Syntaxe d’une boucle <code>for</code></a></li>
+<li class="chapter" data-level="9.1.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-pratique"><i class="fa fa-check"></i><b>9.1.2</b> Exemple pratique</a></li>
+<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconvénients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply-et-les-variantes-de-la-famille-apply"><i class="fa fa-check"></i><b>9.2</b> <strong><code>lapply()</code> et les variantes de la famille <code>apply()</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply"><i class="fa fa-check"></i><b>9.2.1</b> <code>lapply()</code></a></li>
+<li class="chapter" data-level="9.2.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#autres-variantes-de-apply"><i class="fa fa-check"></i><b>9.2.2</b> Autres variantes de <code>apply()</code> :</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map-et-la-famille-purrr"><i class="fa fa-check"></i><b>9.3</b> <strong><code>map()</code> et la famille <code>purrr</code></strong></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map"><i class="fa fa-check"></i><b>9.3.1</b> <code>map()</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#variantes-de-map"><i class="fa fa-check"></i><b>9.3.2</b> Variantes de <code>map()</code> :</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-méthode-privilégier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
+<li class="chapter" data-level="9.5" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#conclusion-5"><i class="fa fa-check"></i><b>9.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html"><i class="fa fa-check"></i><b>10</b> Structurer un script R de manière adéquate</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#nommer-et-commenter-les-sections"><i class="fa fa-check"></i><b>10.2</b> <strong>Nommer et commenter les sections</strong></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#bonnes-pratiques-pour-les-sections"><i class="fa fa-check"></i><b>10.2.1</b> Bonnes pratiques pour les sections :</a></li>
+<li class="chapter" data-level="10.2.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#raccourcis-clavier"><i class="fa fa-check"></i><b>10.2.2</b> Raccourcis clavier</a></li>
+<li class="chapter" data-level="10.2.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#avantages-des-sections"><i class="fa fa-check"></i><b>10.2.3</b> Avantages des sections</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#documentation-claire-avec-des-commentaires"><i class="fa fa-check"></i><b>10.3</b> <strong>Documentation claire avec des commentaires</strong></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires"><i class="fa fa-check"></i><b>10.3.1</b> Exemple de commentaires :</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
+<li class="chapter" data-level="10.5" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5</b> Gestion des scripts exploratoires</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
+<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
+<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
+<li class="chapter" data-level="10.5.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script"><i class="fa fa-check"></i><b>10.5.4</b> Sauvegarder des versions du script</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html"><i class="fa fa-check"></i><b>11</b> Trucs et astuces RStudio</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.1</b> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
+<li class="chapter" data-level="11.0.3" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a"><i class="fa fa-check"></i><b>11.0.3</b> Reformater un script avec <code>Ctrl + Shift + A</code></a></li>
+<li class="chapter" data-level="11.0.4" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj"><i class="fa fa-check"></i><b>11.0.4</b> Travailler dans un environnement propre avec un fichier <code>.Rproj</code></a></li>
+<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
+<li class="chapter" data-level="11.0.7" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r"><i class="fa fa-check"></i><b>11.0.7</b> Centraliser les chargements dans un fichier <code>init.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html"><i class="fa fa-check"></i><b>12</b> Définir et organiser ses fonctions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#bonnes-pratiques-2"><i class="fa fa-check"></i><b>12.1</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="12.2" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet"><i class="fa fa-check"></i><b>12.2</b> Typologie des fonctions dans un projet</a></li>
+<li class="chapter" data-level="12.3" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation"><i class="fa fa-check"></i><b>12.3</b> Conseils d’organisation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>13</b> Tests</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="tests.html"><a href="tests.html#types-de-tests-automatisés"><i class="fa fa-check"></i><b>13.1</b> Types de tests automatisés</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="tests.html"><a href="tests.html#test-unitaire"><i class="fa fa-check"></i><b>13.1.1</b> Test unitaire</a></li>
+<li class="chapter" data-level="13.1.2" data-path="tests.html"><a href="tests.html#test-dintégration"><i class="fa fa-check"></i><b>13.1.2</b> Test d’intégration</a></li>
+<li class="chapter" data-level="13.1.3" data-path="tests.html"><a href="tests.html#test-de-régression"><i class="fa fa-check"></i><b>13.1.3</b> Test de régression</a></li>
+<li class="chapter" data-level="13.1.4" data-path="tests.html"><a href="tests.html#résumé-1"><i class="fa fa-check"></i><b>13.1.4</b> Résumé</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>14</b> Annexe : Exemples REPREX</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>14.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="14.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>14.2</b> Comme design.ca</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes"><i class="fa fa-check"></i><b>14.2.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-linéraire"><i class="fa fa-check"></i><b>14.2.2</b> Diagramme linéraire</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>14.3</b> Pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes-1"><i class="fa fa-check"></i><b>14.3.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-moustaches"><i class="fa fa-check"></i><b>14.3.2</b> Diagramme à moustaches</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">brulR : Parler le même langage</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tests" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapitre 13</span> Tests<a href="tests.html#tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="types-de-tests-automatisés" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Types de tests automatisés<a href="tests.html#types-de-tests-automatisés" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dans un projet R bien structuré, on distingue plusieurs types de tests automatisés. Chacun remplit une fonction complémentaire pour assurer la qualité, la stabilité et la maintenabilité du code.</p>
+<div id="test-unitaire" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Test unitaire<a href="tests.html#test-unitaire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un test unitaire vérifie qu’une <strong>fonction unique</strong> se comporte comme prévu, dans <strong>un cas d’utilisation précis</strong>.<br />
+Ce type de test est rapide à exécuter et permet de repérer les erreurs au niveau le plus granulaire.</p>
+<p><strong>Exemples</strong> :
+- Vérifier qu’une fonction retourne la bonne valeur numérique pour une entrée donnée.
+- Vérifier qu’une erreur est générée si l’entrée est invalide.
+- Vérifier que les valeurs manquantes sont correctement ignorées.</p>
+<p>Chaque bloc <code>test_that()</code> du package <code>{testthat}</code> représente un test unitaire.</p>
+</div>
+<div id="test-dintégration" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Test d’intégration<a href="tests.html#test-dintégration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un test d’intégration vérifie que <strong>plusieurs fonctions fonctionnent correctement ensemble</strong>, dans un enchaînement logique.<br />
+On s’assure que le <strong>flux de données</strong> circule bien à travers plusieurs étapes.</p>
+<p><strong>Exemple</strong> :
+Tester une chaîne complète d’opérations, comme le prétraitement d’un jeu de données suivi de l’ajustement d’un modèle.</p>
+<p>Cela permet de détecter des erreurs qui ne sont visibles qu’en contexte d’utilisation combinée.</p>
+</div>
+<div id="test-de-régression" class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Test de régression<a href="tests.html#test-de-régression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un test de régression vise à <strong>s’assurer que des comportements valides dans le passé le restent après des modifications du code</strong>.<br />
+Il consiste à <strong>conserver et rejouer</strong> les anciens tests unitaires ou d’intégration, afin de prévenir les effets secondaires non souhaités.</p>
+<p>Si une modification casse un test préexistant, cela signale une <strong>régression</strong> du comportement attendu.</p>
+<hr />
+</div>
+<div id="résumé-1" class="section level3 hasAnchor" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> Résumé<a href="tests.html#résumé-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="25%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type de test</th>
+<th>Portée</th>
+<th>Objectif principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Test unitaire</strong></td>
+<td>Une fonction, un cas</td>
+<td>Valider un comportement isolé</td>
+</tr>
+<tr class="even">
+<td><strong>Test d’intégration</strong></td>
+<td>Plusieurs fonctions</td>
+<td>Valider les interactions entre composants</td>
+</tr>
+<tr class="odd">
+<td><strong>Test de régression</strong></td>
+<td>Ensemble du projet dans le temps</td>
+<td>Prévenir les effets secondaires involontaires</td>
+</tr>
+</tbody>
+</table>
+<p>Mettre en place ces tests dès le début d’un projet permet de gagner en confiance, de faciliter la maintenance du code, et d’éviter les erreurs lors de futures modifications.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="définir-et-organiser-ses-fonctions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="annexe-exemples-reprex.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/CarolineBrule/brulR/edit/main/13-tests.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/CarolineBrule/brulR/blob/main/13-tests.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
