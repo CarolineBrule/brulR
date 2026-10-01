@@ -76,6 +76,11 @@ points-clés-dun-package-r
 dépôts-repositories
 points-clés-dun-dépôt
 différences-entre-package-dépôt-et-projet
+le-readme-le-mode-demploi-du-projet
+quoi-indiquer
+exemple-pour-un-projet-danalyse
+quel-format-choisir
+garder-le-mode-demploi-à-jour
 bonnes-pratiques-pour-structurer-un-projet
 utilisation-de-ungroup-après-group_by
 pourquoi-utiliser-ungroup
@@ -133,6 +138,12 @@ définir-et-organiser-ses-fonctions
 bonnes-pratiques-2
 typologie-des-fonctions-dans-un-projet
 conseils-dorganisation
+tests
+types-de-tests-automatisés
+test-unitaire
+test-dintégration
+test-de-régression
+résumé-1
 annexe-exemples-reprex
 exporter-un-graphique-depuis-le-volet-plots-dans-rstudio
 comme-design.ca

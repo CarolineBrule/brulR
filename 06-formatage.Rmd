@@ -69,6 +69,35 @@ Le jeu de données transformé respecte désormais les bonnes pratiques. Voici l
 
 Cette approche garantit des noms de colonnes cohérents et conformes à la syntaxe `tidyverse`, facilitant l'utilisation dans des pipelines de manipulation de données avec `{dplyr}`, `{ggplot2}`, etc.
 
+> ### Les numéros de station ne sont pas des nombres
+>
+> **La station `05220633` devient `5220633` dans votre fichier?**
+>
+> Un logiciel a probablement interprété son numéro comme un nombre et supprimé le zéro au début.
+>
+> Un numéro de station sert à **identifier un lieu**, comme un numéro de téléphone sert à identifier une ligne. On ne calcule pas la moyenne de deux numéros de station! Même s’il contient uniquement des chiffres, il doit être conservé comme du **texte**.
+>
+> **Dans Excel**
+>
+> Avant de saisir ou de coller les numéros de station, sélectionnez la colonne et choisissez le format **Texte** dans l’onglet **Accueil**. Excel pourra ainsi conserver les zéros au début. Attention : appliquer ce format après leur disparition ne les rétablit pas.
+>
+> **Dans R**
+>
+> Les guillemets font la différence :
+>
+> ```r
+> station <- 05220633    # Un nombre : le zéro disparaît
+> station <- "05220633"  # Du texte : le numéro reste intact
+> ```
+>
+> R appelle ce type de donnée `character`. Lors de l’importation d’un fichier, pensez donc à lire la colonne des stations comme du texte.
+>
+> **Pourquoi s’en préoccuper?**
+>
+> Une liste contenant `"05220633"` et une autre contenant `"5220633"` peuvent ne plus se correspondre lors d’une recherche, d’un filtre ou d’une jointure.
+>
+> Le bon réflexe : **conserver les identifiants comme du texte dès le départ**, dans Excel comme dans R. Cela vaut aussi pour les numéros d’échantillon, de projet ou de bassin versant.
+
 ## Utilisation de `labelled` pour ajouter des étiquettes aux variables
 
 En plus de bien nommer les colonnes, il est souvent utile d'ajouter des **étiquettes** (ou labels) aux variables afin de fournir des descriptions plus détaillées des colonnes dans un jeu de données. Cela est particulièrement utile lors du partage de données avec d'autres analystes ou pour la documentation.

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 6 Formattage des données | brulR : Parler le même langage</title>
   <meta name="description" content="Chapitre 6 Formattage des données | brulR : Parler le même langage" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 6 Formattage des données | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2025-04-11" />
+<meta name="date" content="2026-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -60,9 +60,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
 <script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
@@ -71,8 +71,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +83,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -176,40 +177,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code"><i class="fa fa-check"></i><b>2.1</b> Structure et Organisation du Code</a></li>
 <li class="chapter" data-level="2.2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#nommage-des-objets"><i class="fa fa-check"></i><b>2.2</b> Nommage des Objets</a></li>
 <li class="chapter" data-level="2.3" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#style-de-code"><i class="fa fa-check"></i><b>2.3</b> Style de Code</a></li>
-<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-données"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
+<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-donn%C3%A9es"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
 <li class="chapter" data-level="2.5" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires"><i class="fa fa-check"></i><b>2.5</b> Documentation et Commentaires</a></li>
 <li class="chapter" data-level="2.6" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#tests-et-validation"><i class="fa fa-check"></i><b>2.6</b> Tests et Validation</a></li>
 <li class="chapter" data-level="2.7" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-packages"><i class="fa fa-check"></i><b>2.7</b> Gestion des Packages</a></li>
 <li class="chapter" data-level="2.8" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs"><i class="fa fa-check"></i><b>2.8</b> Gestion des Erreurs</a></li>
-<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilité"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
+<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilit%C3%A9"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>3</b> Importation des données</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#g%C3%A9rer-les-chemins-de-fichiers-de-mani%C3%A8re-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>3.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
 <li class="chapter" data-level="3.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>3.1.2</b> Exemple avec un fichier CSV</a></li>
 <li class="chapter" data-level="3.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>3.1.3</b> Exemple avec un fichier XLSX</a></li>
 <li class="chapter" data-level="3.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>3.1.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#t%C3%A9l%C3%A9charger-des-feuilles-sp%C3%A9cifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
-<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-sp%C3%A9cifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-sp%C3%A9cifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
 <li class="chapter" data-level="3.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>3.2.3</b> Lire plusieurs feuilles</a></li>
-<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-num%C3%A9ro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
 <li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><i class="fa fa-check"></i><b>4</b> L’art du REPREX : pourquoi et comment créer des exemples reproductibles</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex"><i class="fa fa-check"></i><b>4.1</b> Qu’est-ce qu’un REPREX ?</a></li>
-<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
-<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
+<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-%C3%A9crire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
+<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-%C3%A9crire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
-<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
-<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
+<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-probl%C3%A8me"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
+<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-donn%C3%A9es-simul%C3%A9es-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
+<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-n%C3%A9cessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
 <li class="chapter" data-level="4.3.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex"><i class="fa fa-check"></i><b>4.3.4</b> Tester le REPREX</a></li>
 <li class="chapter" data-level="4.3.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex"><i class="fa fa-check"></i><b>4.3.5</b> Utiliser le package <code>reprex</code></a></li>
 <li class="chapter" data-level="4.3.6" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex"><i class="fa fa-check"></i><b>4.3.6</b> Partager le REPREX</a></li>
@@ -220,10 +221,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>5</b> Cartes interactives</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="cartes-interactives.html"><a href="cartes-interactives.html#configuration-de-base"><i class="fa fa-check"></i><b>5.1</b> Configuration de base</a></li>
-<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-données-géographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
+<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-donn%C3%A9es-g%C3%A9ographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
 <li class="chapter" data-level="5.3" data-path="cartes-interactives.html"><a href="cartes-interactives.html#personnalisation-des-cartes"><i class="fa fa-check"></i><b>5.3</b> Personnalisation des cartes</a></li>
 <li class="chapter" data-level="5.4" data-path="cartes-interactives.html"><a href="cartes-interactives.html#interaction-utilisateur"><i class="fa fa-check"></i><b>5.4</b> Interaction utilisateur</a></li>
-<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
+<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantit%C3%A9s-de-donn%C3%A9es"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>6</b> Formattage des données</a>
 <ul>
@@ -231,41 +232,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-de-formattage"><i class="fa fa-check"></i><b>6.1.1</b> Exemple de formattage</a></li>
 <li class="chapter" data-level="6.1.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#transformation-avec-janitorclean_names"><i class="fa fa-check"></i><b>6.1.2</b> Transformation avec <code>janitor::clean_names()</code></a></li>
-<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résultat-après-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
+<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#r%C3%A9sultat-apr%C3%A8s-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
+<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-%C3%A9tiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-étiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
+<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-%C3%A9tiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
 <li class="chapter" data-level="6.2.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled"><i class="fa fa-check"></i><b>6.2.2</b> Exemple d’utilisation avec <code>labelled</code></a></li>
 <li class="chapter" data-level="6.2.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication"><i class="fa fa-check"></i><b>6.2.3</b> Explication</a></li>
-<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-étiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
-<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#intégration-des-étiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
+<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-%C3%A9tiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
+<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#int%C3%A9gration-des-%C3%A9tiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
+<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#détection-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
+<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#d%C3%A9tection-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
 <li class="chapter" data-level="6.3.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication-1"><i class="fa fa-check"></i><b>6.3.2</b> Explication</a></li>
 <li class="chapter" data-level="6.3.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#remplacer-ou-supprimer-les-valeurs-manquantes"><i class="fa fa-check"></i><b>6.3.3</b> Remplacer ou supprimer les valeurs manquantes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#stratégies-de-gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
-<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résumé"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
+<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#strat%C3%A9gies-de-gestion-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
+<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#r%C3%A9sum%C3%A9"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html"><i class="fa fa-check"></i><b>7</b> Structure d’un projet R : Package, Dépôt, et Projet</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#projets-rstudio"><i class="fa fa-check"></i><b>7.1</b> <strong>Projets RStudio</strong></a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
+<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#packages-r"><i class="fa fa-check"></i><b>7.2</b> <strong>Packages R</strong></a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
+<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#dépôts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
+<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#d%C3%A9p%C3%B4ts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-dépôt"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
+<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-d%C3%A9p%C3%B4t"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#différences-entre-package-dépôt-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
-<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.5</b> Bonnes pratiques pour structurer un projet</a></li>
+<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#diff%C3%A9rences-entre-package-d%C3%A9p%C3%B4t-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
+<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#le-readme-le-mode-demploi-du-projet"><i class="fa fa-check"></i><b>7.5</b> Le README : le mode d’emploi du projet</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#quoi-indiquer"><i class="fa fa-check"></i><b>7.5.1</b> Quoi indiquer?</a></li>
+<li class="chapter" data-level="7.5.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#exemple-pour-un-projet-danalyse"><i class="fa fa-check"></i><b>7.5.2</b> Exemple pour un projet d’analyse</a></li>
+<li class="chapter" data-level="7.5.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#quel-format-choisir"><i class="fa fa-check"></i><b>7.5.3</b> Quel format choisir?</a></li>
+<li class="chapter" data-level="7.5.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#garder-le-mode-demploi-%C3%A0-jour"><i class="fa fa-check"></i><b>7.5.4</b> Garder le mode d’emploi à jour</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.6</b> Bonnes pratiques pour structurer un projet</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html"><i class="fa fa-check"></i><b>8</b> Utilisation de <code>ungroup()</code> après <code>group_by()</code></a>
 <ul>
@@ -285,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#syntaxe-dune-boucle-for"><i class="fa fa-check"></i><b>9.1.1</b> Syntaxe d’une boucle <code>for</code></a></li>
 <li class="chapter" data-level="9.1.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-pratique"><i class="fa fa-check"></i><b>9.1.2</b> Exemple pratique</a></li>
-<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconvénients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconv%C3%A9nients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply-et-les-variantes-de-la-famille-apply"><i class="fa fa-check"></i><b>9.2</b> <strong><code>lapply()</code> et les variantes de la famille <code>apply()</code></strong></a>
 <ul>
@@ -297,14 +305,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map"><i class="fa fa-check"></i><b>9.3.1</b> <code>map()</code></a></li>
 <li class="chapter" data-level="9.3.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#variantes-de-map"><i class="fa fa-check"></i><b>9.3.2</b> Variantes de <code>map()</code> :</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-méthode-privilégier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
+<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-m%C3%A9thode-privil%C3%A9gier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
 <li class="chapter" data-level="9.5" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#conclusion-5"><i class="fa fa-check"></i><b>9.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html"><i class="fa fa-check"></i><b>10</b> Structurer un script R de manière adéquate</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
+<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-t%C3%AAte-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
+<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-t%C3%AAte"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#nommer-et-commenter-les-sections"><i class="fa fa-check"></i><b>10.2</b> <strong>Nommer et commenter les sections</strong></a>
 <ul>
@@ -316,12 +324,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="10.3.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires"><i class="fa fa-check"></i><b>10.3.1</b> Exemple de commentaires :</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
+<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contr%C3%B4le-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
 <li class="chapter" data-level="10.5" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5</b> Gestion des scripts exploratoires</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
-<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
-<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
+<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-r%C3%A9flexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
+<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-m%C3%AAme-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
+<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#%C3%A9crire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
 <li class="chapter" data-level="10.5.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script"><i class="fa fa-check"></i><b>10.5.4</b> Sauvegarder des versions du script</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
@@ -329,11 +337,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html"><i class="fa fa-check"></i><b>11</b> Trucs et astuces RStudio</a>
 <ul>
 <li class="chapter" data-level="11.0.1" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.1</b> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code></a></li>
-<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
+<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#ex%C3%A9cuter-une-ligne-ou-une-s%C3%A9lection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
 <li class="chapter" data-level="11.0.3" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a"><i class="fa fa-check"></i><b>11.0.3</b> Reformater un script avec <code>Ctrl + Shift + A</code></a></li>
 <li class="chapter" data-level="11.0.4" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj"><i class="fa fa-check"></i><b>11.0.4</b> Travailler dans un environnement propre avec un fichier <code>.Rproj</code></a></li>
-<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
-<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
+<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-r%C3%A9guli%C3%A8res-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lex%C3%A9cution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
 <li class="chapter" data-level="11.0.7" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r"><i class="fa fa-check"></i><b>11.0.7</b> Centraliser les chargements dans un fichier <code>init.R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html"><i class="fa fa-check"></i><b>12</b> Définir et organiser ses fonctions</a>
@@ -342,18 +350,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet"><i class="fa fa-check"></i><b>12.2</b> Typologie des fonctions dans un projet</a></li>
 <li class="chapter" data-level="12.3" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation"><i class="fa fa-check"></i><b>12.3</b> Conseils d’organisation</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>13</b> Annexe : Exemples REPREX</a>
+<li class="chapter" data-level="13" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>13</b> Tests</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>13.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
-<li class="chapter" data-level="13.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>13.2</b> Comme design.ca</a>
+<li class="chapter" data-level="13.1" data-path="tests.html"><a href="tests.html#types-de-tests-automatis%C3%A9s"><i class="fa fa-check"></i><b>13.1</b> Types de tests automatisés</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes"><i class="fa fa-check"></i><b>13.2.1</b> Diagramme à bandes</a></li>
-<li class="chapter" data-level="13.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-linéraire"><i class="fa fa-check"></i><b>13.2.2</b> Diagramme linéraire</a></li>
+<li class="chapter" data-level="13.1.1" data-path="tests.html"><a href="tests.html#test-unitaire"><i class="fa fa-check"></i><b>13.1.1</b> Test unitaire</a></li>
+<li class="chapter" data-level="13.1.2" data-path="tests.html"><a href="tests.html#test-dint%C3%A9gration"><i class="fa fa-check"></i><b>13.1.2</b> Test d’intégration</a></li>
+<li class="chapter" data-level="13.1.3" data-path="tests.html"><a href="tests.html#test-de-r%C3%A9gression"><i class="fa fa-check"></i><b>13.1.3</b> Test de régression</a></li>
+<li class="chapter" data-level="13.1.4" data-path="tests.html"><a href="tests.html#r%C3%A9sum%C3%A9-1"><i class="fa fa-check"></i><b>13.1.4</b> Résumé</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>13.3</b> Pour rapport gouvernemental</a>
+</ul></li>
+<li class="chapter" data-level="14" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>14</b> Annexe : Exemples REPREX</a>
 <ul>
-<li class="chapter" data-level="13.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes-1"><i class="fa fa-check"></i><b>13.3.1</b> Diagramme à bandes</a></li>
-<li class="chapter" data-level="13.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-moustaches"><i class="fa fa-check"></i><b>13.3.2</b> Diagramme à moustaches</a></li>
+<li class="chapter" data-level="14.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>14.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="14.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>14.2</b> Comme design.ca</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-bandes"><i class="fa fa-check"></i><b>14.2.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-lin%C3%A9raire"><i class="fa fa-check"></i><b>14.2.2</b> Diagramme linéraire</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>14.3</b> Pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-bandes-1"><i class="fa fa-check"></i><b>14.3.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-moustaches"><i class="fa fa-check"></i><b>14.3.2</b> Diagramme à moustaches</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -376,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="formattage-des-données" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapitre 6</span> Formattage des données<a href="formattage-des-données.html#formattage-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapitre 6</span> Formattage des données<a href="formattage-des-données.html#formattage-des-donn%C3%A9es" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="noms-de-colonnes" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Noms de colonnes<a href="formattage-des-données.html#noms-de-colonnes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Une étape essentielle lors du nettoyage des données consiste à uniformiser les noms de colonnes afin de rendre le jeu de données plus lisible, cohérent, et compatible avec la syntaxe <code>tidyverse</code>. Les bonnes pratiques de formattage des noms de colonnes sont les suivantes :</p>
@@ -422,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [7] &quot;profondeur_moyenne&quot;</code></pre>
 </div>
 <div id="résultat-après-formattage" class="section level3 hasAnchor" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Résultat après formattage<a href="formattage-des-données.html#résultat-après-formattage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.1.3</span> Résultat après formattage<a href="formattage-des-données.html#r%C3%A9sultat-apr%C3%A8s-formattage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Le jeu de données transformé respecte désormais les bonnes pratiques. Voici la correspondance entre les anciens noms et les nouveaux :</p>
 <table>
 <thead>
@@ -468,14 +486,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Minuscules : Les lettres majuscules ont été converties en minuscules.</p></li>
 </ul>
 <p>Cette approche garantit des noms de colonnes cohérents et conformes à la syntaxe <code>tidyverse</code>, facilitant l’utilisation dans des pipelines de manipulation de données avec <code>{dplyr}</code>, <code>{ggplot2}</code>, etc.</p>
+<blockquote>
+<h3 id="les-numéros-de-station-ne-sont-pas-des-nombres" class="hasAnchor">Les numéros de station ne sont pas des nombres<a href="formattage-des-données.html#les-num%C3%A9ros-de-station-ne-sont-pas-des-nombres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>La station <code>05220633</code> devient <code>5220633</code> dans votre fichier?</strong></p>
+<p>Un logiciel a probablement interprété son numéro comme un nombre et supprimé le zéro au début.</p>
+<p>Un numéro de station sert à <strong>identifier un lieu</strong>, comme un numéro de téléphone sert à identifier une ligne. On ne calcule pas la moyenne de deux numéros de station! Même s’il contient uniquement des chiffres, il doit être conservé comme du <strong>texte</strong>.</p>
+<p><strong>Dans Excel</strong></p>
+<p>Avant de saisir ou de coller les numéros de station, sélectionnez la colonne et choisissez le format <strong>Texte</strong> dans l’onglet <strong>Accueil</strong>. Excel pourra ainsi conserver les zéros au début. Attention : appliquer ce format après leur disparition ne les rétablit pas.</p>
+<p><strong>Dans R</strong></p>
+<p>Les guillemets font la différence :</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="formattage-des-données.html#cb42-1" tabindex="-1"></a>station <span class="ot">&lt;-</span> <span class="dv">05220633</span>    <span class="co"># Un nombre : le zéro disparaît</span></span>
+<span id="cb42-2"><a href="formattage-des-données.html#cb42-2" tabindex="-1"></a>station <span class="ot">&lt;-</span> <span class="st">&quot;05220633&quot;</span>  <span class="co"># Du texte : le numéro reste intact</span></span></code></pre></div>
+<p>R appelle ce type de donnée <code>character</code>. Lors de l’importation d’un fichier, pensez donc à lire la colonne des stations comme du texte.</p>
+<p><strong>Pourquoi s’en préoccuper?</strong></p>
+<p>Une liste contenant <code>"05220633"</code> et une autre contenant <code>"5220633"</code> peuvent ne plus se correspondre lors d’une recherche, d’un filtre ou d’une jointure.</p>
+<p>Le bon réflexe : <strong>conserver les identifiants comme du texte dès le départ</strong>, dans Excel comme dans R. Cela vaut aussi pour les numéros d’échantillon, de projet ou de bassin versant.</p>
+</blockquote>
 </div>
 </div>
 <div id="utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables<a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">6.2</span> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables<a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-%C3%A9tiquettes-aux-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En plus de bien nommer les colonnes, il est souvent utile d’ajouter des <strong>étiquettes</strong> (ou labels) aux variables afin de fournir des descriptions plus détaillées des colonnes dans un jeu de données. Cela est particulièrement utile lors du partage de données avec d’autres analystes ou pour la documentation.</p>
 <p>Le package <code>labelled</code> permet d’ajouter des étiquettes aux colonnes de manière efficace.</p>
 <div id="pourquoi-utiliser-des-étiquettes-de-variables" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Pourquoi utiliser des étiquettes de variables ?<a href="formattage-des-données.html#pourquoi-utiliser-des-étiquettes-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.2.1</span> Pourquoi utiliser des étiquettes de variables ?<a href="formattage-des-données.html#pourquoi-utiliser-des-%C3%A9tiquettes-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>Clarté</strong> : Les noms de colonnes peuvent être courts et concis, tandis que les étiquettes fournissent des descriptions complètes et explicites des variables.</p></li>
 <li><p><strong>Documentation</strong> : L’ajout d’étiquettes aide à documenter chaque colonne, facilitant la compréhension du jeu de données, surtout lorsqu’il est partagé.</p></li>
@@ -484,30 +518,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exemple-dutilisation-avec-labelled" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Exemple d’utilisation avec <code>labelled</code><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Imaginons que vous souhaitez ajouter des étiquettes descriptives à certaines colonnes de votre jeu de données :</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="formattage-des-données.html#cb42-1" tabindex="-1"></a><span class="co"># Chargement du package labelled</span></span>
-<span id="cb42-2"><a href="formattage-des-données.html#cb42-2" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
-<span id="cb42-3"><a href="formattage-des-données.html#cb42-3" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="formattage-des-données.html#cb42-4" tabindex="-1"></a><span class="co"># Jeu de données exemple</span></span>
-<span id="cb42-5"><a href="formattage-des-données.html#cb42-5" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb42-6"><a href="formattage-des-données.html#cb42-6" tabindex="-1"></a>  <span class="at">no_rsvl_alpha =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb42-7"><a href="formattage-des-données.html#cb42-7" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;Lac Sergent&quot;</span>, <span class="st">&quot;Lac Bleu&quot;</span>, <span class="st">&quot;Lac Jaune&quot;</span>),</span>
-<span id="cb42-8"><a href="formattage-des-données.html#cb42-8" tabindex="-1"></a>  <span class="at">lce_latitude =</span> <span class="fu">c</span>(<span class="dv">47</span>, <span class="dv">47</span>, <span class="fl">46.9</span>, <span class="fl">46.9</span>, <span class="fl">46.1</span>),</span>
-<span id="cb42-9"><a href="formattage-des-données.html#cb42-9" tabindex="-1"></a>  <span class="at">lce_longitude =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">71.3</span>, <span class="sc">-</span><span class="fl">71.2</span>, <span class="sc">-</span><span class="fl">71.7</span>, <span class="sc">-</span><span class="dv">72</span>, <span class="sc">-</span><span class="fl">73.6</span>),</span>
-<span id="cb42-10"><a href="formattage-des-données.html#cb42-10" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="fl">5.75</span>, <span class="fl">3.45</span>, <span class="fl">3.06</span>)</span>
-<span id="cb42-11"><a href="formattage-des-données.html#cb42-11" tabindex="-1"></a>)</span>
-<span id="cb42-12"><a href="formattage-des-données.html#cb42-12" tabindex="-1"></a></span>
-<span id="cb42-13"><a href="formattage-des-données.html#cb42-13" tabindex="-1"></a><span class="co"># Ajout d&#39;étiquettes aux variables</span></span>
-<span id="cb42-14"><a href="formattage-des-données.html#cb42-14" tabindex="-1"></a>BD_labelled <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
-<span id="cb42-15"><a href="formattage-des-données.html#cb42-15" tabindex="-1"></a>  <span class="fu">set_variable_labels</span>(</span>
-<span id="cb42-16"><a href="formattage-des-données.html#cb42-16" tabindex="-1"></a>    <span class="at">no_rsvl_alpha =</span> <span class="st">&quot;Numéro RSVL du lac&quot;</span>,</span>
-<span id="cb42-17"><a href="formattage-des-données.html#cb42-17" tabindex="-1"></a>    <span class="at">nom_du_lac =</span> <span class="st">&quot;Nom du lac&quot;</span>,</span>
-<span id="cb42-18"><a href="formattage-des-données.html#cb42-18" tabindex="-1"></a>    <span class="at">lce_latitude =</span> <span class="st">&quot;Latitude du lac selon le LCE&quot;</span>,</span>
-<span id="cb42-19"><a href="formattage-des-données.html#cb42-19" tabindex="-1"></a>    <span class="at">lce_longitude =</span> <span class="st">&quot;Longitude du lac selon le LCE&quot;</span>,</span>
-<span id="cb42-20"><a href="formattage-des-données.html#cb42-20" tabindex="-1"></a>    <span class="at">chlo_a =</span> <span class="st">&quot;Concentration de chlorophylle-A&quot;</span></span>
-<span id="cb42-21"><a href="formattage-des-données.html#cb42-21" tabindex="-1"></a>  )</span>
-<span id="cb42-22"><a href="formattage-des-données.html#cb42-22" tabindex="-1"></a></span>
-<span id="cb42-23"><a href="formattage-des-données.html#cb42-23" tabindex="-1"></a><span class="co"># Visualisation des étiquettes des variables</span></span>
-<span id="cb42-24"><a href="formattage-des-données.html#cb42-24" tabindex="-1"></a><span class="fu">var_label</span>(BD_labelled)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="formattage-des-données.html#cb43-1" tabindex="-1"></a><span class="co"># Chargement du package labelled</span></span>
+<span id="cb43-2"><a href="formattage-des-données.html#cb43-2" tabindex="-1"></a><span class="fu">library</span>(labelled)</span>
+<span id="cb43-3"><a href="formattage-des-données.html#cb43-3" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="formattage-des-données.html#cb43-4" tabindex="-1"></a><span class="co"># Jeu de données exemple</span></span>
+<span id="cb43-5"><a href="formattage-des-données.html#cb43-5" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb43-6"><a href="formattage-des-données.html#cb43-6" tabindex="-1"></a>  <span class="at">no_rsvl_alpha =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb43-7"><a href="formattage-des-données.html#cb43-7" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;Lac Sergent&quot;</span>, <span class="st">&quot;Lac Bleu&quot;</span>, <span class="st">&quot;Lac Jaune&quot;</span>),</span>
+<span id="cb43-8"><a href="formattage-des-données.html#cb43-8" tabindex="-1"></a>  <span class="at">lce_latitude =</span> <span class="fu">c</span>(<span class="dv">47</span>, <span class="dv">47</span>, <span class="fl">46.9</span>, <span class="fl">46.9</span>, <span class="fl">46.1</span>),</span>
+<span id="cb43-9"><a href="formattage-des-données.html#cb43-9" tabindex="-1"></a>  <span class="at">lce_longitude =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">71.3</span>, <span class="sc">-</span><span class="fl">71.2</span>, <span class="sc">-</span><span class="fl">71.7</span>, <span class="sc">-</span><span class="dv">72</span>, <span class="sc">-</span><span class="fl">73.6</span>),</span>
+<span id="cb43-10"><a href="formattage-des-données.html#cb43-10" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="fl">5.75</span>, <span class="fl">3.45</span>, <span class="fl">3.06</span>)</span>
+<span id="cb43-11"><a href="formattage-des-données.html#cb43-11" tabindex="-1"></a>)</span>
+<span id="cb43-12"><a href="formattage-des-données.html#cb43-12" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="formattage-des-données.html#cb43-13" tabindex="-1"></a><span class="co"># Ajout d&#39;étiquettes aux variables</span></span>
+<span id="cb43-14"><a href="formattage-des-données.html#cb43-14" tabindex="-1"></a>BD_labelled <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
+<span id="cb43-15"><a href="formattage-des-données.html#cb43-15" tabindex="-1"></a>  <span class="fu">set_variable_labels</span>(</span>
+<span id="cb43-16"><a href="formattage-des-données.html#cb43-16" tabindex="-1"></a>    <span class="at">no_rsvl_alpha =</span> <span class="st">&quot;Numéro RSVL du lac&quot;</span>,</span>
+<span id="cb43-17"><a href="formattage-des-données.html#cb43-17" tabindex="-1"></a>    <span class="at">nom_du_lac =</span> <span class="st">&quot;Nom du lac&quot;</span>,</span>
+<span id="cb43-18"><a href="formattage-des-données.html#cb43-18" tabindex="-1"></a>    <span class="at">lce_latitude =</span> <span class="st">&quot;Latitude du lac selon le LCE&quot;</span>,</span>
+<span id="cb43-19"><a href="formattage-des-données.html#cb43-19" tabindex="-1"></a>    <span class="at">lce_longitude =</span> <span class="st">&quot;Longitude du lac selon le LCE&quot;</span>,</span>
+<span id="cb43-20"><a href="formattage-des-données.html#cb43-20" tabindex="-1"></a>    <span class="at">chlo_a =</span> <span class="st">&quot;Concentration de chlorophylle-A&quot;</span></span>
+<span id="cb43-21"><a href="formattage-des-données.html#cb43-21" tabindex="-1"></a>  )</span>
+<span id="cb43-22"><a href="formattage-des-données.html#cb43-22" tabindex="-1"></a></span>
+<span id="cb43-23"><a href="formattage-des-données.html#cb43-23" tabindex="-1"></a><span class="co"># Visualisation des étiquettes des variables</span></span>
+<span id="cb43-24"><a href="formattage-des-données.html#cb43-24" tabindex="-1"></a><span class="fu">var_label</span>(BD_labelled)</span></code></pre></div>
 <pre><code>## $no_rsvl_alpha
 ## [1] &quot;Numéro RSVL du lac&quot;
 ## 
@@ -531,7 +565,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="visualisation-des-étiquettes" class="section level3 hasAnchor" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Visualisation des étiquettes<a href="formattage-des-données.html#visualisation-des-étiquettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.2.4</span> Visualisation des étiquettes<a href="formattage-des-données.html#visualisation-des-%C3%A9tiquettes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vous pouvez également afficher les étiquettes dans un rapport ou un script de documentation. Par exemple, en utilisant la fonction <code>var_label()</code>, voici les étiquettes des variables :</p>
 <table>
 <thead>
@@ -565,31 +599,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="intégration-des-étiquettes-dans-un-workflow-danalyse" class="section level3 hasAnchor" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> Intégration des étiquettes dans un workflow d’analyse<a href="formattage-des-données.html#intégration-des-étiquettes-dans-un-workflow-danalyse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.2.5</span> Intégration des étiquettes dans un workflow d’analyse<a href="formattage-des-données.html#int%C3%A9gration-des-%C3%A9tiquettes-dans-un-workflow-danalyse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>L’ajout d’étiquettes est utile non seulement pour la documentation, mais aussi pour les analyses descriptives ou la production de rapports. Par exemple, ces étiquettes peuvent être utilisées lors de l’exportation des données ou lors de la génération de rapports avec des packages comme <code>{gt}</code>, <code>{flextable}</code>, ou <code>{rmarkdown}</code>.</p>
 </div>
 </div>
 <div id="gestion-des-données-manquantes" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Gestion des données manquantes<a href="formattage-des-données.html#gestion-des-données-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">6.3</span> Gestion des données manquantes<a href="formattage-des-données.html#gestion-des-donn%C3%A9es-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dans un jeu de données, il est courant de rencontrer des valeurs manquantes sous différentes formes : <code>NA</code>, <code>NaN</code>, des cases vides (<code>""</code>, <code>" "</code>), ou des espaces vides (<code>" "</code>). Le <code>tidyverse</code> propose plusieurs approches pour détecter, traiter et remplacer ces valeurs manquantes afin de garantir la qualité de vos analyses.</p>
 <div id="détection-des-données-manquantes" class="section level3 hasAnchor" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Détection des données manquantes<a href="formattage-des-données.html#détection-des-données-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.3.1</span> Détection des données manquantes<a href="formattage-des-données.html#d%C3%A9tection-des-donn%C3%A9es-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Avant de traiter les valeurs manquantes, il est important de pouvoir les identifier. Voici quelques méthodes pour détecter les différentes formes de valeurs manquantes :</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="formattage-des-données.html#cb44-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb44-2"><a href="formattage-des-données.html#cb44-2" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="formattage-des-données.html#cb44-3" tabindex="-1"></a><span class="co"># Exemple de jeu de données avec différentes valeurs manquantes</span></span>
-<span id="cb44-4"><a href="formattage-des-données.html#cb44-4" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb44-5"><a href="formattage-des-données.html#cb44-5" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>),</span>
-<span id="cb44-6"><a href="formattage-des-données.html#cb44-6" tabindex="-1"></a>  <span class="at">profondeur_moyenne =</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="cn">NaN</span>, <span class="cn">NA</span>, <span class="fl">18.2</span>, <span class="fl">11.5</span>),</span>
-<span id="cb44-7"><a href="formattage-des-données.html#cb44-7" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="cn">NA</span>, <span class="fl">3.45</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb44-8"><a href="formattage-des-données.html#cb44-8" tabindex="-1"></a>)</span>
-<span id="cb44-9"><a href="formattage-des-données.html#cb44-9" tabindex="-1"></a></span>
-<span id="cb44-10"><a href="formattage-des-données.html#cb44-10" tabindex="-1"></a><span class="co"># Identifier les valeurs manquantes (NA, NaN, &quot;&quot;, &quot; &quot;)</span></span>
-<span id="cb44-11"><a href="formattage-des-données.html#cb44-11" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
-<span id="cb44-12"><a href="formattage-des-données.html#cb44-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">ifelse</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>), <span class="cn">NA</span>, .)))</span>
-<span id="cb44-13"><a href="formattage-des-données.html#cb44-13" tabindex="-1"></a></span>
-<span id="cb44-14"><a href="formattage-des-données.html#cb44-14" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après nettoyage</span></span>
-<span id="cb44-15"><a href="formattage-des-données.html#cb44-15" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="formattage-des-données.html#cb45-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb45-2"><a href="formattage-des-données.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="formattage-des-données.html#cb45-3" tabindex="-1"></a><span class="co"># Exemple de jeu de données avec différentes valeurs manquantes</span></span>
+<span id="cb45-4"><a href="formattage-des-données.html#cb45-4" tabindex="-1"></a>BD <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb45-5"><a href="formattage-des-données.html#cb45-5" tabindex="-1"></a>  <span class="at">nom_du_lac =</span> <span class="fu">c</span>(<span class="st">&quot;Lac Beauport&quot;</span>, <span class="st">&quot;Lac Tourbillon&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>),</span>
+<span id="cb45-6"><a href="formattage-des-données.html#cb45-6" tabindex="-1"></a>  <span class="at">profondeur_moyenne =</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="cn">NaN</span>, <span class="cn">NA</span>, <span class="fl">18.2</span>, <span class="fl">11.5</span>),</span>
+<span id="cb45-7"><a href="formattage-des-données.html#cb45-7" tabindex="-1"></a>  <span class="at">chlo_a =</span> <span class="fu">c</span>(<span class="fl">2.51</span>, <span class="fl">2.81</span>, <span class="cn">NA</span>, <span class="fl">3.45</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb45-8"><a href="formattage-des-données.html#cb45-8" tabindex="-1"></a>)</span>
+<span id="cb45-9"><a href="formattage-des-données.html#cb45-9" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="formattage-des-données.html#cb45-10" tabindex="-1"></a><span class="co"># Identifier les valeurs manquantes (NA, NaN, &quot;&quot;, &quot; &quot;)</span></span>
+<span id="cb45-11"><a href="formattage-des-données.html#cb45-11" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD <span class="sc">%&gt;%</span></span>
+<span id="cb45-12"><a href="formattage-des-données.html#cb45-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">ifelse</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>), <span class="cn">NA</span>, .)))</span>
+<span id="cb45-13"><a href="formattage-des-données.html#cb45-13" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="formattage-des-données.html#cb45-14" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après nettoyage</span></span>
+<span id="cb45-15"><a href="formattage-des-données.html#cb45-15" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne chlo_a
 ## 1   Lac Beauport                4.1   2.51
 ## 2 Lac Tourbillon                 NA   2.81
@@ -613,19 +647,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="remplacer-les-valeurs-manquantes" class="section level4 hasAnchor" number="6.3.3.1">
 <h4><span class="header-section-number">6.3.3.1</span> Remplacer les valeurs manquantes<a href="formattage-des-données.html#remplacer-les-valeurs-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="formattage-des-données.html#cb46-1" tabindex="-1"></a><span class="co"># Charger la librairie tidyr</span></span>
-<span id="cb46-2"><a href="formattage-des-données.html#cb46-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb46-3"><a href="formattage-des-données.html#cb46-3" tabindex="-1"></a></span>
-<span id="cb46-4"><a href="formattage-des-données.html#cb46-4" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par 0 pour les colonnes numériques</span></span>
-<span id="cb46-5"><a href="formattage-des-données.html#cb46-5" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb46-6"><a href="formattage-des-données.html#cb46-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span>
-<span id="cb46-7"><a href="formattage-des-données.html#cb46-7" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="formattage-des-données.html#cb46-8" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par &quot;Inconnu&quot; pour les colonnes non numériques</span></span>
-<span id="cb46-9"><a href="formattage-des-données.html#cb46-9" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb46-10"><a href="formattage-des-données.html#cb46-10" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="st">&quot;Inconnu&quot;</span>)))</span>
-<span id="cb46-11"><a href="formattage-des-données.html#cb46-11" tabindex="-1"></a></span>
-<span id="cb46-12"><a href="formattage-des-données.html#cb46-12" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après remplacement</span></span>
-<span id="cb46-13"><a href="formattage-des-données.html#cb46-13" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="formattage-des-données.html#cb47-1" tabindex="-1"></a><span class="co"># Charger la librairie tidyr</span></span>
+<span id="cb47-2"><a href="formattage-des-données.html#cb47-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<pre><code>## Warning: le package &#39;tidyr&#39; a été compilé avec la version R 4.4.3</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="formattage-des-données.html#cb49-1" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par 0 pour les colonnes numériques</span></span>
+<span id="cb49-2"><a href="formattage-des-données.html#cb49-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="formattage-des-données.html#cb49-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span>
+<span id="cb49-4"><a href="formattage-des-données.html#cb49-4" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="formattage-des-données.html#cb49-5" tabindex="-1"></a><span class="co"># Remplacer les valeurs manquantes par &quot;Inconnu&quot; pour les colonnes non numériques</span></span>
+<span id="cb49-6"><a href="formattage-des-données.html#cb49-6" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="formattage-des-données.html#cb49-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">replace_na</span>(., <span class="st">&quot;Inconnu&quot;</span>)))</span>
+<span id="cb49-8"><a href="formattage-des-données.html#cb49-8" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="formattage-des-données.html#cb49-9" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après remplacement</span></span>
+<span id="cb49-10"><a href="formattage-des-données.html#cb49-10" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne  chlo_a
 ## 1   Lac Beauport                4.1    2.51
 ## 2 Lac Tourbillon                0.0    2.81
@@ -635,12 +669,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="supprimer-les-lignes-avec-des-valeurs-manquantes" class="section level4 hasAnchor" number="6.3.3.2">
 <h4><span class="header-section-number">6.3.3.2</span> Supprimer les lignes avec des valeurs manquantes<a href="formattage-des-données.html#supprimer-les-lignes-avec-des-valeurs-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="formattage-des-données.html#cb48-1" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans n&#39;importe quelle colonne</span></span>
-<span id="cb48-2"><a href="formattage-des-données.html#cb48-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
-<span id="cb48-3"><a href="formattage-des-données.html#cb48-3" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb48-4"><a href="formattage-des-données.html#cb48-4" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="formattage-des-données.html#cb48-5" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après suppression</span></span>
-<span id="cb48-6"><a href="formattage-des-données.html#cb48-6" tabindex="-1"></a>BD_clean</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="formattage-des-données.html#cb51-1" tabindex="-1"></a><span class="co"># Supprimer les lignes avec des valeurs manquantes dans n&#39;importe quelle colonne</span></span>
+<span id="cb51-2"><a href="formattage-des-données.html#cb51-2" tabindex="-1"></a>BD_clean <span class="ot">&lt;-</span> BD_clean <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="formattage-des-données.html#cb51-3" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb51-4"><a href="formattage-des-données.html#cb51-4" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="formattage-des-données.html#cb51-5" tabindex="-1"></a><span class="co"># Visualiser le jeu de données après suppression</span></span>
+<span id="cb51-6"><a href="formattage-des-données.html#cb51-6" tabindex="-1"></a>BD_clean</span></code></pre></div>
 <pre><code>##       nom_du_lac profondeur_moyenne  chlo_a
 ## 1   Lac Beauport                4.1    2.51
 ## 2 Lac Tourbillon                0.0    2.81
@@ -650,7 +684,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="stratégies-de-gestion-des-données-manquantes" class="section level3 hasAnchor" number="6.3.4">
-<h3><span class="header-section-number">6.3.4</span> Stratégies de gestion des données manquantes<a href="formattage-des-données.html#stratégies-de-gestion-des-données-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.3.4</span> Stratégies de gestion des données manquantes<a href="formattage-des-données.html#strat%C3%A9gies-de-gestion-des-donn%C3%A9es-manquantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>Remplacement</strong> : Vous pouvez choisir de remplacer les valeurs manquantes par une valeur par défaut (comme 0 ou “Inconnu”). Cela peut être utile pour éviter la perte de données.</p></li>
 <li><p><strong>Suppression</strong> : Lorsque les valeurs manquantes sont trop nombreuses ou lorsque ces données sont essentielles à l’analyse, il est parfois préférable de supprimer les lignes ou colonnes affectées.</p></li>
@@ -658,7 +692,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="résumé" class="section level3 hasAnchor" number="6.3.5">
-<h3><span class="header-section-number">6.3.5</span> Résumé<a href="formattage-des-données.html#résumé" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">6.3.5</span> Résumé<a href="formattage-des-données.html#r%C3%A9sum%C3%A9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il est essentiel de détecter, nettoyer, et traiter les données manquantes de manière cohérente pour assurer la robustesse de vos analyses. Les fonctions du <code>tidyverse</code> telles que <code>replace_na()</code>, <code>drop_na()</code>, et <code>mutate(across())</code> fournissent un moyen efficace de gérer les valeurs manquantes, quelles que soient leur forme.</p>
 
 </div>
@@ -684,42 +718,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/06-formatage.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/06-formatage.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/CarolineBrule/brulR/edit/main/06-formatage.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/CarolineBrule/brulR/blob/main/06-formatage.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

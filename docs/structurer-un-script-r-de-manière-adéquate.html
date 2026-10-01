@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage</title>
   <meta name="description" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 10 Structurer un script R de manière adéquate | brulR : Parler le même langage" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Caroline Brûlé" />
 
 
-<meta name="date" content="2025-04-11" />
+<meta name="date" content="2026-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -60,9 +60,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
 <script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
@@ -71,8 +71,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +83,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -176,40 +177,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#structure-et-organisation-du-code"><i class="fa fa-check"></i><b>2.1</b> Structure et Organisation du Code</a></li>
 <li class="chapter" data-level="2.2" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#nommage-des-objets"><i class="fa fa-check"></i><b>2.2</b> Nommage des Objets</a></li>
 <li class="chapter" data-level="2.3" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#style-de-code"><i class="fa fa-check"></i><b>2.3</b> Style de Code</a></li>
-<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-données"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
+<li class="chapter" data-level="2.4" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-donn%C3%A9es"><i class="fa fa-check"></i><b>2.4</b> Gestion des Données</a></li>
 <li class="chapter" data-level="2.5" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#documentation-et-commentaires"><i class="fa fa-check"></i><b>2.5</b> Documentation et Commentaires</a></li>
 <li class="chapter" data-level="2.6" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#tests-et-validation"><i class="fa fa-check"></i><b>2.6</b> Tests et Validation</a></li>
 <li class="chapter" data-level="2.7" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-packages"><i class="fa fa-check"></i><b>2.7</b> Gestion des Packages</a></li>
 <li class="chapter" data-level="2.8" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#gestion-des-erreurs"><i class="fa fa-check"></i><b>2.8</b> Gestion des Erreurs</a></li>
-<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilité"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
+<li class="chapter" data-level="2.9" data-path="uniformiser-la-syntaxe-r.html"><a href="uniformiser-la-syntaxe-r.html#reproductibilit%C3%A9"><i class="fa fa-check"></i><b>2.9</b> Reproductibilité</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="importation-des-données.html"><a href="importation-des-données.html"><i class="fa fa-check"></i><b>3</b> Importation des données</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#gérer-les-chemins-de-fichiers-de-manière-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
+<li class="chapter" data-level="3.1" data-path="importation-des-données.html"><a href="importation-des-données.html#g%C3%A9rer-les-chemins-de-fichiers-de-mani%C3%A8re-robuste-avec-file.path"><i class="fa fa-check"></i><b>3.1</b> Gérer les chemins de fichiers de manière robuste avec <code>file.path()</code></a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-utiliser-file.path"><i class="fa fa-check"></i><b>3.1.1</b> Pourquoi utiliser <code>file.path()</code> ?</a></li>
 <li class="chapter" data-level="3.1.2" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-csv"><i class="fa fa-check"></i><b>3.1.2</b> Exemple avec un fichier CSV</a></li>
 <li class="chapter" data-level="3.1.3" data-path="importation-des-données.html"><a href="importation-des-données.html#exemple-avec-un-fichier-xlsx"><i class="fa fa-check"></i><b>3.1.3</b> Exemple avec un fichier XLSX</a></li>
 <li class="chapter" data-level="3.1.4" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-1"><i class="fa fa-check"></i><b>3.1.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#télécharger-des-feuilles-spécifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
+<li class="chapter" data-level="3.2" data-path="importation-des-données.html"><a href="importation-des-données.html#t%C3%A9l%C3%A9charger-des-feuilles-sp%C3%A9cifiques-dun-fichier-xlsx"><i class="fa fa-check"></i><b>3.2</b> Télécharger des feuilles spécifiques d’un fichier XLSX</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-spécifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
-<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-spécifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
+<li class="chapter" data-level="3.2.1" data-path="importation-des-données.html"><a href="importation-des-données.html#pourquoi-lire-des-feuilles-sp%C3%A9cifiques"><i class="fa fa-check"></i><b>3.2.1</b> Pourquoi lire des feuilles spécifiques ?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="importation-des-données.html"><a href="importation-des-données.html#charger-une-feuille-sp%C3%A9cifique"><i class="fa fa-check"></i><b>3.2.2</b> Charger une feuille spécifique</a></li>
 <li class="chapter" data-level="3.2.3" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-plusieurs-feuilles"><i class="fa fa-check"></i><b>3.2.3</b> Lire plusieurs feuilles</a></li>
-<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-numéro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
+<li class="chapter" data-level="3.2.4" data-path="importation-des-données.html"><a href="importation-des-données.html#lire-une-feuille-par-son-num%C3%A9ro"><i class="fa fa-check"></i><b>3.2.4</b> Lire une feuille par son numéro</a></li>
 <li class="chapter" data-level="3.2.5" data-path="importation-des-données.html"><a href="importation-des-données.html#conclusion-2"><i class="fa fa-check"></i><b>3.2.5</b> Conclusion</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><i class="fa fa-check"></i><b>4</b> L’art du REPREX : pourquoi et comment créer des exemples reproductibles</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#quest-ce-quun-reprex"><i class="fa fa-check"></i><b>4.1</b> Qu’est-ce qu’un REPREX ?</a></li>
-<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-écrire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
-<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-écrire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
+<li class="chapter" data-level="4.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#pourquoi-%C3%A9crire-un-reprex"><i class="fa fa-check"></i><b>4.2</b> Pourquoi écrire un REPREX ?</a></li>
+<li class="chapter" data-level="4.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#comment-%C3%A9crire-un-reprex"><i class="fa fa-check"></i><b>4.3</b> Comment écrire un REPREX ?</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-problème"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
-<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-données-simulées-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
-<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-nécessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
+<li class="chapter" data-level="4.3.1" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#isoler-le-probl%C3%A8me"><i class="fa fa-check"></i><b>4.3.1</b> Isoler le problème</a></li>
+<li class="chapter" data-level="4.3.2" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-des-donn%C3%A9es-simul%C3%A9es-ou-publiques"><i class="fa fa-check"></i><b>4.3.2</b> Utiliser des données simulées ou publiques</a></li>
+<li class="chapter" data-level="4.3.3" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#inclure-le-contexte-n%C3%A9cessaire"><i class="fa fa-check"></i><b>4.3.3</b> Inclure le contexte nécessaire</a></li>
 <li class="chapter" data-level="4.3.4" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#tester-le-reprex"><i class="fa fa-check"></i><b>4.3.4</b> Tester le REPREX</a></li>
 <li class="chapter" data-level="4.3.5" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#utiliser-le-package-reprex"><i class="fa fa-check"></i><b>4.3.5</b> Utiliser le package <code>reprex</code></a></li>
 <li class="chapter" data-level="4.3.6" data-path="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html"><a href="lart-du-reprex-pourquoi-et-comment-créer-des-exemples-reproductibles.html#partager-le-reprex"><i class="fa fa-check"></i><b>4.3.6</b> Partager le REPREX</a></li>
@@ -220,10 +221,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="cartes-interactives.html"><a href="cartes-interactives.html"><i class="fa fa-check"></i><b>5</b> Cartes interactives</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="cartes-interactives.html"><a href="cartes-interactives.html#configuration-de-base"><i class="fa fa-check"></i><b>5.1</b> Configuration de base</a></li>
-<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-données-géographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
+<li class="chapter" data-level="5.2" data-path="cartes-interactives.html"><a href="cartes-interactives.html#ajout-de-donn%C3%A9es-g%C3%A9ographiques"><i class="fa fa-check"></i><b>5.2</b> Ajout de données géographiques</a></li>
 <li class="chapter" data-level="5.3" data-path="cartes-interactives.html"><a href="cartes-interactives.html#personnalisation-des-cartes"><i class="fa fa-check"></i><b>5.3</b> Personnalisation des cartes</a></li>
 <li class="chapter" data-level="5.4" data-path="cartes-interactives.html"><a href="cartes-interactives.html#interaction-utilisateur"><i class="fa fa-check"></i><b>5.4</b> Interaction utilisateur</a></li>
-<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantités-de-données"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
+<li class="chapter" data-level="5.5" data-path="cartes-interactives.html"><a href="cartes-interactives.html#gestion-de-grandes-quantit%C3%A9s-de-donn%C3%A9es"><i class="fa fa-check"></i><b>5.5</b> Gestion de grandes quantités de données</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="formattage-des-données.html"><a href="formattage-des-données.html"><i class="fa fa-check"></i><b>6</b> Formattage des données</a>
 <ul>
@@ -231,41 +232,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-de-formattage"><i class="fa fa-check"></i><b>6.1.1</b> Exemple de formattage</a></li>
 <li class="chapter" data-level="6.1.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#transformation-avec-janitorclean_names"><i class="fa fa-check"></i><b>6.1.2</b> Transformation avec <code>janitor::clean_names()</code></a></li>
-<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résultat-après-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
+<li class="chapter" data-level="6.1.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#r%C3%A9sultat-apr%C3%A8s-formattage"><i class="fa fa-check"></i><b>6.1.3</b> Résultat après formattage</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-étiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
+<li class="chapter" data-level="6.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#utilisation-de-labelled-pour-ajouter-des-%C3%A9tiquettes-aux-variables"><i class="fa fa-check"></i><b>6.2</b> Utilisation de <code>labelled</code> pour ajouter des étiquettes aux variables</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-étiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
+<li class="chapter" data-level="6.2.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#pourquoi-utiliser-des-%C3%A9tiquettes-de-variables"><i class="fa fa-check"></i><b>6.2.1</b> Pourquoi utiliser des étiquettes de variables ?</a></li>
 <li class="chapter" data-level="6.2.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#exemple-dutilisation-avec-labelled"><i class="fa fa-check"></i><b>6.2.2</b> Exemple d’utilisation avec <code>labelled</code></a></li>
 <li class="chapter" data-level="6.2.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication"><i class="fa fa-check"></i><b>6.2.3</b> Explication</a></li>
-<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-étiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
-<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#intégration-des-étiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
+<li class="chapter" data-level="6.2.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#visualisation-des-%C3%A9tiquettes"><i class="fa fa-check"></i><b>6.2.4</b> Visualisation des étiquettes</a></li>
+<li class="chapter" data-level="6.2.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#int%C3%A9gration-des-%C3%A9tiquettes-dans-un-workflow-danalyse"><i class="fa fa-check"></i><b>6.2.5</b> Intégration des étiquettes dans un workflow d’analyse</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
+<li class="chapter" data-level="6.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#gestion-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3</b> Gestion des données manquantes</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#détection-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
+<li class="chapter" data-level="6.3.1" data-path="formattage-des-données.html"><a href="formattage-des-données.html#d%C3%A9tection-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3.1</b> Détection des données manquantes</a></li>
 <li class="chapter" data-level="6.3.2" data-path="formattage-des-données.html"><a href="formattage-des-données.html#explication-1"><i class="fa fa-check"></i><b>6.3.2</b> Explication</a></li>
 <li class="chapter" data-level="6.3.3" data-path="formattage-des-données.html"><a href="formattage-des-données.html#remplacer-ou-supprimer-les-valeurs-manquantes"><i class="fa fa-check"></i><b>6.3.3</b> Remplacer ou supprimer les valeurs manquantes</a></li>
-<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#stratégies-de-gestion-des-données-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
-<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#résumé"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
+<li class="chapter" data-level="6.3.4" data-path="formattage-des-données.html"><a href="formattage-des-données.html#strat%C3%A9gies-de-gestion-des-donn%C3%A9es-manquantes"><i class="fa fa-check"></i><b>6.3.4</b> Stratégies de gestion des données manquantes</a></li>
+<li class="chapter" data-level="6.3.5" data-path="formattage-des-données.html"><a href="formattage-des-données.html#r%C3%A9sum%C3%A9"><i class="fa fa-check"></i><b>6.3.5</b> Résumé</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html"><i class="fa fa-check"></i><b>7</b> Structure d’un projet R : Package, Dépôt, et Projet</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#projets-rstudio"><i class="fa fa-check"></i><b>7.1</b> <strong>Projets RStudio</strong></a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
+<li class="chapter" data-level="7.1.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-projet-r"><i class="fa fa-check"></i><b>7.1.1</b> Points clés d’un projet R</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#packages-r"><i class="fa fa-check"></i><b>7.2</b> <strong>Packages R</strong></a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
+<li class="chapter" data-level="7.2.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-package-r"><i class="fa fa-check"></i><b>7.2.1</b> Points clés d’un package R</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#dépôts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
+<li class="chapter" data-level="7.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#d%C3%A9p%C3%B4ts-repositories"><i class="fa fa-check"></i><b>7.3</b> <strong>Dépôts (Repositories)</strong></a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-clés-dun-dépôt"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
+<li class="chapter" data-level="7.3.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#points-cl%C3%A9s-dun-d%C3%A9p%C3%B4t"><i class="fa fa-check"></i><b>7.3.1</b> Points clés d'un dépôt</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#différences-entre-package-dépôt-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
-<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.5</b> Bonnes pratiques pour structurer un projet</a></li>
+<li class="chapter" data-level="7.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#diff%C3%A9rences-entre-package-d%C3%A9p%C3%B4t-et-projet"><i class="fa fa-check"></i><b>7.4</b> Différences entre package, dépôt, et projet</a></li>
+<li class="chapter" data-level="7.5" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#le-readme-le-mode-demploi-du-projet"><i class="fa fa-check"></i><b>7.5</b> Le README : le mode d’emploi du projet</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#quoi-indiquer"><i class="fa fa-check"></i><b>7.5.1</b> Quoi indiquer?</a></li>
+<li class="chapter" data-level="7.5.2" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#exemple-pour-un-projet-danalyse"><i class="fa fa-check"></i><b>7.5.2</b> Exemple pour un projet d’analyse</a></li>
+<li class="chapter" data-level="7.5.3" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#quel-format-choisir"><i class="fa fa-check"></i><b>7.5.3</b> Quel format choisir?</a></li>
+<li class="chapter" data-level="7.5.4" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#garder-le-mode-demploi-%C3%A0-jour"><i class="fa fa-check"></i><b>7.5.4</b> Garder le mode d’emploi à jour</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="structure-dun-projet-r-package-dépôt-et-projet.html"><a href="structure-dun-projet-r-package-dépôt-et-projet.html#bonnes-pratiques-pour-structurer-un-projet"><i class="fa fa-check"></i><b>7.6</b> Bonnes pratiques pour structurer un projet</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="utilisation-de-ungroup-après-group_by.html"><a href="utilisation-de-ungroup-après-group_by.html"><i class="fa fa-check"></i><b>8</b> Utilisation de <code>ungroup()</code> après <code>group_by()</code></a>
 <ul>
@@ -285,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#syntaxe-dune-boucle-for"><i class="fa fa-check"></i><b>9.1.1</b> Syntaxe d’une boucle <code>for</code></a></li>
 <li class="chapter" data-level="9.1.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#exemple-pratique"><i class="fa fa-check"></i><b>9.1.2</b> Exemple pratique</a></li>
-<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconvénients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
+<li class="chapter" data-level="9.1.3" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#avantages-et-inconv%C3%A9nients-des-boucles-for"><i class="fa fa-check"></i><b>9.1.3</b> Avantages et inconvénients des boucles <code>for</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#lapply-et-les-variantes-de-la-famille-apply"><i class="fa fa-check"></i><b>9.2</b> <strong><code>lapply()</code> et les variantes de la famille <code>apply()</code></strong></a>
 <ul>
@@ -297,14 +305,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#map"><i class="fa fa-check"></i><b>9.3.1</b> <code>map()</code></a></li>
 <li class="chapter" data-level="9.3.2" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#variantes-de-map"><i class="fa fa-check"></i><b>9.3.2</b> Variantes de <code>map()</code> :</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-méthode-privilégier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
+<li class="chapter" data-level="9.4" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#quelle-m%C3%A9thode-privil%C3%A9gier"><i class="fa fa-check"></i><b>9.4</b> Quelle méthode privilégier ?</a></li>
 <li class="chapter" data-level="9.5" data-path="boucles-lapply-et-map-quelles-méthodes-privilégier.html"><a href="boucles-lapply-et-map-quelles-méthodes-privilégier.html#conclusion-5"><i class="fa fa-check"></i><b>9.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html"><i class="fa fa-check"></i><b>10</b> Structurer un script R de manière adéquate</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
+<li class="chapter" data-level="10.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#en-t%C3%AAte-du-script"><i class="fa fa-check"></i><b>10.1</b> <strong>En-tête du script</strong></a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
+<li class="chapter" data-level="10.1.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-t%C3%AAte"><i class="fa fa-check"></i><b>10.1.1</b> Exemple d’en-tête</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#nommer-et-commenter-les-sections"><i class="fa fa-check"></i><b>10.2</b> <strong>Nommer et commenter les sections</strong></a>
 <ul>
@@ -316,12 +324,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="10.3.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires"><i class="fa fa-check"></i><b>10.3.1</b> Exemple de commentaires :</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
+<li class="chapter" data-level="10.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contr%C3%B4le-avec-run_all"><i class="fa fa-check"></i><b>10.4</b> Script de contrôle avec <code>run_all</code>**</a></li>
 <li class="chapter" data-level="10.5" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5</b> Gestion des scripts exploratoires</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
-<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
-<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
+<li class="chapter" data-level="10.5.1" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-r%C3%A9flexion"><i class="fa fa-check"></i><b>10.5.1</b> Utiliser des commentaires pour documenter votre réflexion</a></li>
+<li class="chapter" data-level="10.5.2" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-m%C3%AAme-dans-les-scripts-exploratoires"><i class="fa fa-check"></i><b>10.5.2</b> Inclure des sections même dans les scripts exploratoires</a></li>
+<li class="chapter" data-level="10.5.3" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#%C3%A9crire-des-notes-et-des-questions"><i class="fa fa-check"></i><b>10.5.3</b> Écrire des notes et des questions</a></li>
 <li class="chapter" data-level="10.5.4" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script"><i class="fa fa-check"></i><b>10.5.4</b> Sauvegarder des versions du script</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="structurer-un-script-r-de-manière-adéquate.html"><a href="structurer-un-script-r-de-manière-adéquate.html#conclusion-6"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
@@ -329,11 +337,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html"><i class="fa fa-check"></i><b>11</b> Trucs et astuces RStudio</a>
 <ul>
 <li class="chapter" data-level="11.0.1" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#chercher-un-terme-dans-tous-les-fichiers-avec-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.1</b> Chercher un terme dans tous les fichiers avec <code>Ctrl + Shift + F</code></a></li>
-<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#exécuter-une-ligne-ou-une-sélection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
+<li class="chapter" data-level="11.0.2" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#ex%C3%A9cuter-une-ligne-ou-une-s%C3%A9lection-avec-ctrl-enter"><i class="fa fa-check"></i><b>11.0.2</b> Exécuter une ligne ou une sélection avec <code>Ctrl + Enter</code></a></li>
 <li class="chapter" data-level="11.0.3" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#reformater-un-script-avec-ctrl-shift-a"><i class="fa fa-check"></i><b>11.0.3</b> Reformater un script avec <code>Ctrl + Shift + A</code></a></li>
 <li class="chapter" data-level="11.0.4" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#travailler-dans-un-environnement-propre-avec-un-fichier-.rproj"><i class="fa fa-check"></i><b>11.0.4</b> Travailler dans un environnement propre avec un fichier <code>.Rproj</code></a></li>
-<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-régulières-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
-<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lexécution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
+<li class="chapter" data-level="11.0.5" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-des-expressions-r%C3%A9guli%C3%A8res-dans-ctrl-shift-f"><i class="fa fa-check"></i><b>11.0.5</b> Utiliser des expressions régulières dans <code>Ctrl + Shift + F</code></a></li>
+<li class="chapter" data-level="11.0.6" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#utiliser-sourcecheminversfichier.r-pour-organiser-lex%C3%A9cution"><i class="fa fa-check"></i><b>11.0.6</b> Utiliser <code>source("chemin/vers/fichier.R")</code> pour organiser l’exécution</a></li>
 <li class="chapter" data-level="11.0.7" data-path="trucs-et-astuces-rstudio.html"><a href="trucs-et-astuces-rstudio.html#centraliser-les-chargements-dans-un-fichier-init.r"><i class="fa fa-check"></i><b>11.0.7</b> Centraliser les chargements dans un fichier <code>init.R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html"><i class="fa fa-check"></i><b>12</b> Définir et organiser ses fonctions</a>
@@ -342,18 +350,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#typologie-des-fonctions-dans-un-projet"><i class="fa fa-check"></i><b>12.2</b> Typologie des fonctions dans un projet</a></li>
 <li class="chapter" data-level="12.3" data-path="définir-et-organiser-ses-fonctions.html"><a href="définir-et-organiser-ses-fonctions.html#conseils-dorganisation"><i class="fa fa-check"></i><b>12.3</b> Conseils d’organisation</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>13</b> Annexe : Exemples REPREX</a>
+<li class="chapter" data-level="13" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>13</b> Tests</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>13.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
-<li class="chapter" data-level="13.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>13.2</b> Comme design.ca</a>
+<li class="chapter" data-level="13.1" data-path="tests.html"><a href="tests.html#types-de-tests-automatis%C3%A9s"><i class="fa fa-check"></i><b>13.1</b> Types de tests automatisés</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes"><i class="fa fa-check"></i><b>13.2.1</b> Diagramme à bandes</a></li>
-<li class="chapter" data-level="13.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-linéraire"><i class="fa fa-check"></i><b>13.2.2</b> Diagramme linéraire</a></li>
+<li class="chapter" data-level="13.1.1" data-path="tests.html"><a href="tests.html#test-unitaire"><i class="fa fa-check"></i><b>13.1.1</b> Test unitaire</a></li>
+<li class="chapter" data-level="13.1.2" data-path="tests.html"><a href="tests.html#test-dint%C3%A9gration"><i class="fa fa-check"></i><b>13.1.2</b> Test d’intégration</a></li>
+<li class="chapter" data-level="13.1.3" data-path="tests.html"><a href="tests.html#test-de-r%C3%A9gression"><i class="fa fa-check"></i><b>13.1.3</b> Test de régression</a></li>
+<li class="chapter" data-level="13.1.4" data-path="tests.html"><a href="tests.html#r%C3%A9sum%C3%A9-1"><i class="fa fa-check"></i><b>13.1.4</b> Résumé</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>13.3</b> Pour rapport gouvernemental</a>
+</ul></li>
+<li class="chapter" data-level="14" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html"><i class="fa fa-check"></i><b>14</b> Annexe : Exemples REPREX</a>
 <ul>
-<li class="chapter" data-level="13.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-bandes-1"><i class="fa fa-check"></i><b>13.3.1</b> Diagramme à bandes</a></li>
-<li class="chapter" data-level="13.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-à-moustaches"><i class="fa fa-check"></i><b>13.3.2</b> Diagramme à moustaches</a></li>
+<li class="chapter" data-level="14.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#exporter-un-graphique-depuis-le-volet-plots-dans-rstudio"><i class="fa fa-check"></i><b>14.1</b> Exporter un graphique depuis le volet <code>Plots</code> dans RStudio</a></li>
+<li class="chapter" data-level="14.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#comme-design.ca"><i class="fa fa-check"></i><b>14.2</b> Comme design.ca</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-bandes"><i class="fa fa-check"></i><b>14.2.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.2.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-lin%C3%A9raire"><i class="fa fa-check"></i><b>14.2.2</b> Diagramme linéraire</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#pour-rapport-gouvernemental"><i class="fa fa-check"></i><b>14.3</b> Pour rapport gouvernemental</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-bandes-1"><i class="fa fa-check"></i><b>14.3.1</b> Diagramme à bandes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="annexe-exemples-reprex.html"><a href="annexe-exemples-reprex.html#diagramme-%C3%A0-moustaches"><i class="fa fa-check"></i><b>14.3.2</b> Diagramme à moustaches</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -376,37 +394,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="structurer-un-script-r-de-manière-adéquate" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapitre 10</span> Structurer un script R de manière adéquate<a href="structurer-un-script-r-de-manière-adéquate.html#structurer-un-script-r-de-manière-adéquate" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapitre 10</span> Structurer un script R de manière adéquate<a href="structurer-un-script-r-de-manière-adéquate.html#structurer-un-script-r-de-mani%C3%A8re-ad%C3%A9quate" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>La structure d’un script R joue un rôle clé dans la lisibilité, la maintenabilité et la reproductibilité de vos analyses. Un script bien organisé facilite la navigation, la compréhension des différentes étapes du workflow et la collaboration avec d’autres personnes. Voici quelques bonnes pratiques pour organiser vos scripts en sections claires et concises.</p>
 <div id="en-tête-du-script" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> <strong>En-tête du script</strong><a href="structurer-un-script-r-de-manière-adéquate.html#en-tête-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.1</span> <strong>En-tête du script</strong><a href="structurer-un-script-r-de-manière-adéquate.html#en-t%C3%AAte-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>L’en-tête d’un script R est essentiel pour la documentation, la maintenance et le partage du code. Un en-tête bien rédigé permet aux utilisateurs de comprendre rapidement le contenu et l’objectif du script. Voici ses principaux avantages :</p>
 <p><strong>Clarté</strong> : Un en-tête clair aide à saisir rapidement le rôle du script, même longtemps après son écriture.</p>
 <p><strong>Documentation des intrants et sortants</strong> : En listant les fichiers d’entrée et de sortie, vous facilitez l’identification des dépendances et des données nécessaires pour l’exécution.</p>
 <p><strong>Facilitation de la collaboration</strong> : Un en-tête informatif rend le script plus accessible pour les collègues, ce qui favorise le partage de connaissances.</p>
 <p><strong>Amélioration de la reproductibilité</strong> : En indiquant les intrants et sortants, vous aidez les autres à reproduire les résultats avec les fichiers appropriés</p>
 <div id="exemple-den-tête" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Exemple d’en-tête<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-tête" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb80-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-2" tabindex="-1"></a><span class="co"># Nom du Script : 03_analyse_avancee.R</span></span>
-<span id="cb80-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-3" tabindex="-1"></a><span class="co"># Description   : Ce script effectue une analyse exploratoire approfondie,</span></span>
-<span id="cb80-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-4" tabindex="-1"></a><span class="co">#                 y compris des statistiques descriptives, des tests </span></span>
-<span id="cb80-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-5" tabindex="-1"></a><span class="co">#                 statistiques et des visualisations pour les données </span></span>
-<span id="cb80-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-6" tabindex="-1"></a><span class="co">#                 nettoyées.</span></span>
-<span id="cb80-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-7" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb80-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-8" tabindex="-1"></a><span class="co"># Intrants      : - data/clean_data.csv</span></span>
-<span id="cb80-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-9" tabindex="-1"></a><span class="co">#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)</span></span>
-<span id="cb80-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-10" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb80-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-11" tabindex="-1"></a><span class="co"># Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)</span></span>
-<span id="cb80-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-12" tabindex="-1"></a><span class="co">#                 - output/visualisation_test.png (graphique des résultats)</span></span>
-<span id="cb80-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-13" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb80-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-14" tabindex="-1"></a><span class="co"># Auteur        : VotreNom</span></span>
-<span id="cb80-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-15" tabindex="-1"></a><span class="co"># Date          : 2024-09-20</span></span>
-<span id="cb80-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-16" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb80-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-17" tabindex="-1"></a><span class="co"># Notes         : Ce script nécessite que le package &#39;ggplot2&#39; et &#39;dplyr&#39; soient</span></span>
-<span id="cb80-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-18" tabindex="-1"></a><span class="co">#                 installés. Les résultats de l&#39;analyse seront sauvegardés dans</span></span>
-<span id="cb80-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-19" tabindex="-1"></a><span class="co">#                 le dossier output.</span></span>
-<span id="cb80-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb80-20" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span></code></pre></div>
+<h3><span class="header-section-number">10.1.1</span> Exemple d’en-tête<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-den-t%C3%AAte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb85-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-2" tabindex="-1"></a><span class="co"># Nom du Script : 03_analyse_avancee.R</span></span>
+<span id="cb85-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-3" tabindex="-1"></a><span class="co"># Description   : Ce script effectue une analyse exploratoire approfondie,</span></span>
+<span id="cb85-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-4" tabindex="-1"></a><span class="co">#                 y compris des statistiques descriptives, des tests </span></span>
+<span id="cb85-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-5" tabindex="-1"></a><span class="co">#                 statistiques et des visualisations pour les données </span></span>
+<span id="cb85-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-6" tabindex="-1"></a><span class="co">#                 nettoyées.</span></span>
+<span id="cb85-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-7" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb85-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-8" tabindex="-1"></a><span class="co"># Intrants      : - data/clean_data.csv</span></span>
+<span id="cb85-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-9" tabindex="-1"></a><span class="co">#                 - scripts/fonctions_statistiques.R (fonctions personnalisées)</span></span>
+<span id="cb85-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb85-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-11" tabindex="-1"></a><span class="co"># Sortants      : - output/statistiques_descriptives.csv (résultats des statistiques)</span></span>
+<span id="cb85-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-12" tabindex="-1"></a><span class="co">#                 - output/visualisation_test.png (graphique des résultats)</span></span>
+<span id="cb85-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb85-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-14" tabindex="-1"></a><span class="co"># Auteur        : VotreNom</span></span>
+<span id="cb85-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-15" tabindex="-1"></a><span class="co"># Date          : 2024-09-20</span></span>
+<span id="cb85-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-16" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb85-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-17" tabindex="-1"></a><span class="co"># Notes         : Ce script nécessite que le package &#39;ggplot2&#39; et &#39;dplyr&#39; soient</span></span>
+<span id="cb85-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-18" tabindex="-1"></a><span class="co">#                 installés. Les résultats de l&#39;analyse seront sauvegardés dans</span></span>
+<span id="cb85-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-19" tabindex="-1"></a><span class="co">#                 le dossier output.</span></span>
+<span id="cb85-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-20" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="nommer-et-commenter-les-sections" class="section level2 hasAnchor" number="10.2">
@@ -417,44 +435,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><strong>Utilisez des titres explicites</strong> : Assurez-vous que chaque section décrit son contenu de manière concise et descriptive.</p></li>
 <li><p><strong>Structure hiérarchique</strong> : Commencez toujours par les sections essentielles (chargement des packages, importation des données), puis avancez progressivement dans le pipeline de l’analyse (nettoyage, analyse, visualisation).</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-2" tabindex="-1"></a><span class="co"># 1. Chargement des packages et des fonctions</span></span>
-<span id="cb81-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb81-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb81-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-6" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/fonctions_utiles.R&quot;</span>)</span>
-<span id="cb81-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-7" tabindex="-1"></a></span>
-<span id="cb81-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-9" tabindex="-1"></a><span class="co"># 2. Importation des données</span></span>
-<span id="cb81-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-10" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-11" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/donnees_brutes.csv&quot;</span>)</span>
-<span id="cb81-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-12" tabindex="-1"></a></span>
-<span id="cb81-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-13" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-14" tabindex="-1"></a><span class="co"># 3. Nettoyage des données</span></span>
-<span id="cb81-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-15" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-16" tabindex="-1"></a><span class="co"># Suppression des valeurs manquantes et formatage des noms de colonnes</span></span>
-<span id="cb81-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-17" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb81-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-18" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb81-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-19" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb81-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-20" tabindex="-1"></a></span>
-<span id="cb81-21"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-21" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-22"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-22" tabindex="-1"></a><span class="co"># 4. Analyse exploratoire</span></span>
-<span id="cb81-23"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-23" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-24"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-24" tabindex="-1"></a><span class="co"># Calcul des statistiques descriptives</span></span>
-<span id="cb81-25"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-25" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb81-26"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-26" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x), <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))</span>
-<span id="cb81-27"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-27" tabindex="-1"></a></span>
-<span id="cb81-28"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-28" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-29"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-29" tabindex="-1"></a><span class="co"># 5. Visualisation des résultats</span></span>
-<span id="cb81-30"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-30" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-31"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-31" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
-<span id="cb81-32"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-32" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb81-33"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-33" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre X et Y&quot;</span>)</span>
-<span id="cb81-34"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-34" tabindex="-1"></a></span>
-<span id="cb81-35"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-35" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-36"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-36" tabindex="-1"></a><span class="co"># 6. Sauvegarde des résultats</span></span>
-<span id="cb81-37"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-37" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb81-38"><a href="structurer-un-script-r-de-manière-adéquate.html#cb81-38" tabindex="-1"></a><span class="fu">write.csv</span>(summary_stats, <span class="st">&quot;output/summary_stats.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-2" tabindex="-1"></a><span class="co"># 1. Chargement des packages et des fonctions</span></span>
+<span id="cb86-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb86-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb86-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-6" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/fonctions_utiles.R&quot;</span>)</span>
+<span id="cb86-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-7" tabindex="-1"></a></span>
+<span id="cb86-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-9" tabindex="-1"></a><span class="co"># 2. Importation des données</span></span>
+<span id="cb86-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-10" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-11"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-11" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/donnees_brutes.csv&quot;</span>)</span>
+<span id="cb86-12"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-12" tabindex="-1"></a></span>
+<span id="cb86-13"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-13" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-14"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-14" tabindex="-1"></a><span class="co"># 3. Nettoyage des données</span></span>
+<span id="cb86-15"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-15" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-16"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-16" tabindex="-1"></a><span class="co"># Suppression des valeurs manquantes et formatage des noms de colonnes</span></span>
+<span id="cb86-17"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-17" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb86-18"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-18" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb86-19"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-19" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb86-20"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-20" tabindex="-1"></a></span>
+<span id="cb86-21"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-21" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-22"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-22" tabindex="-1"></a><span class="co"># 4. Analyse exploratoire</span></span>
+<span id="cb86-23"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-23" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-24"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-24" tabindex="-1"></a><span class="co"># Calcul des statistiques descriptives</span></span>
+<span id="cb86-25"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-25" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb86-26"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-26" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x), <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))</span>
+<span id="cb86-27"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-27" tabindex="-1"></a></span>
+<span id="cb86-28"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-28" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-29"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-29" tabindex="-1"></a><span class="co"># 5. Visualisation des résultats</span></span>
+<span id="cb86-30"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-30" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-31"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-31" tabindex="-1"></a><span class="fu">ggplot</span>(data_clean, <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
+<span id="cb86-32"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-32" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb86-33"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-33" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre X et Y&quot;</span>)</span>
+<span id="cb86-34"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-34" tabindex="-1"></a></span>
+<span id="cb86-35"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-35" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-36"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-36" tabindex="-1"></a><span class="co"># 6. Sauvegarde des résultats</span></span>
+<span id="cb86-37"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-37" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb86-38"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-38" tabindex="-1"></a><span class="fu">write.csv</span>(summary_stats, <span class="st">&quot;output/summary_stats.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div></li>
 </ul>
 </div>
 <div id="raccourcis-clavier" class="section level3 hasAnchor" number="10.2.2">
@@ -487,55 +505,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="exemple-de-commentaires" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Exemple de commentaires :<a href="structurer-un-script-r-de-manière-adéquate.html#exemple-de-commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-1" tabindex="-1"></a><span class="co"># Calcul de la moyenne et de l&#39;écart type pour la variable &#39;variable_x&#39;</span></span>
-<span id="cb82-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-2" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
-<span id="cb82-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x),  <span class="co"># Moyenne</span></span>
-<span id="cb82-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb82-4" tabindex="-1"></a>            <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))      <span class="co"># Écart type</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-1" tabindex="-1"></a><span class="co"># Calcul de la moyenne et de l&#39;écart type pour la variable &#39;variable_x&#39;</span></span>
+<span id="cb87-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-2" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_clean <span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(variable_x),  <span class="co"># Moyenne</span></span>
+<span id="cb87-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb87-4" tabindex="-1"></a>            <span class="at">sd_value =</span> <span class="fu">sd</span>(variable_x))      <span class="co"># Écart type</span></span></code></pre></div>
 </div>
 </div>
 <div id="script-de-contrôle-avec-run_all" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Script de contrôle avec <code>run_all</code>**<a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contrôle-avec-run_all" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.4</span> Script de contrôle avec <code>run_all</code>**<a href="structurer-un-script-r-de-manière-adéquate.html#script-de-contr%C3%B4le-avec-run_all" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Si votre projet comporte plusieurs scripts qui doivent être exécutés dans un certain ordre, vous pouvez utiliser un <strong>script de contrôle</strong> appelé <code>run_all</code> qui exécute les autres scripts dans le bon ordre. Ce script centralise l’exécution de tout votre pipeline et assure la reproductibilité complète.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-1" tabindex="-1"></a><span class="co"># run_all.R : Script de contrôle pour exécuter toutes les étapes du projet</span></span>
-<span id="cb83-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/01_importation.R&quot;</span>)</span>
-<span id="cb83-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/02_nettoyage.R&quot;</span>)</span>
-<span id="cb83-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/03_analyse.R&quot;</span>)</span>
-<span id="cb83-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb83-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/04_visualisation.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-1" tabindex="-1"></a><span class="co"># run_all.R : Script de contrôle pour exécuter toutes les étapes du projet</span></span>
+<span id="cb88-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/01_importation.R&quot;</span>)</span>
+<span id="cb88-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/02_nettoyage.R&quot;</span>)</span>
+<span id="cb88-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/03_analyse.R&quot;</span>)</span>
+<span id="cb88-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb88-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/04_visualisation.R&quot;</span>)</span></code></pre></div>
 <p>Cela permet de relancer facilement tout le processus de bout en bout.</p>
 </div>
 <div id="gestion-des-scripts-exploratoires" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Gestion des scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#gestion-des-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lorsque vous débutez un script, surtout dans un contexte exploratoire, il est fréquent de ne pas savoir exactement ce qu’il contiendra. L’exploration des données implique souvent des essais et des erreurs, et il est essentiel de garder une trace de votre réflexion et de vos découvertes. Voici quelques conseils pour structurer vos scripts exploratoires tout en restant en accord avec les bonnes pratiques.</p>
 <div id="utiliser-des-commentaires-pour-documenter-votre-réflexion" class="section level3 hasAnchor" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Utiliser des commentaires pour documenter votre réflexion<a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-réflexion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.5.1</span> Utiliser des commentaires pour documenter votre réflexion<a href="structurer-un-script-r-de-manière-adéquate.html#utiliser-des-commentaires-pour-documenter-votre-r%C3%A9flexion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ajoutez des commentaires tout au long du script pour expliquer vos pensées, les raisons de vos choix, et les résultats de vos explorations. Cela vous aidera à comprendre votre logique lorsque vous reviendrez sur le script plus tard.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-1" tabindex="-1"></a><span class="co"># Exploration des données : Vérification de la distribution des valeurs</span></span>
-<span id="cb84-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>variable_x)</span>
-<span id="cb84-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb84-3" tabindex="-1"></a><span class="co"># Ici, je m&#39;interroge sur la présence d&#39;une asymétrie. Il serait intéressant de faire un test de normalité.</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-1" tabindex="-1"></a><span class="co"># Exploration des données : Vérification de la distribution des valeurs</span></span>
+<span id="cb89-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>variable_x)</span>
+<span id="cb89-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb89-3" tabindex="-1"></a><span class="co"># Ici, je m&#39;interroge sur la présence d&#39;une asymétrie. Il serait intéressant de faire un test de normalité.</span></span></code></pre></div>
 </div>
 <div id="inclure-des-sections-même-dans-les-scripts-exploratoires" class="section level3 hasAnchor" number="10.5.2">
-<h3><span class="header-section-number">10.5.2</span> Inclure des sections même dans les scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-même-dans-les-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.5.2</span> Inclure des sections même dans les scripts exploratoires<a href="structurer-un-script-r-de-manière-adéquate.html#inclure-des-sections-m%C3%AAme-dans-les-scripts-exploratoires" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Utilisez des sections pour structurer vos idées, même si le contenu n’est pas encore finalisé. Cela vous aidera à garder une organisation, même dans un contexte d’exploration.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb85-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-2" tabindex="-1"></a><span class="co"># 1. Chargement des données</span></span>
-<span id="cb85-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb85-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/exemple.csv&quot;</span>)</span>
-<span id="cb85-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-5" tabindex="-1"></a></span>
-<span id="cb85-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-6" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb85-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-7" tabindex="-1"></a><span class="co"># 2. Exploration initiale</span></span>
-<span id="cb85-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb85-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-9" tabindex="-1"></a><span class="fu">summary</span>(data)  <span class="co"># Résumé des données</span></span>
-<span id="cb85-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb85-10" tabindex="-1"></a><span class="fu">str</span>(data)      <span class="co"># Structure des données</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb90-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-2" tabindex="-1"></a><span class="co"># 1. Chargement des données</span></span>
+<span id="cb90-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb90-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/exemple.csv&quot;</span>)</span>
+<span id="cb90-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-5" tabindex="-1"></a></span>
+<span id="cb90-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-6" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb90-7"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-7" tabindex="-1"></a><span class="co"># 2. Exploration initiale</span></span>
+<span id="cb90-8"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-8" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb90-9"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-9" tabindex="-1"></a><span class="fu">summary</span>(data)  <span class="co"># Résumé des données</span></span>
+<span id="cb90-10"><a href="structurer-un-script-r-de-manière-adéquate.html#cb90-10" tabindex="-1"></a><span class="fu">str</span>(data)      <span class="co"># Structure des données</span></span></code></pre></div>
 </div>
 <div id="écrire-des-notes-et-des-questions" class="section level3 hasAnchor" number="10.5.3">
-<h3><span class="header-section-number">10.5.3</span> Écrire des notes et des questions<a href="structurer-un-script-r-de-manière-adéquate.html#écrire-des-notes-et-des-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.5.3</span> Écrire des notes et des questions<a href="structurer-un-script-r-de-manière-adéquate.html#%C3%A9crire-des-notes-et-des-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Incluez des sections où vous notez vos questions, hypothèses, et réflexions sur les données. Cela peut servir de guide pour les étapes futures de votre analyse.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb86-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-2" tabindex="-1"></a><span class="co"># 3. Réflexions</span></span>
-<span id="cb86-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
-<span id="cb86-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-4" tabindex="-1"></a><span class="co"># Questions :</span></span>
-<span id="cb86-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-5" tabindex="-1"></a><span class="co"># - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?</span></span>
-<span id="cb86-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb86-6" tabindex="-1"></a><span class="co"># - Quelle transformation pourrait être utile pour variable_x ?</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-1" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-2"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-2" tabindex="-1"></a><span class="co"># 3. Réflexions</span></span>
+<span id="cb91-3"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-3" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb91-4"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-4" tabindex="-1"></a><span class="co"># Questions :</span></span>
+<span id="cb91-5"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-5" tabindex="-1"></a><span class="co"># - Pourquoi y a-t-il tant de valeurs manquantes dans variable_y ?</span></span>
+<span id="cb91-6"><a href="structurer-un-script-r-de-manière-adéquate.html#cb91-6" tabindex="-1"></a><span class="co"># - Quelle transformation pourrait être utile pour variable_x ?</span></span></code></pre></div>
 </div>
 <div id="sauvegarder-des-versions-du-script" class="section level3 hasAnchor" number="10.5.4">
 <h3><span class="header-section-number">10.5.4</span> Sauvegarder des versions du script<a href="structurer-un-script-r-de-manière-adéquate.html#sauvegarder-des-versions-du-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -569,42 +587,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/CarolineBrule/brulR/edit/main/10-structure-script.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/CarolineBrule/brulR/blob/main/10-structure-script.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/CarolineBrule/brulR/edit/main/10-structure-script.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/CarolineBrule/brulR/blob/main/10-structure-script.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

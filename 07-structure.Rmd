@@ -90,6 +90,69 @@ Voici une structure typique d'un dépôt Git :
 | **Documentation** | Fichiers RMarkdown ou Quarto | Roxygen2 + Vignettes         | README.md, GitHub Pages |
 | **Dépendances**   | `{renv}`, `DESCRIPTION`      | `{roxygen2}`, `testthat`     | Git + GitHub Actions    |
 
+## Le README : le mode d’emploi du projet
+
+Une structure de dossiers claire aide à organiser les fichiers, mais elle ne suffit pas à expliquer comment les utiliser. **Le fichier README sert de point d’entrée : il présente le projet et donne les indications nécessaires pour commencer à travailler.**
+
+Son nom signifie littéralement « lisez-moi ». C’est une pratique courante en programmation. Vous pouvez aussi utiliser le nom français **LISEZMOI** : les deux appellations remplissent le même rôle.
+
+Placez ce fichier **à la racine du projet**, c’est-à-dire dans son dossier principal, pour qu’il soit facile à trouver.
+
+### Quoi indiquer?
+
+Le contenu dépend du projet, mais devrait permettre de répondre aux questions suivantes :
+
+| Question | Informations à fournir |
+|---------|------------------------|
+| **À quoi sert ce projet?** | Son objectif et les analyses ou tâches qu’il permet de réaliser. |
+| **De quoi ai-je besoin?** | Les logiciels, les packages R, les données et les accès nécessaires. |
+| **Par où commencer?** | Le fichier à ouvrir, les paramètres à modifier et l’ordre d’exécution des scripts. |
+| **Qu’est-ce que le projet produit?** | Les tableaux, graphiques ou rapports générés et leur emplacement. |
+| **Qui peut m’aider?** | La personne responsable ou la manière de signaler un problème. |
+
+Pour un **projet d’analyse**, précisez surtout comment fournir les données et lancer le traitement. Pour un **package**, expliquez comment l’installer et montrez un premier exemple d’utilisation. Si le projet est partagé dans un **dépôt Git**, vous pouvez également indiquer comment contribuer aux modifications.
+
+### Exemple pour un projet d’analyse
+
+> **But du projet**
+>
+> Ce projet produit un bilan annuel des observations.
+>
+> **Éléments nécessaires**
+>
+> R, RStudio et les packages indiqués au début du script `produire_bilan.R`. Le traitement utilise un fichier nommé `observations.csv`.
+>
+> **Étapes d’utilisation**
+>
+> 1. Ouvrir `bilan_annuel.Rproj` dans RStudio.
+> 2. Placer `observations.csv` dans le dossier `donnees/`.
+> 3. Ouvrir `R/produire_bilan.R`.
+> 4. Modifier l’année dans la section « Paramètres ».
+> 5. Exécuter le script.
+>
+> **Résultat produit**
+>
+> Un rapport Word est créé dans le dossier `resultats/`.
+>
+> **Personne à contacter**
+>
+> Camille Xyz.
+
+### Quel format choisir?
+
+Un simple fichier **`README.txt`** ou **`LISEZMOI.txt`**, créé dans le Bloc-notes, suffit pour commencer.
+
+Le format **`README.md`** utilise Markdown pour ajouter des titres, des listes, des liens et des exemples de code. Il est courant dans les dépôts de code. Un fichier **`README.html`** ou **`LISEZMOI.html`** permet plutôt de consulter une version mise en forme dans un navigateur.
+
+Choisissez un format facile à lire et à maintenir pour les personnes qui utiliseront votre projet.
+
+### Garder le mode d’emploi à jour
+
+Modifiez le README lorsque les données requises, les étapes d’exécution ou les résultats produits changent. Une instruction devenue inexacte peut rapidement bloquer un collègue.
+
+**Le bon test : une personne qui découvre le projet peut-elle l’utiliser en suivant uniquement votre README ou LISEZMOI?** Cette documentation sera aussi utile lorsque vous reprendrez votre propre travail plusieurs mois plus tard.
+
+
 ## Bonnes pratiques pour structurer un projet
 
 -   **Isolation des scripts, données et sorties** : Gardez vos scripts dans un dossier `R/` ou `scripts/`, et les données dans un dossier `data/`. Séparez les résultats dans un dossier distinct comme `output/`.
